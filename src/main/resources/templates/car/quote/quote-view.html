@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예상견적</title>
+
+    <!-- ✅ 프론트 리소스 유지 (프로젝트 경로에 맞게 수정) -->
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <link rel="stylesheet" th:href="@{/css/403motors.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- ✅ 견적 Thymeleaf용 최소 보정(프론트 디자인 틀 안 깨는 선에서만) -->
+    <style>
+        /* 옵션 리스트가 너무 길어질 때 스크롤 */
+        .right-estimate .estimate{
+            max-height: 280px;
+            overflow: auto;
+            padding-right: 6px;
+        }
+        .right-estimate .estimate li{
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .right-estimate .estimate .opt-left{
+            flex: 1;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .right-estimate .estimate .opt-price{
+            white-space: nowrap;
+            flex: 0 0 auto;
+        }
+        .right-estimate .estimate-tit li{
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        /* ✅ 견적서 이미지: 카드 영역 안에서만 'contain'으로 맞춤 */
+        .car-body .quote-img-frame{
+            width: 100%;
+            max-width: 340px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .car-body .quote-img-frame img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            margin: 0 !important;
+            transform: none !important;
+        }
+    </style>
+</head>
+
+<body>
+<!-- ============================= HEADER ============================== -->
+<header th:replace="fragments/header :: header"></header>
+<!-- ============================= CONTENT ============================== -->
+<section class="car">
+    <div class="car-panner">
+        <div class="main">
+            <p>나만의 차 견적</p>
+        </div>
+
+        <div class="car-visual">
+            <!-- 좌측: 차량 이미지/이름 -->
+            <div class="car-body">
+                <!-- ✅ 이미지 필드가 따로 없다면: quote에 imageUrl 같은 필드를 추가하거나,
+                     아래처럼 임시로 기본 이미지 보여주게 두면 안전 -->
+                <a th:href="@{/cars}">
+                    <div class="quote-img-frame">
+                        <img th:src="${quote.exteriorImageUrl != null ? quote.exteriorImageUrl : '/images/default_car.png'}"
+                             src="/images/default_car.png"
+                             th:alt="${quote.modelName}"
+                             alt="car">
+                    </div>
+                </a>
+
+                <p class="car-name">
+                    <span th:text="${quote.brandName}">BRAND</span>
+                    <span> </span>
+                    <span th:text="${quote.modelName}">MODEL</span>
+                    <span th:if="${quote.trimName != null and !#strings.isEmpty(quote.trimName)}">
+                        <span> </span> <span th:text="${quote.trimName}">TRIM</span>
+                    </span>
+                </p>
+
+                <!-- (선택) 엔진/컬러 정보도 좌측에 한 줄 더 -->
+                <p class="car-name" style="font-size: 14px; opacity: .85;">
+                    <span th:text="${quote.engineType}">ENGINE</span>
+                    <span th:if="${quote.engineName != null and !#strings.isEmpty(quote.engineName)}">
+                        (<span th:text="${quote.engineName}">ENGINE_NAME</span>)
+                    </span>
+                    <span> · </span>
+                    <span th:text="${quote.colorName}">COLOR</span>
+                </p>
+            </div>
+
+            <!-- 우측: 옵션 리스트 + 합계 -->
+            <div class="right-estimate">
+                <!-- 옵션 리스트 -->
+                <ul class="estimate">
+                    <!-- 옵션 없음 -->
+                    <li th:if="${quote.options == null or #lists.isEmpty(quote.options)}">
+                        <span class="opt-left">선택된 옵션이 없습니다.</span>
+                        <span class="opt-price">+0원</span>
+                    </li>
+
+                    <!-- 옵션 있음 -->
+                    <li th:each="o : ${quote.options}">
+                        <span class="opt-left">
+                            <span th:text="${'+' + o.optionName}">+옵션명</span>
+                            <span th:if="${o.includedByPackageName != null and !#strings.isEmpty(o.includedByPackageName)}"
+                                  th:text="${' (패키지: ' + o.includedByPackageName + ')'}">
+                                (패키지: -)
+                            </span>
+                        </span>
+
+                        <span class="opt-price"
+                              th:text="${(o.optionPrice != null ? (o.optionPrice >= 0 ? '+' : '') : '') + #numbers.formatInteger(o.optionPrice,0,'COMMA') + '원'}">
+                            +0원
+                        </span>
+                    </li>
+                </ul>
+
+                <!-- 합계 영역 (프론트 스타일 유지) -->
+                <ul class="estimate-tit">
+                    <li>
+                        <span>기본가</span>
+                        <strong th:text="${'+' + #numbers.formatInteger(quote.basePrice,0,'COMMA') + '원'}">+0원</strong>
+                    </li>
+                    <li>
+                        <span>컬러</span>
+                        <strong th:text="${(quote.colorPrice >= 0 ? '+' : '') + #numbers.formatInteger(quote.colorPrice,0,'COMMA') + '원'}">+0원</strong>
+                    </li>
+                    <li>
+                        <span>옵션</span>
+                        <strong th:text="${'+' + #numbers.formatInteger(quote.optionPrice,0,'COMMA') + '원'}">+0원</strong>
+                    </li>
+                    <li>
+                        <span>할인</span>
+                        <strong th:text="${(quote.discountPrice > 0 ? '-' : '') + #numbers.formatInteger(quote.discountPrice,0,'COMMA') + '원'}">-0원</strong>
+                    </li>
+                    <li>
+                        <span>총액</span>
+                        <strong th:text="${#numbers.formatInteger(quote.totalPrice,0,'COMMA') + '원'}">0원</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 버튼 영역 -->
+        <div class="estimate-btn">
+            <!-- ✅ 프론트 버튼 텍스트 유지 + 실제 라우팅만 연결 -->
+            <a th:href="@{/quotes}" class="btn-text">내 견적 리스트</a>
+
+            <!-- ✅ 네가 원래 갖고 있던 버튼도 같이 두고 싶으면(선택) -->
+            <!--
+            <a th:href="@{/main}">메인으로</a>
+            <a th:href="@{/cars}">차량 다시보기</a>
+            -->
+        </div>
+    </div>
+</section>
+
+<!-- ============================= FOOTER ============================== -->
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+
+<script th:src="@{/css/script.js}"></script>
+</body>
+</html>

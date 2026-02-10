@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 Motors Sign Up</title>
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+
+    <style>
+        @font-face{
+            font-family: 'Pretendard';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendardvarialbe.woff2')format('woff2-variations');
+            font-weight: 100 900;
+            font-display: swap;
+            letter-spacing: -1px;
+        }
+        section{
+            font-family: "Pretendard";
+            background: #111;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .bg-custom-dark { background-color: #111; }
+        .card-custom { background-color: #222; }
+
+        .input-signup {
+            background-color: #333;
+            color: #bbb;
+            border: none;
+            height: 3rem;
+        }
+        .input-signup::placeholder { color: #767676; font-size: 14px; }
+        .input-signup:focus { outline: 2px solid #767676; }
+
+        .required-star { color: #ff6d00; margin-right: 2px; }
+        .error-text { color: #ff6d00; font-size: 12px; margin-top: 6px; }
+    </style>
+</head>
+
+
+<body>
+<header th:replace="fragments/header :: header"></header>
+
+<section class="flex justify-center items-center min-h-screen bg-custom-dark py-10">
+<div class="card card-custom w-full max-w-md shadow-2xl p-10">
+
+    <div class="text-center mb-8">
+        <a th:href="@{/}">
+            <img th:src="@{/images/logo_2.png}" alt="logo" class="mx-auto"/>
+        </a>
+    </div>
+
+    <h1 class="text-3xl text-gray-200 mb-6 font-normal">회원가입</h1>
+
+    <form th:action="@{/auth/signup}" th:object="${form}" method="post">
+
+        <!-- 글로벌 에러 -->
+        <div th:if="${#fields.hasGlobalErrors()}" class="mb-4">
+            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}" class="error-text"></p>
+        </div>
+
+        <div class="form-control w-full mb-4">
+            <label class="label justify-start p-0 mb-1">
+                <span class="required-star">*</span>
+                <span class="text-gray-400 text-sm">아이디</span>
+            </label>
+            <input type="text" th:field="*{loginId}" placeholder="아이디를 입력하세요" class="input input-signup w-full" required />
+            <p th:if="${#fields.hasErrors('loginId')}" th:errors="*{loginId}" class="error-text"></p>
+        </div>
+
+        <div class="form-control w-full mb-4">
+            <label class="label justify-start p-0 mb-1">
+                <span class="required-star">*</span>
+                <span class="text-gray-400 text-sm">비밀번호</span>
+            </label>
+            <input type="password" th:field="*{password}" placeholder="비밀번호를 입력해주세요" class="input input-signup w-full" required />
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-text"></p>
+        </div>
+
+        <div class="form-control w-full mb-4">
+            <label class="label justify-start p-0 mb-1">
+                <span class="required-star">*</span>
+                <span class="text-gray-400 text-sm">이름</span>
+            </label>
+            <input type="text" th:field="*{name}" placeholder="이름" class="input input-signup w-full" required />
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-text"></p>
+        </div>
+
+        <div class="form-control w-full mb-4">
+            <label class="label justify-start p-0 mb-1">
+                <span class="required-star">*</span>
+                <span class="text-gray-400 text-sm">이메일</span>
+            </label>
+            <input type="email" th:field="*{email}" placeholder="이메일을 입력하세요" class="input input-signup w-full" required />
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-text"></p>
+        </div>
+
+        <div class="form-control w-full mb-8">
+            <label class="label justify-start p-0 mb-1">
+                <span class="required-star">*</span>
+                <span class="text-gray-400 text-sm">생년월일</span>
+            </label>
+            <input type="date" th:field="*{birthDate}" class="input input-signup w-full" required />
+            <p th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" class="error-text"></p>
+        </div>
+
+        <button type="submit" class="btn btn-block h-12 bg-[#333333] hover:bg-[#444444] text-gray-300 border-none rounded-sm text-lg font-normal">
+            가입하기
+        </button>
+
+        <div class="divider text-gray-500 text-xs my-6 before:bg-gray-600 after:bg-gray-600">소셜로 시작하기</div>
+        <div class="flex flex-col gap-3">
+            <a th:href="@{/oauth2/authorization/google}" class="btn btn-block bg-white text-black hover:bg-[#ff6d00] rounded-none flex justify-center items-center gap-2">
+                <img th:src="@{/images/googlelogo_login.png}" alt="구글로고"/>
+                <span class="font-normal">Google로 계속하기</span>
+            </a>
+            <a th:href="@{/oauth2/authorization/kakao}" class="btn btn-block bg-[#FFCD00] text-black hover:bg-[#ff6d00] rounded-none flex justify-center items-center gap-2">
+                <img th:src="@{/images/kakao_login.png}" alt="카카오로고"/>
+                <span class="font-normal">Kakao로 계속하기</span>
+            </a>
+            <a th:href="@{/oauth2/authorization/naver}" class="btn btn-block bg-[#03C75A] text-white hover:bg-[#ff6d00] rounded-none flex justify-center items-center gap-2">
+                <img th:src="@{/images/naver_login.png}" alt="네이버로고"/>
+                <span class="font-normal">Naver로 계속하기</span>
+            </a>
+        </div>
+
+        <div class="mt-8 text-center text-sm text-gray-400">
+            <a th:href="@{/auth/login}" class="hover:text-white">로그인으로</a>
+        </div>
+    </form>
+
+</div>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<script th:src="@{/css/script.js}"></script>
+</body>
+</html>

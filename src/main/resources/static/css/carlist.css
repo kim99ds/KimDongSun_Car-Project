@@ -1,0 +1,246 @@
+@charset "UTF-8";
+body{background-color:  #111; font-family: 'Pretendard';}
+
+section{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+section .main-tit {
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #fff;
+    margin-top: 100px;
+}
+
+section .wrap {
+    display: flex;
+    gap: 40px;
+}
+
+section .left-box {
+    width: 320px;
+    flex-shrink: 0; 
+    height: auto;
+    padding: 20px;
+    border: 1px solid #767676;
+}
+
+
+/* 검색창 스타일ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+section .left-box .search-input {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #767676;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    outline: none;
+}
+section .left-box .search-input:focus { border-color: #ff6d00; }
+
+
+section .filter-section {
+    border-bottom: 1px solid #767676;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+section .filter-section .filter-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+section .filter-section .filter-head h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #bbb;
+}
+
+
+/* 필터 화살표 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.arrow::after { 
+    content: '△'; 
+    font-size: 14px; 
+    color: #bbb; 
+    transition: transform 0.3s;
+    display: inline-block;
+}
+.filter-head.closed .arrow::after { transform: rotate(180deg); }
+
+
+/* 인풋 스타일 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.check-list input[type="checkbox"] {
+    display: none;
+}
+
+
+/* 서클 스타일 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.style-circle {
+    display: flex;
+    flex-wrap: wrap;
+}
+.style-circle li {
+    width: 50%;
+    margin-bottom: 12px;
+}
+.style-circle label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #bbb;
+    transition: color 0.3s;
+}
+.style-circle label::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #767676;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+.style-circle input:checked + label { color: #fff; font-weight: 400; }
+.style-circle input:checked + label::before {
+    border: 1px solid #fff;
+    background: #ff6d00;
+}
+/* 태그 스타일ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.style-tag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.style-tag li {width: auto;}
+
+.style-tag label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #222;
+    color: #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.style-tag input:checked + label {
+    background-color: #ff6d00;
+    color: #fff;
+    font-weight: 400;
+    border-color: #ff6d00;
+}
+/* 사이드 바 끝 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+/* 차량 리스트 */
+section .wrap .car-area{
+    width: 1500px;
+    height: 100%;
+}
+section .wrap .car-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+section .wrap .car-wrap .car-card {
+    width: 360px;
+    height: 350px;
+    background-color: #222;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 15px #00000050;
+    cursor: pointer;
+}
+section .wrap .car-wrap .car-card .image-area{
+    position: relative;
+    width: 100%;
+    height: 240px;
+}
+section .wrap .car-wrap .car-card .image-area .cardmain-img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+
+section .wrap .car-wrap .car-card .image-area .cardsub-img{
+    position: absolute;
+    right: 15px; bottom: -15px;
+    width: 90px; height: 90px;
+    object-fit: cover;
+    border: 1px solid #222;
+    box-shadow: 0 4px 6px #00000030;
+    z-index: 10;
+}
+
+section .wrap .car-wrap .car-card .text-area{
+    padding: 20px;
+    padding-top: 25px;
+}
+section .wrap .car-wrap .car-card .text-area .tit{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+section .wrap .car-wrap .car-card .text-area .main-info{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+section .wrap .car-wrap .car-card .text-area .main-info .info{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #bbb;
+    font-size: 14px;
+}
+section .wrap .car-wrap .car-card .text-area .main-info .info .fa-heart{
+    color: #ff6d00;
+}
+
+/* 차량리스트 끝 */
+
+/* 페이지네이션 영역 */
+section .wrap .car-area .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+section .wrap .car-area .pagination .page-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #222;
+    border: 1px solid #767676;
+    color: #bbb;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .wrap .car-area .pagination .page-btn:hover {
+    border-color: #ff6d00;
+    color: #fff;
+}
+
+section .wrap .car-area .pagination .page-btn.active {
+    background-color: #ff6d00;
+    border-color: #ff6d00;
+    color: #fff;
+}

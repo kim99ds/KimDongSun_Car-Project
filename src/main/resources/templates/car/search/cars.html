@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체 차량</title>
+
+    <!-- ✅ 프론트 CSS 그대로 사용 (CSS 파일 내용은 절대 수정하지 않음) -->
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <link rel="stylesheet" th:href="@{/css/carlist.css}">
+
+    <!-- ✅ list 카드에서 실내(서브) 이미지 영역 제거: 메인(외관)만 풀폭으로 -->
+    <style>
+        /* carlist.css는 수정하지 않고, 이 템플릿에서만 최소 오버라이드 */
+
+        /* 1) 서브 이미지 제거 + 메인 이미지 풀폭 */
+        .image-area.single { display: block !important; }
+        .image-area.single .cardmain-img { width: 100% !important; display: block; }
+        .image-area.single .cardsub-img { display: none !important; }
+
+        /* 2) ✅ 예시(carlist.html)와 동일한 "자세히 보기" 오버레이 동작을 cars.html에서도 보장 */
+        section .wrap .car-wrap .car-card .image-area.single{
+            position: relative;
+            overflow: hidden;
+        }
+        section .wrap .car-wrap .car-card .card-overlay{
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.87);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.6s ease, transform 0.25s ease;
+        }
+        section .wrap .car-wrap .car-card:hover .card-overlay{
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section .wrap .car-wrap .car-card .detail-btn{
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 10px 22px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            background: transparent;
+            transition: all 0.4s;
+            display: inline-block;
+        }
+        section .wrap .car-wrap .car-card:hover .detail-btn:hover{
+            background: #ff6d00;
+            border-color: #ff6d00;
+            color: #fff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- ✅ 프론트 JS 그대로 사용 -->
+    <script th:src="@{/js/carlist.js}" defer></script>
+</head>
+
+<body>
+
+<header th:replace="fragments/header :: header"></header>
+<section>
+    <h1 class="main-tit">전체 차량</h1>
+
+    <div class="wrap">
+
+        <div class="left-box">
+            <!-- (디자인용) 검색 입력: 현재 서버 기능이 없으면 그냥 UI만 -->
+            <form id="searchForm" class="search-form" action="#" method="get" style="margin:0;">
+                <input type="text" id="qInput" name="q" class="search-input" placeholder="차량 검색하기" autocomplete="off"
+                       th:value="${param.q}">
+            </form>
+
+            <!-- ✅ 기존 기능 유지용 form -->
+            <form id="filterForm" method="get" action="/cars" style="display:none;">
+                <input type="hidden" name="q" id="qSearch" th:value="${param.q}">
+                <input type="hidden" name="brand" id="qBrand" th:value="${param.brand}">
+                <input type="hidden" name="segment" id="qSegment" th:value="${param.segment}">
+                <input type="hidden" name="engineType" id="qEngineType" th:value="${param.engineType}">
+                <input type="hidden" name="sort" id="qSort" th:value="${param.sort}">
+            </form>
+
+            <!-- 해시태그(디자인) : segment/sort 연결 -->
+            <div class="filter-body">
+                <ul class="check-list style-tag">
+                    <li>
+                        <input type="checkbox" id="tag_ev" data-group="segment" data-value="EV">
+                        <label for="tag_ev"># EV</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="tag_sedan" data-group="segment" data-value="SEDAN">
+                        <label for="tag_sedan"># SEDAN</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="tag_compact" data-group="segment" data-value="COMPACT">
+                        <label for="tag_compact"># COMPACT</label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="tag_like" data-group="sort" data-value="LIKE">
+                        <label for="tag_like"># 좋아요</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="tag_view" data-group="sort" data-value="VIEW">
+                        <label for="tag_view"># 조회수</label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- BRAND -->
+            <div class="filter-section">
+                <div class="filter-head">
+                    <h3>BRAND</h3>
+                    <span class="arrow"></span>
+                </div>
+                <div class="filter-body">
+                    <ul class="check-list style-circle">
+                        <li th:each="b : ${brands}">
+                            <input type="checkbox"
+                                   th:id="${'brand_' + b.brandId}"
+                                   data-group="brand"
+                                   th:attr="data-value=${b.brandName}">
+                            <label th:for="${'brand_' + b.brandId}" th:text="${b.brandName}">BRAND</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SEGMENT -->
+            <div class="filter-section">
+                <div class="filter-head">
+                    <h3>SEGMENT</h3>
+                    <span class="arrow"></span>
+                </div>
+                <div class="filter-body">
+                    <ul class="check-list style-circle">
+                        <li><input type="checkbox" id="seg_suv" data-group="segment" data-value="SUV"><label for="seg_suv">SUV</label></li>
+                        <li><input type="checkbox" id="seg_sedan" data-group="segment" data-value="SEDAN"><label for="seg_sedan">SEDAN</label></li>
+                        <li><input type="checkbox" id="seg_ev" data-group="segment" data-value="EV"><label for="seg_ev">EV</label></li>
+                        <li><input type="checkbox" id="seg_compact" data-group="segment" data-value="COMPACT"><label for="seg_compact">COMPACT</label></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ENGINE -->
+            <div class="filter-section">
+                <div class="filter-head">
+                    <h3>ENGINE</h3>
+                    <span class="arrow"></span>
+                </div>
+                <div class="filter-body">
+                    <ul class="check-list style-circle">
+                        <li><input type="checkbox" id="eng_ev" data-group="engineType" data-value="EV"><label for="eng_ev">EV</label></li>
+                        <li><input type="checkbox" id="eng_gas" data-group="engineType" data-value="GASOLINE"><label for="eng_gas">GASOLINE</label></li>
+                        <li><input type="checkbox" id="eng_gast" data-group="engineType" data-value="GASOLINE_TURBO"><label for="eng_gast">GASOLINE TURBO</label></li>
+                        <li><input type="checkbox" id="eng_diesel" data-group="engineType" data-value="DIESEL"><label for="eng_diesel">DIESEL</label></li>
+                        <li><input type="checkbox" id="eng_hybrid" data-group="engineType" data-value="HYBRID"><label for="eng_hybrid">HYBRID</label></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="car-area">
+            <ul class="car-wrap">
+                <li class="car-card" th:each="car : ${carModels}">
+                    <a th:href="@{/cars/{id}(id=${car.modelId})}">
+                        <div class="image-area single">
+                            <img class="cardmain-img"
+                                 th:src="${(listImageUrlMap != null and listImageUrlMap[car.modelId] != null) ? listImageUrlMap[car.modelId] : '/images/santafe1.webp'}"
+                                 alt="외관">
+
+                            <!-- ✅ 호버 오버레이 (예시와 동일 클래스명/구조) -->
+                            <div class="card-overlay">
+                                <!-- ⚠️ a 중첩(HTML invalid) 방지를 위해 span만 사용: 스타일은 carlist.css와 동일하게 적용됨 -->
+                                <span class="detail-btn">자세히 보기</span>
+                            </div>
+                        </div>
+
+                        <div class="text-area">
+                            <h2 class="tit" th:text="${car.modelName}">MODEL</h2>
+
+                            <div class="main-info">
+                                <div class="info">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <p th:text="${car.likeCount}">0</p>
+                                </div>
+                                <div class="info">
+                                    <i class="fa-solid fa-eye"></i>
+                                    <p th:text="${car.viewCount}">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="page-area" style="margin-top: 20px;">
+                <!-- ✅ CSS가 .pagination 기준으로 스타일 잡는 경우가 많아서 클래스만 추가 -->
+                <div class="page-btn-wrap pagination" id="page-btn-wrap"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- ✅ 필터 체크 상태/submit만 담당 (페이지 버튼은 carlist.js가 전담) -->
+<script>
+    (function () {
+        const pageSize = 9;
+
+        function setCheckedFromParams() {
+            const params = new URLSearchParams(location.search);
+            const brand = params.get('brand') || '';
+            const segment = params.get('segment') || '';
+            const engineType = params.get('engineType') || '';
+            const sort = params.get('sort') || '';
+
+            document.querySelectorAll('input[type="checkbox"][data-group]').forEach(cb => {
+                const g = cb.dataset.group;
+                const v = cb.dataset.value;
+                cb.checked =
+                    (g === 'brand' && v === brand) ||
+                    (g === 'segment' && v === segment) ||
+                    (g === 'engineType' && v === engineType) ||
+                    (g === 'sort' && v === sort);
+            });
+        }
+
+        function applyGroupRule(changed) {
+            const group = changed.dataset.group;
+            const value = changed.dataset.value;
+
+            document.querySelectorAll(`input[type="checkbox"][data-group="${group}"]`).forEach(cb => {
+                if (cb !== changed) cb.checked = false;
+            });
+
+            const val = changed.checked ? value : '';
+
+            if (group === 'brand') document.getElementById('qBrand').value = val;
+            if (group === 'segment') document.getElementById('qSegment').value = val;
+            if (group === 'engineType') document.getElementById('qEngineType').value = val;
+            if (group === 'sort') document.getElementById('qSort').value = val;
+
+            document.getElementById('filterForm').submit();
+        }
+
+        function renderPage(page) {
+            const items = Array.from(document.querySelectorAll('.car-wrap .car-card'));
+            const total = items.length;
+            const pageCount = Math.max(1, Math.ceil(total / pageSize));
+            const p = Math.min(Math.max(1, page), pageCount);
+
+            const start = (p - 1) * pageSize;
+            const end = start + pageSize;
+
+            items.forEach((el, idx) => {
+                el.style.display = (idx >= start && idx < end) ? '' : 'none';
+            });
+
+            document.querySelectorAll('#page-btn-wrap .page-btn').forEach(btn => {
+                btn.classList.toggle('active', Number(btn.dataset.page) === p);
+            });
+        }
+
+        function buildPageButtons() {
+            const wrap = document.getElementById('page-btn-wrap');
+            if (!wrap) return;
+
+            const items = document.querySelectorAll('.car-wrap .car-card');
+            const total = items.length;
+            const pageCount = Math.max(1, Math.ceil(total / pageSize));
+
+            wrap.innerHTML = '';
+            for (let p = 1; p <= pageCount; p++) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'page-btn' + (p === 1 ? ' active' : '');
+                btn.dataset.page = String(p);
+                btn.textContent = String(p);
+                btn.addEventListener('click', () => renderPage(p));
+                wrap.appendChild(btn);
+            }
+
+            renderPage(1);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setCheckedFromParams();
+            // ✅ 검색 Enter/제출은 항상 /cars 로 (관리자 폼 오제출 방지)
+            const searchForm = document.getElementById('searchForm');
+            const qInput = document.getElementById('qInput');
+            const qSearch = document.getElementById('qSearch');
+            const filterForm = document.getElementById('filterForm');
+
+            if (searchForm && qInput && qSearch && filterForm) {
+                searchForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    qSearch.value = (qInput.value || '').trim();
+                    filterForm.submit();
+                });
+
+                qInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        qSearch.value = (qInput.value || '').trim();
+                        filterForm.submit();
+                    }
+                });
+            }
+
+            document.querySelectorAll('input[type="checkbox"][data-group]').forEach(cb => {
+                cb.addEventListener('change', () => applyGroupRule(cb));
+            });
+
+            buildPageButtons();
+        });
+    })();
+</script>
+<script th:src="@{/css/script.js}"></script>
+
+</body>
+</html>

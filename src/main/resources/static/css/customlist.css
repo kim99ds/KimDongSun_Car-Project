@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+/* ==================== [NEW] 프리미엄 리스트 스타일 ==================== */
+
+/* [수정 1] section 태그 직접 사용 금지 -> .wrap 클래스 활용 
+(기존 build.css의 .wrap과 충돌 방지를 위해 page-content 클래스 등 활용 권장) 
+여기서는 이 페이지의 .wrap에만 상단 여백을 줍니다. */
+section{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+section .wrap{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.page-title{
+    font-size: 42px;
+    font-weight: 500;
+    color: #fff;
+}
+.page-desc{
+    font-size: 16px;
+    color: #777;
+    margin-left: 20px;
+    font-weight: 300;
+}
+
+/* 검색 필터 */
+.filter-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.total-badge{
+    color: #bbb;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.total-badge b{
+    color: #ff6d00;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.search-wrap{
+    display: flex;
+    gap: 10px;
+}
+.search-input{
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #767676;
+    color: #bbb;
+    width: 250px;
+    padding: 10px;
+    transition: 0.3s;
+    outline: none;
+}
+.search-input:focus{
+    border-color: #ff6d00;
+}
+.btn-search-icon{
+    background: none;
+    border: none; /* [추가] 버튼 기본 스타일 초기화 */
+    color: #bbb;
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-search-icon:hover{
+    color: #ff6d00;
+}
+
+/* 리스트 컨테이너 */
+.quote-list-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 개별 카드 디자인 */
+.quote-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #222;
+    border: 1px solid #2a2a2a;
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.quote-card:hover{
+    transform: translateY(-5px);
+    border-color: #ff6d00;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: #111;
+}
+.quote-card::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #ff6d00;
+    opacity: 0;
+    transition: 0.3s;
+}
+.quote-card:hover::before{
+    opacity: 1;
+}
+
+/* 1. 이미지 영역 */
+.card-left{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex: 2;
+}
+.thumb-box{
+    width: 220px;
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    background: radial-gradient(circle, #333 0%, #000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.thumb-box img{
+    width: 100%;
+    transition: transform 0.5s ease;
+    display: block;
+}
+.quote-card:hover .thumb-box img{
+    transform: scale(1.1);
+}
+
+/* 2. 정보 영역 */
+.info-box{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.info-date{
+    font-size: 15px;
+    color: #767676;
+    margin-bottom: 5px;
+}
+.info-model{
+    font-size: 26px;
+    font-weight: 500;
+    color: #bbb;
+    margin: 0;
+}
+.info-trim{
+    font-size: 15px;
+    color: #bbb;
+    margin: 0;
+}
+.info-options{
+    font-size: 14px;
+    color: #767676;
+    margin-top: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 3. 가격 및 액션 영역 */
+.card-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    flex: 1;
+    min-width: 180px; /* [추가] 가격 영역 최소 너비 확보 */
+}
+.price-display{
+    font-size: 26px;
+    font-weight: 500;
+    color: #fff;
+}
+.price-display span{
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 3px;
+    color: #767676;
+}
+
+/* 버튼 그룹 */
+.action-btns{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+.quote-card:hover .action-btns{
+    opacity: 1;
+}
+
+.btn-text{
+    background: none;
+    border: none; /* [추가] 버튼 초기화 */
+    font-size: 14px;
+    color: #999;
+    text-decoration: underline;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.btn-text:hover{
+    color: #ff6d00;
+}
+.btn-text.delete:hover{
+    color: #ff4444;
+}
+
+/* 페이지네이션 */
+.pagination{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+.page-link{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+    color: #777;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.page-link:hover, .page-link.active{
+    border-color: #ff6d00;
+    background: #ff6d00;
+    color: #fff;
+    font-weight: 400;
+}

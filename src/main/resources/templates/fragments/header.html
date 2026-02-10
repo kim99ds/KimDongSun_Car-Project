@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 motors - 메인메뉴</title>
+    <link rel="stylesheet" href="../../../../../../../OneDrive/문서/카카오톡%20받은%20파일/403motors-header,footer/403motors-header/reset.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+        <!-- ============================= HEADER ============================== -->
+        <header id="header" class="site-header">
+            <div class="header-inner">
+                <!-- Logo -->
+                <h1 class="logo">
+                    <a th:href="@{/main}" aria-label="403 MOTORS 홈">
+                        <img src="/main/images/mainLogo.png" alt="403 MOTORS" />
+                    </a>
+                </h1>
+
+                <!-- GNB -->
+                <nav class="gnb" aria-label="메인 메뉴">
+                    <ul class="gnb-list">
+                        <!-- 1 -->
+                        <li class="gnb-item">
+                            <a th:href="@{/cars}" class="gnb-link">모든 차 보기</a>
+                            <ul class="sub-menu">
+                                <li><a th:href="@{/cars}">베스트 차량</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 2 -->
+                        <li class="gnb-item">
+                            <a class="gnb-link">맞춤견적</a>
+                            <ul class="sub-menu">
+                                <li><a th:href="@{/cars/for-me}">맞춤 견적 받기</a></li>
+                                <li><a th:href="@{/quotes}">내 견적서 보기</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 3 -->
+                        <li class="gnb-item">
+                            <a href="#none" class="gnb-link">구매 가이드</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">구매 절차 안내</a></li>
+                                <li><a href="#">차량 비교 가이드</a></li>
+                                <li><a href="#">유지비 가이드</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 4 -->
+                        <li class="gnb-item">
+                            <a th:href="@{/events}" class="gnb-link">이벤트</a>
+                            <ul class="sub-menu">
+                                <li><a th:href="@{/events}">진행중 이벤트</a></li>
+                                <li><a th:href="@{/events}">종료된 이벤트</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 5 -->
+                        <li class="gnb-item is-highlight">
+                            <a href="#none" class="gnb-link">이색기능</a>
+                            <ul class="sub-menu">
+                                <li><a th:href="@{/unique/upsell}">그 돈이면</a></li>
+                                <li><a th:href="@{/unique/pyramid}">내 차 계급은?</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 6 -->
+                        <li class="gnb-item">
+                            <a href="#none" class="gnb-link">고객지원</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">자주묻는 질문</a></li>
+                                <li><a href="#">1:1 문의</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Auth -->
+                <div class="header-auth">
+                    <a class="auth-link" sec:authorize="!isAuthenticated()" th:href="@{/login}">로그인</a>
+                    <a class="auth-link" sec:authorize="!isAuthenticated()" th:href="@{/signup}">회원가입</a>
+                    <a class="auth-link" sec:authorize="hasRole('ADMIN')" th:href="@{/admin/dashboard}">관리자</a>
+                    <a class="auth-link" sec:authorize="isAuthenticated()" th:href="@{/mypage}">마이페이지</a>
+                    <form sec:authorize="isAuthenticated()" th:action="@{/auth/logout}" method="post" style="display:inline">
+                        <button type="submit" class="auth-link" style="background:none;border:none;padding:0;cursor:pointer">로그아웃</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 헤더 아래 어두운 영역 -->
+            <div class="header-drop-bg" aria-hidden="true"></div>
+        </header>
+</body>
+</html>

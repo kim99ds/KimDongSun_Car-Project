@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 견적 리스트 | 403 MOTORS</title>
+
+    <link rel="stylesheet" as="style" crossorigin
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- 네 프로젝트에 맞게 경로 조정 -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}" href="/css/reset.css">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <link rel="stylesheet" th:href="@{/css/customlist.css}" href="/css/customlist.css">
+
+
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<section>
+    <div class="wrap">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">견적 리스트
+                    <span class="page-desc">내가 만든 견적 리스트</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- 상단 필터/검색 -->
+        <div class="filter-container">
+            <p class="total-badge">
+                Total<b id="totalCount" th:text="${#lists.size(quotes)}">0</b>
+            </p>
+
+            <!-- 서버 검색을 붙이고 싶으면 action을 컨트롤러로 연결 -->
+            <form class="search-wrap" th:action="@{/quotes}" method="get">
+                <input type="text"
+                       class="search-input"
+                       name="q"
+                       th:value="${param.q}"
+                       placeholder="모델명 검색 (예: GV80)">
+                <button type="submit" class="btn-search-icon" aria-label="검색">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- 비어있을 때 -->
+        <div class="empty-state" th:if="${#lists.isEmpty(quotes)}">
+            <div class="empty-box">
+                저장된 견적서가 없습니다.
+                <div class="empty-sub">차량을 선택하고 견적을 저장해보세요.</div>
+            </div>
+        </div>
+
+        <!-- 리스트 -->
+        <div class="quote-list-wrap" th:unless="${#lists.isEmpty(quotes)}">
+
+            <div class="quote-card"
+                 th:each="q : ${quotes}"
+                 th:attr="data-model=${q.modelName}"
+                 th:onclick="|location.href='@{/quotes/{id}(id=${q.quoteId})}'|">
+
+                <div class="card-left">
+                    <div class="thumb-box">
+                        <!-- q.imageUrl 같은 필드가 없으면 일단 기본 이미지로 두고, 나중에 DTO에 추가 추천 -->
+                        <img th:src="${q.imageUrl != null ? q.imageUrl : '/images/default_car.png'}"
+                             src="/images/default_car.png"
+                             th:alt="${q.modelName}"
+                             alt="car">
+                    </div>
+
+                    <div class="info-box">
+                        <span class="info-date"
+                              th:text="${#temporals.format(q.createdAt, 'yyyy.MM.dd')} + ' 저장됨'">
+                            2026.02.02 저장됨
+                        </span>
+
+                        <h2 class="info-model" th:text="${q.modelName}">GENESIS GV80</h2>
+
+                        <p class="info-trim">
+                            <span th:text="${q.trimName}">트림</span>
+                            <span class="dot"> · </span>
+                            <span class="status" th:text="${q.status}">상태</span>
+                        </p>
+
+                        <!-- 옵션 요약이 있으면 노출 -->
+                        <p class="info-options"
+                           th:if="${q.optionSummary != null and !#strings.isEmpty(q.optionSummary)}"
+                           th:text="|옵션: ${q.optionSummary}|">
+                            옵션: ...
+                        </p>
+
+                        <!-- 옵션 요약이 없으면 숨김(공간만) -->
+                        <p class="info-options muted"
+                           th:unless="${q.optionSummary != null and !#strings.isEmpty(q.optionSummary)}">
+                            옵션: (선택 옵션 없음)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-right">
+                    <div class="price-display">
+                        <span th:text="${#numbers.formatInteger(q.totalPrice, 0, 'COMMA')}">0</span><span class="price-unit">원</span>
+                    </div>
+
+                    <div class="action-btns">
+                        <!-- 상세보기: 카드 클릭과 동일한 이동 -->
+                        <a class="btn-text"
+                           th:href="@{/quotes/{id}(id=${q.quoteId})}"
+                           onclick="event.stopPropagation();">상세보기</a>
+
+                        <span class="sep">|</span>
+
+                        <!-- 삭제: POST 폼(권장) -->
+                        <form class="delete-form"
+                              th:action="@{/quotes/{id}/delete(id=${q.quoteId})}"
+                              method="post"
+                              onsubmit="return confirm('이 견적서를 삭제할까요?');"
+                              onclick="event.stopPropagation();">
+
+                            <!-- Spring Security 사용 중이면 CSRF -->
+                            <input type="hidden" th:if="${_csrf != null}"
+                                   th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+                            <button type="submit" class="btn-text delete">삭제</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 페이지네이션(서버 붙일거면 th로 교체) -->
+        <div class="pagination">
+            <a href="#" class="page-link" aria-label="이전"><i class="fa-solid fa-chevron-left"></i></a>
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link" aria-label="다음"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+    </div>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+<script th:src="@{/css/script.js}"></script>
+<script defer th:src="@{/js/customlist.js}" src="/js/customlist.js"></script>
+</body>
+
+</html>

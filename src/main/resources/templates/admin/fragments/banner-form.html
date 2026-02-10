@@ -1,0 +1,118 @@
+<div th:fragment="content" class="h-full flex flex-col fade-in">
+
+    <!-- 상단 헤더 -->
+    <div class="navbar bg-card border-b shadow-sm shrink-0 border-[#333] flex-col items-start p-0 z-30 mb-8">
+        <div class="w-full p-6 flex justify-between items-center">
+            <h2 class="text-xl fw-400 ml-2 text-white">
+                배너관리 &gt; <span class="text-point" th:text="${banner.bannerId == null ? '배너등록' : '배너수정'}">배너등록</span>
+            </h2>
+            <div class="px-4 flex items-center gap-4">
+                <a href="/admin/banners" data-admin-nav class="btn-custom btn-neutral" style="height:36px; min-height:36px;">
+                    <i class="fa-solid fa-list mr-2"></i>목록으로
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메시지 -->
+    <div th:if="${successMessage}" class="mb-4 p-3 border border-emerald-900/60 bg-emerald-900/20 text-emerald-200"
+         th:text="${successMessage}"></div>
+    <div th:if="${errorMessage}" class="mb-4 p-3 border border-red-900/60 bg-red-900/20 text-red-200"
+         th:text="${errorMessage}"></div>
+
+    <!-- ✅ 여기 스크롤 핵심: overflow-y-hidden -> overflow-y-auto -->
+    <div class="flex-1 overflow-y-auto pr-2">
+        <form th:action="@{/admin/banners/save}" method="post" enctype="multipart/form-data" class="max-w-6xl mx-auto pb-20">
+
+            <div class="bg-card shadow-lg p-8 mb-8">
+                <div class="section-header">
+                    <h3 class="text-lg text-white">정보입력</h3>
+                </div>
+
+                <input type="hidden" name="bannerId" th:value="${banner.bannerId}">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+
+                    <div class="form-control">
+                        <label class="label mb-1"><span class="label-text text-main">배너 ID</span></label>
+                        <input type="text" th:value="${banner.bannerId}" readonly class="input w-full" />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label mb-1"><span class="label-text text-main">정렬순서</span></label>
+                        <input type="number" name="sortOrder" class="input w-full" placeholder="정렬(작을수록 먼저)" th:value="${banner.sortOrder}" />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label mb-1"><span class="label-text text-main">배너 제목</span></label>
+                        <input type="text" name="title" class="input w-full" placeholder="배너 제목" th:value="${banner.title}" />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label mb-1"><span class="label-text text-main">배너 부제목</span></label>
+                        <input type="text" name="subTitle" class="input w-full" placeholder="배너 부제목" th:value="${banner.subTitle}" />
+                    </div>
+
+                    <div class="form-control md:col-span-2">
+                        <label class="label mb-1"><span class="label-text text-main">메인 배너 이미지</span></label>
+                        <input type="file" name="imageFile" class="file-input w-full" accept="image/*" />
+                        <label class="label">
+                            <span class="label-text-alt text-sub">* 권장 사이즈: 1920x600 (JPG, PNG)</span>
+                            <span class="label-text-alt text-sub" th:if="${banner.imageUrl}">
+                                현재: <a th:href="${banner.imageUrl}" target="_blank" class="hover:underline" th:text="${banner.imageUrl}">/</a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- 폴더형 페이지 ZIP 업로드 -->
+                    <div class="form-control md:col-span-2">
+                        <label class="label mb-1"><span class="label-text text-main">폴더형 페이지 ZIP 업로드</span></label>
+                        <input type="file" name="pageZip" class="file-input w-full" accept=".zip" />
+                        <label class="label">
+                            <span class="label-text-alt text-sub">
+                                * ZIP 안에 index.html 이 있어야 하며, css/js/images/videos는 폴더에 있어도 됩니다. (상대경로 권장)
+                            </span>
+                            <span class="label-text-alt text-sub" th:if="${banner.linkUrl}">
+                                현재 링크: <a th:href="${banner.linkUrl}" target="_blank" class="hover:underline" th:text="${banner.linkUrl}">/</a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="form-control md:col-span-2">
+                        <label class="label mb-1"><span class="label-text text-main">클릭 링크 URL</span></label>
+                        <input type="text" name="linkUrl" class="input w-full" placeholder="ex) /... or https://..." th:value="${banner.linkUrl}" />
+                        <label class="label">
+                            <span class="label-text-alt text-sub">
+                                * ZIP 업로드 시 여기(linkUrl)가 자동으로 /uploads/landing-pages/.../index.html 로 저장됩니다.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label mb-1"><span class="label-text text-main">노출 여부</span></label>
+                        <select class="select w-full text-main" name="isVisible">
+                            <option value="Y" th:selected="${banner.isVisible == 'Y' or banner.isVisible == null}">활성화</option>
+                            <option value="N" th:selected="${banner.isVisible == 'N'}">비활성화</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label mb-1"><span class="label-text text-main">안내</span></label>
+                        <div class="text-sub text-sm" style="line-height:1.6;">
+                            정렬(SORT_ORDER)이 작을수록 먼저 노출됩니다.<br/>
+                            이미지 업로드 시 서버에 저장되고 URL로 관리됩니다.<br/>
+                            폴더형 페이지는 ZIP 업로드 후 linkUrl로 접근됩니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-6">
+                    <a href="/admin/banners" data-admin-nav class="btn-custom btn-neutral px-8">취소</a>
+                    <button type="submit" class="btn-custom btn-brand px-12">
+                        <i class="fa-solid fa-check mr-2"></i>저장
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

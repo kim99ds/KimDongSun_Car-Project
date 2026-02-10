@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 Motors - 회원 상세 정보</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="admin_common.css">
+    <link rel="stylesheet" href="admin_member_in.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 사이드바 active 설정 (회원관리)
+            changeMainPage('member');
+        });
+
+        function changeMainPage(pageId) {
+            // 현재 페이지에서는 사이드바 활성화 표시만 수행
+            document.querySelectorAll('.menu a').forEach(link => link.classList.remove('active-menu'));
+            const activeLink = document.getElementById('menu-' + pageId);
+            if(activeLink) activeLink.classList.add('active-menu');
+        }
+    </script>
+</head>
+<body class="flex h-screen overflow-hidden">
+    
+    <aside class="w-64 bg-card flex flex-col border-none overflow-y-auto shrink-0">
+        <div class="main_logo">
+            <a href="#"><img src="image/logo_2.png" alt="logo2" class="p-6 mt-4"></a>
+        </div>
+        <ul class="menu w-full p-0 gap-1">
+            <li>
+                <a href="/403admin_member/admin_member.html" id="menu-member" onclick="changeMainPage('member')">
+                    <i class="fa-solid fa-users w-6 text-center ml-2"></i> 회원관리
+                </a>
+            </li>
+            <li>
+                <a href="#" id="menu-banner" onclick="changeMainPage('banner')">
+                    <i class="fa-solid fa-images w-6 text-center ml-2"></i> 배너관리
+                </a>
+            </li>
+            <li>
+                <a href="#" id="menu-vehicle" onclick="changeMainPage('vehicle')">
+                    <i class="fa-solid fa-car w-6 text-center ml-2"></i> 차량관리
+                </a>
+            </li>
+            <li>
+                <a href="/403admin_event/admin_event.html" id="menu-event" onclick="changeMainPage('event')">
+                    <i class="fa-solid fa-gift w-6 text-center ml-2"></i> 이벤트관리
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="flex-1 h-full flex flex-col overflow-hidden bg-[#111111] p-10" id="main-content">
+        
+        <div id="page-member-detail" class="main-section h-full flex flex-col fade-in">
+            
+            <div class="bg-card mb-0 shadow-lg flex-1 flex flex-col overflow-y-hidden">
+                
+                <div class="navbar bg-card border-b shadow-sm sticky top-0 z-10 mb-8 border-[#333] shrink-0">
+                    <div class="flex-1 justify-between px-6 py-4">
+                        <h2 class="text-xl fw-400 ml-2 text-white">회원 통합 관리 > <span class="text-point">상세정보</span></h2>
+                        <a href="/403admin_member/admin_member.html" class="btn-custom btn-ghost-custom text-sm">
+                            <i class="fa-solid fa-list mr-2"></i>목록으로
+                        </a>
+                    </div>
+                </div>
+
+                <div class="px-10 pb-12">
+                    
+                    <section class="mb-12">
+                        <h3 class="text-lg text-main mb-4 border-l-4 border-[#ff6d00] pl-3">기본 정보 <span class="text-xs text-sub font-normal ml-2">(수정 불가)</span></h3>
+                        <div class="bg-card border border-[#333]">
+                            <table class="table w-full text-center"> 
+                                <thead>
+                                    <tr>
+                                        <th class="py-4 font-normal">No</th>
+                                        <th class="font-normal">Login_ID</th>
+                                        <th class="font-normal">이름</th>
+                                        <th class="font-normal">E-mail</th>
+                                        <th class="font-normal">생년월일</th>
+                                        <th class="font-normal">가입일자</th>
+                                        <th class="font-normal">최근 접속일</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="font-bold text-white">cjftn213</td>
+                                        <td>김철수</td>
+                                        <td>cjftn213@naver.com</td>
+                                        <td>2000.05.12</td>
+                                        <td>2026.01.12</td>
+                                        <td>2026.01.25 14:30</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <form action="/admin/member/update" method="POST">
+                        <input type="hidden" name="memberId" value="1">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                            
+                            <div>
+                                <h3 class="text-lg text-main mb-4 border-l-4 border-[#ff6d00] pl-3">정보 수정</h3>
+                                
+                                <div class="flex flex-col gap-6">
+                                    <div class="form-control w-full">
+                                        <label class="label"><span class="label-text text-main">이름</span></label>
+                                        <input type="text" name="name" value="김철수" class="input w-full" />
+                                    </div>
+                                    
+                                    <div class="form-control w-full">
+                                        <label class="label"><span class="label-text text-main">이메일</span></label>
+                                        <input type="email" name="email" value="cjftn213@naver.com" class="input w-full" />
+                                    </div>
+
+                                    <div class="form-control w-full">
+                                        <label class="label"><span class="label-text text-main">계정 상태</span></label>
+                                        <div class="flex gap-0">
+                                            <input type="radio" name="status" id="st_active" value="active" class="status-radio hidden" checked>
+                                            <label for="st_active" class="status-label w-24">활성화</label>
+
+                                            <input type="radio" name="status" id="st_inactive" value="inactive" class="status-radio hidden">
+                                            <label for="st_inactive" class="status-label w-24 border-l-0">비활성화</label>
+                                            
+                                            <input type="radio" name="status" id="st_banned" value="banned" class="status-radio hidden">
+                                            <label for="st_banned" class="status-label w-24 border-l-0">정지</label>
+                                        </div>
+                                        <label class="label"><span class="label-text-alt text-sub mt-2">비활성화 시 해당 회원은 로그인이 제한됩니다.</span></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-lg text-main mb-4 border-l-4 border-[#ff6d00] pl-3">보유 역할</h3>
+                                <div class="bg-[#333] p-8 border border-[#444]">
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="badge border-[#ff6d00] text-[#ff6d00] bg-transparent rounded-sm p-4 text-sm border">ADMIN</span>
+                                        <span class="badge border-gray-500 text-gray-400 bg-transparent rounded-sm p-4 text-sm border">USER</span>
+                                    </div>
+                                    <p class="text-sm text-sub leading-relaxed">
+                                        <i class="fa-solid fa-circle-info mr-1"></i>
+                                        회원의 역할(권한) 변경은<br>
+                                        <a href="#" class="text-point underline underline-offset-4 hover:text-white">역할 관리 페이지</a>에서 수행할 수 있습니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="flex justify-end gap-3 border-t border-[#333] pt-8">
+                            <button type="submit" class="btn-custom btn-brand px-8">변경사항 저장</button>
+                        </div>
+                    </form>
+
+                    <div class="flex justify-end mt-4">
+                        <form action="/admin/member/delete" method="POST" onsubmit="return confirm('정말로 이 회원을 삭제하시겠습니까? 삭제 후에는 복구할 수 없습니다.');">
+                            <input type="hidden" name="memberId" value="1">
+                            <button type="submit" class="btn-custom btn-danger opacity-70 hover:opacity-100 h-9 min-h-0 text-sm">
+                                회원 영구 삭제
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>회원 목록</title>
+</head>
+<body>
+<h2>회원 목록</h2>
+
+<p th:if="${successMessage}" th:text="${successMessage}" style="color:green;"></p>
+<p th:if="${errorMessage}" th:text="${errorMessage}" style="color:red;"></p>
+
+<table border="1" cellpadding="6">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>LOGIN_ID</th>
+        <th>이름</th>
+        <th>이메일</th>
+        <th>상태</th>
+        <th>상세</th>
+        <th>삭제</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="m : ${members}">
+        <td th:text="${m.memberId}"></td>
+        <td th:text="${m.loginId}"></td>
+        <td th:text="${m.name}"></td>
+        <td th:text="${m.email}"></td>
+        <td th:text="${m.status}"></td>
+        <td><a th:href="@{|/admin/members/${m.memberId}|}">보기</a></td>
+        <td>
+            <form th:action="@{|/admin/members/${m.memberId}/delete|}" method="post"
+                  onsubmit="return confirm('정말 삭제할까요?');">
+                <button type="submit">삭제</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

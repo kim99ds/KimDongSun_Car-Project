@@ -1,0 +1,84 @@
+@charset "utf-8";
+.table th { 
+    font-size: var(--font-size-base); 
+    color: white; 
+    font-weight: 400; 
+    border-bottom: 1px solid #444; 
+    text-align: center; 
+    background-color: var(--color-bg-3); 
+}
+.table td { 
+    font-size: var(--font-size-base); 
+    border-bottom: 1px solid #333; 
+    padding-top: 1rem; 
+    padding-bottom: 1rem; 
+    text-align: center; 
+    vertical-align: middle; 
+    color: var(--color-text-main);
+}
+
+/* [상세 페이지 전용] 라디오 버튼 -> 버튼 스타일 커스텀 */
+.status-radio:checked + label {
+    background-color: var(--color-brand);
+    color: white;
+    border-color: var(--color-brand);
+}
+.status-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    padding: 0 16px;
+    font-size: 13px;
+    background-color: #333;
+    border: 1px solid #444;
+    color: #767676;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.status-label:hover {
+    background-color: #444;
+    color: #bbb;
+}
+
+
+/* === 회원 영구 삭제 버튼 위치 수정 === */
+.member-delete,
+.btn-delete,
+.delete-btn {
+    position: static !important;
+    float: none !important;
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+
+/* 버튼 세로 정렬 */
+.member-action-area,
+.member-footer,
+.form-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+/* === 회원 상세: 액션 버튼 정렬/간격 (변경사항 저장 + 회원 영구 삭제) === */
+.member-detail-actions{
+    margin-top: 28px;
+    padding-top: 32px;
+    border-top: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 오른쪽 정렬 */
+    gap: 10px; /* 버튼 사이 5~10px */
+}
+.member-detail-actions__row{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.member-detail-actions__row form{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}

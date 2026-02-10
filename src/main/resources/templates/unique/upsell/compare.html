@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업셀 - 후보 선택</title>
+
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <link rel="stylesheet" th:href="@{/css/carlist.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+<header th:replace="fragments/header :: header"></header>
+<section>
+    <h1 class="main-tit">업셀 후보 선택</h1>
+
+    <div class="wrap" style="align-items:flex-start;">
+
+        <!-- LEFT: picked -->
+        <div class="left-box">
+            <div style="color:#bbb; margin-bottom:14px;">선택한 차량</div>
+
+            <div th:if="${page.picked == null}" style="color:#bbb;">
+                선택한 차량 정보를 찾을 수 없습니다.
+            </div>
+
+            <div th:if="${page.picked != null}" style="background:#1a1a1a; border:1px solid #333; border-radius:14px; overflow:hidden;">
+                <div style="height:160px; background:#111;">
+                    <img th:src="${page.picked.imageUrl}" alt="picked" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="padding:16px;">
+                    <div style="font-size:14px; color:#bbb;" th:text="${page.picked.brandName}">Brand</div>
+                    <div style="font-size:18px; font-weight:700; margin-top:4px;" th:text="${page.picked.modelName}">Model</div>
+                    <div style="font-size:14px; color:#bbb; margin-top:6px;" th:text="${page.picked.trimName}">Trim</div>
+                    <div style="margin-top:12px; color:#ff8a00;">
+                        <span th:text="${#numbers.formatInteger(page.picked.basePrice, 3, 'COMMA')} + '원'">0원</span>
+                    </div>
+
+                    <div style="margin-top:14px; display:flex; gap:10px;">
+                        <a href="/unique/upsell" style="display:inline-block; padding:10px 12px; border:1px solid #444; border-radius:10px; color:#eee;">
+                            다른 차량 선택
+                        </a>
+
+                        <!-- 2번째 사진 페이지로 이동(예: picked vs 첫 후보) -->
+                        <a th:if="${page.candidates != null and !#lists.isEmpty(page.candidates)}"
+                           th:href="@{/unique/compare(leftTrimId=${page.picked.trimId}, rightTrimId=${page.candidates[0].trimId})}"
+                           style="display:inline-block; padding:10px 12px; border:1px solid #ff8a00; border-radius:10px; color:#ff8a00;">
+                            비슷한 가격 다른 클래스 보기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: candidates -->
+        <div class="right-box">
+            <div style="color:#bbb; margin-bottom:14px;">더 비싼 차량 후보 (상위 <span th:text="${page.limit}">12</span>개)</div>
+
+            <div class="list-wrap">
+                <ul class="car-list">
+                    <li th:if="${#lists.isEmpty(page.candidates)}" style="color:#bbb; padding:30px;">
+                        조건에 맞는 업셀 후보가 없습니다.
+                    </li>
+
+                    <li th:each="t : ${page.candidates}" class="car-item">
+                        <a th:href="@{/unique/compare(leftTrimId=${page.picked.trimId}, rightTrimId=${t.trimId})}" class="car-link">
+
+                            <div class="thumb">
+                                <img th:src="${t.imageUrl}" alt="car">
+                            </div>
+
+                            <div class="info">
+                                <div class="name" th:text="${t.modelName}">MODEL</div>
+                                <div class="trim" th:text="${t.trimName}" style="color:#bbb; font-size:14px; margin-top:6px;">TRIM</div>
+
+                                <div class="meta" style="display:flex; justify-content:space-between; margin-top:16px;">
+                                    <span style="color:#bbb;" th:text="${t.brandName}">Brand</span>
+                                    <span style="color:#ff8a00;" th:text="${#numbers.formatInteger(t.basePrice, 3, 'COMMA')} + '원'">0원</span>
+                                </div>
+                            </div>
+
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+<footer th:replace="fragments/footer :: footer"></footer>
+<script th:src="@{/css/script.js}"></script>
+</body>
+</html>

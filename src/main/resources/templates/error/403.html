@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 Motors - ERROR</title>
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <link rel="stylesheet" th:href="@{/css/error.css}">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+    <section class="glass-error-wrap">
+        <div class="glass-card">
+            <div class="content">
+                <span class="bg-text">403</span>
+                <h2 class="title">Access Denied</h2>
+                <p class="desc">
+                    접근 권한이 없는 페이지입니다.<br>
+                    입력하신 주소를 다시 확인해 주세요.
+                </p>
+                <a href="/" class="btn-outline">메인으로 가기</a>
+            </div>
+        </div>
+    </section>
+    <script th:src="@{/main/script.js}"></script>
+    <footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

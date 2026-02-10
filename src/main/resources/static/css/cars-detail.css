@@ -1,0 +1,535 @@
+@charset "utf-8";
+
+/* ===== reset (inline) ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+/* ===== trim tooltip ===== */
+.help-tip{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height:22px;
+    padding:0 8px;
+    margin-left:8px;
+    border-radius:999px;
+    border:1px solid #777;
+    font-size:12px;
+    cursor:help;
+    position:relative;
+    user-select:none;
+    background: rgba(255,255,255,0.06);
+}
+.help-tip::after{
+    content: attr(data-tooltip);
+    position:absolute;
+    left:50%;
+    top:calc(100% + 8px);
+    transform:translateX(-50%);
+    white-space:pre-line;
+    min-width:220px;
+    max-width:360px;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid #333;
+    background:#111;
+    color:#fff;
+    font-size:12px;
+    line-height:1.4;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .12s ease;
+    z-index:999;
+}
+.help-tip:hover::after,
+.help-tip:focus::after{
+    opacity:1;
+}
+
+section .wrap{
+    width: 80%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+section .wrap .likesview{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+    color: #767676;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+section .wrap .likesview .fa-heart{
+    color: #ff6d00;
+}
+section .wrap .cars_model{
+    font-size: 60px;
+    font-weight: 400;
+    color: #eee;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+section .wrap .model_img img{
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+section .wrap .label-border{
+    border-left: 3px solid #ff6d00;
+    padding-left: 15px;
+    font-size: 21px;
+    font-weight: 400;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+/* 드롭다운 영역 */
+section .wrap .dropdown-wrap{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+section .wrap .dropdown-wrap .dropdown-box{
+    flex: 1;
+}
+section .wrap .dropdown-wrap .dropdown-box select{
+    width: 100%;
+    border: 1px solid #333;
+    padding: 15px;
+    font-size: 16px;
+    color: #bbb;
+    background: #222;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+section .wrap .dropdown-wrap .dropdown-box select:hover,
+section .wrap .dropdown-wrap .dropdown-box select:focus{
+    border-color: #ff6d00;
+}
+
+/* 패키지 옵션 영역 */
+section .wrap .package-wrap{
+    margin-bottom: 80px;
+}
+section .wrap .card-grid .option-item input{
+    accent-color: #ff6d00;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+section .wrap .card-grid .option-item{
+    user-select: none;
+}
+
+/* 카드 그리드 공통 */
+section .wrap .card-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* 카드 컨텐츠 스타일 */
+section .wrap .card-grid .option-item .card-content{
+    border: 1px solid #333;
+    padding: 30px;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section .wrap .card-grid .option-item:hover .card-content{
+    border-color: #777;
+    background-color: #222;
+}
+
+section .wrap .card-grid .option-item .card-content:has(input:checked){
+    border-color: #ff6d00;
+    background-color: #1a1100;
+}
+
+/* 내부 텍스트 레이아웃 */
+section .wrap .card-grid .option-item .card-content .text-wrap{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+section .wrap .card-grid .option-item .card-content h4{
+    font-size: 18px;
+    color: #bbb;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+section .wrap .card-grid .option-item .card-content .price{
+    font-size: 16px;
+    color: #ff6d00;
+    font-weight: 400;
+}
+section .wrap .card-grid .option-item .card-content .option-text{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 14px;
+    color: #767676;
+    line-height: 1.4;
+}
+
+/* 상세 옵션 영역 */
+section .wrap .option-wrap{
+    margin-bottom: 50px;
+}
+
+/* 선택된 태그 표시 영역 */
+section .wrap .option-wrap .option-box .selected-tags{
+    border: 1px solid #333;
+    background: rgba(255,255,255,0.04);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 20px;
+}
+.summary-title{
+    font-size: 14px;
+    font-weight: 700;
+    color:#e9eaee;
+    margin-bottom: 10px;
+}
+.summary-empty{
+    font-size: 13px;
+    color:#9aa0a6;
+    padding: 6px 0;
+}
+.summary-chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+.summary-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border: 1px solid #444;
+    background: rgba(0,0,0,0.35);
+    color:#e9eaee;
+    border-radius: 999px;
+    padding: 8px 10px;
+    font-size: 12px;
+    cursor:pointer;
+}
+.summary-chip:hover{
+    background: rgba(0,0,0,0.5);
+}
+.summary-chip > span{
+    max-width: 260px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.chip-x{
+    width:18px;
+    height:18px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    border:1px solid #555;
+    background: rgba(255,255,255,0.06);
+    color:#d6d8de;
+    cursor:pointer;
+    line-height:1;
+}
+.chip-x:hover{
+    background: rgba(255,255,255,0.12);
+}
+section .wrap .option-wrap .option-box .selected-tags p{
+    color: #767676;
+    font-size: 14px;
+}
+
+/* 탭 메뉴 */
+section .wrap .option-wrap .option-box .option-tabmenu .option-menu{
+    display: flex;
+    border-bottom: 1px solid #333;
+    margin-bottom: 30px;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .option-menu li{
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #767676;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .option-menu li.on{
+    color: #fff;
+    font-weight: 400;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .option-menu li.on::after{
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ff6d00;
+}
+
+/* 탭 컨텐츠 */
+section .wrap .option-wrap .option-box .option-tabmenu .taboption > li{
+    display: none;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .taboption > li.on{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* 탭 메뉴 내부 선택 박스 */
+section .wrap .option-wrap .option-box .option-tabmenu .taboption .choice-box{
+    border: 1px solid #333;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .taboption .choice-box:hover{
+    border-color: #767676;
+    background: #222;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .taboption .choice-box:has(input:checked){
+    border-color: #ff6d00;
+    background-color: #1a1100;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .taboption .choice-box .choice-header{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .taboption .choice-box .choice-header input{
+    margin-top: 5px;
+    transform: scale(1.2);
+    accent-color: #ff6d00;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .taboption .choice-box .choice-header p{
+    font-size: 16px;
+    color: #bbb;
+    word-break: keep-all;
+}
+section .wrap .option-wrap .option-box .option-tabmenu .taboption .choice-box .choice-price{
+    font-size: 15px;
+    color: #767676;
+    text-align: right;
+}
+
+/* 총금액 고정 바 */
+.total-price-bar{
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(17, 17, 17, 0.95);
+    border-top: 1px solid #ff6d00;
+    padding: 30px 0;
+    margin-top: 50px;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.total-price-bar .price-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.total-price-bar .price-info .price-label{
+    font-size: 16px;
+    color: #767676;
+}
+.total-price-bar .price-info .final-price{
+    font-size: 36px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 0;
+}
+.total-price-bar .price-info .final-price span{
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 5px;
+}
+.total-price-bar .submit-btn{
+    background-color: #ff6d00;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 15px 40px;
+    transition: all 0.3s;
+}
+.total-price-bar .submit-btn:hover{
+    background-color: #b94d00;
+}
+
+/* ===== legacy render blocks -> build layout fit ===== */
+#color-area, #package-area, #option-area { width: 100%; }
+#option-tabs{display:flex;gap:18px;border-bottom:1px solid #222;margin-top:14px}
+#option-tabs .option-tab{
+    background:transparent;border:0;padding:10px 0;cursor:pointer;
+    font-size:14px;color:#8a8a8a;position:relative;letter-spacing:-0.2px;
+}
+#option-tabs .option-tab:hover{color:#cfcfcf}
+#option-tabs .option-tab.active{color:#ffffff}
+#option-tabs .option-tab.active::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#ff6a00;
+}
+.option-panel{display:none;padding-top:14px}
+.option-panel.active{display:block}
+
+.opt-box{margin-top:14px}
+.opt-box-title{display:flex;justify-content:space-between;align-items:center;margin:8px 0 10px}
+.opt-box-title span:first-child{color:#eaeaea;font-size:13px;font-weight:600}
+.opt-box-title .muted{color:#8a8a8a;font-size:12px}
+.opt-box-body{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;
+}
+@media (max-width: 1100px){.opt-box-body{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width: 720px){.opt-box-body{grid-template-columns:1fr;}}
+
+.option-item{
+    border:1px solid #1f1f1f;border-radius:10px;
+    background:rgba(255,255,255,0.02);
+    padding:14px;min-height:86px;
+    transition:border-color .15s, box-shadow .15s, transform .15s;
+}
+.option-item:hover{border-color:#2d2d2d;transform:translateY(-1px)}
+.option-item.is-checked{
+    border-color:#ff6a00;
+    box-shadow:0 0 0 1px rgba(255,106,0,.25);
+}
+.option-item label{display:flex;gap:10px;align-items:flex-start;color:#e0e0e0;font-size:13px;line-height:1.35;cursor:pointer}
+.option-item input{margin-top:2px;accent-color:#ff6a00}
+.option-item .opt-desc{margin-top:8px;color:#9a9a9a;font-size:12px;line-height:1.45}
+
+/* ===== theme match builder ===== */
+html,body{background:#0b0b0b;color:#eaeaea;}
+section{background:#0b0b0b; padding:24px 0 120px;}
+.cars_model{color:#fff;}
+.likesview, .likesview *{color:#bdbdbd;}
+.label-border{color:#fff;}
+.model_img{display:flex;justify-content:center;}
+.model_img img{max-width:780px; width:100%; height:auto; object-fit:contain; filter: drop-shadow(0 10px 35px rgba(0,0,0,.65));}
+
+/* =========================
+   선택불가 강력 강조
+========================= */
+.disabled-label,
+.option-disabled-text,
+.text-disabled {
+    color: #ff4d4f !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.2px;
+}
+
+.disabled-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    margin-left: 6px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 77, 79, 0.6);
+    background: rgba(255, 77, 79, 0.12);
+    font-size: 12px;
+    line-height: 1;
+}
+
+.is-disabled,
+.option-disabled {
+    opacity: 0.55;
+}
+
+.disabled-label::before {
+    content: "✕";
+    font-weight: 900;
+    font-size: 12px;
+}
+
+/* (기존 JS가 붙이는 배지 클래스) */
+.disabled-badge{
+    display:inline-flex;
+    align-items:center;
+    margin-left:8px;
+    padding:4px 8px;
+    border-radius:6px;
+    font-size:12px;
+    border:1px solid rgba(255,77,79,.6);
+    background:rgba(255,77,79,.12);
+    color:#ff4d4f;
+    font-weight:800;
+}
+.option-disabled-row{opacity:.55}
+
+
+/* =========================
+   Builder Section Panel (Package)
+   - Makes package area visually grouped like options
+   - DOES NOT touch JS logic
+========================= */
+.section-panel{
+    border: 1px solid #222;
+    background: rgba(255,255,255,0.04);
+    border-radius: 18px;
+    padding: 22px 22px 26px;
+    margin-bottom: 80px; /* keep existing spacing intention */
+}
+
+.section-panel .label-border{
+    margin-bottom: 18px;
+}
+
+/* Package panel: keep inner grid spacing consistent */
+.package-panel .card-grid{
+    margin-top: 10px;
+}
+
+/* Slightly lift package cards inside the panel for a "raised" feel */
+.package-panel .package-box{
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 16px 18px;
+    background: rgba(0,0,0,0.20);
+    transition: border-color .2s ease, transform .2s ease, background-color .2s ease;
+}
+
+.package-panel .package-box:hover{
+    border-color: #777;
+    background: rgba(0,0,0,0.26);
+    transform: translateY(-1px);
+}
+
+/* Selected package (checkbox checked) */
+.package-panel .package-box:has(input:checked){
+    border-color: #ff6d00;
+    background: rgba(26,17,0,0.55);
+}
+
+/* Package included list readability */
+.package-panel .package-box ul{
+    margin-top: 10px;
+}

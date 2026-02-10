@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 MOTORS - Admin</title>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/admin.css">
+    <!-- 403 Motors Admin UI tokens (scoped) -->
+    <link rel="stylesheet" href="/css/admin_403.css">
+
+    <!-- Event Admin UI (403 Motors): 원본 403admin_event 디자인과 동일하게 보이도록 공통/페이지 CSS를 선로딩 -->
+    <link rel="stylesheet" href="/admin403/403admin_event/admin_common.css">
+    <link rel="stylesheet" href="/admin403/403admin_event/admin_event.css">
+
+    <!-- Banner Admin UI (403 Motors) -->
+    <link rel="stylesheet" href="/admin403/403admin_banner/admin_banner.css">
+    <link rel="stylesheet" href="/admin403/403admin_banner/admin_banner_upload.css">
+
+    <!-- Cars Admin UI (403 Motors) -->
+    <link rel="stylesheet" href="/admin403/403admin_cars/admin_common.css">
+    <link rel="stylesheet" href="/admin403/403admin_cars/admin_cars.css">
+
+    <!-- Member Admin UI (403 Motors): 회원관리(list/detail)에서만 적용 -->
+    <link rel="stylesheet"
+          th:if="${activeMenu} == 'members' or ${activeMenu} == 'roles'"
+          href="/admin403/403admin_member/admin_common.css">
+    <link rel="stylesheet"
+          th:if="${activeMenu} == 'members' or ${activeMenu} == 'roles'"
+          href="/admin403/403admin_member/admin_member.css">
+    <link rel="stylesheet"
+          th:if="${activeMenu} == 'members' or ${activeMenu} == 'roles'"
+          href="/admin403/403admin_member/admin_member_in.css">
+
+    <!-- (기존 파일들도 유지) -->
+    <link rel="stylesheet" href="/css/admin_event_403.css">
+    <link rel="stylesheet" href="/css/admin_event_upload_403.css">
+
+    <style>
+        body { font-family: "Pretendard Variable", "Pretendard"; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #222; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="cp-admin flex h-screen overflow-hidden bg-[#111111]">
+
+<aside class="w-64 bg-card flex flex-col border-none overflow-y-auto shrink-0">
+    <div class="main_logo">
+        <a th:href="@{/main}"><img src="/images/logo_2.png" alt="logo" class="p-6 mt-4"></a>
+    </div>
+
+    <ul class="menu w-full p-0 gap-1">
+        <li>
+            <a href="/admin/members" data-admin-nav
+               th:classappend="${activeMenu} == 'members' or ${activeMenu} == 'roles' ? ' active-menu' : ''">
+                <i class="fa-solid fa-users w-6 text-center ml-2"></i> 회원관리
+            </a>
+        </li>
+        <li>
+            <a href="/admin/banners" data-admin-nav
+               th:classappend="${activeMenu} == 'banners' ? ' active-menu' : ''">
+                <i class="fa-solid fa-images w-6 text-center ml-2"></i> 배너관리
+            </a>
+        </li>
+        <li>
+            <a href="/admin/cars" data-admin-nav
+               th:classappend="${activeMenu} == 'cars' ? ' active-menu' : ''">
+                <i class="fa-solid fa-car w-6 text-center ml-2"></i> 차량관리
+            </a>
+        </li>
+        <li>
+            <a href="/admin/event_manage" data-admin-nav
+               th:classappend="${activeMenu} == 'events' ? ' active-menu' : ''">
+                <i class="fa-solid fa-gift w-6 text-center ml-2"></i> 이벤트관리
+            </a>
+        </li>
+
+        <li class="mt-2 px-4">
+            <a th:href="@{/main}" class="btn-custom btn-neutral w-full" style="justify-content:center;">
+                메인으로
+            </a>
+        </li>
+    </ul>
+</aside>
+
+<main class="flex-1 h-full flex flex-col overflow-hidden bg-[#111111] p-10" id="main-content">
+    <!-- ✅ 이 영역(#admin-content)만 교체되도록 구성 -->
+    <div id="admin-content" th:replace="~{${contentTemplate} :: content}">
+        <!-- fallback (contentTemplate이 누락된 경우) -->
+        <div class="bg-[#222] rounded p-10">콘텐츠를 불러올 수 없습니다.</div>
+    </div>
+</main>
+
+<!-- ===================== 정책 수정 모달 (정책목록 탭에서 사용) ===================== -->
+<!--
+  정책목록/타겟목록은 Ajax(fragment 교체)로 내용이 바뀝니다.
+  모달을 fragment 안에 두면 교체 타이밍에 따라 DOM에 없어서 JS가 못 찾는 문제가 발생할 수 있어
+  app.html에 고정으로 둡니다.
+  event-policy-modal.js가 이 모달을 찾아 showModal()로 띄웁니다.
+-->
+<dialog id="policyEditModal" class="p-0 bg-transparent">
+    <!-- backdrop -->
+    <div class="fixed inset-0 bg-black/60" data-close="true"></div>
+    <!-- modal box (정중앙 고정) -->
+    <div class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] max-w-[calc(100vw-32px)] bg-[#2b2b2b] border border-[#3a3a3a] rounded-md shadow-2xl">
+        <div class="px-6 pt-6 pb-4">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-[3px] h-[18px] bg-orange-500"></span>
+                <h3 class="text-lg font-semibold text-white">정책 수정</h3>
+            </div>
+        </div>
+
+        <form id="policyEditForm" method="post" class="px-6 pb-6">
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <label class="block text-xs text-gray-300 mb-2">정책 ID</label>
+                    <input id="policyIdInput" name="policyId" class="w-full h-11 px-4 bg-[#3a3a3a] text-white border border-orange-500 outline-none" />
+                </div>
+
+                <div>
+                    <label class="block text-xs text-gray-300 mb-2">이벤트 ID</label>
+                    <input id="policyEventIdInput" name="eventId" class="w-full h-11 px-4 bg-[#3a3a3a] text-gray-200 border border-[#444] outline-none" readonly />
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-2">타입</label>
+                        <select id="policyTypeSelect" name="policyType" class="w-full h-11 px-4 bg-[#3a3a3a] text-white border border-[#444] outline-none">
+                            <option value="PERCENT">정률 (%)</option>
+                            <option value="AMOUNT">정액 (₩)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-2">값</label>
+                        <input id="policyValueInput" name="policyValue" type="number" class="w-full h-11 px-4 bg-[#3a3a3a] text-white border border-[#444] outline-none" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-2 mt-6">
+                <button type="button" id="policyCancelBtn" class="h-10 px-5 bg-[#2f2f2f] text-gray-300 border border-[#444] js-policy-cancel">취소</button>
+                <button type="submit" class="h-10 px-5 bg-[#2f2f2f] text-white border border-orange-500">저장하기</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+<!-- ✅ Fragment 네비게이션 스크립트 (CSP/브라우저 설정에 안전하도록 외부 파일로 분리) -->
+<script src="/js/admin-nav.js" defer></script>
+
+<!-- ✅ 이벤트관리(정책/타겟) 모달 동작: fragment를 Ajax로 교체해도 항상 동작하도록 전역 스크립트로 분리 -->
+<script src="/js/event-policy-modal.js" defer></script>
+
+</body>
+</html>

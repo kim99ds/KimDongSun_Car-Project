@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="content" class="admin-event">
+    <div class="event-page">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">이벤트 관리</h1>
+                <p class="page-desc">이벤트/대상/정책을 관리합니다.</p>
+            </div>
+
+            <div class="page-actions">
+                <!-- 이벤트만 실제 컨트롤러가 존재하므로, 이벤트 외 탭은 추후 구현 전까지 버튼 비활성(링크 #) -->
+                <a class="btn-primary"
+                   th:if="${tab == null || tab == 'events'}"
+                   th:href="@{/admin/event_manage/new}">이벤트 등록</a>
+
+                <a class="btn-primary"
+                   th:if="${tab == 'targets'}"
+                   href="#" onclick="return false;">대상 등록</a>
+
+                <a class="btn-primary"
+                   th:if="${tab == 'policies'}"
+                   href="#" onclick="return false;">정책 등록</a>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <a class="tab" th:classappend="${tab == null || tab == 'events'} ? ' active'"
+               th:href="@{/admin/event_manage(tab='events')}">이벤트</a>
+            <a class="tab" th:classappend="${tab == 'targets'} ? ' active'"
+               th:href="@{/admin/event_manage(tab='targets')}">대상</a>
+            <a class="tab" th:classappend="${tab == 'policies'} ? ' active'"
+               th:href="@{/admin/event_manage(tab='policies')}">정책</a>
+        </div>
+
+        <!-- Alerts -->
+        <div class="alert success"
+             th:if="${successMessage != null and !#strings.isEmpty(successMessage)}"
+             th:text="${successMessage}"></div>
+        <div class="alert error"
+             th:if="${errorMessage != null and !#strings.isEmpty(errorMessage)}"
+             th:text="${errorMessage}"></div>
+
+        <!-- EVENTS TABLE -->
+        <section class="panel" th:if="${tab == null || tab == 'events'}">
+            <div class="panel-head">
+                <h2 class="panel-title">이벤트 목록</h2>
+            </div>
+
+            <div class="panel-body">
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th style="width: 80px;">ID</th>
+                            <th>제목</th>
+                            <th style="width: 240px;">기간</th>
+                            <th style="width: 120px;">상태</th>
+                            <th style="width: 160px;">관리</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:if="${events == null || #lists.isEmpty(events)}">
+                            <td colspan="5" class="empty">등록된 이벤트가 없습니다.</td>
+                        </tr>
+
+                        <tr th:each="e : ${events}">
+                            <td th:text="${e.eventId}">1</td>
+
+                            <td>
+                                <div class="title">
+                                    <span th:text="${e.title}">타이틀</span>
+                                </div>
+                                <div class="sub" th:if="${e.description != null}" th:text="${e.description}"></div>
+                            </td>
+
+                            <td>
+                                <span th:text="${e.startAt != null ? #temporals.format(e.startAt, 'yyyy-MM-dd HH:mm') : '-'}"></span>
+                                <span class="muted">~</span>
+                                <span th:text="${e.endAt != null ? #temporals.format(e.endAt, 'yyyy-MM-dd HH:mm') : '-'}"></span>
+                            </td>
+
+                            <!-- ✅ EventStatus(READY/ACTIVE/INACTIVE/END) - 멀티라인 삼항식 금지(파싱 에러 원인) -->
+                            <td>
+                                <span th:switch="${e.status}">
+                                    <span class="badge ready" th:case="${T(com.carproject.event.entity.EventStatus).READY}">대기중</span>
+                                    <span class="badge on" th:case="${T(com.carproject.event.entity.EventStatus).ACTIVE}">진행중</span>
+                                    <span class="badge off" th:case="${T(com.carproject.event.entity.EventStatus).INACTIVE}">비활성</span>
+                                    <span class="badge ended" th:case="${T(com.carproject.event.entity.EventStatus).END}">종료</span>
+                                    <span class="badge off" th:case="*" th:text="${e.status != null ? e.status : '비활성'}">비활성</span>
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <a class="btn"
+                                       th:href="@{/admin/event_manage/{id}/edit(id=${e.eventId})}">수정</a>
+
+                                    <form th:action="@{/admin/event_manage/{id}/delete(id=${e.eventId})}"
+                                          method="post" style="display:inline;">
+                                        <button type="submit" class="btn danger"
+                                                onclick="return confirm('정말 삭제할까요?');">삭제</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TARGETS TABLE (UI 유지용: 데이터/CRUD 미구현 시에도 500 방지) -->
+        <section class="panel" th:if="${tab == 'targets'}">
+            <div class="panel-head">
+                <h2 class="panel-title">대상 목록</h2>
+            </div>
+
+            <div class="panel-body">
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th style="width: 80px;">ID</th>
+                            <th>이름</th>
+                            <th style="width: 160px;">타입</th>
+                            <th style="width: 160px;">관리</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${targets == null || #lists.isEmpty(targets)}">
+                            <td colspan="4" class="empty">등록된 대상이 없습니다.</td>
+                        </tr>
+                        <tr th:each="t : ${targets}">
+                            <td th:text="${t.id}">1</td>
+                            <td th:text="${t.name}">VIP</td>
+                            <td th:text="${t.type}">MEMBER</td>
+                            <td>
+                                <div class="actions">
+                                    <button type="button"
+                                            class="btn js-policy-edit"
+                                            th:attr="data-policy-id=${p.policyId != null ? p.policyId : p.id},
+                                                     data-event-id=${p.eventId},
+                                                     data-discount-type=${p.discountType},
+                                                     data-discount-value=${p.discountValue}"
+                                            onclick="return false;">수정</button>
+                                    <button type="button" class="btn danger" onclick="return false;">삭제</button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 정책 수정 모달 (정책 목록 탭에서 사용) -->
+        <dialog id="policyEditModal" class="modal">
+            <form id="policyEditForm" method="post" class="modal-box" style="max-width: 540px;">
+                <h3 class="font-bold text-lg mb-4">
+                    <span class="inline-block w-1 h-4 bg-orange-500 mr-2 align-middle"></span>
+                    정책 수정
+                </h3>
+
+                <div class="form-group">
+                    <label>정책 ID</label>
+                    <input id="policyIdView" type="text" class="input" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>이벤트 ID</label>
+                    <input id="policyEventIdView" type="text" class="input" readonly>
+                </div>
+
+                <div class="form-row" style="display:flex; gap:12px;">
+                    <div class="form-group" style="flex:1;">
+                        <label>타입</label>
+                        <select id="policyDiscountType" name="discountType" class="select">
+                            <option value="RATE">정률 (%)</option>
+                            <option value="AMOUNT">정액 (₩)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex:1;">
+                        <label>값</label>
+                        <input id="policyDiscountValue" name="discountValue" type="number" class="input" min="0" step="1">
+                    </div>
+                </div>
+
+                <div class="modal-action" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
+                    <button type="button" id="policyModalCancel" class="btn">취소</button>
+                    <button type="submit" class="btn" style="border:1px solid #ff7a00;">저장하기</button>
+                </div>
+            </form>
+        </dialog>
+
+        <!-- POLICIES TABLE (UI 유지용: 데이터/CRUD 미구현 시에도 500 방지) -->
+        <section class="panel" th:if="${tab == 'policies'}">
+            <div class="panel-head">
+                <h2 class="panel-title">정책 목록</h2>
+            </div>
+
+            <div class="panel-body">
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th style="width: 80px;">ID</th>
+                            <th>이름</th>
+                            <th style="width: 200px;">타입</th>
+                            <th style="width: 160px;">관리</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${policies == null || #lists.isEmpty(policies)}">
+                            <td colspan="4" class="empty">등록된 정책이 없습니다.</td>
+                        </tr>
+                        <tr th:each="p : ${policies}">
+                            <td th:text="${p.id}">1</td>
+                            <td th:text="${p.name}">할인</td>
+                            <td th:text="${p.type}">DISCOUNT</td>
+                            <td>
+                                <div class="actions">
+                                    <button type="button"
+                                            class="btn js-policy-edit"
+                                            th:attr="
+                                              data-policy-id=${p.policyId != null ? p.policyId : p.id},
+                                              data-event-id=${p.eventId},
+                                              data-discount-type=${p.discountType},
+                                              data-discount-value=${p.discountValue}">
+                                        수정
+                                    </button>
+                                    <button type="button" class="btn danger" onclick="return false;">삭제</button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    (function () {
+        const modal = document.getElementById('policyEditModal');
+        const form  = document.getElementById('policyEditForm');
+        if (!modal || !form) return;
+
+        const policyIdView = document.getElementById('policyIdView');
+        const eventIdView  = document.getElementById('policyEventIdView');
+        const typeSel      = document.getElementById('policyDiscountType');
+        const valueInp     = document.getElementById('policyDiscountValue');
+
+        function openPolicyModal(btn) {
+            const policyId = btn.dataset.policyId;
+            const eventId  = btn.dataset.eventId || '-';
+            const dtype    = btn.dataset.discountType || 'RATE';
+            const dvalue   = btn.dataset.discountValue || '';
+
+            policyIdView.value = policyId || '';
+            eventIdView.value  = eventId;
+            if (dtype) typeSel.value = dtype;
+            valueInp.value     = dvalue;
+
+            form.action = `/admin/event_manage/policies/${policyId}`;
+
+            if (typeof modal.showModal === 'function') modal.showModal();
+            else modal.setAttribute('open', 'open');
+        }
+
+        function closeModal() {
+            if (typeof modal.close === 'function') modal.close();
+            else modal.removeAttribute('open');
+        }
+
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.js-policy-edit');
+            if (!btn) return;
+            e.preventDefault();
+            openPolicyModal(btn);
+        });
+
+        const cancelBtn = document.getElementById('policyModalCancel');
+        if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    })();
+</script>
+
+</body>
+</html>

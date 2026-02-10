@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 MOTORS</title>
+
+    <!-- user assets (kept) -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/randing.css}">
+</head>
+<body>
+
+<!-- 무한 스크롤용 clone (JS가 innerHTML로 채움) -->
+<div class="car clone clone-last"></div>
+
+<!-- 배너가 없을 때 fallback -->
+<div class="car" th:if="${#lists.isEmpty(banners)}">
+    <img class="bg" th:src="@{/images/santafe1.webp}" alt="landing">
+    <div class="homeBtn">
+        <a th:href="@{/main}"><img th:src="@{/images/home.png}" alt="home"></a>
+    </div>
+
+    <div class="textBox">
+        <h1>랜딩 배너가 아직 없습니다.</h1>
+        <h3>관리자 → 랜딩페이지관리에서 배너를 등록하세요.</h3>
+        <ul class="btn">
+            <li><a th:href="@{/admin/banners}">랜딩페이지관리 <span aria-hidden="true">></span></a></li>
+            <li><a th:href="@{/main}">메인페이지 <span aria-hidden="true">></span></a></li>
+        </ul>
+    </div>
+
+    <div class="scroll">
+        <p>Scroll</p>
+        <img th:src="@{/images/arrow.png}" alt="아래로 스크롤">
+    </div>
+</div>
+
+<!-- 실제 배너 섹션들 (디자인/JS 구조 유지 + 데이터만 치환) -->
+<div class="car" th:each="b : ${banners}">
+    <img class="bg" th:src="${b.imageUrl}" th:alt="${b.title}">
+
+    <div class="homeBtn">
+        <a th:href="@{/main}"><img th:src="@{/images/home.png}" alt="home"></a>
+    </div>
+
+    <div class="textBox">
+        <h1 th:text="${b.title}">TITLE</h1>
+        <h3 th:text="${b.subTitle}">SUB TITLE</h3>
+
+        <ul class="btn">
+            <li>
+                <a th:href="@{/cars}">더 알아보기 <span aria-hidden="true">></span></a>
+            </li>
+            <li><a th:href="@{/main}">메인페이지 <span aria-hidden="true">></span></a></li>
+        </ul>
+    </div>
+
+    <div class="scroll">
+        <p>Scroll</p>
+        <img th:src="@{/images/arrow.png}" alt="아래로 스크롤">
+    </div>
+</div>
+
+<div class="car clone clone-first"></div>
+
+<script th:src="@{/js/randing.js}"></script>
+</body>
+</html>

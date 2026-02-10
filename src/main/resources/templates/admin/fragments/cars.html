@@ -1,0 +1,1079 @@
+<div th:fragment="content">
+    <h1 class="text-3xl font-bold mb-6">차량관리</h1>
+
+    <!-- 탭 -->
+    <div class="flex flex-wrap gap-6 mb-6 border-b border-[#333]">
+        <a data-admin-nav th:href="@{/admin/cars(tab='brand')}"
+           class="tab-btn"
+           th:classappend="${tab}=='brand' ? ' active' : ''">브랜드</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='model')}"
+           class="tab-btn"
+           th:classappend="${tab}=='model' ? ' active' : ''">모델</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='variant')}"
+           class="tab-btn"
+           th:classappend="${tab}=='variant' ? ' active' : ''">엔진(Variant)</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='trim')}"
+           class="tab-btn"
+           th:classappend="${tab}=='trim' ? ' active' : ''">트림</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='option')}"
+           class="tab-btn"
+           th:classappend="${tab}=='option' ? ' active' : ''">옵션</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='trimOption')}"
+           class="tab-btn"
+           th:classappend="${tab}=='trimOption' ? ' active' : ''">트림-옵션</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='color')}"
+           class="tab-btn"
+           th:classappend="${tab}=='color' ? ' active' : ''">컬러</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='trimColor')}"
+           class="tab-btn"
+           th:classappend="${tab}=='trimColor' ? ' active' : ''">트림-컬러</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='dependency')}"
+           class="tab-btn"
+           th:classappend="${tab}=='dependency' ? ' active' : ''">옵션 제약</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='group')}"
+           class="tab-btn"
+           th:classappend="${tab}=='group' ? ' active' : ''">옵션 그룹</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='groupItem')}"
+           class="tab-btn"
+           th:classappend="${tab}=='groupItem' ? ' active' : ''">그룹-옵션</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='packageItem')}"
+           class="tab-btn"
+           th:classappend="${tab}=='packageItem' ? ' active' : ''">패키지 구성</a>
+
+        <a data-admin-nav th:href="@{/admin/cars(tab='carImage')}"
+           class="tab-btn"
+           th:classappend="${tab}=='carImage' ? ' active' : ''">이미지</a>
+    </div>
+
+    <!-- 메시지 -->
+    <div th:if="${successMessage}" class="mb-4 bg-[#173] border border-[#2a5] rounded p-3 text-sm" th:text="${successMessage}"></div>
+    <div th:if="${errorMessage}" class="mb-4 bg-[#511] border border-[#a44] rounded p-3 text-sm" th:text="${errorMessage}"></div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+        <!-- =========================
+             좌측: 등록 폼
+             ========================= -->
+        <div class="bg-[#222] border border-[#333] rounded p-6">
+            <h2 class="text-xl font-bold mb-4">등록</h2>
+
+            <!-- 브랜드 -->
+            <form th:if="${tab}=='brand'" method="post" action="/admin/cars/brand" class="space-y-3">
+                <input name="brandName" placeholder="브랜드명"
+                       class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <select name="countryCode" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option value="">(미지정)</option>
+                    <option value="KOR">KOR</option>
+                    <option value="USA">USA</option>
+                    <option value="JPN">JPN</option>
+                    <option value="GER">GER</option>
+                    <option value="FRA">FRA</option>
+                    <option value="SWE">SWE</option>
+                    <option value="ITA">ITA</option>
+                </select>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 모델 -->
+            <form th:if="${tab}=='model'" method="post" action="/admin/cars/model" class="space-y-3">
+                <select name="brandId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="b: ${brands}" th:value="${b.brandId}" th:text="${b.brandName}"></option>
+                </select>
+                <input name="modelName" placeholder="모델명" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="modelYear" placeholder="연식(숫자)" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="segment" placeholder="segment (예: SUV, SEDAN...)" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="releaseDate" placeholder="출시일 yyyy-MM-dd" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 엔진(Variant) -->
+            <form th:if="${tab}=='variant'" method="post" action="/admin/cars/variant" class="space-y-3">
+                <select name="modelId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="m: ${models}" th:value="${m.modelId}"
+                            th:text="${m.brand.brandName + ' / ' + m.modelName + ' (' + m.modelYear + ')'}"></option>
+                </select>
+                <input name="engineType" placeholder="ENGINE_TYPE (예: GASOLINE, HEV...)" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="engineName" placeholder="ENGINE_NAME" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="displacementCc" placeholder="DISPLACEMENT_CC" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="transmission" placeholder="TRANSMISSION" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="driveType" placeholder="DRIVE_TYPE" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="fuelEfficiency" placeholder="FUEL_EFFICIENCY" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="co2Emission" placeholder="CO2_EMISSION" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 트림 -->
+            <form th:if="${tab}=='trim'" method="post" action="/admin/cars/trim" class="space-y-3">
+                <select name="variantId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="v: ${variants}" th:value="${v.variantId}"
+                            th:text="${v.model.brand.brandName + ' / ' + v.model.modelName + ' / ' + v.engineName}"></option>
+                </select>
+                <input name="trimName" placeholder="TRIM_NAME" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="basePrice" placeholder="BASE_PRICE" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <textarea name="description" placeholder="DESCRIPTION" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"></textarea>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 옵션 -->
+            <form th:if="${tab}=='option'" method="post" action="/admin/cars/option" class="space-y-3">
+                <select name="brandId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="b: ${brands}" th:value="${b.brandId}" th:text="${b.brandName}"></option>
+                </select>
+                <input name="optionName" placeholder="OPTION_NAME" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="optionPrice" placeholder="OPTION_PRICE (없으면 0)" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <textarea name="optionDesc" placeholder="OPTION_DESC" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"></textarea>
+
+                <select name="optionType" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option value="SINGLE">SINGLE</option>
+                    <option value="PACKAGE">PACKAGE</option>
+                </select>
+
+                <!-- ✅ value는 enum 이름(대문자) -->
+                <select name="optionCategory" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option value="WHEEL">wheel</option>
+                    <option value="ASSISTANT">assistant</option>
+                    <option value="INTERIOR">interior</option>
+                    <option value="SEATS">seats</option>
+                    <option value="ETC">etc</option>
+                </select>
+
+                <select name="selectRule" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option value="SINGLE">SINGLE</option>
+                    <option value="MULTI">MULTI</option>
+                </select>
+
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 트림-옵션 -->
+            <form th:if="${tab}=='trimOption'" method="post" action="/admin/cars/trim-option" class="space-y-3">
+                <select name="trimId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="t: ${trims}" th:value="${t.trimId}"
+                            th:text="${t.variant.model.brand.brandName + ' / ' + t.variant.model.modelName + ' / ' + t.trimName}"></option>
+                </select>
+                <select name="optionItemId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="o: ${optionItems}" th:value="${o.optionItemId}" th:text="${o.optionName}"></option>
+                </select>
+                <select name="isRequired" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 컬러 -->
+            <form th:if="${tab}=='color'" method="post" action="/admin/cars/color" class="space-y-3">
+                <input name="colorName" placeholder="COLOR_NAME" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="colorCode" placeholder="COLOR_CODE" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="colorPrice" placeholder="COLOR_PRICE" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <input name="colorType" placeholder="COLOR_TYPE (EXTERIOR/INTERIOR 등)" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 트림-컬러 -->
+            <form th:if="${tab}=='trimColor'" method="post" action="/admin/cars/trim-color" class="space-y-3">
+                <select name="trimId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="t: ${trims}" th:value="${t.trimId}"
+                            th:text="${t.variant.model.brand.brandName + ' / ' + t.variant.model.modelName + ' / ' + t.trimName}"></option>
+                </select>
+                <select name="colorId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="c: ${colors}" th:value="${c.colorId}"
+                            th:text="${c.colorName + ' (' + c.colorType + ')'}"></option>
+                </select>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 옵션 제약 -->
+            <form th:if="${tab}=='dependency'" method="post" action="/admin/cars/dependency" class="space-y-3">
+                <select name="optionItemId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="o: ${optionItems}" th:value="${o.optionItemId}" th:text="${o.optionName}"></option>
+                </select>
+                <select name="relatedOptionItemId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="o: ${optionItems}" th:value="${o.optionItemId}" th:text="${o.optionName}"></option>
+                </select>
+                <select name="ruleType" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option value="REQUIRES">REQUIRES</option>
+                    <option value="EXCLUDES">EXCLUDES</option>
+                </select>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 옵션 그룹 -->
+            <form th:if="${tab}=='group'" method="post" action="/admin/cars/group" class="space-y-3">
+                <select name="brandId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="b: ${brands}" th:value="${b.brandId}" th:text="${b.brandName}"></option>
+                </select>
+                <input name="groupName" placeholder="GROUP_NAME" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <select name="selectRule" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option value="SINGLE">SINGLE</option>
+                    <option value="MULTI">MULTI</option>
+                </select>
+                <input name="description" placeholder="DESCRIPTION" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 그룹-옵션 -->
+            <form th:if="${tab}=='groupItem'" method="post" action="/admin/cars/group-item" class="space-y-3">
+                <select name="optionGroupId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="g: ${optionGroups}" th:value="${g.optionGroupId}"
+                            th:text="${g.brand.brandName + ' / ' + g.groupName}"></option>
+                </select>
+                <select name="optionItemId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="o: ${optionItems}" th:value="${o.optionItemId}" th:text="${o.optionName}"></option>
+                </select>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- 패키지 구성 -->
+            <form th:if="${tab}=='packageItem'" method="post" action="/admin/cars/package-item" class="space-y-3">
+                <select name="packageOptionItemId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="o: ${optionItems}" th:value="${o.optionItemId}"
+                            th:text="${o.optionName + ' / type=' + o.optionType}"></option>
+                </select>
+                <select name="childOptionItemId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option th:each="o: ${optionItems}" th:value="${o.optionItemId}" th:text="${o.optionName}"></option>
+                </select>
+                <select name="isIncluded" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+                <input name="sortOrder" placeholder="SORT_ORDER(선택)" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+                <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+            </form>
+
+            <!-- ✅ 이미지 (등록/수정)
+                 핵심: th:switch로 완전 분기해서 edit.imageId 선평가 문제 방지 -->
+            <div th:if="${tab}=='carImage'" th:switch="${edit}">
+
+                <!-- 이미지 (등록) -->
+                <div th:case="null">
+                    <form method="post" action="/admin/cars/car-image"
+                          enctype="multipart/form-data" class="space-y-3">
+
+                        <select name="modelId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                            <option th:each="m: ${models}" th:value="${m.modelId}"
+                                    th:text="${m.brand.brandName + ' / ' + m.modelName + ' (' + m.modelYear + ')'}"></option>
+                        </select>
+
+
+                        <select name="viewType" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                            <option value="exterior">exterior</option>
+                            <option value="con">con</option>
+                        </select>
+
+                        <input type="file" name="imageFile" accept="image/*" required
+                               class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+
+                        <button class="w-full bg-[#bbb] text-black font-bold py-2 rounded">등록</button>
+                    </form>
+                </div>
+
+                <!-- 이미지 (수정) -->
+                <div th:case="*">
+                    <form method="post"
+                          th:action="@{/admin/cars/car-image/{id}/update(id=${edit.imageId})}"
+                          enctype="multipart/form-data" class="space-y-3">
+
+                        <div class="text-sm text-gray-400">
+                            IMAGE_ID: <span th:text="${edit.imageId}"></span>
+                        </div>
+
+                        <select name="modelId" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                            <option th:each="m: ${models}" th:value="${m.modelId}"
+                                    th:selected="${edit.model != null and edit.model.modelId == m.modelId}"
+                                    th:text="${m.brand.brandName + ' / ' + m.modelName + ' (' + m.modelYear + ')'}"></option>
+                        </select>
+
+
+                        <select name="viewType" class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]">
+                            <option value="exterior" th:selected="${edit.viewType == 'exterior'}">exterior</option>
+                            <option value="con" th:selected="${edit.viewType == 'con'}">con</option>
+                        </select>
+
+                        <div class="space-y-2">
+                            <div class="text-xs text-gray-500">현재 이미지</div>
+                            <a th:if="${edit.imageUrl}" th:href="${edit.imageUrl}" target="_blank"
+                               class="text-sm text-gray-200 underline" th:text="${edit.imageUrl}"></a>
+
+                            <img th:if="${edit.imageUrl}" th:src="${edit.imageUrl}" alt="preview"
+                                 class="max-h-40 rounded border border-[#333]"/>
+                        </div>
+
+                        <input type="file" name="imageFile" accept="image/*"
+                               class="w-full px-3 py-2 rounded bg-[#111] border border-[#333]"/>
+
+                        <div class="flex gap-2">
+                            <button class="flex-1 bg-[#bbb] text-black font-bold py-2 rounded">저장</button>
+                            <a data-admin-nav th:href="@{/admin/cars(tab='carImage')}"
+                               class="flex-1 text-center bg-[#2a2a2a] text-gray-200 py-2 rounded hover:bg-[#3a3a3a]">취소</a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =========================
+             우측: 목록(탭별)
+             ========================= -->
+        <div class="bg-[#222] border border-[#333] rounded p-6 overflow-auto">
+            <h2 class="text-xl font-bold mb-4">목록</h2>
+
+            <!-- BRAND -->
+            <table th:if="${tab}=='brand'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">BRAND_ID</th>
+                    <th class="text-left py-2">BRAND_NAME</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="b: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${b.brandId}"></td>
+                    <td class="py-2" th:text="${b.brandName}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <button type="button"
+                                    class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]"
+                                    data-edit-btn data-tab="brand"
+                                    th:attr="data-id=${b.brandId},data-brand-name=${b.brandName},data-country-code=${b.countryCode}">
+                                수정
+                            </button>
+                            <form method="post" th:action="@{/admin/cars/brand/{id}/delete(id=${b.brandId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- MODEL -->
+            <table th:if="${tab}=='model'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">MODEL_ID</th>
+                    <th class="text-left py-2">BRAND</th>
+                    <th class="text-left py-2">MODEL_NAME</th>
+                    <th class="text-left py-2">YEAR</th>
+                    <th class="text-left py-2">SEGMENT</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="m: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${m.modelId}"></td>
+                    <td class="py-2" th:text="${m.brand != null ? m.brand.brandName : ''}"></td>
+                    <td class="py-2" th:text="${m.modelName}"></td>
+                    <td class="py-2" th:text="${m.modelYear}"></td>
+                    <td class="py-2" th:text="${m.segment}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <button type="button"
+                                    class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]"
+                                    data-edit-btn data-tab="model"
+                                    th:attr="data-id=${m.modelId},data-brand-id=${m.brand!=null?m.brand.brandId:''},data-model-name=${m.modelName},data-model-year=${m.modelYear},data-segment=${m.segment}">
+                                수정
+                            </button>
+                            <form method="post" th:action="@{/admin/cars/model/{id}/delete(id=${m.modelId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- VARIANT -->
+            <table th:if="${tab}=='variant'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">VARIANT_ID</th>
+                    <th class="text-left py-2">MODEL</th>
+                    <th class="text-left py-2">ENGINE_TYPE</th>
+                    <th class="text-left py-2">ENGINE_NAME</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="v: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${v.variantId}"></td>
+                    <td class="py-2"
+                        th:text="${v.model != null ? (v.model.brand.brandName + ' / ' + v.model.modelName) : ''}"></td>
+                    <td class="py-2" th:text="${v.engineType}"></td>
+                    <td class="py-2" th:text="${v.engineName}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <button type="button"
+                                    class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]"
+                                    data-edit-btn data-tab="variant"
+                                    th:attr="data-id=${v.variantId},data-model-id=${v.model!=null?v.model.modelId:''},data-engine-type=${v.engineType},data-engine-name=${v.engineName}">
+                                수정
+                            </button>
+                            <form method="post" th:action="@{/admin/cars/variant/{id}/delete(id=${v.variantId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- TRIM -->
+            <table th:if="${tab}=='trim'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">TRIM_ID</th>
+                    <th class="text-left py-2">MODEL</th>
+                    <th class="text-left py-2">ENGINE</th>
+                    <th class="text-left py-2">TRIM_NAME</th>
+                    <th class="text-left py-2">BASE_PRICE</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="t: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${t.trimId}"></td>
+                    <td class="py-2"
+                        th:text="${t.variant != null ? (t.variant.model.brand.brandName + ' / ' + t.variant.model.modelName) : ''}"></td>
+                    <td class="py-2" th:text="${t.variant != null ? t.variant.engineName : ''}"></td>
+                    <td class="py-2" th:text="${t.trimName}"></td>
+                    <td class="py-2" th:text="${t.basePrice}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <button type="button"
+                                    class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]"
+                                    data-edit-btn data-tab="trim"
+                                    th:attr="data-id=${t.trimId},data-variant-id=${t.variant!=null?t.variant.variantId:''},data-trim-name=${t.trimName},data-base-price=${t.basePrice}">
+                                수정
+                            </button>
+                            <form method="post" th:action="@{/admin/cars/trim/{id}/delete(id=${t.trimId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- OPTION -->
+            <table th:if="${tab}=='option'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">OPTION_ITEM_ID</th>
+                    <th class="text-left py-2">BRAND</th>
+                    <th class="text-left py-2">NAME</th>
+                    <th class="text-left py-2">CATEGORY</th>
+                    <th class="text-left py-2">RULE</th>
+                    <th class="text-left py-2">PRICE</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="o: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${o.optionItemId}"></td>
+                    <td class="py-2" th:text="${o.brand != null ? o.brand.brandName : ''}"></td>
+                    <td class="py-2" th:text="${o.optionName}"></td>
+                    <td class="py-2" th:text="${o.optionCategory}"></td>
+                    <td class="py-2" th:text="${o.selectRule}"></td>
+                    <td class="py-2" th:text="${o.optionPrice}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <button type="button"
+                                    class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]"
+                                    data-edit-btn data-tab="option"
+                                    th:attr="data-id=${o.optionItemId},data-brand-id=${o.brand!=null?o.brand.brandId:''},data-option-name=${o.optionName},data-option-category=${o.optionCategory},data-select-rule=${o.selectRule},data-option-price=${o.optionPrice},data-option-desc=${o.optionDesc}">
+                                수정
+                            </button>
+                            <form method="post" th:action="@{/admin/cars/option/{id}/delete(id=${o.optionItemId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- TRIM_OPTION -->
+            <table th:if="${tab}=='trimOption'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">TRIM_OPTION_ID</th>
+                    <th class="text-left py-2">TRIM</th>
+                    <th class="text-left py-2">OPTION</th>
+                    <th class="text-left py-2">REQUIRED</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="x: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${x.trimOptionId}"></td>
+                    <td class="py-2" th:text="${x.trim != null ? x.trim.trimName : ''}"></td>
+                    <td class="py-2" th:text="${x.optionItem != null ? x.optionItem.optionName : ''}"></td>
+                    <td class="py-2" th:text="${x.isRequired}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <a data-admin-nav th:href="@{/admin/cars(tab='trimOption', editId=${x.trimOptionId})}"
+                               class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]">수정</a>
+                            <form method="post" th:action="@{/admin/cars/trim-option/{id}/delete(id=${x.trimOptionId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- COLOR -->
+            <table th:if="${tab}=='color'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">COLOR_ID</th>
+                    <th class="text-left py-2">NAME</th>
+                    <th class="text-left py-2">TYPE</th>
+                    <th class="text-left py-2">PRICE</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="c: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${c.colorId}"></td>
+                    <td class="py-2" th:text="${c.colorName}"></td>
+                    <td class="py-2" th:text="${c.colorType}"></td>
+                    <td class="py-2" th:text="${c.colorPrice}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <button type="button"
+                                    class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]"
+                                    data-edit-btn data-tab="color"
+                                    th:attr="data-id=${c.colorId},data-color-name=${c.colorName},data-color-code=${c.colorCode},data-color-type=${c.colorType},data-color-price=${c.colorPrice}">
+                                수정
+                            </button>
+                            <form method="post" th:action="@{/admin/cars/color/{id}/delete(id=${c.colorId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- TRIM_COLOR -->
+            <table th:if="${tab}=='trimColor'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">TRIM_COLOR_ID</th>
+                    <th class="text-left py-2">TRIM</th>
+                    <th class="text-left py-2">COLOR</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="x: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${x.trimColorId}"></td>
+                    <td class="py-2" th:text="${x.trim != null ? x.trim.trimName : ''}"></td>
+                    <td class="py-2" th:text="${x.color != null ? (x.color.colorName + ' (' + x.color.colorType + ')') : ''}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <a data-admin-nav th:href="@{/admin/cars(tab='trimColor', editId=${x.trimColorId})}"
+                               class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]">수정</a>
+                            <form method="post" th:action="@{/admin/cars/trim-color/{id}/delete(id=${x.trimColorId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- DEPENDENCY -->
+            <table th:if="${tab}=='dependency'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">DEPENDENCY_ID</th>
+                    <th class="text-left py-2">OPTION</th>
+                    <th class="text-left py-2">RELATED</th>
+                    <th class="text-left py-2">RULE</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="d: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${d.optionDependencyId}"></td>
+                    <td class="py-2" th:text="${d.optionItem != null ? d.optionItem.optionName : ''}"></td>
+                    <td class="py-2" th:text="${d.relatedOptionItem != null ? d.relatedOptionItem.optionName : ''}"></td>
+                    <td class="py-2" th:text="${d.ruleType}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <a data-admin-nav th:href="@{/admin/cars(tab='dependency', editId=${d.optionDependencyId})}"
+                               class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]">수정</a>
+                            <form method="post" th:action="@{/admin/cars/dependency/{id}/delete(id=${d.optionDependencyId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- GROUP -->
+            <table th:if="${tab}=='group'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">GROUP_ID</th>
+                    <th class="text-left py-2">BRAND</th>
+                    <th class="text-left py-2">NAME</th>
+                    <th class="text-left py-2">RULE</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="g: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${g.optionGroupId}"></td>
+                    <td class="py-2" th:text="${g.brand != null ? g.brand.brandName : ''}"></td>
+                    <td class="py-2" th:text="${g.groupName}"></td>
+                    <td class="py-2" th:text="${g.selectRule}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <a data-admin-nav th:href="@{/admin/cars(tab='group', editId=${g.optionGroupId})}"
+                               class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]">수정</a>
+                            <form method="post" th:action="@{/admin/cars/group/{id}/delete(id=${g.optionGroupId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- GROUP_ITEM -->
+            <table th:if="${tab}=='groupItem'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">GROUP_ITEM_ID</th>
+                    <th class="text-left py-2">GROUP</th>
+                    <th class="text-left py-2">OPTION</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="x: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${x.optionGroupItemId}"></td>
+                    <td class="py-2" th:text="${x.optionGroup != null ? x.optionGroup.groupName : ''}"></td>
+                    <td class="py-2" th:text="${x.optionItem != null ? x.optionItem.optionName : ''}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <a data-admin-nav th:href="@{/admin/cars(tab='groupItem', editId=${x.optionGroupItemId})}"
+                               class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]">수정</a>
+                            <form method="post" th:action="@{/admin/cars/group-item/{id}/delete(id=${x.optionGroupItemId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- PACKAGE_ITEM -->
+            <table th:if="${tab}=='packageItem'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">PACKAGE_ITEM_ID</th>
+                    <th class="text-left py-2">PACKAGE</th>
+                    <th class="text-left py-2">CHILD</th>
+                    <th class="text-left py-2">INCLUDED</th>
+                    <th class="text-left py-2">SORT</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="x: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${x.optionPackageItemId}"></td>
+                    <td class="py-2" th:text="${x.packageOptionItem != null ? x.packageOptionItem.optionName : ''}"></td>
+                    <td class="py-2" th:text="${x.childOptionItem != null ? x.childOptionItem.optionName : ''}"></td>
+                    <td class="py-2" th:text="${x.isIncluded}"></td>
+                    <td class="py-2" th:text="${x.sortOrder}"></td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <a data-admin-nav th:href="@{/admin/cars(tab='packageItem', editId=${x.optionPackageItemId})}"
+                               class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]">수정</a>
+                            <form method="post" th:action="@{/admin/cars/package-item/{id}/delete(id=${x.optionPackageItemId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- CAR_IMAGE -->
+            <table th:if="${tab}=='carImage'" class="w-full text-sm">
+                <thead>
+                <tr class="text-gray-300 border-b border-[#333]">
+                    <th class="text-left py-2">IMAGE_ID</th>
+                    <th class="text-left py-2">MODEL</th>
+                    <th class="text-left py-2">VIEW_TYPE</th>
+                    <th class="text-left py-2">IMAGE</th>
+                    <th class="text-right py-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="x: ${list}" class="border-b border-[#333]">
+                    <td class="py-2" th:text="${x.imageId}"></td>
+                    <td class="py-2" th:text="${x.model != null ? (x.model.brand.brandName + ' / ' + x.model.modelName) : ''}"></td>
+                    <td class="py-2" th:text="${x.viewType}"></td>
+                    <td class="py-2">
+                        <div class="flex items-center gap-2">
+                            <img th:if="${x.imageUrl}" th:src="${x.imageUrl}" alt="thumb"
+                                 class="h-10 w-16 object-cover rounded border border-[#333]"/>
+                            <a th:if="${x.imageUrl}" th:href="${x.imageUrl}" target="_blank"
+                               class="text-gray-200 underline text-xs">열기</a>
+                        </div>
+                    </td>
+                    <td class="py-2 text-right">
+                        <div class="flex justify-end gap-2">
+                            <a data-admin-nav th:href="@{/admin/cars(tab='carImage', editId=${x.imageId})}"
+                               class="px-3 py-1 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]">수정</a>
+                            <form method="post" th:action="@{/admin/cars/car-image/{id}/delete(id=${x.imageId})}">
+                                <button class="px-3 py-1 rounded bg-[#444] text-gray-200 hover:bg-[#555]">삭제</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div><!-- /우측 목록 -->
+    </div><!-- /grid -->
+
+
+    <!-- =========================
+         삭제 확인 모달 (공용)
+         ========================= -->
+    <div id="deleteConfirmModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/60" data-delete-close></div>
+
+        <div class="absolute left-1/2 top-1/2 w-[520px] max-w-[95vw] -translate-x-1/2 -translate-y-1/2
+                    bg-[#1f1f1f] border border-[#333] rounded p-6 shadow-xl">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold">삭제 확인</h3>
+                <button type="button" class="px-3 py-1 rounded bg-[#2a2a2a] hover:bg-[#3a3a3a]" data-delete-close>닫기</button>
+            </div>
+
+            <p class="text-gray-200">정말 삭제하시겠습니까?</p>
+
+            <div class="mt-6 flex justify-end gap-2">
+                <button type="button" class="px-4 py-2 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]" data-delete-close>취소</button>
+                <button type="button" id="deleteConfirmYes" class="px-4 py-2 rounded bg-[#bbb] text-black font-bold hover:bg-[#ddd]">삭제</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================
+         수정 모달 (공용)
+         ========================= -->
+    <div id="editModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/60" data-edit-close></div>
+
+        <div class="absolute left-1/2 top-1/2 w-[720px] max-w-[95vw] -translate-x-1/2 -translate-y-1/2
+                    bg-[#1f1f1f] border border-[#333] rounded p-6 shadow-xl">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold">수정</h3>
+                <button type="button" class="px-3 py-1 rounded bg-[#2a2a2a] hover:bg-[#3a3a3a]" data-edit-close>닫기</button>
+            </div>
+
+            <form id="editForm" method="post">
+                <input type="hidden" id="editId" name="id"/>
+
+                <!-- BRAND -->
+                <div data-modal-tab="brand" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">브랜드명</label>
+                        <input name="brandName" id="edit_brandName" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">국가코드</label>
+                        <input name="countryCode" id="edit_countryCode" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                    </div>
+                </div>
+
+                <!-- MODEL -->
+                <div data-modal-tab="model" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">브랜드</label>
+                        <select name="brandId" id="edit_model_brandId" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200">
+                            <option value="">선택</option>
+                            <option th:each="b: ${brands}" th:value="${b.brandId}" th:text="${b.brandName}"></option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">모델명</label>
+                        <input name="modelName" id="edit_modelName" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-sm text-gray-300 mb-1">연식</label>
+                            <input name="modelYear" id="edit_modelYear" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-300 mb-1">세그먼트</label>
+                            <input name="segment" id="edit_segment" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VARIANT -->
+                <div data-modal-tab="variant" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">모델</label>
+                        <select name="modelId" id="edit_variant_modelId" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200">
+                            <option value="">선택</option>
+                            <option th:each="m: ${models}" th:value="${m.modelId}"
+                                    th:text="${m.brand.brandName + ' / ' + m.modelName}"></option>
+                        </select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-sm text-gray-300 mb-1">엔진 타입</label>
+                            <input name="engineType" id="edit_engineType" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-300 mb-1">엔진명</label>
+                            <input name="engineName" id="edit_engineName" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TRIM -->
+                <div data-modal-tab="trim" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">배리언트</label>
+                        <select name="variantId" id="edit_trim_variantId" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200">
+                            <option value="">선택</option>
+                            <option th:each="v: ${variants}" th:value="${v.variantId}"
+                                    th:text="${v.model.brand.brandName + ' / ' + v.model.modelName + ' / ' + v.engineName}"></option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">트림명</label>
+                        <input name="trimName" id="edit_trimName" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">기본가</label>
+                        <input name="basePrice" id="edit_basePrice" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                    </div>
+                </div>
+
+                <!-- OPTION -->
+                <div data-modal-tab="option" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">브랜드</label>
+                        <select name="brandId" id="edit_option_brandId" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200">
+                            <option value="">선택</option>
+                            <option th:each="b: ${brands}" th:value="${b.brandId}" th:text="${b.brandName}"></option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">옵션명</label>
+                        <input name="optionName" id="edit_optionName" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-sm text-gray-300 mb-1">카테고리</label>
+                            <!-- ✅ enum 대문자 통일 -->
+                            <select name="optionCategory" id="edit_optionCategory" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200">
+                                <option value="WHEEL">wheel</option>
+                                <option value="ASSISTANT">assistant</option>
+                                <option value="INTERIOR">interior</option>
+                                <option value="SEATS">seats</option>
+                                <option value="ETC">etc</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-300 mb-1">선택 규칙</label>
+                            <select name="selectRule" id="edit_selectRule" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200">
+                                <option value="SINGLE">SINGLE</option>
+                                <option value="MULTI">MULTI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">가격</label>
+                        <input name="optionPrice" id="edit_optionPrice" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">설명</label>
+                        <textarea name="optionDesc" id="edit_optionDesc" rows="3"
+                                  class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200"></textarea>
+                    </div>
+                </div>
+
+                <!-- COLOR -->
+                <div data-modal-tab="color" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">색상명</label>
+                        <input name="colorName" id="edit_colorName" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-sm text-gray-300 mb-1">색상코드</label>
+                            <input name="colorCode" id="edit_colorCode" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-300 mb-1">타입</label>
+                            <select name="colorType" id="edit_colorType" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200">
+                                <option value="EXTERIOR">EXTERIOR</option>
+                                <option value="INTERIOR">INTERIOR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-300 mb-1">가격</label>
+                        <input name="colorPrice" id="edit_colorPrice" class="w-full bg-[#111] border border-[#333] rounded px-3 py-2 text-gray-200" />
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-2 mt-6">
+                    <button type="button" class="px-4 py-2 rounded bg-[#2a2a2a] text-gray-200 hover:bg-[#3a3a3a]" data-edit-close>취소</button>
+                    <button type="submit" class="px-4 py-2 rounded bg-[#bbb] text-black font-bold hover:bg-[#d0d0d0]">저장</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const modal = document.getElementById('editModal');
+            const form = document.getElementById('editForm');
+            const editIdEl = document.getElementById('editId');
+
+            function closeModal() {
+                modal.classList.add('hidden');
+                modal.querySelectorAll('[data-modal-tab]').forEach(el => el.classList.add('hidden'));
+            }
+
+            function openModal(tab, dataset) {
+                const id = dataset.id;
+                form.action = `/admin/cars/${tab}/${id}/update`;
+                editIdEl.value = id || '';
+
+                modal.querySelectorAll('[data-modal-tab]').forEach(el => el.classList.add('hidden'));
+                const section = modal.querySelector(`[data-modal-tab="${tab}"]`);
+                if (section) section.classList.remove('hidden');
+
+                if (tab === 'brand') {
+                    document.getElementById('edit_brandName').value = dataset.brandName || '';
+                    document.getElementById('edit_countryCode').value = dataset.countryCode || '';
+                } else if (tab === 'model') {
+                    document.getElementById('edit_model_brandId').value = dataset.brandId || '';
+                    document.getElementById('edit_modelName').value = dataset.modelName || '';
+                    document.getElementById('edit_modelYear').value = dataset.modelYear || '';
+                    document.getElementById('edit_segment').value = dataset.segment || '';
+                } else if (tab === 'variant') {
+                    document.getElementById('edit_variant_modelId').value = dataset.modelId || '';
+                    document.getElementById('edit_engineType').value = dataset.engineType || '';
+                    document.getElementById('edit_engineName').value = dataset.engineName || '';
+                } else if (tab === 'trim') {
+                    document.getElementById('edit_trim_variantId').value = dataset.variantId || '';
+                    document.getElementById('edit_trimName').value = dataset.trimName || '';
+                    document.getElementById('edit_basePrice').value = dataset.basePrice || '';
+                } else if (tab === 'option') {
+                    document.getElementById('edit_option_brandId').value = dataset.brandId || '';
+                    document.getElementById('edit_optionName').value = dataset.optionName || '';
+                    document.getElementById('edit_optionCategory').value = dataset.optionCategory || 'ETC';
+                    document.getElementById('edit_selectRule').value = dataset.selectRule || 'SINGLE';
+                    document.getElementById('edit_optionPrice').value = dataset.optionPrice || '';
+                    document.getElementById('edit_optionDesc').value = dataset.optionDesc || '';
+                } else if (tab === 'color') {
+                    document.getElementById('edit_colorName').value = dataset.colorName || '';
+                    document.getElementById('edit_colorCode').value = dataset.colorCode || '';
+                    document.getElementById('edit_colorType').value = dataset.colorType || 'EXTERIOR';
+                    document.getElementById('edit_colorPrice').value = dataset.colorPrice || '';
+                }
+
+                modal.classList.remove('hidden');
+            }
+
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('[data-edit-btn]');
+                if (btn) {
+                    const tab = btn.getAttribute('data-tab');
+                    openModal(tab, btn.dataset);
+                    e.preventDefault();
+                    return;
+                }
+                if (e.target.closest('[data-edit-close]')) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            const modal = document.getElementById('deleteConfirmModal');
+            const yesBtn = document.getElementById('deleteConfirmYes');
+            let pendingForm = null;
+
+            function open(form) {
+                pendingForm = form;
+                modal.classList.remove('hidden');
+                setTimeout(() => yesBtn && yesBtn.focus(), 0);
+            }
+
+            function close() {
+                modal.classList.add('hidden');
+                pendingForm = null;
+            }
+
+            document.addEventListener('submit', function (e) {
+                const form = e.target;
+                if (!(form instanceof HTMLFormElement)) return;
+
+                const action = (form.getAttribute('action') || '');
+                if (!action.includes('/delete')) return;
+
+                if (form.dataset.confirmed === '1') return;
+
+                e.preventDefault();
+                open(form);
+            });
+
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('[data-delete-close]')) {
+                    close();
+                    return;
+                }
+
+                if (e.target === yesBtn || e.target.closest('#deleteConfirmYes')) {
+                    if (pendingForm) {
+                        pendingForm.dataset.confirmed = '1';
+                        pendingForm.submit();
+                    }
+                    close();
+                }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) close();
+            });
+        })();
+    </script>
+
+</div>

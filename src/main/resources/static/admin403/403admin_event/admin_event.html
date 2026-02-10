@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 Motors - 관리자 페이지</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="admin_common.css">
+    <link rel="stylesheet" href="admin_event.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            changeMainPage('event');
+            
+            // 타겟 관리 - 항목 선택 시 값 변경 로직
+            const categorySelect = document.querySelector('select[name="target_category"]');
+            const valueSelect = document.querySelector('select[name="target_value"]');
+            
+            // Backend Note: 이 데이터는 추후 API나 DB에서 불러와야 할 수 있습니다.
+            const dataOptions = {
+                'BRAND': ['현대', '기아', '제네시스', 'BMW', 'Mercedes-Benz', 'Audi'],
+                'FUEL': ['가솔린', '디젤', '전기(EV)', '하이브리드(HEV)', 'LPG', '수소'],
+                'TYPE': ['경차', '세단', 'SUV', '트럭/밴', '스포츠카']
+            };
+
+            if(categorySelect) {
+                categorySelect.addEventListener('change', function(e) {
+                    valueSelect.innerHTML = '<option value="">선택하세요</option>';
+                    if (dataOptions[e.target.value]) {
+                        dataOptions[e.target.value].forEach(item => {
+                            const option = document.createElement('option');
+                            option.value = item;
+                            option.textContent = item;
+                            valueSelect.appendChild(option);
+                        });
+                        valueSelect.disabled = false;
+                    } else {
+                        valueSelect.disabled = true;
+                    }
+                });
+            }
+        });
+
+        function changeMainPage(pageId) {
+            document.querySelectorAll('.main-section').forEach(page => {
+                page.classList.add('hidden');
+                page.classList.remove('fade-in');
+            });
+            const targetPage = document.getElementById('page-' + pageId);
+            if(targetPage) {
+                targetPage.classList.remove('hidden');
+                setTimeout(() => targetPage.classList.add('fade-in'), 10);
+            }
+            document.querySelectorAll('.menu a').forEach(link => link.classList.remove('active-menu'));
+            const activeLink = document.getElementById('menu-' + pageId);
+            if(activeLink) activeLink.classList.add('active-menu');
+        }
+
+        function switchTab(tabName) {
+            ['list', 'target', 'policy'].forEach(name => {
+                const el = document.getElementById('tab-' + name);
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+                el.classList.remove('active');
+            });
+            const selectedEl = document.getElementById('tab-' + tabName);
+            selectedEl.classList.remove('hidden');
+            selectedEl.classList.add('active'); 
+            
+            setTimeout(() => { selectedEl.classList.add('fade-in'); }, 10); 
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + tabName).classList.add('active');
+        }
+
+        // 정책 수정 모달
+        function openModal(policyId, eventId, type, value) {
+            document.getElementById('edit_policy_id').value = policyId;
+            document.getElementById('edit_event_id').value = eventId;
+            document.getElementById('edit_discount_type').value = type;
+            document.getElementById('edit_discount_value').value = value;
+            document.getElementById('edit_modal').showModal();
+        }
+
+        // 타겟 수정 모달
+        function openTargetModal(targetId, eventId, category, value) {
+            document.getElementById('edit_target_id').value = targetId;
+            document.getElementById('edit_target_event_id').value = eventId;
+            document.getElementById('edit_target_category').value = category;
+            document.getElementById('edit_target_value').value = value;
+            document.getElementById('target_edit_modal').showModal();
+        }
+        
+        $(document).ready(function(){
+            $(document).on('click', '.btn-delete', function(){
+                if(confirm('정말 삭제하시겠습니까?')) alert('삭제 요청 전송됨');
+            });
+        });
+    </script>
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-card flex flex-col border-none overflow-y-auto shrink-0">
+        <div class="main_logo">
+            <a href="#"><img src="image/logo_2.png" alt="logo2" class="p-6 mt-4"></a>
+        </div>
+        <ul class="menu w-full p-0 gap-1">
+            <li>
+                <a href="/403admin_member/admin_member.html" id="menu-member" onclick="changeMainPage('member')">
+                    <i class="fa-solid fa-users w-6 text-center ml-2"></i> 회원관리
+                </a>
+            </li>
+            <li>
+                <a href="" id="menu-banner" onclick="changeMainPage('banner')">
+                    <i class="fa-solid fa-images w-6 text-center ml-2"></i> 배너관리
+                </a>
+            </li>
+            <li>
+                <a href="" id="menu-vehicle" onclick="changeMainPage('vehicle')">
+                    <i class="fa-solid fa-car w-6 text-center ml-2"></i> 차량관리
+                </a>
+            </li>
+            <li>
+                <a href="/403admin_event/admin_event.html" id="menu-event" onclick="changeMainPage('event')">
+                    <i class="fa-solid fa-gift w-6 text-center ml-2"></i> 이벤트관리
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="flex-1 h-full flex flex-col overflow-hidden bg-[#111111] p-10" id="main-content">
+        <div id="page-event" class="main-section h-full flex flex-col">
+            <div class="bg-card mb-0 shadow-lg flex-1 flex flex-col overflow-hidden">
+                
+                <div class="navbar bg-card border-b shadow-sm shrink-0 border-[#333] flex-col items-start p-0 z-30">
+                    <div class="w-full p-6 pb-2 flex justify-between items-center mb-6">
+                        <h2 class="text-xl fw-400 ml-2 text-white">이벤트 통합 관리</h2>
+                        <div class="px-4 flex items-center gap-4">
+                            <span class="text-sm text-sub">관리자님 환영합니다.</span>
+                        </div>
+                    </div>
+                    <div class="w-full flex px-8 gap-8">
+                        <button id="btn-list" onclick="switchTab('list')" class="tab-btn active">이벤트 목록</button>
+                        <button id="btn-target" onclick="switchTab('target')" class="tab-btn">타겟 목록</button>
+                        <button id="btn-policy" onclick="switchTab('policy')" class="tab-btn">정책 목록</button>
+                    </div>
+                </div>
+
+                <div id="tab-list" class="tab-content active fade-in">
+                    <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+                        
+                        <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                            <form class="flex flex-wrap gap-6 items-end pb-6" action="#" method="GET">
+                                <div class="form-control w-full max-w-sm">
+                                    <label class="label p-0 justify-start mb-3">
+                                        <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">이벤트 조회</span>
+                                    </label>
+                                    <input type="text" placeholder="이벤트 명/ID" class="input w-full" />
+                                </div>
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label mb-1">
+                                        <span class="label-text text-main">상태</span>
+                                    </label>
+                                    <select class="select text-main">
+                                        <option value="">전체</option>
+                                        <option value="active">진행중</option>
+                                        <option value="ready">대기중</option>
+                                        <option value="ended">종료</option>
+                                    </select>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label mb-1">
+                                        <span class="label-text text-main">기간</span>
+                                    </label>
+                                    <div class="flex items-center gap-2">
+                                        <input type="date" class="input text-main" />
+                                        <span class="text-sub">~</span>
+                                        <input type="date" class="input text-main" />
+                                    </div>
+                                </div>
+                                <div class="flex gap-3 ml-auto">
+                                    <button type="submit" class="btn-custom btn-neutral px-8">검색</button>
+                                    <button type="button" class="btn-custom btn-neutral">초기화</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                            <div class="flex justify-between items-center px-4 py-2 border-b border-[#333] bg-card shrink-0">
+                                <span class="text-base text-sub">총 <span class="text-point fw-500">4</span>건</span>
+                                <div class="flex gap-3">
+                                    <a href="admin_event_upload.html"><button class="btn-custom btn-brand"><i class="fa-solid fa-plus"></i> 등록</button></a>
+                                </div>
+                            </div>
+                            <div class="flex-1 overflow-y-auto relative">
+                                <table class="table text-center w-full">
+                                    <thead class="sticky top-0 z-10">
+                                        <tr>
+                                            <th class="w-12"><input type="checkbox" class="checkbox" /></th>
+                                            <th>No</th>
+                                            <th>이벤트 ID</th>
+                                            <th class="min-w-[200px]">이벤트 명</th>
+                                            <th>기획자</th>
+                                            <th>기간</th>
+                                            <th>상태</th>
+                                            <th>관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-main">
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" class="checkbox"/></th>
+                                            <td class="text-sub">1</td>
+                                            <td>EVT_2026_001</td>
+                                            <td>
+                                                <div class="flex justify-start items-center gap-4 w-[260px] mx-auto text-left">
+                                                    <div class="avatar"><div class="w-12 h-12 bg-white"><img src="https://placehold.co/100x100" /></div></div>
+                                                    <div>
+                                                        <div class="fw-500 text-white text-lg">2026 전기차 특별 할인</div>
+                                                        <div class="text-sm text-sub">조회수: 1,200</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>김철수</td>
+                                            <td class="text-sm text-sub">2026-01-01 <br> ~ 2026-01-31</td>
+                                            <td><div class="badge badge-status badge-active">진행중</div></td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <a href="admin_event_upload.html"><button class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button></a>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" class="checkbox" /></th>
+                                            <td class="text-sub">2</td>
+                                            <td>EVT_2026_002</td>
+                                            <td>
+                                                <div class="flex justify-start items-center gap-4 w-[260px] mx-auto text-left">
+                                                    <div class="avatar"><div class="w-12 h-12 bg-white"><img src="https://placehold.co/100x100" /></div></div>
+                                                    <div>
+                                                        <div class="fw-500 text-white text-lg">신형 SUV 런칭 이벤트</div>
+                                                        <div class="text-sm text-sub">조회수: 0</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>이영희</td>
+                                            <td class="text-sm text-sub">2026-02-01 <br> ~ 2026-02-28</td>
+                                            <td><div class="badge badge-status">대기중</div></td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <button class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" class="checkbox" /></th>
+                                            <td class="text-sub">3</td>
+                                            <td>EVT_2025_099</td>
+                                            <td>
+                                                <div class="flex justify-start items-center gap-4 w-[260px] mx-auto text-left">
+                                                    <div class="avatar"><div class="w-12 h-12 bg-white"><img src="https://placehold.co/100x100" /></div></div>
+                                                    <div>
+                                                        <div class="fw-500 text-white text-lg">2025 연말 감사제</div>
+                                                        <div class="text-sm text-sub">조회수: 5,430</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>박민수</td>
+                                            <td class="text-sm text-sub">2025-12-01 <br> ~ 2025-12-31</td>
+                                            <td><div class="badge badge-status">종료</div></td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <button class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" class="checkbox" /></th>
+                                            <td class="text-sub">4</td>
+                                            <td>EVT_2026_005</td>
+                                            <td>
+                                                <div class="flex justify-start items-center gap-4 w-[260px] mx-auto text-left">
+                                                    <div class="avatar"><div class="w-12 h-12 bg-white"><img src="https://placehold.co/100x100" /></div></div>
+                                                    <div>
+                                                        <div class="fw-500 text-white text-lg">선착순 100명 한정 특가</div>
+                                                        <div class="text-sm text-sub">조회수: 3,200</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>정수진</td>
+                                            <td class="text-sm text-sub">2026-01-10 <br> ~ 2026-01-15</td>
+                                            <td><div class="badge badge-status badge-point">조기마감</div></td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <button class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center p-6 shrink-0">
+                            <div class="pagination-group">
+                                <button class="btn-custom btn-neutral">«</button>
+                                <button class="btn-custom btn-brand active-page">1</button>
+                                <button class="btn-custom btn-neutral">»</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-target" class="tab-content fade-in">
+                    <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+                        
+                        <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                            <form class="flex flex-wrap gap-6 items-end pb-6" action="#" method="GET">
+                                <div class="form-control w-full max-w-sm">
+                                    <label class="label p-0 justify-start mb-3">
+                                        <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">타겟 조회</span>
+                                    </label>
+                                    <input type="text" placeholder="EVENT ID" class="input w-full" />
+                                </div>
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label mb-1">
+                                        <span class="label-text text-main">항목</span>
+                                    </label>
+                                    <select class="select text-main">
+                                        <option value="">전체</option>
+                                        <option value="FUEL">연료</option>
+                                        <option value="BRAND">브랜드</option>
+                                    </select>
+                                </div>
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label mb-1">
+                                        <span class="label-text text-main">값</span>
+                                    </label>
+                                    <select class="select text-main" disabled>
+                                        <option value="">항목 선택</option>
+                                    </select>
+                                </div>
+                                <div class="flex gap-3 ml-auto">
+                                    <button type="submit" class="btn-custom btn-neutral px-8">검색</button>
+                                    <button type="button" class="btn-custom btn-neutral">초기화</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                            <div class="flex justify-between items-center px-4 py-2 border-b border-[#333] bg-card shrink-0">
+                                <span class="text-base text-sub">총 <span class="text-point fw-500">3</span>건</span>
+                            </div>
+                            <div class="flex-1 overflow-y-auto relative">
+                                <table class="table text-center w-full">
+                                    <thead class="sticky top-0 z-10">
+                                        <tr>
+                                            <th class="w-12"><input type="checkbox" class="checkbox" /></th>
+                                            <th>No</th>
+                                            <th>Target ID</th>
+                                            <th>Event ID</th>
+                                            <th>항목</th>
+                                            <th>값</th>
+                                            <th>관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-main">
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" class="checkbox" /></th>
+                                            <td class="text-sub">1</td>
+                                            <td>TGT_AUTO_051</td>
+                                            <td>EVT_2026_001</td>
+                                            <td><span class="badge badge-status badge-active">연료</span></td>
+                                            <td>전기차(EV)</td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <button onclick="openTargetModal('TGT_AUTO_051', 'EVT_2026_001', 'FUEL', '전기차(EV)')" class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" class="checkbox" /></th>
+                                            <td class="text-sub">2</td>
+                                            <td>TGT_AUTO_050</td>
+                                            <td>EVT_2026_002</td>
+                                            <td><span class="badge badge-status badge-blue">브랜드</span></td>
+                                            <td>현대</td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <button onclick="openTargetModal('TGT_AUTO_050', 'EVT_2026_002', 'BRAND', '현대')" class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" class="checkbox" /></th>
+                                            <td class="text-sub">3</td>
+                                            <td>TGT_AUTO_052</td>
+                                            <td>EVT_2026_003</td>
+                                            <td><span class="badge badge-status badge-purple">차종</span></td>
+                                            <td>SUV</td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <button onclick="openTargetModal('TGT_AUTO_052', 'EVT_2026_003', 'TYPE', 'SUV')" class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div> 
+                        
+                        <div class="flex justify-center p-6 shrink-0">
+                            <div class="pagination-group">
+                                <button class="btn-custom btn-neutral">«</button>
+                                <button class="btn-custom btn-brand active-page">1</button>
+                                <button class="btn-custom btn-neutral">»</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-policy" class="tab-content fade-in">
+                    <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+                        
+                        <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                            <form class="flex flex-wrap gap-6 items-end pb-6" action="#" method="GET">
+                                <div class="form-control w-full max-w-sm">
+                                    <label class="label p-0 justify-start mb-3">
+                                        <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">정책 조회</span>
+                                    </label>
+                                    <input type="text" placeholder="검색" class="input w-full" />
+                                </div>
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label mb-1">
+                                        <span class="label-text text-main">타입</span>
+                                    </label>
+                                    <select class="select text-main">
+                                        <option value="">전체</option>
+                                        <option value="persent">정률(%)</option>
+                                        <option value="won">정액(￦)</option>
+                                    </select>
+                                </div>
+                                <div class="flex gap-3 ml-auto">
+                                    <button type="submit" class="btn-custom btn-neutral px-8">검색</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                            <div class="flex justify-between items-center px-4 py-2 border-b border-[#333] bg-card shrink-0">
+                                <span class="text-base text-sub">총 <span class="text-point fw-500">2</span>건</span>
+                            </div>
+                            <div class="flex-1 overflow-y-auto relative">
+                                <table class="table text-center w-full">
+                                    <thead class="sticky top-0 z-10">
+                                        <tr>
+                                            <th class="w-12"><input type="checkbox" class="checkbox"/></th>
+                                            <th>No</th>
+                                            <th>정책 ID</th>
+                                            <th>이벤트 ID</th>
+                                            <th>타입</th>
+                                            <th>값</th>
+                                            <th>관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-main">
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" class="checkbox"/></th>
+                                            <td class="text-sub">1</td>
+                                            <td>POL_2026_001</td>
+                                            <td>EVT_NEW_YEAR</td>
+                                            <td><span class="badge badge-status badge-blue">정률(%)</span></td>
+                                            <td class="text-center text-point">10%</td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <button onclick="openModal('POL_2026_001', 'EVT_NEW_YEAR', 'PERCENT', '10')" class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" class="checkbox" /></th>
+                                            <td class="text-sub">2</td>
+                                            <td>POL_2026_002</td>
+                                            <td>EVT_FIRST_BUY</td>
+                                            <td><span class="badge badge-status badge-active">정액(₩)</span></td>
+                                            <td class="text-center text-point">5,000 ₩</td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <button onclick="openModal('POL_2026_002', 'EVT_FIRST_BUY', 'AMOUNT', '5000')" class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center p-6 shrink-0">
+                            <div class="pagination-group">
+                                <button class="btn-custom btn-neutral">«</button>
+                                <button class="btn-custom btn-brand active-page">1</button>
+                                <button class="btn-custom btn-neutral">»</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="edit_modal" class="modal">
+        <div class="modal-box bg-card border border-[#333] max-w-lg">
+            <h3 class="fw-500 text-xl text-white mb-8 border-l-4 border-[#ff6d00] pl-4">정책 수정</h3>
+            <form action="#" method="POST" class="flex flex-col gap-6">
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text text-main">정책 ID</span></label>
+                    <input type="text" id="edit_policy_id" class="input w-full cursor-not-allowed" readonly />
+                </div>
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text text-main">이벤트 ID</span></label>
+                    <input type="text" id="edit_event_id" class="input w-full" />
+                </div>
+                <div class="flex gap-6">
+                    <div class="form-control w-1/2">
+                        <label class="label"><span class="label-text text-main">타입</span></label>
+                        <select id="edit_discount_type" class="select">
+                            <option value="PERCENT">정률 (%)</option>
+                            <option value="AMOUNT">정액 (₩)</option>
+                        </select>
+                    </div>
+                    <div class="form-control w-1/2">
+                        <label class="label"><span class="label-text text-main">값</span></label>
+                        <input type="number" id="edit_discount_value" class="input text-right" />
+                    </div>
+                </div>
+                <div class="modal-action mt-8">
+                    <button type="button" class="btn-custom btn-neutral" onclick="document.getElementById('edit_modal').close()">취소</button>
+                    <button type="submit" class="btn-custom btn-brand">저장하기</button>
+                </div>
+            </form>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
+    <dialog id="target_edit_modal" class="modal">
+        <div class="modal-box bg-card border border-[#333] max-w-lg">
+            <h3 class="fw-500 text-xl text-white mb-8 border-l-4 border-[#ff6d00] pl-4">타겟 수정</h3>
+            <form action="#" method="POST" class="flex flex-col gap-6">
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text text-main">Target ID</span></label>
+                    <input type="text" id="edit_target_id" class="input w-full cursor-not-allowed" readonly />
+                </div>
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text text-main">Event ID</span></label>
+                    <input type="text" id="edit_target_event_id" class="input w-full" />
+                </div>
+                <div class="flex gap-6">
+                    <div class="form-control w-1/2">
+                        <label class="label"><span class="label-text text-main">항목</span></label>
+                        <select id="edit_target_category" class="select">
+                            <option value="FUEL">연료</option>
+                            <option value="BRAND">브랜드</option>
+                        </select>
+                    </div>
+                    <div class="form-control w-1/2">
+                        <label class="label"><span class="label-text text-main">값</span></label>
+                        <input type="text" id="edit_target_value" class="input" />
+                    </div>
+                </div>
+                <div class="modal-action mt-8">
+                    <button type="button" class="btn-custom btn-neutral" onclick="document.getElementById('target_edit_modal').close()">취소</button>
+                    <button type="submit" class="btn-custom btn-brand">저장하기</button>
+                </div>
+            </form>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>그돈씨</title>
+    <link rel="stylesheet" th:href="@{/unique/css/upsell.css}">
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+<header th:replace="fragments/header :: header"></header>
+<section>
+    <div class="main-tit">내 차량 선택</div>
+
+    <div class="wrap">
+        <!-- LEFT -->
+        <aside class="left-box">
+
+            <!-- 검색 -->
+            <div class="search-row">
+                <input class="search-input" type="text" id="qSearch"
+                       name="q"
+                       placeholder="트림/모델 검색하기"
+                       autocomplete="off"
+                       th:value="${page.keyword}">
+                <button type="button" class="search-btn" id="btnSearch">검색</button>
+            </div>
+
+            <!-- 가격 태그 -->
+            <div class="tag-area">
+                <a class="tag-btn" href="#" data-add="5000000"
+                   th:classappend="${page.selectedAddPrice} == 5000000 ? ' active' : ''">+500만원</a>
+
+                <a class="tag-btn" href="#" data-add="10000000"
+                   th:classappend="${page.selectedAddPrice} == 10000000 ? ' active' : ''">+1000만원</a>
+
+                <a class="tag-btn" href="#" data-add="15000000"
+                   th:classappend="${page.selectedAddPrice} == 15000000 ? ' active' : ''">+1500만원</a>
+
+                <a class="tag-btn" href="#" data-add="20000000"
+                   th:classappend="${page.selectedAddPrice} == 20000000 ? ' active' : ''">+2000만원</a>
+
+                <!-- ✅ NEW: 제한없음 (addPrice=-1) -->
+                <a class="tag-btn" href="#" data-add="-1"
+                   th:classappend="${page.selectedAddPrice} == -1 ? ' active' : ''">제한 없음</a>
+            </div>
+
+            <!-- BRAND -->
+            <div class="filter-section" data-acc="brand">
+                <div class="filter-head">
+                    <h3>BRAND</h3>
+                    <span class="arrow"></span>
+                </div>
+
+                <div class="filter-body">
+                    <ul class="check-list style-circle">
+                        <li th:each="b : ${page.brands}">
+                            <input type="checkbox" name="brands"
+                                   th:id="${'brand_' + b.brandId}"
+                                   th:value="${b.brandName}"
+                                   th:checked="${page.selectedBrands != null and page.selectedBrands.contains(b.brandName)}">
+                            <label th:for="${'brand_' + b.brandId}" th:text="${b.brandName}">Brand</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SEGMENT -->
+            <div class="filter-section" data-acc="segment">
+                <div class="filter-head">
+                    <h3>SEGMENT</h3>
+                    <span class="arrow"></span>
+                </div>
+
+                <div class="filter-body">
+                    <ul class="check-list style-circle">
+                        <li th:each="s, st : ${page.segments}">
+                            <input type="checkbox" name="segments"
+                                   th:id="${'seg_' + st.index}"
+                                   th:value="${s}"
+                                   th:checked="${page.selectedSegments != null and page.selectedSegments.contains(s)}">
+                            <label th:for="${'seg_' + st.index}" th:text="${s}">Segment</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- hidden form (유지) -->
+            <form id="filterForm" method="get" th:action="@{/unique/upsell}" style="display:none;">
+                <input type="hidden" name="q" id="qKeyword" th:value="${page.keyword}">
+                <input type="hidden" name="addPrice" id="qAddPrice" th:value="${page.selectedAddPrice}">
+                <input type="hidden" name="page" id="qPage" th:value="${page.page}">
+            </form>
+        </aside>
+
+        <!-- RIGHT -->
+        <div class="car-area">
+            <div class="car-wrap">
+                <a class="car-card" th:each="t : ${page.cards}"
+                   th:href="@{/unique/upsell/{trimId}(trimId=${t.trimId}, addPrice=${page.selectedAddPrice})}">
+                    <div class="image-area">
+                        <img class="cardmain-img" th:src="${t.imageUrl}" onerror="this.src='/images/santafe1.webp'">
+                    </div>
+
+                    <div class="text-area">
+                        <div class="tit" th:text="${t.modelName}">Model</div>
+                        <div class="main-info">
+                            <div class="info">
+                                <span th:text="${t.brandName}">Brand</span>
+                            </div>
+                            <div class="info">
+                                <span th:text="'₩ ' + ${#numbers.formatInteger(t.basePrice,3,'COMMA')}">₩ 0</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- pagination -->
+            <div class="pagination" th:if="${page.totalPages != null and page.totalPages > 1}">
+                <a class="page-btn"
+                   th:classappend="${page.page <= 1} ? ' disabled' : ''"
+                   th:href="@{/unique/upsell(brands=${page.selectedBrands}, segments=${page.selectedSegments}, q=${page.keyword}, addPrice=${page.selectedAddPrice}, page=${page.page-1})}">
+                    ‹
+                </a>
+
+                <a class="page-btn"
+                   th:each="p : ${#numbers.sequence(1, page.totalPages)}"
+                   th:text="${p}"
+                   th:classappend="${p == page.page} ? ' active' : ''"
+                   th:href="@{/unique/upsell(brands=${page.selectedBrands}, segments=${page.selectedSegments}, q=${page.keyword}, addPrice=${page.selectedAddPrice}, page=${p})}">
+                    1
+                </a>
+
+                <a class="page-btn"
+                   th:classappend="${page.page >= page.totalPages} ? ' disabled' : ''"
+                   th:href="@{/unique/upsell(brands=${page.selectedBrands}, segments=${page.selectedSegments}, q=${page.keyword}, addPrice=${page.selectedAddPrice}, page=${page.page+1})}">
+                    ›
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:replace="fragments/footer :: footer"></footer>
+<script th:src="@{/js/upsell.js}"></script>
+<script th:src="@{/css/script.js}"></script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>맞춤 견적 - 설문</title>
+
+    <!-- ✅ 디자인 CSS 연결 -->
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+
+    <!-- ✅ jQuery (custom.js에서 사용) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<!-- (헤더는 기존 프로젝트 공통 헤더가 있으면 그걸 쓰면 되고, 없으면 이 블록만 남겨도 됩니다) -->
+<header th:replace="fragments/header :: header"></header>
+
+<section>
+    <div class="main-tit">
+        <h1>맞춤 견적 설문</h1>
+    </div>
+    <div class="top-line"></div>
+
+    <form th:action="@{/cars/for-me/result}" th:object="${answers}" method="post">
+
+        <!-- 1) (텍스트 변경 반영) -->
+        <div class="question-1">
+            <div class="q-title">1. 탑승 인원은 어떻게 되시나요?</div>
+            <div class="select-wrap">
+                <select th:field="*{passengers}">
+                    <option value="">선택</option>
+                    <option value="1">1인</option>
+                    <option value="2">2인</option>
+                    <option value="3">3인</option>
+                    <option value="4">4인</option>
+                    <option value="5">5인</option>
+                    <option value="6">6인 이상</option>
+                </select>
+            </div>
+            <div class="hint">※ 6인 이상 선택 시 6/7인승 옵션 보유 차량에 가산점</div>
+        </div>
+
+        <!-- 2) -->
+        <div class="question-2">
+            <div class="q-title">2. 짐 적재량은 어느 정도인가요?</div>
+            <div class="select-wrap">
+                <select th:field="*{luggage}">
+                    <option value="NONE">거의 없음</option>
+                    <option value="LIGHT">가벼운 짐</option>
+                    <option value="MEDIUM">유모차/골프백</option>
+                    <option value="HEAVY">캠핑급</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 3) -->
+        <div class="question-4">
+            <h2 class="q-title">3. 예산 범위를 알려주세요</h2>
+
+            <div class="range-wrap">
+                <div class="range-labels">
+                    <span data-value="2000">2천만 원 이하</span>
+                    <div class="tick" data-value="2000"></div>
+
+                    <span data-value="4000">4천만 원대</span>
+                    <div class="tick" data-value="4000"></div>
+
+                    <span data-value="6000">6천만 원대</span>
+                    <div class="tick" data-value="6000"></div>
+                </div>
+
+                <input type="range" name="budget" min="2000" max="7000" step="1000" value="2000" aria-label="예산 범위 선택">
+
+                <div class="range-ticks">
+                    <span data-value="3000">3천만 원대</span>
+                    <div class="tick" data-value="3000"></div>
+
+                    <span data-value="5000">5천만 원대</span>
+                    <div class="tick" data-value="5000"></div>
+
+                    <span data-value="7000">7천만 원 이상</span>
+                    <div class="tick" data-value="7000"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4) 파워트레인(복수 선택) : chip UI로 매핑 -->
+        <div class="question-5">
+            <div class="q-title">4. 선호하는 파워트레인을 선택해주세요 (복수 선택)</div>
+            <div class="chip-group">
+                <label class="chip">
+                    <input type="checkbox" th:field="*{powertrains}" value="GASOLINE"/>
+                    <span>가솔린</span>
+                </label>
+                <label class="chip">
+                    <input type="checkbox" th:field="*{powertrains}" value="DIESEL"/>
+                    <span>디젤</span>
+                </label>
+                <label class="chip">
+                    <input type="checkbox" th:field="*{powertrains}" value="HYBRID"/>
+                    <span>하이브리드</span>
+                </label>
+                <label class="chip">
+                    <input type="checkbox" th:field="*{powertrains}" value="PHEV"/>
+                    <span>PHEV</span>
+                </label>
+                <label class="chip">
+                    <!-- ✅ custom.js가 찾는 id="evCheck" 추가 -->
+                    <input id="evCheck" type="checkbox" th:field="*{powertrains}" value="EV"/>
+                    <span>EV</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- 5) EV 충전 가능? (question-51로 매핑, custom.js 토글 사용) -->
+        <div class="question-51">
+            <div class="q-title">5. EV 충전이 가능한 환경인가요?</div>
+            <div class="select-wrap">
+                <select th:field="*{evChargingAvailable}">
+                    <option value="">(EV 선택시에만)</option>
+                    <option value="true">가능</option>
+                    <option value="false">불가</option>
+                </select>
+            </div>
+            <div class="hint">※ EV 선택 + 충전 불가면 EV 모델은 점수에서 크게 불리해짐</div>
+        </div>
+
+        <!-- 6) 주행환경 -->
+        <div class="question-6">
+            <div class="q-title">6. 주로 어떤 환경에서 운전하시나요?</div>
+            <div class="select-wrap">
+                <select th:field="*{drivingEnv}">
+                    <option value="CITY_COMMUTE">시내 출퇴근</option>
+                    <option value="HIGHWAY_LONG">고속/장거리</option>
+                    <option value="LEISURE_OUTDOOR">주말 레저/교외</option>
+                    <option value="MIXED">반반/상관없음</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 7) (텍스트 변경 반영) -->
+        <div class="question-7">
+            <div class="q-title">7. 연비를 얼마나 중요하게 생각하시나요?</div>
+            <div class="select-wrap">
+                <select th:field="*{fuelEconomyPriority}">
+                    <option value="IMPORTANT">매우 중요</option>
+                    <option value="NORMAL">보통</option>
+                    <option value="NOT_IMPORTANT">중요하지 않음</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 8) (텍스트 변경 반영) -->
+        <div class="question-8">
+            <div class="q-title">8. 국산/수입차 선호가 있으신가요?</div>
+            <div class="select-wrap">
+                <select th:field="*{originPreference}">
+                    <option value="ANY">상관없음</option>
+                    <option value="DOMESTIC">국산차 선호</option>
+                    <option value="IMPORT">수입차 선호</option>
+                </select>
+            </div>
+            <div class="hint">※ BRAND.COUNTRY_CODE가 KOR이면 국산으로 판정</div>
+        </div>
+
+        <!-- 9) ADAS -->
+        <div class="question-2">
+            <div class="q-title">9. ADAS(운전자 보조) 옵션 중요도는 어느 정도인가요?</div>
+            <div class="select-wrap">
+                <select th:field="*{assistantPriority}">
+                    <option value="IMPORTANT">중요 (많을수록 가산)</option>
+                    <option value="NORMAL">보통</option>
+                    <option value="NOT_NEEDED">상관없음</option>
+                </select>
+            </div>
+            <div class="hint">※ 가점만 적용(감점 없음)</div>
+        </div>
+
+        <div class="submit-wrap">
+            <button class="submit-btn" type="submit" th:href="@{car/for-me/result}"}>추천 받기</button>
+        </div>
+    </form>
+</section>
+
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- ✅ 페이지 하단 JS 연결 -->
+
+<script>
+    // ======== 헤더 =======================================================
+    $(function () {
+        const $header = $(".site-header");
+        const $allSub = $(".sub-menu");
+        const $dropBg = $(".header-drop-bg");
+
+        $header.on("click", function (e) {
+            if (!$(e.target).closest(".gnb").length) return;
+
+            if ($allSub.is(":visible")) {
+                $allSub.stop().slideUp(350);
+                $dropBg.stop().slideUp(350);
+            } else {
+                $allSub.stop().slideDown(350);
+                $dropBg.stop().slideDown(350);
+            }
+        });
+
+        $(document).on("click", function (e) {
+            if (!$(e.target).closest(".site-header").length) {
+                $allSub.stop().slideUp(200);
+                $dropBg.stop().slideUp(200);
+            }
+        });
+    });
+
+
+    // ======== 질문 3 : 예산 range (✅ 최종 픽셀 배치) ========
+    document.addEventListener("DOMContentLoaded", () => {
+        const wrap = document.querySelector(".question-4 .range-wrap");
+        if (!wrap) return;
+
+        const range = wrap.querySelector('input[type="range"]');
+        if (!range) return;
+
+        const allLabels = wrap.querySelectorAll(
+            ".range-labels span[data-value], .range-ticks span[data-value]"
+        );
+
+        const THUMB = 20; // ✅ CSS thumb랑 반드시 동일
+        const HALF = THUMB / 2;
+
+        const setLeft = (el, px) => el.style.setProperty("left", `${px}px`, "important");
+        const setTransform = (el, v) => el.style.setProperty("transform", v, "important");
+
+        const place = () => {
+            const w = range.getBoundingClientRect().width;
+            if (!w || w < 30) return;
+
+            const min = Number(range.min);
+            const max = Number(range.max);
+            if (Number.isNaN(min) || Number.isNaN(max) || max <= min) return;
+
+            // thumb 중심이 움직이는 실제 구간: [HALF, w - HALF]
+            const usable = w - THUMB;
+
+            const xOf = (value) => {
+                const v = Number(value);
+                if (Number.isNaN(v)) return null;
+                const r = (v - min) / (max - min);
+                return HALF + usable * r; // ✅ thumb 중심 기준
+            };
+
+            // 전체 라벨 위치
+            allLabels.forEach(el => {
+                const x = xOf(el.dataset.value);
+                if (x == null) return;
+                setLeft(el, x);
+                setTransform(el, "translateX(-50%)");
+            });
+
+            // 양끝 라벨만 안 잘리게(2번째 이미지처럼 깔끔)
+            const firstV = String(range.min);
+            const lastV  = String(range.max);
+
+            const firstTop = wrap.querySelector(`.range-labels span[data-value="${firstV}"]`);
+            const firstBot = wrap.querySelector(`.range-ticks  span[data-value="${firstV}"]`);
+            const lastTop  = wrap.querySelector(`.range-labels span[data-value="${lastV}"]`);
+            const lastBot  = wrap.querySelector(`.range-ticks  span[data-value="${lastV}"]`);
+
+
+        };
+
+        // ✅ 레이아웃 폭이 잡히기 전에 “처음으로 돌아가는 현상” 방지
+        const retry = (n = 0) => {
+            place();
+            if (n < 25) requestAnimationFrame(() => retry(n + 1));
+        };
+
+        retry(0);
+        window.addEventListener("load", place);
+        window.addEventListener("resize", place);
+
+        // 라벨 클릭 시 range 이동
+        allLabels.forEach(el => {
+            el.addEventListener("click", () => {
+                range.value = el.dataset.value;
+                range.dispatchEvent(new Event("input", { bubbles: true }));
+            });
+        });
+    });
+
+
+    // ======== 질문 5-1 : EV 충전 가능 여부 토글 ==========================
+    document.addEventListener("DOMContentLoaded", () => {
+        const evCheck = document.getElementById("evCheck");
+        const q51 = document.querySelector(".question-51");
+        if (!evCheck || !q51) return;
+
+        const evRadios = q51.querySelectorAll('input[name="ev_charge"]');
+        const evSelect = q51.querySelector("select");
+
+        function closeQ51() {
+            q51.classList.remove("is-open");
+            evRadios.forEach(r => (r.checked = false));
+            if (evSelect) evSelect.value = "";
+        }
+
+        function openQ51() {
+            q51.classList.add("is-open");
+        }
+
+        evCheck.checked ? openQ51() : closeQ51();
+
+        evCheck.addEventListener("change", () => {
+            evCheck.checked ? openQ51() : closeQ51();
+        });
+    });
+
+</script>
+</body>
+</html>

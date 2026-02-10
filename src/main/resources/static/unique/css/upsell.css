@@ -1,0 +1,314 @@
+@charset "UTF-8";
+
+section{
+    width: 80%;
+    margin: 0 auto;
+}
+
+section .main-tit{
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color:#fff;
+    margin-top: 100px;
+}
+
+section .wrap{
+    display:flex;
+    gap:40px;
+    align-items:flex-start;
+}
+
+/* =========================
+   LEFT SIDEBAR
+========================= */
+section .left-box{
+    width:320px;
+    flex-shrink:0;
+    height:auto;
+    padding:20px;
+    border:1px solid #767676;
+    background:transparent;
+}
+
+/* 검색 영역 */
+section .left-box .search-row{
+    display:flex;
+    gap:10px;
+    margin-bottom: 18px;
+}
+section .left-box .search-input{
+    width:100%;
+    padding:12px;
+    background:#222;
+    border:1px solid #767676;
+    color:#fff;
+    border-radius:5px;
+    outline:none;
+}
+section .left-box .search-input:focus{ border-color:#ff6d00; }
+
+section .left-box .search-btn{
+    flex:0 0 64px;
+    padding:12px 10px;
+    border-radius:5px;
+    background:#222;
+    border:1px solid #767676;
+    color:#bbb;
+    cursor:pointer;
+    transition:all .2s;
+}
+section .left-box .search-btn:hover{
+    border-color:#ff6d00;
+    color:#fff;
+}
+
+/* 태그(가격) */
+section .left-box .tag-area{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    padding-bottom: 18px;
+    border-bottom:1px solid #767676;
+}
+
+section .left-box .tag-area .tag-btn{
+    cursor:pointer;
+    display:inline-block;
+    padding:8px 16px;
+    background-color:#222;
+    color:#ccc;
+    border-radius:4px;
+    font-size:14px;
+    transition:all .2s;
+    border:1px solid transparent;
+    text-decoration:none;
+}
+section .left-box .tag-area .tag-btn:hover{
+    border-color:#ff6d00;
+    color:#fff;
+}
+section .left-box .tag-area .tag-btn.active{
+    background-color:#ff6d00;
+    color:#fff;
+    font-weight:400;
+    border-color:#ff6d00;
+}
+
+/* 필터 섹션 */
+section .filter-section{
+    border-bottom:1px solid #767676;
+    padding:20px 0;
+    margin-top:20px;
+}
+
+section .filter-section .filter-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    margin-bottom:15px;
+    user-select:none;
+}
+section .filter-section .filter-head h3{
+    font-size:16px;
+    font-weight:500;
+    color:#bbb;
+    margin:0;
+}
+
+/* 필터 화살표 */
+.arrow::after{
+    content:'△';
+    font-size:14px;
+    color:#bbb;
+    transition:transform 0.3s;
+    display:inline-block;
+}
+.filter-head.closed .arrow::after{
+    transform:rotate(180deg);
+}
+
+/* 인풋 숨김 (동그라미는 label::before로 표시) */
+.check-list input[type="checkbox"]{
+    display:none;
+}
+
+/* 동그라미 체크 리스트(다중선택 유지) */
+.style-circle{
+    display:flex;
+    flex-wrap:wrap;
+}
+.style-circle li{
+    width:50%;
+    margin-bottom:12px;
+}
+.style-circle label{
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    font-size:14px;
+    color:#bbb;
+    transition:color .2s;
+}
+.style-circle label::before{
+    content:'';
+    display:inline-block;
+    width:18px;
+    height:18px;
+    border:1px solid #767676;
+    border-radius:50%;
+    margin-right:10px;
+    box-sizing:border-box;
+    transition:all .2s;
+}
+
+/* checked */
+.style-circle input:checked + label{
+    color:#fff;
+    font-weight:400;
+}
+.style-circle input:checked + label::before{
+    border:1px solid #fff;
+    background:#ff6d00;
+}
+
+/* 필터 접힘/펼침 */
+.filter-body{ display:block; }
+.filter-section.is-collapsed .filter-body{ display:none; }
+
+/* =========================
+   RIGHT CAR LIST
+========================= */
+section .wrap .car-area{
+    /* ✅ 기존 width:1500px 고정은 줌/해상도에 따라 열이 바뀌는 원인 */
+    /* width:1500px; */
+    flex: 1;          /* ✅ 남은 공간을 모두 사용 */
+    min-width: 0;     /* ✅ grid/flex overflow 방지 */
+    height:100%;
+}
+
+/* ✅ 항상 3열 고정: flex-wrap → grid */
+section .wrap .car-wrap{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* ✅ 항상 3열 */
+    gap:20px;
+    align-content:start;
+}
+
+/* 카드 */
+section .wrap .car-wrap .car-card{
+    /* ✅ width 고정(360px) 제거: 컨테이너 폭에 맞춰 자동으로 줄어들게 */
+    /* width:360px; */
+    width:100%;
+    height:350px;
+
+    background-color:#222;
+    overflow:hidden;
+    box-shadow:0 4px 15px #00000050;
+    cursor:pointer;
+    text-decoration:none;
+    display:block;
+
+    /* ✅ grid에서 요소가 줄어들 수 있게 */
+    min-width: 0;
+}
+
+section .wrap .car-wrap .car-card .image-area{
+    position:relative;
+    width:100%;
+    height:240px;
+}
+section .wrap .car-wrap .car-card .image-area .cardmain-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+section .wrap .car-wrap .car-card .text-area{
+    padding:20px;
+    padding-top:25px;
+}
+section .wrap .car-wrap .car-card .text-area .tit{
+    color:#fff;
+    font-size:18px;
+    font-weight:500;
+    line-height:1.4;
+    margin-bottom:20px;
+}
+section .wrap .car-wrap .car-card .text-area .main-info{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+}
+section .wrap .car-wrap .car-card .text-area .main-info .info{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    color:#bbb;
+    font-size:14px;
+}
+section .wrap .car-wrap .car-card .text-area .main-info .info .fa-heart{
+    color:#ff6d00;
+}
+
+/* 페이지네이션 */
+section .wrap .car-area .pagination{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+section .wrap .car-area .pagination .page-btn{
+    width:30px;
+    height:30px;
+    background-color:#222;
+    border:1px solid #767676;
+    color:#bbb;
+    font-size:14px;
+    cursor:pointer;
+    transition:all .3s;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+}
+
+section .wrap .car-area .pagination .page-btn:hover{
+    border-color:#ff6d00;
+    color:#fff;
+}
+
+section .wrap .car-area .pagination .page-btn.active{
+    background-color:#ff6d00;
+    border-color:#ff6d00;
+    color:#fff;
+}
+
+section .wrap .car-area .pagination .page-btn.disabled{
+    pointer-events:none;
+    opacity:.4;
+}
+
+@media (max-width: 1400px){
+    section .wrap .car-wrap{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 980px){
+    section .wrap .car-wrap{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1200px){
+    section{ width: 92%; }
+    section .wrap{ flex-direction:column; }
+    section .left-box{ width:100%; }
+    section .wrap .car-area{ width:100%; }
+}
+
+/* ===== filter bullet 제거 ===== */
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}

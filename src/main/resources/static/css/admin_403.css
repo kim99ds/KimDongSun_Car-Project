@@ -1,0 +1,203 @@
+@charset "utf-8";
+
+/*
+  403 Motors Admin UI Tokens (scoped)
+  - Imported from static admin mockups (admin_common.css etc.)
+  - Scoped under .cp-admin to avoid breaking other pages.
+*/
+
+.cp-admin{
+  --font-size-base: 15px;
+  --font-size-sm: 13px;
+  --font-size-lg: 18px;
+  --btn-font-size: 14px;
+  --input-height: 42px;
+
+  --color-bg-1: #111111;
+  --color-bg-2: #222222;
+  --color-bg-3: #333333;
+  --color-text-main: #bbbbbb;
+  --color-text-sub: #767676;
+
+  --color-brand: #ff6d00;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+  --color-success: #10b981;
+}
+
+/* Card helper (matches 403 mockups) */
+.cp-admin .bg-card{ background-color: var(--color-bg-2); border-radius: 0; }
+
+/* Sidebar menu (scoped copy of admin_common.css) */
+.cp-admin .menu{ list-style: none; }
+.cp-admin .menu a{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  font-size: var(--font-size-base);
+  padding: 1rem;
+  color: var(--color-text-sub);
+  border-radius: 0;
+}
+.cp-admin .menu a:hover{ background:#333; color:#fff; }
+.cp-admin .menu a.active-menu,
+.cp-admin .menu a:active,
+.cp-admin .menu a:focus{
+  background:#333;
+  color:#fff;
+  border-left:4px solid var(--color-brand);
+  font-weight:500;
+}
+
+/* Table + pagination (scoped copy of admin_member.css) */
+.cp-admin .table th{
+  font-size: var(--font-size-base);
+  color: #fff;
+  font-weight: 400;
+  border-bottom: 1px solid #333;
+  text-align: center;
+  background-color: var(--color-bg-3);
+  z-index: 10;
+}
+.cp-admin .table tbody th{ background-color: #222; }
+.cp-admin .table td{
+  font-size: var(--font-size-base);
+  border-bottom: 1px solid #333;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cp-admin .pagination-group{ display:flex; justify-content:center; }
+.cp-admin .pagination-group .btn-custom{ border-radius:0; margin-left:-1px; position:relative; }
+.cp-admin .pagination-group .btn-custom:first-child{ margin-left:0; }
+.cp-admin .pagination-group .btn-custom:hover,
+.cp-admin .pagination-group .btn-custom.active-page{ z-index:10; }
+
+/* Tabs (scoped copy of admin_member.css) */
+.cp-admin .tab-btn{
+  font-size: var(--font-size-lg);
+  padding-bottom: 10px;
+  color: var(--color-text-sub);
+  border-radius: 0;
+  background: transparent;
+}
+.cp-admin .tab-btn.active{ border-bottom: 2px solid var(--color-brand); color:#fff; font-weight:500; }
+.cp-admin .tab-btn:hover{ color: var(--color-brand); }
+
+/* Detail page radio-button style (scoped copy of admin_member_in.css) */
+.cp-admin .status-radio:checked + label{ background-color: var(--color-brand); color:#fff; border-color: var(--color-brand); }
+.cp-admin .status-label{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:32px;
+  padding:0 16px;
+  font-size:13px;
+  background-color:#333;
+  border:1px solid #444;
+  color:#767676;
+  cursor:pointer;
+  transition: all .2s;
+}
+.cp-admin .status-label:hover{ background-color:#444; color:#bbb; }
+
+.cp-admin .text-main{ color: var(--color-text-main); }
+.cp-admin .text-sub{ color: var(--color-text-sub); }
+.cp-admin .text-point{ color: var(--color-brand); }
+.cp-admin .fw-300{ font-weight: 300; }
+.cp-admin .fw-400{ font-weight: 400; }
+.cp-admin .fw-500{ font-weight: 500; }
+
+/* Buttons */
+.cp-admin .btn-custom{
+  font-size: var(--btn-font-size);
+  padding: 0 1rem;
+  border-radius: 0;
+  font-weight: 400;
+  transition: all 0.2s;
+  height: var(--input-height);
+  min-height: var(--input-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.cp-admin .btn-brand{ background-color: var(--color-bg-3); border: 1px solid var(--color-brand); color: #fff; }
+.cp-admin .btn-brand:hover{ background-color: var(--color-brand); color:#fff; box-shadow: 0 0 10px rgba(255,109,0,.3); }
+.cp-admin .btn-danger{ background-color: var(--color-bg-3); border: 1px solid var(--color-danger); color: var(--color-text-main); }
+.cp-admin .btn-danger:hover{ background-color: var(--color-danger); border-color: var(--color-danger); color:#fff; }
+.cp-admin .btn-info{ background-color: var(--color-bg-3); border: 1px solid var(--color-info); color: var(--color-text-main); }
+.cp-admin .btn-info:hover{ background-color: var(--color-info); border-color: var(--color-info); color:#fff; }
+.cp-admin .btn-neutral{ background-color: var(--color-bg-3); border: 1px solid var(--color-text-sub); color: var(--color-text-sub); }
+.cp-admin .btn-neutral:hover{ border-color:#fff; color:#fff; background-color: var(--color-bg-2); }
+
+/* Inputs */
+.cp-admin input.input, .cp-admin select.select{
+  height: var(--input-height) !important;
+  min-height: var(--input-height) !important;
+  line-height: var(--input-height);
+  font-size: var(--font-size-base);
+  background-color: #333;
+  border: 1px solid #333;
+  color: #bbb;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+.cp-admin input.input:focus, .cp-admin select.select:focus{ outline: none; border-color: var(--color-brand); color:#fff; }
+
+/* Checkbox */
+.cp-admin .checkbox{
+  appearance: none;
+  border: 1px solid #666;
+  border-radius: 4px;
+  width: 1.1rem;
+  height: 1.1rem;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+}
+.cp-admin .checkbox:checked{
+  border-color: var(--color-brand);
+  background-color: var(--color-brand);
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Status badges (member list) */
+.cp-admin .badge-status{
+  padding: .55rem .8rem;
+  font-size: 13px;
+  background: #333;
+  border: 1px solid #333;
+  color: #bbb;
+  border-radius: 3px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.cp-admin .badge-active{ border-color: var(--color-brand); background-color: var(--color-brand); color:#fff; }
+.cp-admin .badge-point{ border-color: var(--color-danger); background-color: var(--color-danger); color:#fff; }
+.cp-admin .badge-blue{ border-color: var(--color-info); background-color: var(--color-info); color:#fff; }
+
+/* Simple tab buttons (used in member pages) */
+.cp-admin .tab-btn{
+  padding: 14px 0;
+  color: var(--color-text-sub);
+  border-bottom: 2px solid transparent;
+  font-weight: 400;
+}
+.cp-admin .tab-btn.active{
+  color:#fff;
+  border-bottom-color: var(--color-brand);
+}
+
+/* Scrollbar accent */
+.cp-admin ::-webkit-scrollbar{ width: 8px; height: 8px; }
+.cp-admin ::-webkit-scrollbar-track{ background: #111; }
+.cp-admin ::-webkit-scrollbar-thumb{ background: var(--color-brand); border-radius: 0; }

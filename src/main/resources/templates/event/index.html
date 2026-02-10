@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT</title>
+
+    <link rel="stylesheet" as="style" crossorigin
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"/>
+
+    <link rel="stylesheet" href="/event/css/index.css" th:href="@{/event/css/index.css}">
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+<header th:replace="fragments/header :: header"></header>
+<section>
+    <h1 class="mainText">EVENT</h1>
+
+    <!-- 탭 -->
+    <div class="topBtn" role="tablist">
+        <button type="button" class="tab-btn active" data-target="ongoing" aria-selected="true">진행중 이벤트</button>
+        <button type="button" class="tab-btn" data-target="ended" aria-selected="false">종료된 이벤트</button>
+    </div>
+
+    <div class="eventWrap">
+
+        <!-- 진행중 -->
+        <div id="section-ongoing" class="section active">
+            <ul class="eventGrid"
+                th:if="${eventBanners != null and !#lists.isEmpty(eventBanners)}">
+
+                <li class="eventBox" th:each="ev : ${eventBanners}">
+                    <a th:href="@{/event/{id}(id=${ev.eventId}, tab='ongoing')}">
+                        <img th:if="${ev.bannerImage != null and !#strings.isEmpty(ev.bannerImage)}"
+                             th:src="@{${ev.bannerImage}}"
+                             th:alt="${ev.title}">
+                        <img th:unless="${ev.bannerImage != null and !#strings.isEmpty(ev.bannerImage)}"
+                             th:src="@{/event/images/no-image.png}"
+                             alt="no image">
+
+                        <h1 th:text="${ev.title}">이벤트 제목</h1>
+
+                        <p th:text="${ev.startDate} + ' ~ ' + ${ev.endDate}">기간</p>
+
+                        <!-- ✅ 진행중: 타겟 라벨 유지 -->
+                        <p class="bgO"
+                           th:text="${ev.targetDisplay != null and !#strings.isEmpty(ev.targetDisplay)} ? ${ev.targetDisplay} : 'ALL'">
+                            ALL
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="empty" th:if="${eventBanners == null or #lists.isEmpty(eventBanners)}">
+                진행 중인 이벤트가 없습니다.
+            </div>
+        </div>
+
+        <!-- 종료 -->
+        <div id="section-ended" class="section">
+            <ul class="eventGrid"
+                th:if="${endedEventBanners != null and !#lists.isEmpty(endedEventBanners)}">
+
+                <li class="eventBox" th:each="ev : ${endedEventBanners}">
+                    <a th:href="@{/event/{id}(id=${ev.eventId}, tab='ended')}">
+                        <img th:if="${ev.bannerImage != null and !#strings.isEmpty(ev.bannerImage)}"
+                             th:src="${#strings.startsWith(ev.bannerImage, '/') ? ev.bannerImage : '/' + ev.bannerImage}"
+                             th:alt="${ev.title}">
+                        <img th:unless="${ev.bannerImage != null and !#strings.isEmpty(ev.bannerImage)}"
+                             th:src="@{/event/images/no-image.png}"
+                             alt="no image">
+
+                        <h1 th:text="${ev.title}">이벤트 제목</h1>
+
+                        <p th:text="${ev.startDate} + ' ~ ' + ${ev.endDate}">기간</p>
+
+                        <!-- ✅ 종료/조기마감 배지: status 기준으로 1개만 -->
+                        <div class="statusBadges" th:if="${ev != null}">
+                            <span class="status-badge inactive"
+                                  th:if="${#strings.equalsIgnoreCase(ev.status,'INACTIVE')}">조기마감</span>
+
+                            <span class="status-badge end"
+                                  th:unless="${#strings.equalsIgnoreCase(ev.status,'INACTIVE')}">종료된 이벤트</span>
+                        </div>
+
+                        <!-- ❌ 종료 탭에서는 EV/SUV 라벨(bgO) 완전 제거 -->
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="empty" th:if="${endedEventBanners == null or #lists.isEmpty(endedEventBanners)}">
+                종료된 이벤트가 없습니다.
+            </div>
+        </div>
+
+    </div>
+</section>
+<footer th:replace="fragments/footer :: footer"></footer>
+<script>
+    (function () {
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const ongoing = document.getElementById("section-ongoing");
+        const ended = document.getElementById("section-ended");
+
+        function setUrlTab(target) {
+            const params = new URLSearchParams(location.search);
+            params.set("tab", target);
+            history.replaceState(null, "", location.pathname + "?" + params.toString());
+        }
+
+        function activate(target, updateUrl) {
+            tabButtons.forEach(btn => {
+                const on = btn.dataset.target === target;
+                btn.classList.toggle("active", on);
+                btn.setAttribute("aria-selected", String(on));
+            });
+
+            ongoing.classList.toggle("active", target === "ongoing");
+            ended.classList.toggle("active", target === "ended");
+
+            if (updateUrl) setUrlTab(target);
+        }
+
+        tabButtons.forEach(btn => btn.addEventListener("click", () => activate(btn.dataset.target, true)));
+
+        const params = new URLSearchParams(location.search);
+        const initial = params.get("tab") === "ended" ? "ended" : "ongoing";
+        activate(initial, false);
+    })();
+</script>
+<script th:src="@{/css/script.js}"></script>
+</body>
+</html>

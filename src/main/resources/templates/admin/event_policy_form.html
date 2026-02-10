@@ -1,0 +1,42 @@
+<div th:fragment="content" class="space-y-6">
+
+    <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold">이벤트 정책 수정</h1>
+
+        <a th:href="@{/admin/event_manage(tab='policy')}"
+           class="px-4 py-2 rounded bg-[#333] hover:bg-[#bbb] hover:text-black transition">
+            목록으로
+        </a>
+    </div>
+
+    <form class="bg-[#222] border border-[#333] rounded-xl p-8 space-y-6"
+          method="post"
+          th:action="@{/admin/event_manage/policies/{id}(id=${policy.eventPolicyId})}">
+
+        <div>
+            <label class="block text-sm text-gray-300 mb-2">할인 타입</label>
+            <select name="discountType"
+                    class="w-full bg-[#111] border border-[#333] rounded px-4 py-3">
+                <option th:each="t : ${discountTypes}"
+                        th:value="${t}"
+                        th:text="${t}"
+                        th:selected="${t == policyForm.discountType}">
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <label class="block text-sm text-gray-300 mb-2">할인 값</label>
+            <input type="number"
+                   name="discountValue"
+                   class="w-full bg-[#111] border border-[#333] rounded px-4 py-3"
+                   th:value="${policyForm.discountValue}" />
+        </div>
+
+        <div class="pt-4 flex justify-end">
+            <button class="px-6 py-3 rounded bg-[#bbb] text-black hover:bg-white transition font-medium">
+                수정 저장
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,151 @@
+<div th:fragment="content" class="h-full flex flex-col">
+
+    <!-- Top navbar (title + tabs) -->
+    <div class="bg-card shadow-lg flex-1 flex flex-col overflow-hidden">
+
+        <div class="navbar bg-card border-b shadow-sm shrink-0 border-[#333] flex-col items-start p-0 z-30">
+            <div class="w-full p-6 pb-2 flex justify-between items-center mb-6">
+                <h2 class="text-xl fw-400 ml-2 text-white">회원 통합 관리</h2>
+                <div class="px-4 flex items-center gap-4">
+                    <span class="text-sm text-sub">관리자님 환영합니다.</span>
+                </div>
+            </div>
+
+            <div class="w-full flex px-8 gap-8">
+                <a href="/admin/members" data-admin-nav class="tab-btn active">회원 목록</a>
+                <a href="/admin/roles" data-admin-nav class="tab-btn">등급 관리</a>
+            </div>
+        </div>
+
+        <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+
+            <!-- Flash messages -->
+            <div th:if="${successMessage}" class="mb-4 p-3 bg-emerald-900/30 text-emerald-200" th:text="${successMessage}"></div>
+            <div th:if="${errorMessage}" class="mb-4 p-3 bg-red-900/30 text-red-200" th:text="${errorMessage}"></div>
+
+            <!-- Search block (only loginId is used by backend; other fields are UI-only) -->
+            <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                <form class="flex flex-wrap gap-6 items-end pb-6" method="get" th:action="@{/admin/members}">
+                    <div class="form-control w-full max-w-sm">
+                        <label class="label p-0 justify-start mb-3">
+                            <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">회원 검색</span>
+                        </label>
+                        <input type="text" name="loginId" placeholder="이름, ID, 이메일 검색" class="input w-full" th:value="${loginId}" />
+                    </div>
+
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label mb-1"><span class="label-text text-main">상태</span></label>
+                        <select class="select text-main" name="status" disabled>
+                            <option value="">전체</option>
+                            <option value="ACTIVE">활성화 (Active)</option>
+                            <option value="BLOCKED">비활성화 (Inactive)</option>
+                            <option value="DELETED">삭제 (Deleted)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label mb-1"><span class="label-text text-main">가입일</span></label>
+                        <div class="flex items-center gap-2">
+                            <input type="date" class="input text-main" disabled />
+                            <span class="text-sub">~</span>
+                            <input type="date" class="input text-main" disabled />
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3 ml-auto">
+                        <button type="submit" class="btn-custom btn-neutral px-8">검색</button>
+                        <a class="btn-custom btn-neutral" th:href="@{/admin/members}">초기화</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- List table -->
+            <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                <div class="flex justify-between items-center px-4 py-4 border-b border-[#333] bg-card shrink-0">
+                    <span class="text-base text-sub">총 <span class="text-point fw-500" th:text="${members.totalElements}">0</span>명</span>
+                </div>
+
+                <div class="flex-1 overflow-y-auto relative">
+                    <table class="table text-center w-full">
+                        <thead class="sticky top-0 z-10">
+                        <tr>
+                            <th class="w-12"><input type="checkbox" id="checkAll" class="checkbox" /></th>
+                            <th>No</th>
+                            <th>Login_ID</th>
+                            <th>이름</th>
+                            <th>이메일</th>
+                            <th>가입일</th>
+<!--                            <th>상태</th>-->
+                            <th>관리</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="text-main">
+                        <tr th:each="m, st : ${members.content}" class="hover:bg-[#333]">
+                            <th><input type="checkbox" class="checkbox" /></th>
+                            <td class="text-sub" th:text="${members.totalElements - (members.number * members.size) - st.index}">1</td>
+                            <td class="fw-500 text-white" th:text="${m.loginId}">loginId</td>
+                            <td th:text="${m.name}">이름</td>
+                            <td th:text="${m.email}">email</td>
+                            <td class="text-sm text-sub">
+                                <span th:text="${m.createdAt != null ? #temporals.format(m.createdAt,'yyyy-MM-dd') : '-'}">2026-01-06</span>
+                                <br/>
+                                <span th:text="${m.createdAt != null ? #temporals.format(m.createdAt,'HH:mm') : ''}">22:30</span>
+                            </td>
+<!--                            <td>-->
+<!--                                <div class="badge badge-status"-->
+<!--                                     th:classappend="${m.status} == 'ACTIVE' ? ' badge-active' : (${m.status} == 'BLOCKED' ? ' badge-point' : '')"-->
+<!--                                     th:text="${m.status} == 'ACTIVE' ? '활성화' : (${m.status} == 'BLOCKED' ? '비활성화' : '삭제')">활성화</div>-->
+<!--                            </td>-->
+                            <td>
+                                <div class="flex gap-2 justify-center">
+                                    <a th:href="@{|/admin/members/${m.id}|}" data-admin-nav>
+                                        <button type="button" class="btn-custom btn-info py-1 px-3 min-h-0 text-sm" style="height:34px; min-height:34px;">수정</button>
+                                    </a>
+                                    <form th:action="@{|/admin/members/${m.id}/delete|}" method="post" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                                        <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm" style="height:34px; min-height:34px;" type="submit">삭제</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr th:if="${members.totalElements == 0}">
+                            <td colspan="8" class="text-center text-sub py-10">검색 결과가 없습니다.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination (keeps loginId) -->
+                <div class="shrink-0 px-10 py-8">
+                    <div class="pagination-group">
+                        <a class="btn-custom btn-neutral" style="height:38px; min-height:38px;"
+                           th:classappend="${members.hasPrevious()} ? '' : ' opacity-40 pointer-events-none'"
+                           th:href="@{/admin/members(page=${members.number-1}, loginId=${loginId})}">«</a>
+
+                        <span class="btn-custom btn-neutral active-page" style="height:38px; min-height:38px;">
+                            <span th:text="${members.number + 1}">1</span>
+                        </span>
+
+                        <a class="btn-custom btn-neutral" style="height:38px; min-height:38px;"
+                           th:classappend="${members.hasNext()} ? '' : ' opacity-40 pointer-events-none'"
+                           th:href="@{/admin/members(page=${members.number+1}, loginId=${loginId})}">»</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 전체 선택 (UI용)
+        (function(){
+            const checkAll = document.getElementById('checkAll');
+            if(!checkAll) return;
+            checkAll.addEventListener('change', function(){
+                document.querySelectorAll('#admin-content input.checkbox').forEach(cb => {
+                    if(cb !== checkAll) cb.checked = checkAll.checked;
+                });
+            });
+        })();
+    </script>
+</div>

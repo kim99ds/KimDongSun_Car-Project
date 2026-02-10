@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>차량 계급도</title>
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- ✅ (핵심) 첫 페인트 전에 preSpin 여부를 html 클래스에 박아 플래시 제거 -->
+    <script>
+        (function () {
+            try {
+                if (sessionStorage.getItem("preSpin") === "1") {
+                    document.documentElement.classList.add("has-preSpin");
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="stylesheet" th:href="@{/unique/css/pyramid-page.css}">
+</head>
+
+<!-- ✅ 변경점: data-my-tier 추가 (내 차량 실제 티어) -->
+<body th:attr="data-view=${page.viewTier != null} ? 'result' : (${page.selectedTrimId != null} ? 'tier' : 'search') , data-my-tier=${page.selectedTier}">
+<header th:replace="fragments/header :: header"></header>
+<div id="page-bg" aria-hidden="true"></div>
+
+<!-- =============================== CHAPTER 1 : SEARCH =============================== -->
+<section id="chapter-1" class="chapter chapter-search" th:if="${page.selectedTrimId == null}">
+    <div class="chapter-inner">
+        <div class="hero">
+            <h1 class="hero-title">내 차량 계급은 어떻게 될까?</h1>
+            <p class="hero-sub">입력하신 모델의 계급과 티어를 안내합니다</p>
+
+            <form class="chapter-search-box" th:action="@{/unique/pyramid}" method="get">
+                <input type="text" name="q" class="search-input" placeholder="모델명 검색"
+                       th:value="${page.query}" aria-label="모델 검색"/>
+
+                <!-- ✅ 검색 버튼: 이미지 버튼으로 변경 (id/class 유지) -->
+                <button id="btnSearch" class="search-btn img-btn" type="submit" aria-label="검색">검색</button>
+            </form>
+
+            <p class="no-result"
+               th:if="${page.query != null and (page.selectedTrimId == null and (page.results == null or #lists.isEmpty(page.results)))}">
+                검색 결과가 없습니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- =============================== CHAPTER 2 : PYRAMID =============================== -->
+<section id="chapter-2" class="chapter chapter-tier" th:if="${page.selectedTrimId != null and page.viewTier == null}">
+    <div class="chapter-inner">
+
+        <div class="chapter-desc">
+            <h2 class="chapter-title">
+                당신은 <span class="highlight" th:text="'＃' + ${page.selectedTier} + ' TIER'">＃1 TIER</span> 입니다!
+            </h2>
+            <p class="chapter-sub">티어를 클릭해보세요</p>
+        </div>
+
+        <div class="tier-wrap">
+            <div class="tier-visual">
+                <img th:src="@{/unique/images/pyramid.png}" alt="차량 계급도" />
+            </div>
+
+            <ul class="tier-list" aria-label="티어 리스트">
+                <li class="tier-item t1">
+                    <a class="tier-link"
+                       th:classappend="${page.selectedTier == 1} ? ' is-active' : ''"
+                       th:href="@{/unique/pyramid(q=${page.query}, trimId=${page.selectedTrimId}, tier=1)}"
+                       th:attr="data-name=${page.selectedName}, data-img=${page.selectedImageUrl != null ? page.selectedImageUrl : '/unique/images/cars/' + page.selectedTrimId + '.png'}">
+                        <span class="tier-num">1 TIER</span>
+                    </a>
+                </li>
+                <li class="tier-item t2">
+                    <a class="tier-link"
+                       th:classappend="${page.selectedTier == 2} ? ' is-active' : ''"
+                       th:href="@{/unique/pyramid(q=${page.query}, trimId=${page.selectedTrimId}, tier=2)}"
+                       th:attr="data-name=${page.selectedName}, data-img=${page.selectedImageUrl != null ? page.selectedImageUrl : '/unique/images/cars/' + page.selectedTrimId + '.png'}">
+                        <span class="tier-num">2 TIER</span>
+                    </a>
+                </li>
+                <li class="tier-item t3">
+                    <a class="tier-link"
+                       th:classappend="${page.selectedTier == 3} ? ' is-active' : ''"
+                       th:href="@{/unique/pyramid(q=${page.query}, trimId=${page.selectedTrimId}, tier=3)}"
+                       th:attr="data-name=${page.selectedName}, data-img=${page.selectedImageUrl != null ? page.selectedImageUrl : '/unique/images/cars/' + page.selectedTrimId + '.png'}">
+                        <span class="tier-num">3 TIER</span>
+                    </a>
+                </li>
+                <li class="tier-item t4">
+                    <a class="tier-link"
+                       th:classappend="${page.selectedTier == 4} ? ' is-active' : ''"
+                       th:href="@{/unique/pyramid(q=${page.query}, trimId=${page.selectedTrimId}, tier=4)}"
+                       th:attr="data-name=${page.selectedName}, data-img=${page.selectedImageUrl != null ? page.selectedImageUrl : '/unique/images/cars/' + page.selectedTrimId + '.png'}">
+                        <span class="tier-num">4 TIER</span>
+                    </a>
+                </li>
+                <li class="tier-item t5">
+                    <a class="tier-link"
+                       th:classappend="${page.selectedTier == 5} ? ' is-active' : ''"
+                       th:href="@{/unique/pyramid(q=${page.query}, trimId=${page.selectedTrimId}, tier=5)}"
+                       th:attr="data-name=${page.selectedName}, data-img=${page.selectedImageUrl != null ? page.selectedImageUrl : '/unique/images/cars/' + page.selectedTrimId + '.png'}">
+                        <span class="tier-num">5 TIER</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tier-bottom" th:if="${page.selectedName != null}">
+            <p class="tier-carline">
+                <span th:text="${page.selectedName}">차량명</span>
+                <span class="tier-dot" th:if="${page.selectedBasePrice != null}">|</span>
+                <span class="tier-price" th:if="${page.selectedBasePrice != null}"
+                      th:text="${#numbers.formatInteger(page.selectedBasePrice, 3, 'COMMA') + '원'}">0원</span>
+            </p>
+
+            <a class="tier-search-again" th:href="@{/unique/pyramid}">
+                다른 차량 검색하기
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- =============================== CHAPTER 3 : RESULT =============================== -->
+<section id="chapter-3" class="chapter chapter-result" th:if="${page.viewTier != null}">
+    <div class="chapter-inner result-layout">
+
+        <div class="result-left">
+            <div class="result-head">
+                <div class="brand-mini">403 MOTORS</div>
+                <div class="result-title"
+                     th:text="${page.viewTier == page.selectedTier ? '같은 TIER 다른 차량' : '선택한 TIER 차량 목록'}">
+                </div>
+                <div class="result-bar"></div>
+            </div>
+
+            <div class="card-grid">
+                <a class="car-card"
+                   th:each="c : ${page.tierCars}"
+                   th:href="@{/cars/{id}(id=${c.modelId})}">
+                    <div class="car-thumb">
+                        <img th:src="@{${c.imageUrl != null ? c.imageUrl : '/unique/images/cars/' + c.trimId + '.png'}}"
+                             alt="car"
+                             onerror="this.style.display='none'">
+                    </div>
+                    <div class="car-name" th:text="${c.displayName}">제네시스 GV80</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="result-right">
+
+            <!-- (1) 다른 TIER 클릭해서 넘어온 경우 -->
+            <div class="result" th:if="${page.viewTier != page.selectedTier}">
+                <div class="result-card is-clickable is-mismatch"
+                     th:attr="data-href=@{/cars/{id}(id=${page.selectedModelId})}">
+                    <div class="card-inner">
+
+                        <div class="card-face card-front">
+
+                            <h3 th:text="${'TIER ' + page.selectedTier}">TIER 3</h3>
+
+                            <div class="result-text">
+                                <b>
+                                    이 차량은
+                                    <span th:text="${page.viewTier + 'TIER'}">3TIER</span>
+                                    가 아닙니다
+                                </b>
+                                <!-- ✅ 괄호 안은 '실제 차량 TIER' -->
+                                <p th:text="${'(현재: ' + page.selectedTier + 'TIER)'}">(현재: 4TIER)</p>
+                            </div>
+
+                            <div class="result-image">
+                                <img th:src="@{${page.selectedImageUrl != null and !#strings.isEmpty(page.selectedImageUrl)
+        ? page.selectedImageUrl
+        : '/unique/images/cars/' + page.selectedTrimId + '.png'}}"
+                                     th:attr="data-fallback=@{'/unique/images/cars/' + ${page.selectedTrimId} + '.png'}"
+                                     alt="차량"
+                                     onerror="this.onerror=null; this.src=this.dataset.fallback;">
+
+
+                            </div>
+
+                            <div class="result-text">
+                                <b>
+                                    <!-- ✅ 실제 차량 TIER -->
+                                    <span class="result-rank-name"
+                                          th:text="${page.selectedTier + 'TIER'}">4TIER</span>
+                                </b>
+                                <p class="carName" th:text="${page.selectedName}">산타페</p>
+                            </div>
+
+                            <div class="see-more-btn-all">
+                                <a class="see-more-btn"
+                                   th:href="@{/unique/pyramid(q=${page.query}, trimId=${page.selectedTrimId})}">
+                                    다른 TIER 선택하기
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <div class="card-face card-back">
+                            <img src="/unique/images/mainLogo.png"
+                                 alt="logo"
+                                 onerror="this.style.display='none'">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- (2) 같은 TIER(내 차량)인 경우 -->
+            <div class="result" th:if="${page.viewTier == page.selectedTier}">
+                <div class="result-card is-clickable"
+                     th:attr="data-href=@{/cars/{id}(id=${page.selectedModelId})}">
+                    <div class="card-inner">
+
+                        <div class="card-face card-front">
+
+                            <!-- ✅ 항상 '내 차량 실제 TIER' -->
+                            <h3 th:text="${'TIER ' + page.selectedTier}">TIER</h3>
+
+                            <div class="result-image">
+                                <!-- ✅ 항상 '내 차량 이미지' -->
+                                <img th:src="@{${page.selectedImageUrl != null and !#strings.isEmpty(page.selectedImageUrl)
+        ? page.selectedImageUrl
+        : '/unique/images/cars/' + page.selectedTrimId + '.png'}}"
+                                     th:attr="data-fallback=@{'/unique/images/cars/' + ${page.selectedTrimId} + '.png'}"
+                                     alt="차량"
+                                     onerror="this.onerror=null; this.src=this.dataset.fallback;">
+
+
+                            </div>
+
+                            <div class="result-text">
+                                <b>
+                                    <!-- ✅ 항상 '내 차량 실제 TIER' -->
+                                    <span class="result-rank-name"
+                                          th:text="${page.selectedTier + 'TIER'}">TIER 3</span> 입니다 !
+                                </b>
+                                <!-- ✅ 항상 '내 차량 이름' -->
+                                <p class="carName" th:text="${page.selectedName}">차량명</p>
+                            </div>
+
+                            <div class="see-more-btn-all">
+                                <a class="see-more-btn"
+                                   th:href="@{/unique/pyramid(q=${page.query}, trimId=${page.selectedTrimId})}">
+                                    계급도로 돌아가기
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <div class="card-face card-back">
+                            <img src="/unique/images/mainLogo.png" alt="logo" onerror="this.style.display='none'">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <a class="reset-btn back-to-start" href="/unique/pyramid">검색창으로 돌아가기</a>
+        </div>
+
+    </div>
+</section>
+
+<script th:src="@{/js/pyramid-page.js}"></script>
+<script th:src="@{/css/script.js}"></script>
+</body>
+</html>

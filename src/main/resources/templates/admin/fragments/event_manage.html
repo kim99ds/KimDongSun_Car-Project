@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="content" class="h-full flex flex-col">
+
+    <!-- 원본: page-event / bg-card wrapper -->
+    <div class="bg-card mb-0 shadow-lg flex-1 flex flex-col overflow-hidden">
+
+        <!-- 원본: 상단 바(제목 + 탭) -->
+        <div class="navbar bg-card border-b shadow-sm shrink-0 border-[#333] flex-col items-start p-0 z-30">
+            <div class="w-full p-6 pb-2 flex justify-between items-center mb-6">
+                <h2 class="text-xl fw-400 ml-2 text-white">이벤트 통합 관리</h2>
+                <div class="px-4 flex items-center gap-4">
+                    <span class="text-sm text-sub">관리자님 환영합니다.</span>
+                </div>
+            </div>
+
+            <div class="w-full flex px-8 gap-8">
+                <a class="tab-btn" th:classappend="${tab == null || tab == 'events'} ? ' active'" th:href="@{/admin/event_manage(tab='events')}">이벤트 목록</a>
+                <a class="tab-btn" th:classappend="${tab == 'targets'} ? ' active'" th:href="@{/admin/event_manage(tab='targets')}">타겟 목록</a>
+                <a class="tab-btn" th:classappend="${tab == 'policies'} ? ' active'" th:href="@{/admin/event_manage(tab='policies')}">정책 목록</a>
+            </div>
+        </div>
+
+        <!-- 메시지 -->
+        <div class="px-10 pt-6"
+             th:if="${(successMessage != null and !#strings.isEmpty(successMessage))
+                  or (errorMessage != null and !#strings.isEmpty(errorMessage))}">
+            <div th:if="${successMessage != null and !#strings.isEmpty(successMessage)}"
+                 class="mb-4 p-3 rounded bg-emerald-900/30 text-emerald-200"
+                 th:text="${successMessage}"></div>
+            <div th:if="${errorMessage != null and !#strings.isEmpty(errorMessage)}"
+                 class="mb-4 p-3 rounded bg-red-900/30 text-red-200"
+                 th:text="${errorMessage}"></div>
+        </div>
+
+        <!-- =====================
+             1) 이벤트 목록
+             ===================== -->
+        <div id="tab-list"
+             class="tab-content"
+             th:classappend="${tab == null || tab == 'events'} ? ' active fade-in' : ' hidden'">
+
+            <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+
+                <!-- 검색 영역 -->
+                <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                    <form class="flex flex-wrap gap-6 items-end pb-6" method="get" th:action="@{/admin/event_manage}">
+                        <input type="hidden" name="tab" value="events"/>
+
+                        <div class="form-control w-full max-w-sm">
+                            <label class="label p-0 justify-start mb-3">
+                                <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">이벤트 조회</span>
+                            </label>
+                            <input type="text" name="q" placeholder="이벤트 명/ID" class="input w-full" th:value="${param.q}" />
+                        </div>
+
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label mb-1">
+                                <span class="label-text text-main">상태</span>
+                            </label>
+                            <select class="select text-main" name="status">
+                                <option value="" th:selected="${param.status == null || #strings.isEmpty(param.status)}">전체</option>
+                                <option value="ACTIVE" th:selected="${param.status != null && param.status[0] == 'ACTIVE'}">진행중</option>
+                                <option value="READY" th:selected="${param.status != null && param.status[0] == 'READY'}">대기중</option>
+                                <option value="END" th:selected="${param.status != null && param.status[0] == 'END'}">종료</option>
+                                <option value="INACTIVE" th:selected="${param.status != null && param.status[0] == 'INACTIVE'}">비활성</option>
+                            </select>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label mb-1">
+                                <span class="label-text text-main">기간</span>
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <input type="date" class="input text-main" name="from" th:value="${param.from}" placeholder="연도-월-일" />
+                                <span class="text-sub">~</span>
+                                <input type="date" class="input text-main" name="to" th:value="${param.to}" placeholder="연도-월-일" />
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 ml-auto">
+                            <button type="submit" class="btn-custom btn-neutral px-8">검색</button>
+                            <a class="btn-custom btn-neutral" th:href="@{/admin/event_manage(tab='events')}">초기화</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 리스트 영역 -->
+                <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                    <div class="flex justify-between items-center px-4 py-2 border-b border-[#333] bg-card shrink-0">
+            <span class="text-base text-sub">
+              총 <span class="text-point fw-500" th:text="${events != null ? #lists.size(events) : 0}">0</span>건
+            </span>
+
+                        <div class="flex gap-3">
+                            <a th:href="@{/admin/event_manage/new}">
+                                <button class="btn-custom btn-brand" type="button"><i class="fa-solid fa-plus"></i> 등록</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 overflow-y-auto relative">
+                        <table class="table text-center w-full">
+                            <thead class="sticky top-0 z-10">
+                            <tr>
+                                <th class="w-12"><input type="checkbox" class="checkbox"/></th>
+                                <th>No</th>
+                                <th>이벤트 ID</th>
+                                <th class="min-w-[200px]">이벤트 명</th>
+                                <th>기획자</th>
+                                <th>기간</th>
+                                <th>상태</th>
+                                <th>관리</th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="text-main">
+                            <tr th:if="${events == null || #lists.isEmpty(events)}">
+                                <td colspan="8" class="text-sub py-10">등록된 이벤트가 없습니다.</td>
+                            </tr>
+
+                            <tr class="hover:bg-[#333]" th:each="e, stat : ${events}">
+                                <th><input type="checkbox" class="checkbox"/></th>
+                                <td class="text-sub" th:text="${stat.count}">1</td>
+                                <td th:text="${e.eventId}">EVT_2026_001</td>
+
+                                <td>
+                                    <div class="flex justify-start items-center gap-4 w-[260px] mx-auto text-left">
+                                        <div class="w-[58px] h-[58px] bg-[#efefef] rounded shrink-0 overflow-hidden flex items-center justify-center">
+                                            <img th:if="${e.bannerImage != null}" th:src="${e.bannerImage}" alt="thumb" class="w-full h-full object-cover"/>
+                                            <span th:if="${e.bannerImage == null}" class="text-[10px] text-[#999]">100×100</span>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <span class="text-white fw-500" th:text="${e.title}">이벤트명</span>
+                                            <span class="text-sub text-sm" th:text="${e.description != null ? e.description : ''}"></span>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="text-sub" th:text="${e.plannerName != null ? e.plannerName : '관리자'}">관리자</td>
+
+                                <td class="text-sub">
+                                    <span th:text="${e.startAt != null ? #temporals.format(e.startAt, 'yyyy-MM-dd') : '-'}">2026-01-01</span>
+                                    <br/>
+                                    <span th:text="${e.endAt != null ? #temporals.format(e.endAt, 'yyyy-MM-dd') : '-'}">2026-01-31</span>
+                                </td>
+
+                                <td>
+                  <span class="badge"
+                        th:classappend="${e.status == T(com.carproject.event.entity.EventStatus).ACTIVE} ? ' badge-warning' : (${e.status == T(com.carproject.event.entity.EventStatus).READY} ? ' badge-ghost' : (${e.status == T(com.carproject.event.entity.EventStatus).END} ? ' badge-neutral' : ' badge-ghost'))"
+                        th:text="${e.status == T(com.carproject.event.entity.EventStatus).ACTIVE ? '진행중' : (e.status == T(com.carproject.event.entity.EventStatus).READY ? '대기중' : (e.status == T(com.carproject.event.entity.EventStatus).END ? '종료' : '비활성'))}">
+                    진행중
+                  </span>
+                                </td>
+
+                                <td>
+                                    <a class="btn-custom btn-neutral px-6" th:href="@{/admin/event_manage/{id}/edit(id=${e.eventId})}">수정</a>
+                                    <form th:action="@{/admin/event_manage/{id}/delete(id=${e.eventId})}" method="post" class="inline">
+                                        <button type="submit" class="btn-custom btn-danger px-6" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <div class="join">
+                        <button class="join-item btn btn-sm" disabled>«</button>
+                        <button class="join-item btn btn-sm btn-active">1</button>
+                        <button class="join-item btn btn-sm" disabled>»</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =====================
+             2) 타겟 목록
+             ===================== -->
+        <div id="tab-target"
+             class="tab-content"
+             th:classappend="${tab == 'targets'} ? ' active fade-in' : ' hidden'">
+
+            <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+
+                <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                    <form class="flex flex-wrap gap-6 items-end pb-6" method="get" th:action="@{/admin/event_manage}">
+                        <input type="hidden" name="tab" value="targets"/>
+
+                        <div class="form-control w-full max-w-sm">
+                            <label class="label p-0 justify-start mb-3">
+                                <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">타겟 조회</span>
+                            </label>
+                            <input type="text" name="eventId" placeholder="EVENT ID" class="input w-full" th:value="${param.eventId}" />
+                        </div>
+
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label mb-1">
+                                <span class="label-text text-main">항목</span>
+                            </label>
+                            <select class="select text-main" name="targetType">
+                                <option value="" th:selected="${param.targetType == null || #strings.isEmpty(param.targetType)}">전체</option>
+                                <option value="FUEL" th:selected="${param.targetType != null && param.targetType[0] == 'FUEL'}">연료</option>
+                                <option value="BRAND" th:selected="${param.targetType != null && param.targetType[0] == 'BRAND'}">브랜드</option>
+                                <option value="CAR_TYPE" th:selected="${param.targetType != null && param.targetType[0] == 'CAR_TYPE'}">차종</option>
+                            </select>
+                        </div>
+
+                        <div class="form-control w-full max-w-sm">
+                            <label class="label mb-1">
+                                <span class="label-text text-main">값</span>
+                            </label>
+                            <input type="text" name="targetValue" placeholder="항목 선택" class="input w-full" th:value="${param.targetValue}" />
+                        </div>
+
+                        <div class="flex gap-3 ml-auto">
+                            <button type="submit" class="btn-custom btn-neutral px-8">검색</button>
+                            <a class="btn-custom btn-neutral" th:href="@{/admin/event_manage(tab='targets')}">초기화</a>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                    <div class="flex justify-between items-center px-4 py-2 border-b border-[#333] bg-card shrink-0">
+            <span class="text-base text-sub">
+              총 <span class="text-point fw-500" th:text="${targets != null ? #lists.size(targets) : 0}">0</span>건
+            </span>
+                    </div>
+
+                    <div class="flex-1 overflow-y-auto relative">
+                        <table class="table text-center w-full">
+                            <thead class="sticky top-0 z-10">
+                            <tr>
+                                <th class="w-12"><input type="checkbox" class="checkbox"/></th>
+                                <th>No</th>
+                                <th>Target ID</th>
+                                <th>Event ID</th>
+                                <th>항목</th>
+                                <th>값</th>
+                                <th>관리</th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="text-main">
+                            <tr th:if="${targets == null || #lists.isEmpty(targets)}">
+                                <td colspan="7" class="text-sub py-10">등록된 타겟이 없습니다.</td>
+                            </tr>
+
+                            <tr class="hover:bg-[#333]" th:each="t, stat : ${targets}">
+                                <th><input type="checkbox" class="checkbox"/></th>
+                                <td class="text-sub" th:text="${stat.count}">1</td>
+                                <td th:text="${t.eventTargetId}">TGT_AUTO_051</td>
+                                <td th:text="${t.event != null ? t.event.eventId : '-'}">EVT_2026_001</td>
+                                <td>
+                  <span class="badge"
+                        th:classappend="${t.targetType?.name() == 'FUEL'} ? ' badge-warning' : (${t.targetType?.name() == 'BRAND'} ? ' badge-info' : ' badge-secondary')"
+                        th:text="${t.targetType?.name() == 'FUEL' ? '연료' : (t.targetType?.name() == 'BRAND' ? '브랜드' : '차종')}">
+                    연료
+                  </span>
+                                </td>
+                                <td class="text-sub" th:text="${t.targetValue}">전기차(EV)</td>
+                                <td>
+                                    <button type="button"
+                                            class="btn-custom btn-neutral px-6 js-target-edit"
+                                            th:attr="data-target-id=${t.eventTargetId},
+                                   data-event-id=${t.event != null ? t.event.eventId : ''},
+                                   data-target-type=${t.targetType?.name()},
+                                   data-target-value=${t.targetValue}">
+                                        수정
+                                    </button>
+                                    <form th:action="@{/admin/event_manage/targets/{id}/delete(id=${t.eventTargetId})}" method="post" class="inline">
+                                        <button type="submit" class="btn-custom btn-danger px-6" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <div class="join">
+                        <button class="join-item btn btn-sm" disabled>«</button>
+                        <button class="join-item btn btn-sm btn-active">1</button>
+                        <button class="join-item btn btn-sm" disabled>»</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =====================
+             타겟 수정 모달 (Target 탭)
+             ✅ 기존 파일에는 이 모달이 없어서 showModal()이 실패했음
+             ===================== -->
+        <!-- =====================
+     타겟 수정 모달 (Target 탭)
+     ===================== -->
+        <dialog id="target_edit_modal" class="modal">
+            <div class="modal-box bg-card border border-[#333] max-w-lg">
+                <h3 class="fw-500 text-xl text-white mb-8 border-l-4 border-[#ff6d00] pl-4">타겟 수정</h3>
+
+                <form id="targetEditForm" method="post" class="flex flex-col gap-6">
+                    <!-- CSRF -->
+                    <input type="hidden" th:if="${_csrf != null}" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+                    <div class="form-control w-full">
+                        <label class="label"><span class="label-text text-main">Target ID</span></label>
+                        <input type="text" id="edit_target_id" class="input w-full cursor-not-allowed" readonly />
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label"><span class="label-text text-main">Event ID</span></label>
+                        <input type="text" id="edit_target_event_id" class="input w-full cursor-not-allowed" readonly />
+                    </div>
+
+                    <!-- ✅ 정책 모달처럼 2열 정렬 -->
+                    <div class="flex gap-6">
+                        <div class="form-control w-1/2">
+                            <label class="label"><span class="label-text text-main">항목</span></label>
+                            <!-- ✅ select가 좁게 보이던 원인: w-full 없음 -->
+                            <select id="edit_target_category" name="targetType" class="select w-full">
+                                <option value="FUEL">연료</option>
+                                <option value="BRAND">브랜드</option>
+                                <option value="CAR_TYPE">차종</option>
+                            </select>
+                        </div>
+
+                        <div class="form-control w-1/2">
+                            <label class="label"><span class="label-text text-main">값</span></label>
+                            <input type="text" id="edit_target_value" name="targetValue" class="input w-full" />
+                        </div>
+                    </div>
+
+                    <div class="modal-action mt-8">
+                        <button type="button" class="btn-custom btn-neutral" onclick="document.getElementById('target_edit_modal').close()">취소</button>
+                        <button type="submit" class="btn-custom btn-brand">저장하기</button>
+                    </div>
+                </form>
+            </div>
+
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
+
+
+        <!-- =====================
+             정책 수정 모달 (Policy 탭)
+             ===================== -->
+        <dialog id="policy_edit_modal" class="modal">
+            <div class="modal-box bg-card border border-[#333] max-w-lg">
+                <h3 class="fw-500 text-xl text-white mb-8 border-l-4 border-[#ff6d00] pl-4">정책 수정</h3>
+
+                <form id="policyEditForm" method="post" class="flex flex-col gap-6">
+                    <input type="hidden" th:if="${_csrf != null}" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+                    <div class="form-control w-full">
+                        <label class="label"><span class="label-text text-main">Policy ID</span></label>
+                        <input type="text" id="edit_policy_id" class="input w-full cursor-not-allowed" readonly />
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label"><span class="label-text text-main">Event ID</span></label>
+                        <input type="text" id="edit_policy_event_id" class="input w-full cursor-not-allowed" readonly />
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="form-control w-1/2">
+                            <label class="label"><span class="label-text text-main">할인 타입</span></label>
+                            <select id="edit_policy_type" name="discountType" class="select">
+                                <option value="RATE">정률(%)</option>
+                                <option value="PRICE">정액(₩)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-control w-1/2">
+                            <label class="label"><span class="label-text text-main">할인 값</span></label>
+                            <input type="number" step="0.01" id="edit_policy_value" name="discountValue" class="input text-right" />
+                        </div>
+                    </div>
+
+                    <div class="modal-action mt-8">
+                        <button type="button" class="btn-custom btn-neutral" onclick="document.getElementById('policy_edit_modal').close()">취소</button>
+                        <button type="submit" class="btn-custom btn-brand">저장하기</button>
+                    </div>
+                </form>
+            </div>
+
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
+
+        <!-- =====================
+             3) 정책 목록
+             ===================== -->
+        <div id="tab-policy"
+             class="tab-content"
+             th:classappend="${tab == 'policies'} ? ' active fade-in' : ' hidden'">
+
+            <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+
+                <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                    <form class="flex flex-wrap gap-6 items-end pb-6" method="get" th:action="@{/admin/event_manage}">
+                        <input type="hidden" name="tab" value="policies"/>
+
+                        <div class="form-control w-full max-w-sm">
+                            <label class="label p-0 justify-start mb-3">
+                                <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">정책 조회</span>
+                            </label>
+                            <input type="text" name="q" placeholder="검색" class="input w-full" th:value="${param.q}" />
+                        </div>
+
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label mb-1">
+                                <span class="label-text text-main">타입</span>
+                            </label>
+                            <select class="select text-main" name="type">
+                                <option value="" th:selected="${param.type == null || #strings.isEmpty(param.type)}">전체</option>
+                                <option value="RATE" th:selected="${param.type != null && param.type[0] == 'RATE'}">정률(%)</option>
+                                <option value="PRICE" th:selected="${param.type != null && param.type[0] == 'PRICE'}">정액(₩)</option>
+                            </select>
+                        </div>
+
+                        <div class="flex gap-3 ml-auto">
+                            <button type="submit" class="btn-custom btn-neutral px-8">검색</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                    <div class="flex justify-between items-center px-4 py-2 border-b border-[#333] bg-card shrink-0">
+            <span class="text-base text-sub">
+              총 <span class="text-point fw-500" th:text="${policies != null ? #lists.size(policies) : 0}">0</span>건
+            </span>
+                    </div>
+
+                    <div class="flex-1 overflow-y-auto relative">
+                        <table class="table text-center w-full">
+                            <thead class="sticky top-0 z-10">
+                            <tr>
+                                <th class="w-12"><input type="checkbox" class="checkbox"/></th>
+                                <th>No</th>
+                                <th>정책 ID</th>
+                                <th>이벤트 ID</th>
+                                <th>타입</th>
+                                <th>값</th>
+                                <th>관리</th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="text-main">
+                            <tr th:if="${policies == null || #lists.isEmpty(policies)}">
+                                <td colspan="7" class="text-sub py-10">등록된 정책이 없습니다.</td>
+                            </tr>
+
+                            <tr class="hover:bg-[#333]" th:each="p, stat : ${policies}">
+                                <th><input type="checkbox" class="checkbox"/></th>
+                                <td class="text-sub" th:text="${stat.count}">1</td>
+                                <td th:text="${p.eventPolicyId}">POL_2026_001</td>
+                                <td th:text="${p.event != null ? p.event.eventId : '-'}">EVT_NEW_YEAR</td>
+                                <td>
+                  <span class="badge"
+                        th:classappend="${p.discountType?.name() == 'RATE'} ? ' badge-info' : ' badge-warning'"
+                        th:text="${p.discountType?.name() == 'RATE' ? '정률(%)' : '정액(₩)'}">
+                    정률(%)
+                  </span>
+                                </td>
+                                <td class="text-point fw-500"
+                                    th:text="${p.discountType?.name() == 'RATE' ? (#numbers.formatDecimal(p.discountValue, 1, 'POINT', 0, 'NONE') + '%') : (#numbers.formatDecimal(p.discountValue, 1, 'POINT', 0, 'COMMA') + ' ₩')}">
+                                    10%
+                                </td>
+                                <td>
+                                    <button type="button"
+                                            class="btn-custom btn-neutral px-6 js-policy-edit"
+                                            th:attr="data-policy-id=${p.eventPolicyId},
+                                   data-event-id=${p.event != null ? p.event.eventId : ''},
+                                   data-policy-type=${p.discountType != null ? p.discountType.name() : ''},
+                                   data-policy-value=${p.discountValue != null ? p.discountValue : ''}">
+                                        수정
+                                    </button>
+
+                                    <form th:action="@{/admin/event_manage/policies/{id}/delete(id=${p.eventPolicyId})}" method="post" class="inline">
+                                        <button type="submit" class="btn-custom btn-danger px-6" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <div class="join">
+                        <button class="join-item btn btn-sm" disabled>«</button>
+                        <button class="join-item btn btn-sm btn-active">1</button>
+                        <button class="join-item btn btn-sm" disabled>»</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =====================
+             JS: 타겟 수정 모달 오픈
+             ===================== -->
+        <script>
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('.js-target-edit');
+                if (!btn) return;
+
+                e.preventDefault();
+
+                const targetId = btn.getAttribute('data-target-id') || '';
+                const eventId = btn.getAttribute('data-event-id') || '';
+                const targetType = btn.getAttribute('data-target-type') || '';
+                const targetValue = btn.getAttribute('data-target-value') || '';
+
+                const modal = document.getElementById('target_edit_modal');
+                const form = document.getElementById('targetEditForm');
+
+                if (!modal || !form) {
+                    console.warn('[target-modal] target_edit_modal or targetEditForm not found');
+                    return;
+                }
+
+                document.getElementById('edit_target_id').value = targetId;
+                document.getElementById('edit_target_event_id').value = eventId;
+                document.getElementById('edit_target_category').value = targetType;
+                document.getElementById('edit_target_value').value = targetValue;
+
+                form.setAttribute('action', '/admin/event_manage/targets/' + encodeURIComponent(targetId));
+                modal.showModal();
+            }, true);
+        </script>
+
+        <script>
+            (function () {
+                function setDiscountTypeSafely(typeSelect, rawType) {
+                    if (!typeSelect) return;
+                    const incoming = String(rawType || '').trim().toUpperCase();
+                    if (!incoming) return;
+
+                    const values = Array.from(typeSelect.options).map(o => o.value);
+                    if (values.includes(incoming)) {
+                        typeSelect.value = incoming;
+                        return;
+                    }
+                    console.warn('[policy-modal] cannot match discountType:', incoming, 'option values=', values);
+                }
+
+                document.addEventListener('click', function (e) {
+                    const btn = e.target.closest('.js-policy-edit');
+                    if (!btn) return;
+
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const policyId = btn.getAttribute('data-policy-id') || '';
+                    const eventId = btn.getAttribute('data-event-id') || '';
+                    const type = btn.getAttribute('data-policy-type') || '';
+                    const value = btn.getAttribute('data-policy-value') || '';
+
+                    const modal = document.getElementById('policy_edit_modal');
+                    const form = document.getElementById('policyEditForm');
+
+                    if (!modal || !form) {
+                        console.warn('[policy-modal] policy_edit_modal or policyEditForm not found');
+                        return;
+                    }
+
+                    document.getElementById('edit_policy_id').value = policyId;
+                    document.getElementById('edit_policy_event_id').value = eventId;
+                    setDiscountTypeSafely(document.getElementById('edit_policy_type'), type);
+                    document.getElementById('edit_policy_value').value = value;
+
+                    if (policyId) {
+                        form.action = '/admin/event_manage/policies/' + encodeURIComponent(policyId);
+                    }
+
+                    modal.showModal();
+                }, true);
+            })();
+        </script>
+
+    </div>
+</div>
+
+</body>
+</html>

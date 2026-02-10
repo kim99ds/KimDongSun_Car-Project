@@ -1,0 +1,133 @@
+<div th:fragment="content" class="h-full flex flex-col">
+
+    <!-- 상단 헤더(403 admin 디자인) -->
+    <div class="bg-card mb-0 shadow-lg flex-1 flex flex-col overflow-hidden">
+        <div class="navbar bg-card border-b shadow-sm shrink-0 border-[#333] flex-col items-start p-0 z-30">
+            <div class="w-full p-6 pb-2 flex justify-between items-center mb-6">
+                <h2 class="text-xl fw-400 ml-2 text-white">배너 관리</h2>
+                <div class="px-4 flex items-center gap-4">
+                    <span class="text-sm text-sub">랜딩페이지(/)에 노출되는 배너를 관리합니다.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-10 py-8 flex flex-col h-full overflow-hidden fade-in">
+
+            <!-- 메시지 -->
+            <div th:if="${successMessage}" class="mb-4 p-3 border border-emerald-900/60 bg-emerald-900/20 text-emerald-200"
+                 th:text="${successMessage}"></div>
+            <div th:if="${errorMessage}" class="mb-4 p-3 border border-red-900/60 bg-red-900/20 text-red-200"
+                 th:text="${errorMessage}"></div>
+
+            <!-- 검색(백엔드 미구현이어도 무해) -->
+            <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                <form class="flex flex-wrap gap-6 items-end pb-6" action="/admin/banners" method="GET">
+                    <div class="form-control w-full max-w-sm">
+                        <label class="label p-0 justify-start mb-3">
+                            <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">배너 검색</span>
+                        </label>
+                        <input type="text" name="keyword" placeholder="배너 제목 / ID" class="input w-full" th:value="${param.keyword}" />
+                    </div>
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label mb-1">
+                            <span class="label-text text-main">상태</span>
+                        </label>
+                        <select name="status" class="select text-main">
+                            <option value="" th:selected="${param.status == null}">전체</option>
+                            <option value="active" th:selected="${param.status != null and param.status[0] == 'active'}">활성화 (Active)</option>
+                            <option value="inactive" th:selected="${param.status != null and param.status[0] == 'inactive'}">비활성화 (Inactive)</option>
+                        </select>
+                    </div>
+                    <div class="flex gap-3 ml-auto">
+                        <button type="submit" class="btn-custom btn-neutral px-8">검색</button>
+                        <a href="/admin/banners" data-admin-nav class="btn-custom btn-neutral">초기화</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 목록 -->
+            <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                <div class="flex justify-between items-center px-4 py-4 border-b border-[#333] bg-card shrink-0">
+                    <span class="text-base text-sub">총 <span class="text-point fw-500" th:text="${#lists.size(banners)}">0</span>건</span>
+                    <div class="flex gap-3">
+                        <a href="/admin/banners/new" data-admin-nav class="btn-custom btn-brand">
+                            <i class="fa-solid fa-plus"></i> 등록
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex-1 overflow-y-auto relative">
+                    <table class="table text-center w-full">
+                        <thead class="sticky top-0 z-10">
+                        <tr>
+                            <th class="w-12"><input type="checkbox" class="checkbox" disabled /></th>
+                            <th>ID</th>
+                            <th>정렬</th>
+                            <th>상태</th>
+                            <th>제목/부제목</th>
+                            <th>이미지</th>
+                            <th>링크</th>
+                            <th>관리</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-main">
+
+                        <tr th:each="b : ${banners}" class="hover:bg-[#333]">
+                            <th><input type="checkbox" class="checkbox" disabled /></th>
+                            <td class="text-sub" th:text="${b.bannerId}">0</td>
+                            <td th:text="${b.sortOrder}">0</td>
+
+                            <td>
+                                <form th:action="@{'/admin/banners/' + ${b.bannerId} + '/toggle'}" method="post" class="inline-block">
+                                    <button type="submit"
+                                            class="badge badge-status"
+                                            th:classappend="${b.isVisible} == 'Y' ? ' badge-green' : ''"
+                                            th:text="${b.isVisible} == 'Y' ? '활성화' : '비활성화'">
+                                        활성화
+                                    </button>
+                                </form>
+                            </td>
+
+                            <td>
+                                <div class="fw-500 text-white text-lg" th:text="${b.title}">제목</div>
+                                <div class="text-sm text-sub" th:text="${b.subTitle}">부제목</div>
+                            </td>
+
+                            <td>
+                                <div class="avatar" th:if="${b.imageUrl}">
+                                    <div class="w-12 h-12 bg-white">
+                                        <img th:src="${b.imageUrl}" alt="banner" onerror="this.style.display='none'"/>
+                                    </div>
+                                </div>
+                                <span th:if="${b.imageUrl == null}" class="text-sub">-</span>
+                            </td>
+
+                            <td class="text-sub">
+                                <a th:if="${b.linkUrl}" th:href="${b.linkUrl}" target="_blank" class="hover:underline" th:text="${b.linkUrl}">/</a>
+                                <span th:if="${b.linkUrl == null}" class="text-sub">-</span>
+                            </td>
+
+                            <td>
+                                <div class="flex gap-2 justify-center">
+                                    <a th:href="@{'/admin/banners/' + ${b.bannerId} + '/edit'}" data-admin-nav>
+                                        <button type="button" class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                    </a>
+
+                                    <form th:action="@{'/admin/banners/' + ${b.bannerId} + '/delete'}" method="post"
+                                          onsubmit="return confirm('정말 삭제할까요?');">
+                                        <button type="submit" class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm">삭제</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr th:if="${#lists.isEmpty(banners)}">
+                            <td colspan="8" class="text-center text-sub py-10">등록된 배너가 없습니다.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

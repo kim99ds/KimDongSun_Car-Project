@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 Motors - 회원 통합 관리</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="admin_common.css">
+    <link rel="stylesheet" href="admin_member.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 초기 설정: 회원관리 페이지 활성화
+            changeMainPage('member');
+            // 초기 탭 설정
+            switchTab('list');
+
+            // 전체 체크박스 로직
+            const checkAll = document.getElementById('checkAll');
+            const checkboxes = document.querySelectorAll('input[name="selected_ids[]"]');
+            if(checkAll) {
+                checkAll.addEventListener('change', function() {
+                    checkboxes.forEach(cb => cb.checked = checkAll.checked);
+                });
+            }
+        });
+
+        // 사이드바 메뉴 활성화 함수
+        function changeMainPage(pageId) {
+            // 메인 섹션 전환 (필요시 사용, 현재는 단일 페이지 구조라 menu active만 처리해도 됨)
+            document.querySelectorAll('.main-section').forEach(page => {
+                // page.classList.add('hidden'); // 단일 HTML 파일로 합치는 경우 주석 처리 가능
+            });
+
+            document.querySelectorAll('.menu a').forEach(link => link.classList.remove('active-menu'));
+            const activeLink = document.getElementById('menu-' + pageId);
+            if(activeLink) activeLink.classList.add('active-menu');
+        }
+
+        // 탭 전환 함수 (회원 목록 / 등급 관리)
+        function switchTab(tabName) {
+            // 모든 탭 컨텐츠 숨김
+            ['list', 'role'].forEach(name => {
+                const el = document.getElementById('tab-' + name);
+                if(el) {
+                    el.classList.add('hidden');
+                    el.classList.remove('fade-in');
+                    el.classList.remove('active');
+                }
+            });
+
+            // 선택된 탭 활성화
+            const selectedEl = document.getElementById('tab-' + tabName);
+            if(selectedEl) {
+                selectedEl.classList.remove('hidden');
+                selectedEl.classList.add('active'); 
+                setTimeout(() => { selectedEl.classList.add('fade-in'); }, 10); 
+            }
+
+            // 탭 버튼 스타일 업데이트
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById('btn-' + tabName);
+            if(activeBtn) activeBtn.classList.add('active');
+        }
+
+        // 삭제 버튼 클릭 이벤트
+        $(document).ready(function(){
+            $(document).on('click', '.btn-delete', function(){
+                if(confirm('정말 삭제하시겠습니까?')) alert('삭제되었습니다.');
+            });
+        });
+
+        // 역할 생성 알림
+        function createRole() {
+            const roleName = document.querySelector('input[name="newRole"]').value;
+            if(!roleName) {
+                alert('역할 이름을 입력해주세요.');
+                return;
+            }
+            alert('새로운 역할 [' + roleName + '] 이(가) 생성되었습니다.');
+        }
+    </script>
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-card flex flex-col border-none overflow-y-auto shrink-0">
+        <div class="main_logo">
+            <a href="#"><img src="image/logo_2.png" alt="logo2" class="p-6 mt-4"></a>
+        </div>
+        <ul class="menu w-full p-0 gap-1">
+            <li>
+                <a href="/403admin_member/admin_member.html" id="menu-member" onclick="changeMainPage('member')">
+                    <i class="fa-solid fa-users w-6 text-center ml-2"></i> 회원관리
+                </a>
+            </li>
+            <li>
+                <a href="#" id="menu-banner" onclick="changeMainPage('banner')">
+                    <i class="fa-solid fa-images w-6 text-center ml-2"></i> 배너관리
+                </a>
+            </li>
+            <li>
+                <a href="#" id="menu-vehicle" onclick="changeMainPage('vehicle')">
+                    <i class="fa-solid fa-car w-6 text-center ml-2"></i> 차량관리
+                </a>
+            </li>
+            <li>
+                <a href="/403admin_event/admin_event.html" id="menu-event" onclick="changeMainPage('event')">
+                    <i class="fa-solid fa-gift w-6 text-center ml-2"></i> 이벤트관리
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="flex-1 h-full flex flex-col overflow-hidden bg-[#111111] p-10" id="main-content">
+        <div id="page-member" class="main-section h-full flex flex-col">
+            <div class="bg-card mb-0 shadow-lg flex-1 flex flex-col overflow-hidden">
+                
+                <div class="navbar bg-card border-b shadow-sm shrink-0 border-[#333] flex-col items-start p-0 z-30">
+                    <div class="w-full p-6 pb-2 flex justify-between items-center mb-6">
+                        <h2 class="text-xl fw-400 ml-2 text-white">회원 통합 관리</h2>
+                        <div class="px-4 flex items-center gap-4">
+                            <span class="text-sm text-sub">관리자님 환영합니다.</span>
+                        </div>
+                    </div>
+                    <div class="w-full flex px-8 gap-8">
+                        <button id="btn-list" onclick="switchTab('list')" class="tab-btn active">회원 목록</button>
+                        <button id="btn-role" onclick="switchTab('role')" class="tab-btn">등급 관리</button>
+                    </div>
+                </div>
+
+                <div id="tab-list" class="tab-content active fade-in">
+                    <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+                        
+                        <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                            <form class="flex flex-wrap gap-6 items-end pb-6" action="#" method="GET">
+                                <div class="form-control w-full max-w-sm">
+                                    <label class="label p-0 justify-start mb-3">
+                                        <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">회원 검색</span>
+                                    </label>
+                                    <input type="text" name="keyword" placeholder="이름, ID, 이메일 검색" class="input w-full" />
+                                </div>
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label mb-1">
+                                        <span class="label-text text-main">상태</span>
+                                    </label>
+                                    <select name="status" class="select text-main">
+                                        <option value="">전체</option>
+                                        <option value="active">활성화 (Active)</option>
+                                        <option value="inactive">비활성화 (Inactive)</option>
+                                        <option value="banned">정지 (Banned)</option>
+                                    </select>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label mb-1">
+                                        <span class="label-text text-main">가입일</span>
+                                    </label>
+                                    <div class="flex items-center gap-2">
+                                        <input type="date" name="startDate" class="input text-main" />
+                                        <span class="text-sub">~</span>
+                                        <input type="date" name="endDate" class="input text-main" />
+                                    </div>
+                                </div>
+                                <div class="flex gap-3 ml-auto">
+                                    <button type="submit" class="btn-custom btn-neutral px-8">검색</button>
+                                    <button type="button" class="btn-custom btn-neutral">초기화</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                            <div class="flex justify-between items-center px-4 py-4 border-b border-[#333] bg-card shrink-0">
+                                <span class="text-base text-sub">총 <span class="text-point fw-500">2</span>명</span>
+                            </div>
+                            <div class="flex-1 overflow-y-auto relative">
+                                <table class="table text-center w-full">
+                                    <thead class="sticky top-0 z-10">
+                                        <tr>
+                                            <th class="w-12"><input type="checkbox" id="checkAll" class="checkbox" /></th>
+                                            <th>No</th>
+                                            <th>Login_ID</th>
+                                            <th>이름</th>
+                                            <th>이메일</th>
+                                            <th>가입일</th>
+                                            <th>상태</th>
+                                            <th>관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-main">
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" name="selected_ids[]" class="checkbox" /></th>
+                                            <td class="text-sub">3</td>
+                                            <td class="fw-500 text-white">sijcelkm</td>
+                                            <td>김철수</td>
+                                            <td>cjftndishfwk@naver.com</td>
+                                            <td class="text-sm text-sub">2026-01-06 <br> 22:30</td>
+                                            <td><div class="badge badge-status badge-active">활성화</div></td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <a href="/403admin_member/admin_member_in.html"><button class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button></a>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-[#333]">
+                                            <th><input type="checkbox" name="selected_ids[]" class="checkbox" /></th>
+                                            <td class="text-sub">2</td>
+                                            <td class="fw-500 text-white">hong123</td>
+                                            <td>홍길동</td>
+                                            <td>hong@test.com</td>
+                                            <td class="text-sm text-sub">2026-01-05 <br> 10:00</td>
+                                            <td><div class="badge badge-status badge-point">정지</div></td>
+                                            <td>
+                                                <div class="flex gap-2 justify-center">
+                                                    <button class="btn-custom btn-info py-1 px-3 min-h-0 text-sm">수정</button>
+                                                    <button class="btn-custom btn-danger py-1 px-3 min-h-0 text-sm btn-delete">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center p-6 shrink-0">
+                            <div class="pagination-group">
+                                <button class="btn-custom btn-neutral">«</button>
+                                <button class="btn-custom btn-brand active-page">1</button>
+                                <button class="btn-custom btn-neutral">»</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-role" class="tab-content fade-in">
+                    <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+                        
+                        <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                            <div class="flex flex-col gap-6 pb-6">
+                                <div class="flex flex-wrap items-end gap-4 border-b border-[#333] pb-6">
+                                    <div class="form-control w-full max-w-xs">
+                                        <label class="label">
+                                            <span class="label-text font-normal text-lg text-main border-l-4 border-[#ff6d00] pl-3">새 역할 추가</span>
+                                        </label>
+                                        <input type="text" name="newRole" class="input w-full" placeholder="예: SALES_MANAGER" />
+                                        <label class="label"><span class="label-text-alt text-sub mt-1">영문 대문자 + 언더스코어 권장</span></label>
+                                    </div>
+                                    <button type="button" onclick="createRole()" class="btn-custom btn-neutral px-6 mb-9 bg-[#bbb] text-black hover:text-white hover:bg-[#ff6d00] hover:border-[#ff6d00]">역할 생성</button>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="font-normal text-main text-lg mb-4 border-l-4 border-[#ff6d00] pl-3">등록된 역할 목록</h3>
+                                    <div class="flex flex-wrap gap-3">
+                                        <div class="badge h-10 rounded-sm bg-[#333] text-sub border border-[#444] gap-2 px-4 cursor-not-allowed">
+                                            ADMIN <span class="text-[10px] bg-[#222] px-1 py-0.5 text-sub">SYSTEM</span>
+                                        </div>
+                                        <div class="badge h-10 rounded-sm bg-[#333] text-sub border border-[#444] gap-2 px-4 cursor-not-allowed">
+                                            USER <span class="text-[10px] bg-[#222] px-1 py-0.5 text-sub">SYSTEM</span>
+                                        </div>
+                                        <button class="group badge h-10 rounded-sm bg-[#333] text-white border border-[#555] hover:border-[#ff6d00] hover:text-[#ff6d00] gap-2 px-4 cursor-pointer transition-all btn-delete">
+                                            부관리자 <i class="fa-solid fa-xmark text-sub group-hover:text-[#ff6d00] text-xs ml-1"></i>
+                                        </button>
+                                        <button class="group badge h-10 rounded-sm bg-[#333] text-white border border-[#555] hover:border-[#ff6d00] hover:text-[#ff6d00] gap-2 px-4 cursor-pointer transition-all btn-delete">
+                                            매니저 <i class="fa-solid fa-xmark text-sub group-hover:text-[#ff6d00] text-xs ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                            <div class="flex justify-between items-center py-4 border-b border-[#333] bg-card shrink-0">
+                                <span class="text-base text-sub">사용자 권한 설정</span>
+                            </div>
+                            <div class="flex-1 overflow-y-auto relative">
+                                <table class="table text-center w-full">
+                                    <thead class="sticky top-0 z-10">
+                                        <tr>
+                                            <th class="w-16">No</th>
+                                            <th>Login_ID</th>
+                                            <th>이름</th>
+                                            <th>현재 주요권한</th>
+                                            <th class="text-left pl-8 min-w-[300px]">역할 부여 / 회수</th>
+                                            <th>관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-main">
+                                        <tr class="hover:bg-[#333]">
+                                            <td class="text-sub">1</td>
+                                            <td class="fw-500 text-white">admin</td>
+                                            <td>관리자</td>
+                                            <td><span class="badge badge-status text-[#ff6d00] border-[#ff6d00]">ADMIN</span></td>
+                                            <td class="text-left pl-8">
+                                                <div class="flex flex-wrap gap-4 items-center">
+                                                    <label class="cursor-pointer flex items-center gap-2 hover:text-white transition-colors">
+                                                        <input type="checkbox" checked class="checkbox checkbox-xs" />
+                                                        <span>ADMIN</span>
+                                                    </label>
+                                                    <label class="cursor-pointer flex items-center gap-2 hover:text-white transition-colors">
+                                                        <input type="checkbox" class="checkbox checkbox-xs" />
+                                                        <span>부관리자</span>
+                                                    </label>
+                                                    <label class="cursor-pointer flex items-center gap-2 hover:text-white transition-colors">
+                                                        <input type="checkbox" checked class="checkbox checkbox-xs" />
+                                                        <span>USER</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button class="btn-custom bg-[#333] border border-[#555] text-[#bbb] hover:bg-[#ff6d00] hover:text-white hover:border-[#ff6d00] h-8 px-4 min-h-0 text-sm">저장</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-[#333]">
+                                            <td class="text-sub">2</td>
+                                            <td class="fw-500 text-white">sijcelkm</td>
+                                            <td>김철수</td>
+                                            <td><span class="badge badge-status text-sub border-[#666]">USER</span></td>
+                                            <td class="text-left pl-8">
+                                                <div class="flex flex-wrap gap-4 items-center">
+                                                    <label class="cursor-pointer flex items-center gap-2 hover:text-white transition-colors">
+                                                        <input type="checkbox" class="checkbox checkbox-xs" />
+                                                        <span>ADMIN</span>
+                                                    </label>
+                                                    <label class="cursor-pointer flex items-center gap-2 hover:text-white transition-colors">
+                                                        <input type="checkbox" class="checkbox checkbox-xs" />
+                                                        <span>부관리자</span>
+                                                    </label>
+                                                    <label class="cursor-pointer flex items-center gap-2 hover:text-white transition-colors">
+                                                        <input type="checkbox" checked class="checkbox checkbox-xs" />
+                                                        <span>USER</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button class="btn-custom bg-[#333] border border-[#555] text-[#bbb] hover:bg-[#ff6d00] hover:text-white hover:border-[#ff6d00] h-8 px-4 min-h-0 text-sm">저장</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center p-6 shrink-0">
+                            <div class="pagination-group">
+                                <button class="btn-custom btn-neutral">«</button>
+                                <button class="btn-custom btn-brand active-page">1</button>
+                                <button class="btn-custom btn-neutral">»</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>

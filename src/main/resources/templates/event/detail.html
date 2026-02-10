@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${event != null ? event.title : '이벤트 상세'}">이벤트 상세</title>
+
+    <link rel="stylesheet" th:href="@{/event/css/detail.css}">
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+</head>
+
+<body>
+<header th:replace="fragments/header :: header"></header>
+<section>
+
+    <!-- ✅ 추가: tab 값 안전하게 currentTab으로 고정 (기존 로직 유지용) -->
+    <th:block th:with="
+      currentTab=${(param.tab != null and !#lists.isEmpty(param.tab) and !#strings.isEmpty(param.tab[0]))
+        ? param.tab[0]
+        : ((tab != null and !#strings.isEmpty(tab)) ? tab : 'ongoing')}
+    ">
+
+        <!-- ✅ 진행중 이벤트 상세에서만: 우측 고정 '진행중 이벤트' 네비 -->
+        <aside class="event-float-nav"
+               th:if="${#strings.equals(currentTab,'ongoing')}"
+               aria-label="진행중 이벤트 목록">
+
+            <div class="event-float-nav__head">
+                <div class="event-float-nav__title">진행중 이벤트</div>
+            </div>
+
+            <!-- ✅ 리스트 -->
+            <div class="event-float-nav__list"
+                 th:if="${navItems != null and !navItems.isEmpty()}">
+
+                <!-- ✅ 수정: @{...}를 삼항 연산자 안에 넣지 말고 태그를 분리 -->
+                <th:block th:each="e : ${navItems}">
+
+                    <!-- 정상 링크 -->
+                    <a class="event-float-nav__item"
+                       th:if="${e != null and e.eventId != null and e.title != null and !#strings.isEmpty(e.title)}"
+                       th:href="@{/event/{eventId}(eventId=${e.eventId}, tab=${currentTab})}"
+                       th:classappend="${event != null and event.eventId != null and e.eventId == event.eventId} ? ' is-active' : ''">
+
+                        <div class="event-float-nav__item-title" th:text="${e.title}">
+                            이벤트 제목
+                        </div>
+                    </a>
+
+                    <!-- 비정상 데이터(비활성) -->
+                    <a class="event-float-nav__item is-disabled"
+                       th:unless="${e != null and e.eventId != null and e.title != null and !#strings.isEmpty(e.title)}"
+                       href="javascript:void(0);">
+                        <div class="event-float-nav__item-title">이벤트</div>
+                    </a>
+
+                </th:block>
+            </div>
+
+            <!-- ✅ 비어있을 때 -->
+            <div class="event-float-nav__empty"
+                 th:if="${navItems == null or navItems.isEmpty()}">
+                진행중 이벤트가 없습니다.
+            </div>
+
+        </aside>
+
+        <!-- breadcrumb -->
+        <nav class="breadcrumb">
+            <ul>
+                <li><a th:href="@{/}">홈</a></li>
+                <li> &gt; </li>
+                <li>
+                    <a th:href="@{/event(tab=${currentTab})}">이벤트</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 상단 라벨(대상 표시: targetDisplay) -->
+        <div class="detailhead">
+            <div class="cm-label"
+                 th:text="${event == null or event.targetDisplay == null or #strings.isEmpty(event.targetDisplay)} ? 'ALL' : ${event.targetDisplay}">
+                ALL
+            </div>
+        </div>
+
+        <!-- title -->
+        <div class="mainTit">
+            <h1 th:text="${event != null ? event.title : ''}">이벤트명</h1>
+
+            <!-- ✅ 기존 p 유지(원하면 뱃지로 바꾸는 건 별도) -->
+            <!-- ✅ 상태 배지(사진처럼) : 기존 문장 p → 배지로 교체 -->
+            <div class="endedUnderTitle"
+                 th:if="${event != null
+      and event.statusMessage != null
+      and !#strings.isEmpty(event.statusMessage)
+      and (event.statusMessage == '조기 마감되었습니다.' or event.statusMessage == '종료된 이벤트입니다.')}">
+
+    <span class="status-badge status-end"
+          th:if="${event.statusMessage == '종료된 이벤트입니다.'}">
+        종료된 이벤트
+    </span>
+
+                <span class="status-badge status-inactive"
+                      th:if="${event.statusMessage == '조기 마감되었습니다.'}">
+        조기마감
+    </span>
+            </div>
+
+
+            <p class="date"
+               th:text="${event != null and event.startDate != null ? #temporals.format(event.startDate, 'yyyy.MM.dd') : ''} +
+                ${(event != null and event.startDate != null) ? ' ~ ' : ''} +
+                ${(event != null and event.endDate != null) ? #temporals.format(event.endDate, 'yyyy.MM.dd') : ((event != null and event.startDate != null) ? '상시' : '')}">
+                2026.01.01 ~ 2026.01.31
+            </p>
+        </div>
+
+        <div class="line"></div>
+
+        <!-- main visual -->
+        <div class="main-visual">
+            <img th:if="${event != null and event.bannerImage != null and !#strings.isEmpty(event.bannerImage)}"
+                 th:src="${#strings.startsWith(event.bannerImage, '/') ? event.bannerImage : '/' + event.bannerImage}"
+                 th:alt="${event.title}">
+            <img th:unless="${event != null and event.bannerImage != null and !#strings.isEmpty(event.bannerImage)}"
+                 th:src="@{/event/images/no-image.png}"
+                 alt="no image">
+
+            <h2 th:text="${event != null ? event.title + ' 혜택 안내' : '혜택 안내'}">혜택 안내</h2>
+        </div>
+
+        <!-- (이하 원본 그대로) -->
+        <table class="genesis-table">
+            <tbody class="first-box">
+            <tr>
+                <th>대상</th>
+                <td class="gap"></td>
+                <td colspan="3">
+
+                    <div class="targetCarsWrap"
+                         th:if="${event != null and event.matchedCars != null and !event.matchedCars.isEmpty()}">
+                        <div class="matchedCarsGrid">
+
+                            <!-- ✅ 그대로 유지(단, modelId null 가능성이 있으면 아래처럼 분리하면 안전) -->
+                            <a class="matchedCarCard"
+                               th:each="car : ${event.matchedCars}"
+                               th:if="${car != null and car.modelId != null}"
+                               th:href="@{/cars/{id}(id=${car.modelId})}">
+
+                                <div class="matchedCarTitle"
+                                     th:text="${#strings.trim(#strings.defaultString(car.brandName, ''))} + ' ' + ${#strings.trim(#strings.defaultString(car.modelName, ''))}">
+                                    차량명
+                                </div>
+
+                                <div class="matchedCarSub">
+                                    <span th:text="${car.modelYear != null ? car.modelYear : ''}">2026</span>
+                                    <span class="dot">·</span>
+                                    <span th:text="${car.segment != null ? car.segment : ''}">SUV</span>
+                                </div>
+
+                                <div class="matchedCarTag"
+                                     th:text="${car.segment != null ? car.segment : 'CAR'}">
+                                    SUV
+                                </div>
+                            </a>
+
+                            <!-- ✅ 추가(안전): modelId 없는 데이터는 비활성 카드로 -->
+                            <div class="matchedCarCard is-disabled"
+                                 th:each="car : ${event.matchedCars}"
+                                 th:unless="${car != null and car.modelId != null}">
+                                <div class="matchedCarTitle"
+                                     th:text="${(car != null) ? (#strings.defaultString(car.brandName,'') + ' ' + #strings.defaultString(car.modelName,'')) : '차량'}">
+                                    차량
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="matchedCarsEmpty"
+                         th:if="${event == null or event.matchedCars == null or event.matchedCars.isEmpty()}">
+                        현재 조건에 맞는 차량이 없습니다.
+                    </div>
+
+                </td>
+            </tr>
+            </tbody>
+
+            <tbody class="second-box">
+            <tr>
+                <th>기간</th>
+                <td class="gap"></td>
+                <td colspan="3"
+                    th:text="${event != null and event.startDate != null ? #temporals.format(event.startDate, 'yyyy.MM.dd') : ''} +
+               ${(event != null and event.startDate != null) ? ' ~ ' : ''} +
+               ${(event != null and event.endDate != null) ? #temporals.format(event.endDate, 'yyyy.MM.dd') : ((event != null and event.startDate != null) ? '상시' : '')}">
+                    2026.01.01 ~ 2026.01.31
+                </td>
+            </tr>
+            </tbody>
+
+            <tbody class="third-box">
+            <tr>
+                <th>혜택</th>
+                <td class="gap"></td>
+                <td colspan="3">
+
+                    <!-- ✅ 정책 있을 때 -->
+                    <ul class="benefitList"
+                        th:if="${event != null and event.policies != null and !event.policies.isEmpty()}">
+                        <li class="benefitItem"
+                            th:each="p : ${event.policies}"
+                            th:text="${p}">
+                            10% 할인
+                        </li>
+                    </ul>
+
+                    <!-- ✅ 정책 없을 때 -->
+                    <div class="benefitEmpty"
+                         th:if="${event == null or event.policies == null or event.policies.isEmpty()}">
+                        현재 적용 가능한 혜택이 없습니다.
+                    </div>
+
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+
+        <div class="detailInfo"
+             th:if="${event != null and event.description != null and !#strings.isEmpty(event.description)}">
+            <div class="detailInfoLabel"><p>상품정보</p></div>
+            <div class="gap"></div>
+            <div class="detailInfoBody">
+                <div class="descPre" th:text="${event.description}"></div>
+            </div>
+        </div>
+
+        <div class="btn">
+            <a class="btnBack"
+               th:href="@{/event(tab=${currentTab})}">
+                목록
+            </a>
+        </div>
+
+    </th:block>
+
+</section>
+<footer th:replace="fragments/footer :: footer"></footer>
+<script th:src="@{/css/script.js}"></script>
+</body>
+</html>

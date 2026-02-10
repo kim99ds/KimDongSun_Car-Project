@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>견적서</title>
+
+    <style>
+      /* quote-view image fit (UI 유지, 튀어나옴 방지) */
+      .car-body { overflow: hidden; }
+      .car-body > a { display: block; }
+      .car-body img { width:100%; height:100%; display:block; object-fit:cover; object-position:center; }
+
+      /* 텍스트는 기존 클래스 그대로, 크기만 살짝 '차게' */
+      .car-name { font-size: 18px; font-weight: 700; line-height: 1.2; }
+      .car-desc { font-size: 13px; opacity: .9; margin-top: 6px; }
+    </style>
+
+</head>
+<body>
+
+<h1 th:text="${quote.modelName} + ' 견적서'"></h1>
+
+<img th:src="${quote.exteriorImageUrl != null
+        ? quote.exteriorImageUrl
+        : '/images/default-car.png'}"
+     alt="차량 외관 이미지">
+
+<p>트림: <span th:text="${quote.trimName}"></span></p>
+<p>총 가격: <span th:text="${quote.totalPrice}"></span></p>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맞춤견적 결과</title>
+
+    <!-- 공통 스타일(기존 틀 유지) -->
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+
+    <!-- 맞춤견적(프론트) 스타일 -->
+    <link rel="stylesheet" th:href="@{/css/customsub02.css}">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+
+
+<section>
+        <div class="resultBox">
+            <div class="resultList">
+
+                <!------------------------------------------ 카드 1 -->
+                <div class="resultCard flip-card" id="card1">
+
+                    <!-- ✅ 3D (배경/이미지/뒷면) -->
+                    <div class="card-inner">
+
+                        <!-- 뒷면 (처음에 보이는 면) -->
+                        <div class="card-back card-face">
+                            <div class="back-logo">
+                                <img th:src="@{/main/images/mainLogo.png}" src="/main/images/mainLogo.png" alt="">
+                                <p>클릭해서 카드 뒤집기</p>
+                            </div>
+                        </div>
+
+                        <!-- 앞면 (뒤집으면 나오는 면) -->
+                        <div class="card-front card-face">
+                            <div class="card-visual">
+                                <div class="imgSize">
+                                    <img th:src="@{/main/images/bast_car_Mercedes-BenzGLC.png}" src="/main/images/bast_car_Mercedes-BenzGLC.png" alt="GV80">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 2D 텍스트 레이어 -->
+                    <div class="card-text-layer">
+                        <div class="cardContent">
+                            <h3>어울리는 SUV</h3>
+
+                            <div class="cardText">
+                                <b class="carDesc">SUV를 원하시면</b>
+                                <p class="carName">제네시스 GV80</p>
+                                <span class="carScore">일치율: 75% (점수: 75)</span>
+                            </div>
+                            
+                            <div class="submit-wrap">
+                                <a href="#" class="submit-btn">자세히 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!------------------------------------------ 카드 2 -->
+                <div class="resultCard flip-card" id="card2">
+
+                    <div class="card-inner">
+
+                        <!-- 뒷면 -->
+                        <div class="card-back card-face">
+                            <div class="back-logo">
+                                <img th:src="@{/main/images/mainLogo.png}" src="/main/images/mainLogo.png" alt="">
+                                <p>클릭해서 카드 뒤집기</p>
+                            </div>
+                        </div>
+
+                        <!-- 앞면 -->
+                        <div class="card-front card-face">
+                            <div class="card-visual">
+                                <div class="imgSize">
+                                    <img th:src="@{/main/images/bast_car_BMWM4.png}" src="/main/images/bast_car_BMWM4.png" alt="G80">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 2D 텍스트 레이어 -->
+                    <div class="card-text-layer">
+                        <div class="cardContent">
+                            <h3>어울리는 SEDAN</h3>
+
+                            <div class="cardText">
+                                <b class="carDesc">SEDAN을 원하시면</b>
+                                <p class="carName">제네시스 G80</p>
+                                <span class="carScore">일치율: 50% (점수: 50)</span>
+                            </div>
+
+                            <div class="submit-wrap">
+                                <div class="submit-wrap">
+                                    <a href="#" class="submit-btn">자세히 보기 &gt;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!------------------------------------------ 카드 3 -->
+                <div class="resultCard flip-card" id="card3">
+
+                    <div class="card-inner">
+
+                        <!-- 뒷면 -->
+                        <div class="card-back card-face">
+                            <div class="back-logo">
+                                <img th:src="@{/main/images/mainLogo.png}" src="/main/images/mainLogo.png" alt="">
+                                <p>클릭해서 카드 뒤집기</p>
+                            </div>
+                        </div>
+
+                        <!-- 앞면 -->
+                        <div class="card-front card-face">
+                            <div class="card-visual">
+                                <div class="imgSize">
+                                    <img th:src="@{/main/images/bast_car_audiQ3.png}" src="/main/images/bast_car_audiQ3.png" alt="G80 Electro">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 2D 텍스트 레이어 -->
+                    <div class="card-text-layer">
+                        <div class="cardContent">
+                            <h3>어울리는 전기차</h3>
+
+                            <div class="cardText">
+                                <b class="carDesc">전기차를 원하시면</b>
+                                <p class="carName">제네시스 G80 Electro</p>
+                                <span class="carScore">일치율: 49% (점수: 49)</span>
+                            </div>
+
+                            <div class="submit-wrap">
+                                <div class="submit-wrap">
+                                    <a href="#" class="submit-btn">자세히 보기 &gt;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+<script defer th:src="@{/css/customsub.js}"></script>
+</body>
+</html>

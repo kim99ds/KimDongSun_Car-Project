@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style2.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <title>403 MOTORS</title>
+</head>
+
+<body>
+<!-- ============================= HEADER ============================== -->
+
+<header th:replace="fragments/header :: header"></header>
+
+<!-- ============================= MAIN ============================== -->
+<main id="main">
+    <!-- ============================= 1) MAIN VISUAL ============================== -->
+    <section id="mainVisual" class="main-visual" aria-label="메인 배너">
+        <div class="main-bg-layer current"></div>
+        <div class="main-bg-layer next"></div>
+
+        <!-- 1. -->
+        <div class="bg-slide"
+             data-bg="/main/images/main_banner8.jpg"
+             data-sub="Ferrari "
+             data-title="Ferrari Amalfi">
+        </div>
+        <!-- 8. -->
+        <div class="bg-slide"
+             data-bg="/main/images/main_banner6.jpg"
+             data-sub="GENESIS"
+             data-title="Genesis Magma">
+        </div>
+        <!-- 2. -->
+        <div class="bg-slide"
+             data-bg="/main/images/main_banner2.png"
+             data-sub="GENESIS"
+             data-title="G80 BLACK">
+        </div>
+        <!-- 7. -->
+        <div class="bg-slide"
+             data-bg="/main/images/main_banner7.jpg"
+             data-sub="Ferrari "
+             data-title="849 Testarossa">
+        </div>
+        <!-- 3. -->
+        <div class="bg-slide"
+             data-bg="/main/images/main_banner3.jpg"
+             data-sub="TOYOTA"
+             data-title="ALPHARD">
+        </div>
+        <!-- 4. -->
+        <div class="bg-slide"
+             data-bg="/main/images/main_banner4.png"
+             data-sub="HYUNDAI"
+             data-title="The Grandeur Honor">
+        </div>
+        <!-- 5. -->
+        <div class="bg-slide"
+             data-bg="/main/images/main_banner5.png"
+             data-sub="KGM"
+             data-title="MUSSO GRAND STYLE">
+        </div>
+        <!-- 6. -->
+        <div class="bg-slide"
+             data-bg="/main/images/main_banner1.png"
+             data-sub="GENESIS"
+             data-title="GV80 COUPE">
+        </div>
+
+        <!-- 텍스트 -->
+        <div class="main-visual-content">
+            <p class="hero-sub js-hero-text"></p>
+            <h2 class="hero-title js-hero-text"></h2>
+        </div>
+    </section>
+
+
+    <!-- =============================2) BEST CAR TOP6 ============================== -->
+    <section id="bestCar" class="bestcar">
+        <div class="container-80">
+            <div class="section-head">
+                <h2>BEST CAR</h2>
+                <p>TOP 6</p>
+            </div>
+
+            <div class="bestcar-row">
+                <article class="bestcar-card"
+                         th:each="car, st : ${bestCars}"
+                         th:classappend="${st.index == 2} ? ' is-active' : ''"
+                         th:attr="data-car=${#strings.toLowerCase(car.brandName)} + '-' + ${#strings.toLowerCase(car.modelName)}">
+                    <a th:href="@{/cars/{modelId}(modelId=${car.modelId})}" class="card-inner">
+
+                    <!-- ✅ lang="ko" 제거 (전체에 걸리면 영문까지 망가짐) -->
+                        <span class="card-title is-vertical">
+
+
+                            <!-- ✅ 한글이 포함된 경우에만 lang=ko 적용 -->
+                               <span class="sub" th:text="${car.modelName}">MODEL</span>
+                            </span>
+
+                        <img class="card-car" th:src="${car.imageUrl}">
+                    </a>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================= 3) 맞춤차량(나만의 차 만들기 ============================== -->
+    <section id="customCar" class="customcar" aria-label="맞춤차량">
+        <div class="customcar-overlay">
+            <h2 class="customcar-title">나만의 차 만들기</h2>
+
+            <div class="customcar-actions">
+                <a th:href="@{/cars}" class="btn-fill is-primary" href="#">
+                    <span>견적 보러가기</span>
+                </a>
+                <a th:href="@{/cars/for-me}" class="btn-fill is-ghost" href="#">
+                    <span>내가 선호하는 차는?</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================= 4) EVENT BANNER ============================== -->
+    <section id="eventBanner" class="eventbanner" aria-label="이벤트 배너">
+        <div class="container-80">
+
+            <div class="eventbanner-viewport">
+
+                <ul class="eventbanner-track">
+                    <li th:href="@{/unique/upsell}"
+                        class="eventbanner-slide is-active"
+                        data-bg="/main/images/event_banner6.jpg"
+                        data-title="그 돈이면"
+                        data-desc="2026 COLLECTION" data-link="http://localhost:8080/unique/upsell">
+                    </li>
+                    <li th:href="@{/unique/pyramid}"
+                        class="eventbanner-slide"
+                        data-bg="/main/images/event_banner1.jpg"
+                        data-title="내차는 계급이 어떻게 될까?"
+                        data-desc="본인의 차량의 계급을 확인해보세요"
+                        data-link="http://localhost:8080/unique/pyramid">
+                    </li>
+                    <li th:href="@{/events}"
+                        class="eventbanner-slide"
+                        data-bg="/main/images/event_banner3.jpg"
+                        data-title="SUV 차량 할인 이벤트"
+                        data-desc=""
+                        data-link="http://localhost:8080/event/80003?tab=ongoing">
+                    </li>
+                    <li th:href="@{/events}"
+                        class="eventbanner-slide"
+                        data-bg="/main/images/event_banner4.jpg"
+                        data-title="현대브랜드 차량 할인 이벤트"
+                        data-desc=""
+                        data-link="http://localhost:8080/event/80001?tab=ongoing">
+                    </li>
+                    <li th:href="@{/events}"
+                        class="eventbanner-slide"
+                        data-bg="/main/images/event_banner2.jpg"
+                        data-title="기아브랜드 차량 할인 이벤트"
+                        data-desc=""
+                        data-link="http://localhost:8080/event/80002?tab=ongoing">
+                    </li>
+                </ul>
+
+                <div class="eventbanner-content">
+                    <h2 class="eventbanner-title"></h2>
+                    <p class="eventbanner-desc"></p>
+                    <a href="#main" class="eventbanner-cta">바로가기</a>
+                </div>
+            </div>
+
+            <div class="eventbanner-pagination">
+                <button class="dot" aria-label="이벤트 배너 1번"></button>
+                <button class="dot" aria-label="이벤트 배너 2번"></button>
+                <button class="dot" aria-label="이벤트 배너 3번"></button>
+                <button class="dot" aria-label="이벤트 배너 4번"></button>
+                <button class="dot" aria-label="이벤트 배너 5번"></button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================= 5) BRAND POPULAR ============================== -->
+    <section id="brandPopular" class="brandpopular" aria-label="브랜드 별 인기">
+        <div class="container-80 brandpopular-inner">
+            <h2 class="brandpopular-title">브랜드 별 인기</h2>
+
+            <!-- ✅ DB에서 내려준 랜덤 브랜드 리스트 -->
+            <div class="brandpopular-tabs">
+                <button th:each="b, stat : ${brandPopular}"
+                        class="tab"
+                        th:classappend="${stat.index == 0} ? ' is-active' : ''"
+                        th:attr="data-name=${#strings.toUpperCase(b.brandName)}, data-sub=${b.subtitle}"
+                        th:text="${b.brandName}">
+                    BRAND
+                </button>
+            </div>
+
+            <div class="brandpopular-body">
+                <div class="brandpopular-copy"
+                     th:if="${brandPopular != null and !brandPopular.isEmpty()}">
+                    <h3 class="brand-name"
+                        th:text="${#strings.toUpperCase(brandPopular[0].brandName)}">BRAND</h3>
+                    <div class="brandpopular-line"></div>
+                    <p class="brand-sub"
+                       th:text="${brandPopular[0].subtitle}">SUB</p>
+                </div>
+
+                <div class="brandpopular-cars">
+                    <button class="nav-btn prev" type="button">‹</button>
+
+                    <div class="cars-viewport">
+                        <ul th:each="b, stat : ${brandPopular}"
+                            class="cars-track"
+                            th:classappend="${stat.index == 0} ? ' is-active' : ''"
+                            th:attr="data-brand=${b.brandName}">
+                            <li th:each="car, cstat : ${b.cars}"
+                                class="car-item"
+                                th:classappend="${cstat.index == 0} ? ' is-big' : ''">
+                                <a th:href="@{/cars/{id}(id=${car.modelId})}">
+                                    <img th:src="${car.imageUrl}"
+                                         th:alt="${car.modelName}">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button class="nav-btn next" type="button">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= 6) AWARDS ============================== -->
+    <section id="awards" class="awards" aria-label="THE AWARDS">
+        <div class="awards-bg"></div>
+
+        <div class="awards-inner">
+            <h2 class="awards-title">THE AWARDS</h2>
+
+            <div class="awards-slider">
+                <button class="awards-nav prev">‹</button>
+
+                <div class="awards-viewport">
+                    <ul class="awards-track">
+                        <li class="award-card">
+                            <figure class="award-figure">
+                                <img src="/main/images/awards_2.png" alt="">
+                            </figure>
+                            <div class="award-body">
+                                <p class="award-kicker">카즈닷컴 어워드 2024</p>
+                                <h3 class="award-head">제네시스 Electrified GV70, 美 카즈닷컴</h3>
+                                <p class="award-desc">
+                                    GV70 전동화 모델은 우아한 외관과 잘 정돈된 실내, 인상적인 주행성능을 갖춘 전기차로 인정받으며 최고의 고급차 부문을 수상했습니다. 이로써 제네시스는 지난해 G90에 이어 2년 연속 최고의 고급차에 이름을 올렸습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="award-card is-active">
+                            <figure class="award-figure">
+                                <img src="/main/images/awards_1.png" alt="">
+                            </figure>
+                            <div class="award-body">
+                                <p class="award-kicker">레드닷 어워드 2025</p>
+                                <h3 class="award-head">디자인 콘셉트 분야 3개 본상 수상</h3>
+                                <p class="award-desc">
+                                    엑스 그란 쿠페, 엑스 그란 컨버터블, 그리고 엑스 그란 이퀘이터가 2025 레드닷 어워드 콘셉트 디자인 부문, 자동차 및 모터사이클
+                                    카테고리에서 제네시스 디자인 철학인 ‘역동적인 우아함’을 극대화한 디자인으로 수상의 영예를 안았습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="award-card">
+                            <figure class="award-figure">
+                                <img src="/main/images/awards_3.png" alt="">
+                            </figure>
+                            <div class="award-body">
+                                <p class="award-kicker">2022 IIHS 톱 세이프티 픽 플러스</p>
+                                <h3 class="award-head">美 IIHS 충돌 평가서 최고 안전한 럭셔리 브랜드로 등극</h3>
+                                <p class="award-desc">
+                                    미국 고속도로 안전보험협회(IIHS)가 발표한 충돌 평가에서 제네시스 전 차종이 ‘TSP+ 등급’을 획득했습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="award-card">
+                            <figure class="award-figure">
+                                <img src="/main/images/awards_4.png" alt="">
+                            </figure>
+                            <div class="award-body">
+                                <p class="award-kicker">2023 굿디자인 어워드</p>
+                                <h3 class="award-head">세계 4대 디자인상 ‘굿디자인 어워드’</h3>
+                                <p class="award-desc">
+                                    제네시스 최초의 컨버터블 콘셉트인 제네시스 엑스 컨버터블도 운송 부문 수상 명단에 올랐습니다.
+                                    제네시스 엑스 컨버터블은 지붕이 여닫히는 컨버터블의 특성을 바탕으로 ‘자연환경과 교감하는 운전 경험’을 품격 있고 세련된 디자인으로 표현한 콘셉트 모델입니다. 이번 수상으로 제네시스는 2015년 브랜드 출범 이후 9년 연속으로 ‘굿디자인 어워드’에서 수상하는 영예를 안았습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="award-card">
+                            <figure class="award-figure">
+                                <img src="/main/images/awards_5.png" alt="">
+                            </figure>
+                            <div class="award-body">
+                                <p class="award-kicker">레드닷 어워드 2024</p>
+                                <h3 class="award-head">네오룬 콘셉트, 수송 디자인 분야 본상</h3>
+                                <p class="award-desc">
+                                    ‘수송 디자인(Cars and Motorcycles)’ 분야에서 초대형 전동화 SUV ‘네오룬 콘셉트(NEOLUN·이하 네오룬)’로 본상을 수상했습니다. 네오룬은 ‘단순함 속의 아름다움’이라는 메시지를 담은 독창적인 디자인으로 고급스러움과 혁신을 동시에 강조하며 제네시스만의 미래 지향적 가치를 보여줍니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="award-card">
+                            <figure class="award-figure">
+                                <img src="/main/images/awards_6.png" alt="">
+                            </figure>
+                            <div class="award-body">
+                                <p class="award-kicker">레드닷 어워드 2022</p>
+                                <h3 class="award-head">제네시스, ‘2022 레드 닷 어워드’에서 4개 부문 수상</h3>
+                                <p class="award-desc">
+                                    제네시스가 독일 노르트하인 베스트팔린 디자인센터가 주관하는 ‘2022 레드 닷 어워드’에서 총 4개의 디자인상을 수상하였습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="award-card">
+                            <figure class="award-figure">
+                                <img src="/main/images/awards_8.png" alt="">
+                            </figure>
+                            <div class="award-body">
+                                <p class="award-kicker">카 디자인 어워드 2023</p>
+                                <h3 class="award-head">제네시스 X 컨버터블, ‘올해의 콘셉트카’로 선정</h3>
+                                <p class="award-desc">
+                                    ‘오토 앤드 디자인’에서 주최하는 ‘카 디자인 어워드 2023’에서 ‘올해의 콘셉트카’로 선정되며 디자인 우수성을 인정받았습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="award-card">
+                            <figure class="award-figure">
+                                <img src="/main/images/awards_9.png" alt="">
+                            </figure>
+                            <div class="award-body">
+                                <p class="award-kicker">제이디파워 2022</p>
+                                <h3 class="award-head">J.D. POWER 신차품질조사 프리미엄 브랜드 1위 달성</h3>
+                                <p class="award-desc">
+                                    2017년 이후 6년 동안 꾸준히 프리미엄 브랜드 최상위권을 유지한 제네시스가 ‘2022년 신차품질조사’에서 1위를 달성했습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="award-card">
+                            <figure class="award-figure">
+                                <img src="/main/images/awards_10.png" alt="">
+                            </figure>
+                            <div class="award-body">
+                                <p class="award-kicker">2023 모터트렌드 올해의 차®</p>
+                                <h3 class="award-head">제네시스 G90, 모터트렌드 올해의 차® 선정 (미국 사양 기준)</h3>
+                                <p class="award-desc">
+                                    세계적으로 권위 있는 자동차 전문지 모터드렌드의 6가지 항목 평가에서 G90가 '2023년 올해의 차(미국 사양 기준)'에 선정되었습니다.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="awards-nav next">›</button>
+            </div>
+
+            <div class="awards-progress">
+                <span class="seg is-active"></span>
+                <span class="seg"></span>
+                <span class="seg"></span>
+                <span class="seg"></span>
+                <span class="seg"></span>
+                <span class="seg"></span>
+                <span class="seg"></span>
+                <span class="seg"></span>
+                <span class="seg"></span>
+
+                <button class="play">▶</button>
+                <button class="pause">⏸</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= 7) QUICK ICONS ============================== -->
+    <section id="quickIcons" class="quickicons" aria-label="빠른 메뉴">
+        <div class="container-80 quickicons-inner">
+            <a th:href="@{/cars}" class="quickicon">
+                <div class="icon-img">
+                    <img class="icon-default" src="/main/images/QUICK_4.png" alt="">
+                    <img class="icon-hover" src="/main/images/QUICK_4_h.png" alt="">
+                </div>
+                <span>카탈로그</span>
+            </a>
+            <a th:href="@{/cars/for-me}" class="quickicon">
+                <div class="icon-img">
+                    <img class="icon-default" src="/main/images/QUICK_1.png" alt="">
+                    <img class="icon-hover" src="/main/images/QUICK_1_h.png" alt="">
+                </div>
+                <span>견적내기</span>
+            </a>
+            <a th:href="@{/error-trigger/403}" class="quickicon">
+                <div class="icon-img">
+                    <img class="icon-default" src="/main/images/QUICK_2.png" alt="">
+                    <img class="icon-hover" src="/main/images/QUICK_2_h.png" alt="">
+                </div>
+                <span>구매 상담 신청</span>
+            </a>
+
+            <a th:href="@{/error-trigger/403}" class="quickicon">
+                <div class="icon-img">
+                    <img class="icon-default" src="/main/images/QUICK_3.png" alt="">
+                    <img class="icon-hover" src="/main/images/QUICK_3_h.png" alt="">
+                </div>
+                <span>시승 신청</span>
+            </a>
+
+
+        </div>
+    </section>
+</main>
+
+<!-- ============================= FOOTER ============================== -->
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- TOP BUTTON -->
+<button id="topBtn" aria-label="상단으로 이동">
+    <img src="/main/images/TOP_BTN.png" alt="" class="top-default">
+    <img src="/main/images/TOP_BTN_H.png" alt="" class="top-hover">
+</button>
+
+<!-- JS연결 -->
+<script th:src="@{/main/script.js}"></script>
+</body>
+
+</html>

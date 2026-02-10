@@ -1,0 +1,382 @@
+@charset "utf-8";
+
+/* 레이아웃 */
+.mypage-wrapper{
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #111;
+    color: #fff;
+}
+
+.mypage-wrapper .mypage-inner{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* ================= 사이드바 ================= */
+.mypage-wrapper .mypage-inner .mypage-sidebar{
+    width: 250px;
+    flex-shrink: 0;
+    background-color: #222;
+    overflow: hidden;
+    position: sticky;
+    top: 100px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-sidebar .profile-box{
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.mypage-wrapper .mypage-inner .mypage-sidebar .profile-box .profile-img{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.mypage-wrapper .mypage-inner .mypage-sidebar .profile-box .profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mypage-wrapper .mypage-inner .mypage-sidebar .profile-box .user-name{
+    font-size: 21px;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.mypage-wrapper .mypage-inner .mypage-sidebar .profile-box .user-email{
+    font-size: 14px;
+    color: #767676;
+}
+
+.mypage-wrapper .mypage-inner .mypage-sidebar .mypage-nav ul li a{
+    display: block;
+    padding: 25px 30px;
+    font-size: 16px;
+    color: #bbb;
+    border-bottom: 1px solid #222;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.mypage-wrapper .mypage-inner .mypage-sidebar .mypage-nav ul li a:hover{
+    background-color: #222;
+    color: #fff;
+}
+
+.mypage-wrapper .mypage-inner .mypage-sidebar .mypage-nav ul li.active a{
+    background-color: #ff6b00;
+    color: #fff;
+    font-weight: 400;
+}
+
+/* ================= 메인 콘텐츠 영역 ================= */
+.mypage-wrapper .mypage-inner .mypage-content{
+    flex: 1;
+    background-color: #222;
+    padding: 40px;
+    border: 1px solid #333;
+    min-height: 600px;
+}
+
+/* 탭 콘텐츠 제어 */
+.mypage-wrapper .mypage-inner .mypage-content .tab-content{
+    display: none; /* 기본 숨김 */
+    animation: fadeIn 0.3s ease;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .tab-content.current{
+    display: block; /* 활성화 시 보임 */
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .content-header{
+    margin-bottom: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .content-header h2{
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .content-header p{
+    font-size: 14px;
+    color: #767676;
+}
+
+/* 폼 공통 스타일 */
+.mypage-wrapper .mypage-inner .mypage-content .form-group{
+    margin-bottom: 25px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content label{
+    display: block;
+    font-size: 16px;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content label .badge{
+    display: inline-block;
+    font-size: 14px;
+    background-color: #333;
+    color: #767676;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 5px;
+    align-items: center;
+}
+
+/* 입력 필드 공통 */
+.mypage-wrapper .mypage-inner .mypage-content input[type="text"],
+.mypage-wrapper .mypage-inner .mypage-content input[type="email"],
+.mypage-wrapper .mypage-inner .mypage-content input[type="password"],
+.mypage-wrapper .mypage-inner .mypage-content .input-readonly{
+    width: 100%;
+    padding: 0 15px;
+    font-size: 16px;
+    height: 45px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    background-color: #111;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content input:focus,
+.mypage-wrapper .mypage-inner .mypage-content select:focus{
+    border-color: #ff6b00;
+    outline: none;
+}
+
+/* 회원 정보 수정 - 읽기 전용 스타일 */
+.mypage-wrapper .mypage-inner .mypage-content .edit-form input:read-only,
+.mypage-wrapper .mypage-inner .mypage-content .edit-form select:disabled{
+    background-color: transparent;
+    border: 1px solid #333;
+    color: #bbb;
+}
+
+/* 회원 정보 수정 - 수정 모드 활성 스타일 */
+.mypage-wrapper .mypage-inner .mypage-content .edit-form input:not(:read-only),
+.mypage-wrapper .mypage-inner .mypage-content .edit-form select:not(:disabled){
+    background-color: #111;
+    border: 1px solid #333;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .edit-form .always-readonly{
+    color: #bbb !important;
+    cursor: not-allowed;
+}
+
+/* 휴대폰/주소 박스 레이아웃 */
+.mypage-wrapper .mypage-inner .mypage-content .phone-box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .phone-box .input-select{
+    width: 120px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .phone-box .input-text{
+    flex: 1;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .phone-box .center{
+    text-align: center;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .addr-box{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .addr-box .input-text{
+    width: 200px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .hidden-in-view{
+    display: none;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .addr-box .btn-sub{
+    height: 45px;
+    padding: 0 20px;
+    background-color: #222;
+    border: 1px solid #444;
+    color: #bbb;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .addr-box .btn-sub:hover{
+    border-color: #ff6b00;
+    color: #ff6b00;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .input-text.full-width{
+    margin-bottom: 10px;
+}
+
+/* 하단 버튼 영역 공통 */
+.mypage-wrapper .mypage-inner .mypage-content .form-btn-box{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    min-height: 50px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content button{
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .btn-modify{
+    background-color: #333;
+    border: 1px solid #333;
+    color: #bbb;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .btn-modify:hover{
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+    color: #fff;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .edit-btn-group{
+    display: flex;
+    gap: 15px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .btn-cancel{
+    background-color: transparent;
+    border: 1px solid #333;
+    color: #bbb;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .btn-cancel:hover{
+    border-color: #767676;
+    color: #fff;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .btn-submit{
+    background-color: #ff6b00;
+    border: 1px solid #ff6b00;
+    color: #fff;
+    font-weight: 400;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .btn-submit:hover{
+    background-color: #e65c00;
+    border-color: #e65c00;
+}
+
+/* 회원 탈퇴 전용 스타일 */
+.mypage-wrapper .mypage-inner .mypage-content .withdraw-warning{
+    background-color: rgba(255, 60, 0, 0.05);
+    border: 1px solid rgba(255, 60, 0, 0.2);
+    padding: 25px;
+    margin-bottom: 40px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .withdraw-warning h3{
+    color: #ff4d4d;
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .withdraw-warning h3 .ico-warn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ff4d4d;
+    font-size: 12px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .withdraw-warning .warn-list li{
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 10px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .withdraw-warning .warn-list li::before{
+    content: "-";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #767676;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .withdraw-form .check-agree{
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .withdraw-form .check-agree input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    accent-color: #ff6b00;
+    cursor: pointer;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .withdraw-form .check-agree label{
+    display: inline-block;
+    margin-bottom: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .btn-withdraw{
+    background-color: #333;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+}
+
+.mypage-wrapper .mypage-inner .mypage-content .btn-withdraw:hover{
+    background-color: #ff4d4d;
+    color: #fff;
+}

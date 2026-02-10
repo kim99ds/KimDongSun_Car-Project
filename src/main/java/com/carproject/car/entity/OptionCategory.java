@@ -1,0 +1,46 @@
+package com.carproject.car.entity;
+
+/**
+ * OPTION_ITEM.OPTION_CATEGORY
+ *
+ * DB CHECK 제약(CK_OPTION_CATEGORY)과 동일한 값 목록을 enum으로 관리한다.
+ */
+public enum OptionCategory {
+    GENERAL,
+
+    SEAT_COUNT,
+    INTERIOR_COLOR,
+    UPHOLSTERY,
+
+    WHEEL_TIRE,
+    BRAKE_WHEEL_PACKAGE,
+    WHEEL_ACCESSORY,
+
+    ROOF,
+    SIDE_STEP,
+
+    PROTECTION_FILM,
+    PROTECTION_MAT,
+
+    DRIVING_ASSIST_TIER,
+    SAFETY_ASSIST,
+    HUD_DISPLAY,
+    AIR_QUALITY,
+
+    DESIGN_SELECTION,
+    DESIGN_PACKAGE,
+
+    EXTERIOR,
+    INTERIOR,
+    COMFORT,
+    INFOTAINMENT,
+    PERFORMANCE,
+
+    BASE,
+    SPEC,
+
+    ETC,
+    WHEEL,
+    ASSISTANT,
+    SEATS
+}

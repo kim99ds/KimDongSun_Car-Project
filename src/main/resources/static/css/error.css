@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+
+.glass-error-wrap{
+    width: 100%;
+    min-height: 80vh;
+    background: url("/images/errorimg.png") no-repeat center center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-error-wrap .glass-card{
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 60px 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    max-width: 500px;
+    width: 100%;
+}
+
+.glass-error-wrap .glass-card .bg-text{
+    font-size: 120px;
+    font-weight: 500;
+    color: #ff6b00;
+}
+
+.glass-error-wrap .glass-card .content{
+    position: relative;
+    z-index: 1;
+}
+
+.glass-error-wrap .glass-card .content .title{
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.glass-error-wrap .glass-card .content .desc{
+    font-size: 16px;
+    color: #bbb;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.glass-error-wrap .glass-card .content .btn-outline{
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #ff6b00;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.glass-error-wrap .glass-card .content .btn-outline:hover{
+    background-color: #ff6b00;
+    color: #fff;
+}

@@ -1,0 +1,152 @@
+<div th:fragment="content">
+
+    <!-- 상단 고정 헤더(프론트 admin_member_in.html 구조 유지) -->
+    <div class="bg-card mb-0 shadow-lg flex-1 flex flex-col overflow-y-hidden">
+        <div class="navbar bg-card border-b shadow-sm sticky top-0 z-10 mb-8 border-[#333] shrink-0">
+            <div class="flex-1 justify-between px-6 py-4">
+                <h2 class="text-xl fw-400 ml-2 text-white">회원 통합 관리 &gt; <span class="text-point">상세정보</span></h2>
+                <a href="/admin/members" data-admin-nav class="btn-custom btn-ghost-custom text-sm">
+                    <i class="fa-solid fa-list mr-2"></i>목록으로
+                </a>
+            </div>
+        </div>
+
+        <div class="px-10 pb-12">
+
+            <div th:if="${successMessage}" class="mb-4 p-3 rounded bg-emerald-900/30 text-emerald-200" th:text="${successMessage}"></div>
+            <div th:if="${errorMessage}" class="mb-4 p-3 rounded bg-red-900/30 text-red-200" th:text="${errorMessage}"></div>
+
+            <!-- 기본 정보 (프론트 테이블 컬럼 유지) -->
+            <section class="mb-12">
+                <h3 class="text-lg text-main mb-4 border-l-4 border-[#ff6d00] pl-3">기본 정보 <span class="text-xs text-sub font-normal ml-2">(수정 불가)</span></h3>
+                <div class="bg-card border border-[#333]">
+                    <table class="table w-full text-center">
+                        <thead>
+                        <tr>
+                            <th class="py-4 font-normal">No</th>
+                            <th class="font-normal">Login_ID</th>
+                            <th class="font-normal">이름</th>
+                            <th class="font-normal">E-mail</th>
+                            <th class="font-normal">생년월일</th>
+                            <th class="font-normal">가입일자</th>
+                            <th class="font-normal">최근 접속일</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td th:text="${member.memberId}">1</td>
+                            <td class="font-bold text-white" th:text="${member.loginId}">loginId</td>
+                            <td th:text="${member.name}">이름</td>
+                            <td th:text="${member.email}">email</td>
+                            <td th:text="${member.birthDate != null ? #temporals.format(member.birthDate, 'yyyy.MM.dd') : '-'}">-</td>
+                            <td th:text="${member.createdAt != null ? #temporals.format(member.createdAt, 'yyyy.MM.dd') : '-'}">-</td>
+                            <!-- 프로젝트에 lastLogin 필드가 없어서 updatedAt을 표시(없으면 '-') -->
+                            <td th:text="${member.updatedAt != null ? #temporals.format(member.updatedAt, 'yyyy.MM.dd HH:mm') : '-'}">-</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 이름/이메일 저장: 기존 기능(/update) 유지 (status는 별도 form으로 분리) -->
+            <form id="updateForm" th:action="@{|/admin/members/${member.memberId}/update|}" method="post"></form>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+
+                    <!-- 정보 수정 + 계정상태(디자인은 프론트 그대로) -->
+                    <div>
+                        <h3 class="text-lg text-main mb-4 border-l-4 border-[#ff6d00] pl-3">정보 수정</h3>
+
+                        <div class="flex flex-col gap-6">
+                            <div class="form-control w-full" form="updateForm">
+                                <label class="label"><span class="label-text text-main">이름</span></label>
+                                <input type="text" name="name" th:value="${member.name}" class="input w-full" form="updateForm" />
+                            </div>
+
+                            <div class="form-control w-full" form="updateForm">
+                                <label class="label"><span class="label-text text-main">이메일</span></label>
+                                <input type="email" name="email" th:value="${member.email}" class="input w-full" form="updateForm" />
+                            </div>
+
+                            <!-- 계정 상태: 기존 기능(/status) 유지 + UI는 프론트처럼(버튼 없이 변경 즉시 반영) -->
+                            <div class="form-control w-full">
+                                <label class="label"><span class="label-text text-main">계정 상태</span></label>
+
+                                <form th:action="@{|/admin/members/${member.memberId}/status|}" method="post" id="statusForm">
+                                    <div class="flex gap-0">
+                                        <input type="radio" name="status" id="st_active" value="ACTIVE" class="status-radio hidden" th:checked="${member.status}=='ACTIVE'" />
+                                        <label for="st_active" class="status-label w-24">활성화</label>
+
+                                        <input type="radio" name="status" id="st_inactive" value="BLOCKED" class="status-radio hidden" th:checked="${member.status}=='BLOCKED'" />
+                                        <label for="st_inactive" class="status-label w-24 border-l-0">비활성화</label>
+
+                                        <input type="radio" name="status" id="st_banned" value="DELETED" class="status-radio hidden" th:checked="${member.status}=='DELETED'" />
+                                        <label for="st_banned" class="status-label w-24 border-l-0">정지</label>
+                                    </div>
+                                </form>
+
+                                <label class="label"><span class="label-text-alt text-sub mt-2">비활성화 시 해당 회원은 로그인이 제한됩니다.</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 보유 역할(프론트 레이아웃 유지, 기능은 링크로 유지) -->
+                    <div>
+                        <h3 class="text-lg text-main mb-4 border-l-4 border-[#ff6d00] pl-3">보유 역할</h3>
+                        <div class="bg-[#333] p-8 border border-[#444]">
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="badge bg-transparent rounded-sm p-4 text-sm border"
+                                      th:classappend="${isAdmin} ? ' border-[#ff6d00] text-[#ff6d00]' : ' border-gray-500 text-gray-400'">ADMIN</span>
+                                <span class="badge bg-transparent rounded-sm p-4 text-sm border"
+                                      th:classappend="${isUser} ? ' border-[#ff6d00] text-[#ff6d00]' : ' border-gray-500 text-gray-400'">USER</span>
+                            </div>
+                            <p class="text-sm text-sub leading-relaxed">
+                                <i class="fa-solid fa-circle-info mr-1"></i>
+                                회원의 역할(권한) 변경은<br>
+                                <a th:href="@{/admin/roles(memberId=${member.memberId})}" data-admin-nav
+                                   class="text-point underline underline-offset-4 hover:text-white">역할 관리 페이지</a>에서 수행할 수 있습니다.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- 액션 버튼 영역 (CSS로 정렬/간격 제어) -->
+                <div class="member-detail-actions">
+                    <div class="member-detail-actions__row">
+                        <button type="submit" form="updateForm" class="btn-custom btn-brand px-8">변경사항 저장</button>
+                    </div>
+                    <div class="member-detail-actions__row member-detail-actions__row--danger">
+                        <form th:action="@{|/admin/members/${member.memberId}/delete|}" method="post"
+                      onsubmit="return confirm('정말로 이 회원을 삭제하시겠습니까? 삭제 후에는 복구할 수 없습니다.');">
+                    <button type="submit" class="btn-custom btn-danger opacity-70 hover:opacity-100 h-9 min-h-0 text-sm">
+                        회원 영구 삭제
+                    </button>
+                </form>
+                    </div>
+                </div>
+
+
+        </div>
+    </div>
+
+    <!-- 상태 변경은 UI에 버튼이 없으므로 라디오 변경 즉시 submit -->
+    <script>
+        (function () {
+            const form = document.getElementById('statusForm');
+            if (!form) return;
+            form.querySelectorAll('input[name="status"]').forEach(r => {
+                r.addEventListener('change', function () {
+                    if (confirm('상태를 변경할까요?')) {
+                        form.submit();
+                    } else {
+                        // 취소하면 원래 checked로 롤백
+                        location.reload();
+                    }
+                });
+            });
+        })();
+    </script>
+
+</div>

@@ -1,0 +1,407 @@
+:root{
+    --bg: #111111;
+    --accent: #FF6D00;
+
+    --glassBg: rgba(61, 61, 61, 0.28);
+    --border: rgba(255,255,255,0.14);
+    --shadow: 0 10px 30px rgba(0,0,0,0.55);
+}
+/* =========================================================
+   customsub.css (요구사항 최종)
+   - 기본(클릭 전): 주황 카드(로고)
+   - 클릭 후: 회색 카드(이미지/텍스트/버튼)
+   - 3D flip 안정화
+   - 하단 "다시 설문하기" 항상 보이게
+========================================================= */
+
+.customsub-page{
+    width: 100%;
+    min-height: 100vh;
+    padding: 120px 0 80px;
+    background: #0f0f10;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* 결과 없을 때 */
+.customsub-page .empty-msg{
+    width: min(900px, 92vw);
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.customsub-page .empty-msg .link{
+    color:#ff8a00;
+    text-decoration:none;
+}
+.customsub-page .empty-msg .link:hover{ text-decoration:underline; }
+
+.customsub-page .resultBox{
+    width: min(1400px, 92vw);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.customsub-page .resultList{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    justify-items: center;
+    align-items: start;
+}
+
+/* 카드 크기 */
+.customsub-page .resultCard{
+    width: 380px;
+    height: 520px;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .35s ease, transform .35s ease;
+}
+.customsub-page .resultCard.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   FLIP 3D (정석 고정)
+   - 기본: back(주황) 보임
+   - flipped: front(회색) 보임
+========================================================= */
+.customsub-page .flip-card{
+    perspective: 1200px;
+    -webkit-perspective: 1200px;
+}
+
+.customsub-page .card-inner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0,0,0,.45);
+
+    transition: transform .8s cubic-bezier(.2,.8,.2,1);
+    -webkit-transition: -webkit-transform .8s cubic-bezier(.2,.8,.2,1);
+
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+}
+
+/* 클릭 후 */
+.customsub-page .flip-card.flipped .card-inner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* 앞/뒤 면 공통 */
+.customsub-page .card-face{
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    overflow: hidden;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+
+    background: var(--glassBg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ✅ 기본(클릭 전)으로 보여야 하는 면: 주황(back) */
+.customsub-page .card-back{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(180deg, #ff8a00 0%, #ff6a00 100%);
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+}
+
+/* ✅ 뒤집혔을 때 보이는 면: 회색(front) */
+.customsub-page .card-front{
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+
+    display:flex;
+    align-items:stretch;
+    justify-content:stretch;
+    padding: 12px;
+    box-sizing:border-box;
+    background: #0f0f10;
+}
+
+/* 뒷면 콘텐츠 */
+.customsub-page .back-logo{
+    text-align:center;
+    color:#fff;
+}
+.customsub-page .back-logo img{
+    width: 220px;
+    height: auto;
+    display:block;
+    margin: 0 auto 14px;
+}
+.customsub-page .back-logo p{
+    margin:0;
+    font-size:14px;
+    opacity:.9;
+}
+
+/* 앞면 내용(회색 카드 박스) */
+.customsub-page .card-front .cardContent{
+    width:100%;
+    height:100%;
+    border-radius: 12px;
+    padding: 26px 24px 20px;
+    box-sizing: border-box;
+
+    background: linear-gradient(180deg, rgba(70,70,70,.75), rgba(20,20,20,.88));
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 10px 28px rgba(0,0,0,.35);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    color:#fff;
+}
+
+/* 타이틀 */
+.customsub-page .rank{
+    width:100%;
+    margin:0 0 16px;
+    font-size: 20px;
+    font-weight: 800;
+    color:#ff8a00;
+    text-align:left;
+}
+
+/* 이미지 영역 */
+.customsub-page .card-visual{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-bottom: 16px;
+}
+.customsub-page .imgSize{
+    width:100%;
+    height: 230px; /* 3번 사진처럼 크게 */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.customsub-page .imgSize img{
+    width:100%;
+    height:100%;
+    object-fit: contain;
+    display:block;
+}
+
+/* 글 영역 */
+.customsub-page .cardText{
+    width:100%;
+    text-align:center;
+
+    max-height: 170px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-right: 10px;
+    box-sizing: border-box;
+
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: keep-all;
+}
+
+/* 스크롤바 */
+.customsub-page .cardText::-webkit-scrollbar{ width: 7px; }
+.customsub-page .cardText::-webkit-scrollbar-thumb{
+    background: rgba(255,138,0,.65);
+    border-radius: 10px;
+}
+.customsub-page .cardText::-webkit-scrollbar-track{
+    background: rgba(255,255,255,.10);
+    border-radius: 10px;
+}
+
+.customsub-page .carDesc{
+    display:block;
+    font-weight:800;
+    font-size:17px;
+    margin-bottom:10px;
+}
+
+.customsub-page .modelTitle{
+    margin: 6px 0 10px;
+    font-size: 16px;
+    font-weight: 800;
+}
+.customsub-page .modelTitle a{
+    color:#fff;
+    text-decoration:none;
+}
+.customsub-page .modelTitle a:hover{ text-decoration:underline; }
+
+/* 버튼 */
+.customsub-page .submit-wrap{
+    margin-top: auto;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding-top: 16px;
+}
+.customsub-page .submit-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height: 42px;
+    width: 190px;
+    border-radius: 12px;
+    background: rgba(0,0,0,.22);
+    border: 1px solid rgba(255,138,0,.95);
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    transition: background .15s ease;
+}
+.customsub-page .submit-btn:hover{
+    background: rgba(0,0,0,.35);
+}
+.customsub-page .submit-btn.is-disabled{
+    opacity:.5;
+    pointer-events:none;
+}
+
+/* 하단 링크 */
+.customsub-page .bottom-link{
+    width: 100%;
+    margin-top: 18px;
+    text-align: center;
+}
+.customsub-page .bottom-link .link{
+    display: inline-block;
+    color:#ff8a00;
+    font-weight: 700;
+    text-decoration:none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,138,0,.55);
+    background: rgba(0,0,0,.25);
+}
+.customsub-page .bottom-link .link:hover{
+    background: rgba(0,0,0,.35);
+    text-decoration: underline;
+}
+
+/* 반응형 */
+@media (max-width: 1300px){
+    .customsub-page .resultList{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 980px){
+    .customsub-page .resultList{
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .customsub-page .resultCard{
+        width: min(420px, 92vw);
+        height: 560px;
+    }
+    .customsub-page .imgSize{ height: 250px; }
+    .customsub-page .cardText{ max-height: 190px; }
+}
+/* =========================================================
+   [LOCK] 공통 reset/style.css 충돌 차단 (customsub-page 내부만)
+   - front 내용이 깨지거나 위치가 이상해지는 문제 해결
+========================================================= */
+
+/* 1) customsub-page 내부 기본 텍스트/정렬을 강제로 정상화 */
+.customsub-page,
+.customsub-page *{
+    box-sizing: border-box;
+}
+
+/* 2) 공통 CSS가 img/anchor/paragraph 등에 준 스타일을 최소한으로 되돌림 */
+.customsub-page img{
+    max-width: none !important;   /* reset.css의 max-width:100% 충돌 방지 */
+}
+.customsub-page a{
+    text-decoration: none !important;
+}
+.customsub-page p, .customsub-page h3, .customsub-page b{
+    margin: 0;
+}
+
+/* 3) 카드 앞면(회색) 내용 레이아웃 강제 고정 */
+.customsub-page .card-front{
+    background: #0f0f10 !important;
+}
+.customsub-page .card-front .cardContent{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+}
+
+/* 4) 주황면 문구가 안 보이거나 뒤틀리는 문제 방지 */
+.customsub-page .back-logo{
+    text-align: center !important;
+}
+.customsub-page .back-logo p{
+    display: block !important;
+    color: #fff !important;
+}
+
+/* 5) 혹시 공통 CSS가 transform을 오염시키는 경우를 막기 위해
+      flip에 필요한 transform만 다시 한번 확정 */
+.customsub-page .card-inner{
+    transform-style: preserve-3d !important;
+    -webkit-transform-style: preserve-3d !important;
+}
+.customsub-page .card-face{
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+}
+.customsub-page .card-back{
+    transform: rotateY(0deg) !important;
+    -webkit-transform: rotateY(0deg) !important;
+}
+.customsub-page .card-front{
+    transform: rotateY(180deg) !important;
+    -webkit-transform: rotateY(180deg) !important;
+}
+.customsub-page .flip-card.flipped .card-inner{
+    transform: rotateY(180deg) !important;
+    -webkit-transform: rotateY(180deg) !important;
+}
+.customsub-page .card-back{ z-index: 2; }
+.customsub-page .card-front{ z-index: 1; }
+.customsub-page .flip-card.flipped .card-back{ z-index: 1; }
+.customsub-page .flip-card.flipped .card-front{ z-index: 2; }
+

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>맞춤견적 결과</title>
+
+    <!-- 공통(기존 틀 유지) -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+
+    <!-- 카드 전용 CSS -->
+    <link rel="stylesheet" th:href="@{/css/customsub02.css}">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+<header th:replace="fragments/header :: header"></header>
+
+
+
+
+<section class="customsub-page">
+    <h1 style="position:absolute; left:-9999px;">맞춤견적 결과</h1>
+    <!-- recommends 없을 때 -->
+    <div class="empty-msg" th:if="${#lists.isEmpty(recommends)}">
+        추천 결과가 없습니다.
+        <div style="margin-top:16px;">
+            <a th:href="@{/cars/for-me}" class="link">← 다시 설문하기</a>
+        </div>
+    </div>
+
+    <!-- recommends 있을 때 -->
+    <div class="resultBox" th:if="${!#lists.isEmpty(recommends)}">
+        <div class="resultList">
+
+
+
+            <div class="resultCard flip-card" id="card1"
+                 th:with="r=${recommends.size() > 0 ? recommends[0] : null}"
+                 th:classappend="${r == null} ? ' is-empty' : ''">
+
+                <div class="card-inner">
+
+                    <!-- ✅ 처음 보이는 면(주황) -->
+                    <div class="card-back card-face">
+                        <div class="back-logo">
+                            <img th:src="@{/main/images/mainLogo.png}" alt="403 MOTORS">
+                            <p>클릭해서 카드 뒤집기</p>
+                        </div>
+                    </div>
+
+                    <!-- ✅ 뒤집으면 보이는 면(회색) -->
+                    <div class="card-front card-face">
+                        <div class="cardContent">
+                            <h3 class="rank" th:text="${r != null ? '추천 1위' : '추천 없음'}">추천 1위</h3>
+
+                            <div class="card-visual">
+                                <div class="imgSize">
+                                    <img th:if="${r != null and r.imageUrl != null}"
+                                         th:src="${r.imageUrl}" alt="car">
+
+                                </div>
+                            </div>
+
+                            <!-- ✅ 글영역(여기만 스크롤) -->
+                            <div class="cardText">
+                                <div th:if="${r != null}">
+
+                                    <h3 class="modelTitle">
+                                        <a th:href="@{/cars/{id}(id=${r.modelId})}" th:text="${r.modelName}">모델명</a>
+                                    </h3>
+
+                                    <p>최저가: <span th:text="${r.minBasePrice}">0</span></p>
+                                    <p>일치율: <span th:text="${r.matchRate}">0</span>% (점수: <span th:text="${r.score}">0</span>)</p>
+                                </div>
+
+                                <div th:if="${r == null}">
+                                    <b class="carDesc">추천 데이터가 없습니다</b>
+                                </div>
+                            </div>
+
+                            <div class="submit-wrap" th:if="${r != null}">
+                                <a class="submit-btn" th:href="@{/cars/{id}(id=${r.modelId})}">자세히 보기 &gt;</a>
+                            </div>
+
+                            <div class="submit-wrap" th:if="${r == null}">
+                                <a class="submit-btn is-disabled" href="javascript:void(0)">자세히 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= 카드 2 ================= -->
+            <div class="resultCard flip-card" id="card2"
+                 th:with="r=${recommends.size() > 1 ? recommends[1] : null}"
+                 th:classappend="${r == null} ? ' is-empty' : ''">
+
+                <div class="card-inner">
+
+                    <div class="card-back card-face">
+                        <div class="back-logo">
+                            <img th:src="@{/main/images/mainLogo.png}" alt="403 MOTORS">
+                            <p>클릭해서 카드 뒤집기</p>
+                        </div>
+                    </div>
+
+                    <div class="card-front card-face">
+                        <div class="cardContent">
+                            <h3 class="rank" th:text="${r != null ? '추천 2위' : '추천 없음'}">추천 2위</h3>
+
+                            <div class="card-visual">
+                                <div class="imgSize">
+                                    <img th:if="${r != null and r.imageUrl != null}"
+                                         th:src="${r.imageUrl}" alt="car">                                </div>
+                            </div>
+
+                            <div class="cardText">
+                                <div th:if="${r != null}">
+
+                                    <h3 class="modelTitle">
+                                        <a th:href="@{/cars/{id}(id=${r.modelId})}" th:text="${r.modelName}">모델명</a>
+                                    </h3>
+
+                                    <p>최저가: <span th:text="${r.minBasePrice}">0</span></p>
+                                    <p>일치율: <span th:text="${r.matchRate}">0</span>% (점수: <span th:text="${r.score}">0</span>)</p>
+                                </div>
+
+                                <div th:if="${r == null}">
+                                    <b class="carDesc">추천 데이터가 없습니다</b>
+                                </div>
+                            </div>
+
+                            <div class="submit-wrap" th:if="${r != null}">
+                                <a class="submit-btn" th:href="@{/cars/{id}(id=${r.modelId})}">자세히 보기 &gt;</a>
+                            </div>
+                            <div class="submit-wrap" th:if="${r == null}">
+                                <a class="submit-btn is-disabled" href="javascript:void(0)">자세히 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= 카드 3 ================= -->
+            <div class="resultCard flip-card" id="card3"
+                 th:with="r=${recommends.size() > 2 ? recommends[2] : null}"
+                 th:classappend="${r == null} ? ' is-empty' : ''">
+
+                <div class="card-inner">
+
+                    <div class="card-back card-face">
+                        <div class="back-logo">
+                            <img th:src="@{/main/images/mainLogo.png}" alt="403 MOTORS">
+                            <p>클릭해서 카드 뒤집기</p>
+                        </div>
+                    </div>
+
+                    <div class="card-front card-face">
+                        <div class="cardContent">
+                            <h3 class="rank" th:text="${r != null ? '추천 3위' : '추천 없음'}">추천 3위</h3>
+
+                            <div class="card-visual">
+                                <div class="imgSize">
+                                    <img th:if="${r != null and r.imageUrl != null}"
+                                         th:src="${r.imageUrl}" alt="car">
+                                    <img th:if="${r == null or r.imageUrl == null}"
+                                         th:src="@{/main/images/bast_car_audiQ3.png}" alt="car">
+                                </div>
+                            </div>
+
+                            <div class="cardText">
+                                <div th:if="${r != null}">
+
+                                    <h3 class="modelTitle">
+                                        <a th:href="@{/cars/{id}(id=${r.modelId})}" th:text="${r.modelName}">모델명</a>
+                                    </h3>
+
+                                    <p>최저가: <span th:text="${r.minBasePrice}">0</span></p>
+                                    <p>일치율: <span th:text="${r.matchRate}">0</span>% (점수: <span th:text="${r.score}">0</span>)</p>
+                                </div>
+
+                                <div th:if="${r == null}">
+                                    <b class="carDesc">추천 데이터가 없습니다</b>
+                                </div>
+                            </div>
+
+                            <div class="submit-wrap" th:if="${r != null}">
+                                <a class="submit-btn" th:href="@{/cars/{id}(id=${r.modelId})}">자세히 보기 &gt;</a>
+                            </div>
+                            <div class="submit-wrap" th:if="${r == null}">
+                                <a class="submit-btn is-disabled" href="javascript:void(0)">자세히 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="bottom-link">
+            <a th:href="@{/cars/for-me}" class="link">← 다시 설문하기</a>
+        </p>
+    </div>
+</section>
+<footer th:replace="fragments/footer :: footer"></footer>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+            document.querySelectorAll(".resultCard").forEach(el => el.classList.add("active"));
+        }, 100);
+
+        // document.addEventListener("click", (e) => {
+        //     const card = e.target.closest(".flip-card");
+        //     if (!card) return;
+        //
+        //     // 버튼/링크 클릭은 flip 막기
+        //     if (e.target.closest(".submit-btn") || e.target.closest(".modelTitle a")) return;
+        //
+        //     card.classList.toggle("flipped");
+        // });
+
+        $(document).on("click", ".flip-card .submit-btn", function(e){
+            e.stopPropagation(); // 카드 뒤집기 이벤트로 전파만 차단
+        });
+
+        $(document).on("click", ".flip-card", function () {
+            $(this).toggleClass("flipped");
+        });
+    });
+</script>
+
+
+</body>
+</html>

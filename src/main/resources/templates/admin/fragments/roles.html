@@ -1,0 +1,114 @@
+<div th:fragment="content" class="h-full flex flex-col">
+
+    <div class="bg-card shadow-lg flex-1 flex flex-col overflow-hidden">
+
+        <!-- Top navbar (title + tabs) -->
+        <div class="navbar bg-card border-b shadow-sm shrink-0 border-[#333] flex-col items-start p-0 z-30">
+            <div class="w-full p-6 pb-2 flex justify-between items-center mb-6">
+                <h2 class="text-xl fw-400 ml-2 text-white">회원 통합 관리</h2>
+                <div class="px-4 flex items-center gap-4">
+                    <span class="text-sm text-sub">관리자님 환영합니다.</span>
+                </div>
+            </div>
+            <div class="w-full flex px-8 gap-8">
+                <a href="/admin/members" data-admin-nav class="tab-btn">회원 목록</a>
+                <a href="/admin/roles" data-admin-nav class="tab-btn active">등급 관리</a>
+            </div>
+        </div>
+
+        <div class="px-10 py-8 flex flex-col h-full overflow-hidden">
+
+            <!-- Flash messages -->
+            <div th:if="${successMessage}" class="mb-4 p-3 bg-emerald-900/30 text-emerald-200" th:text="${successMessage}"></div>
+            <div th:if="${errorMessage}" class="mb-4 p-3 bg-red-900/30 text-red-200" th:text="${errorMessage}"></div>
+
+            <!-- Create role -->
+            <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                <div class="flex flex-wrap gap-6 items-end pb-6">
+                    <div class="form-control w-full max-w-sm">
+                        <label class="label p-0 justify-start mb-3">
+                            <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">새 역할 추가</span>
+                        </label>
+                        <form action="/admin/roles/create" method="post" class="flex gap-3">
+                            <input class="input w-full" name="roleName" maxlength="50" placeholder="예: SALES_MANAGER" required />
+                            <button type="submit" class="btn-custom btn-neutral px-8">역할 생성</button>
+                        </form>
+                        <div class="text-xs text-sub mt-2">영문 대문자 + 언더스코어 권장</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roles chips (delete) -->
+            <div class="bg-card shadow-sm border-b border-[#333] mb-6 shrink-0">
+                <div class="px-2 pb-6">
+                    <div class="label p-0 justify-start mb-4">
+                        <span class="label-text text-lg text-main border-l-4 border-[#ff6d00] pl-3">등록된 역할 목록</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3">
+                        <div th:each="r : ${allRoles}" class="inline-flex items-center gap-2 bg-[#333] border border-[#444] px-4 py-3">
+                            <span class="text-sm text-main" th:text="${r.roleName}">ROLE</span>
+
+                            <form th:if="${#strings.equalsIgnoreCase(r.roleName, 'ADMIN') or #strings.equalsIgnoreCase(r.roleName, 'USER')}" class="ml-1">
+                                <button type="button" class="btn-custom btn-neutral" style="height:32px; min-height:32px; padding:0 10px;" disabled>SYS</button>
+                            </form>
+
+                            <form th:if="${!(#strings.equalsIgnoreCase(r.roleName, 'ADMIN') or #strings.equalsIgnoreCase(r.roleName, 'USER'))}"
+                                  th:action="@{|/admin/roles/delete/${r.roleId}|}" method="post"
+                                  onsubmit="return confirm('역할을 삭제하시겠습니까? (부여된 회원이 있으면 삭제되지 않습니다)');">
+                                <button type="submit" class="btn-custom btn-neutral" style="height:32px; min-height:32px; padding:0 10px;">×</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assign roles to users -->
+            <div class="bg-card shadow-xl border-none flex-1 flex flex-col overflow-hidden">
+                <div class="flex justify-between items-center px-4 py-4 border-b border-[#333] bg-card shrink-0">
+                    <span class="text-base text-sub">사용자 권한 설정</span>
+                </div>
+
+                <div class="flex-1 overflow-y-auto relative">
+                    <table class="table text-center w-full">
+                        <thead class="sticky top-0 z-10">
+                        <tr>
+                            <th>ID</th>
+                            <th>LOGIN_ID</th>
+                            <th>이름</th>
+                            <th>현재 역할</th>
+                            <th>역할 부여/회수</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-main">
+                        <tr th:each="row : ${rows}" class="hover:bg-[#333]">
+                            <td th:text="${row.memberId}">1</td>
+                            <td class="fw-500 text-white" th:text="${row.loginId}">login</td>
+                            <td th:text="${row.name}">name</td>
+                            <td class="text-sub" th:text="${row.roleNames}">ADMIN, USER</td>
+                            <td>
+                                <form th:action="@{|/admin/roles/${row.memberId}|}" method="post" class="flex flex-wrap gap-4 items-center justify-center">
+                                    <label class="flex items-center gap-2 text-sm" th:each="r : ${allRoles}">
+                                        <input class="checkbox" type="checkbox" name="roleIds"
+                                               th:value="${r.roleId}" th:checked="${row.assignedRoleIds.contains(r.roleId)}"/>
+                                        <span class="text-main" th:text="${r.roleName}">ROLE</span>
+                                    </label>
+                                    <button class="btn-custom btn-neutral" style="height:38px; min-height:38px;" type="submit">저장</button>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination placeholder (kept for consistent spacing) -->
+                <div class="shrink-0 px-10 py-8">
+                    <div class="pagination-group">
+                        <span class="btn-custom btn-neutral active-page" style="height:38px; min-height:38px;">1</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403motors - 마이페이지</title>
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<header th:replace="fragments/header :: header"></header>
+
+    <main class="mypage-wrapper">
+        <div class="mypage-inner">
+            <aside class="mypage-sidebar">
+                <div class="profile-box">
+                    <div class="profile-img">
+                        <img th:src="@{images/profile.png}" alt="프로필 이미지">
+                    </div>
+                    <p class="user-name" th:text="${member.name}"><strong></strong> 님</p>
+                    <p class="user-email" th:text="${member.email}"></p>
+                </div>
+                <nav class="mypage-nav">
+                    <ul>
+                        <li class="active"><a href="#tab-info" data-tab="tab-info">회원 정보</a></li>
+                        <li><a href="#tab-password" data-tab="tab-password">비밀번호 변경</a></li>
+                        <li><a href="#tab-withdraw" data-tab="tab-withdraw">회원 탈퇴</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <section class="mypage-content">
+                
+                <div id="tab-info" class="tab-content current">
+                    <div class="content-header">
+                        <h2>회원 정보</h2>
+                        <p>회원님의 소중한 정보를 안전하게 관리하세요.</p>
+                    </div>
+
+                    <form class="edit-form" th:action="@{|/admin/members/${member.memberId}/update|}" method="post">
+                        <div class="form-group">
+                            <label for="uid">아이디 <span class="badge">수정불가</span></label>
+                            <input type="text" id="uid" name="userId" value="chulsoo123" readonly class="input-readonly always-readonly">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="uname">이름</label>
+                            <input type="text" id="uname" name="userName" th:value="${member.name}" class="input-text" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="uemail">이메일</label>
+                            <input type="email" id="uemail" name="userEmail" th:value="${member.email}" class="input-text" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="udate">생년월일 <span class="badge">수정불가</span></label>
+                            <input th:value="${member.birthDate != null ? #temporals.format(member.birthDate, 'yyyy.MM.dd') : '-'}"  id="udate" name="userDate" readonly class="input-readonly always-readonly">
+                        </div>
+
+
+
+                        <div class="form-btn-box">
+                            <button type="button" class="btn-modify">수정</button>
+                            <div class="edit-btn-group" style="display: none;">
+                                <button type="button" class="btn-cancel">취소</button>
+                                <button type="submit" class="btn-submit">수정 완료</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="tab-password" class="tab-content">
+                    <div class="content-header">
+                        <h2>비밀번호 변경</h2>
+                        <p>주기적인 비밀번호 변경으로 계정을 보호하세요.</p>
+                    </div>
+
+                    <form class="pw-form" action="/mypage/updatePw" method="post">
+                        <div class="form-group">
+                            <label for="cur-pw">현재 비밀번호</label>
+                            <input type="password" id="cur-pw" name="currentPw" placeholder="현재 비밀번호를 입력해 주세요" class="input-text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="new-pw">새 비밀번호</label>
+                            <input type="password" id="new-pw" name="newPw" placeholder="새 비밀번호 (영문, 숫자, 특수문자 포함 8~16자)" class="input-text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cfm-pw">새 비밀번호 확인</label>
+                            <input type="password" id="cfm-pw" name="confirmPw" placeholder="새 비밀번호를 다시 입력해 주세요" class="input-text">
+                        </div>
+
+                        <div class="form-btn-box">
+                            <button type="submit" class="btn-submit">비밀번호 변경</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="tab-withdraw" class="tab-content">
+                    <div class="content-header">
+                        <h2>회원 탈퇴</h2>
+                        <p>탈퇴 시 회원님의 모든 정보가 삭제되며 복구할 수 없습니다.</p>
+                    </div>
+
+                    <div class="withdraw-warning">
+                        <h3><span class="ico-warn">!</span> 유의사항</h3>
+                        <ul class="warn-list">
+                            <li>회원 탈퇴 시 보유하고 계신 쿠폰, 포인트, 견적 내역 등 모든 데이터가 즉시 삭제됩니다.</li>
+                            <li>삭제된 데이터는 복구할 수 없으며, 추후 재가입하더라도 연동되지 않습니다.</li>
+                            <li>진행 중인 1:1 문의 내역이 있다면 처리가 불가능할 수 있습니다.</li>
+                        </ul>
+                    </div>
+
+                    <form class="withdraw-form" th:action="@{/mypage/withdraw}" method="post" id="withdrawForm">
+                        <div class="check-agree">
+                            <input type="checkbox" id="agree-withdraw" name="agreeCheck">
+                            <label for="agree-withdraw">위 내용을 모두 확인하였으며, 이에 동의합니다.</label>
+                        </div>
+
+                        <div class="form-group"
+                             th:if="${!(#authentication instanceof T(org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken))}">
+                            <label for="wd-pw">비밀번호 확인</label>
+                            <input type="password" id="wd-pw" name="withdrawPw"
+                                   placeholder="본인 확인을 위해 비밀번호를 입력해 주세요" class="input-text">
+                        </div>
+
+                        <!-- ✅ 소셜 로그인일 때 안내 문구 -->
+                        <p class="withdraw-social-msg"
+                           th:if="${#authentication instanceof T(org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken)}">
+                            소셜 로그인 회원은 비밀번호 확인 없이 탈퇴가 진행됩니다.
+                        </p>
+
+                        <div class="form-btn-box">
+                            <button type="submit" class="btn-withdraw">회원 탈퇴</button>
+                        </div>
+                    </form>
+                </div>
+
+            </section>
+        </div>
+    </main>
+<footer th:replace="fragments/footer :: footer"></footer>
+
+    <script>
+        $(document).ready(function(){
+
+            // 1. 탭 메뉴 전환 기능
+            $('.mypage-nav ul li a').on('click', function(e){
+                e.preventDefault();
+
+                // 메뉴 활성화 스타일 변경
+                $('.mypage-nav ul li').removeClass('active');
+                $(this).parent('li').addClass('active');
+
+                // 탭 콘텐츠 전환
+                var tab_id = $(this).attr('data-tab');
+                $('.tab-content').removeClass('current');
+                $('#' + tab_id).addClass('current');
+            });
+
+            // 2. 회원 정보 수정 - [수정] 버튼 클릭 시
+            $('.btn-modify').on('click', function(){
+                $(this).hide();
+                $('.edit-btn-group').show();
+                $('.edit-form input:not(.always-readonly)').prop('readonly', false);
+                $('.edit-form select').prop('disabled', false);
+                $('.hidden-in-view').show();
+                $('#uname').focus();
+            });
+
+            // 3. 회원 정보 수정 - [취소] 버튼 클릭 시
+            $('.btn-cancel').on('click', function(){
+                $('.edit-btn-group').hide();
+                $('.btn-modify').show();
+                $('.edit-form input').prop('readonly', true);
+                $('.edit-form select').prop('disabled', true);
+                $('.hidden-in-view').hide();
+            });
+
+            // 4. 회원 탈퇴 버튼 클릭
+            $('.btn-withdraw').on('click', function(){
+                // 체크박스 확인
+                if(!$('#agree-withdraw').is(':checked')){
+                    alert('탈퇴 유의사항에 동의해 주세요.');
+                    return;
+                }
+
+                // 비밀번호 입력 확인
+                if($('#wd-pw').val() === ''){
+                    alert('비밀번호를 입력해 주세요.');
+                    $('#wd-pw').focus();
+                    return;
+                }
+
+                if(confirm('정말로 탈퇴하시겠습니까? 탈퇴 후 정보는 복구할 수 없습니다.')){
+                    alert('탈퇴 처리가 완료되었습니다. 이용해 주셔서 감사합니다.');
+                    window.location.href = 'index.html'; // 메인으로 이동
+                }
+            });
+        });
+    </script>
+</body>
+</html>

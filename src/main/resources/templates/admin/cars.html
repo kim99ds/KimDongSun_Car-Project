@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>차량관리</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#111] text-white flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-[#222] flex flex-col flex-shrink-0 border-r border-[#333]">
+        <div class="h-40 flex flex-col justify-center items-center border-b border-[#333] mb-6">
+            <img src="/images/logo_2.png" alt="로고">
+        </div>
+
+        <nav class="flex-1 px-4 space-y-2">
+            <a href="/admin/members" class="block bg-[#333] text-gray-200 py-3 px-4 text-center rounded hover:bg-[#bbb] hover:text-black transition font-medium">회원관리</a>
+            <a href="/admin/banners" class="block bg-[#333] text-gray-200 py-3 px-4 text-center rounded hover:bg-[#bbb] hover:text-black transition font-medium">배너관리</a>
+            <a href="/admin/cars" class="block bg-[#bbb] text-black py-3 px-4 text-center rounded transition font-bold">차량관리</a>
+            <a href="/admin/events" class="block bg-[#333] text-gray-200 py-3 px-4 text-center rounded hover:bg-[#bbb] hover:text-black transition font-medium">이벤트관리</a>
+            <a href="/main" class="block bg-[#222] text-gray-300 py-3 px-4 text-center rounded border border-[#444] hover:bg-[#333] transition">메인으로</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-16 overflow-y-auto">
+        <h1 class="text-3xl font-bold mb-6">차량관리</h1>
+        <div class="bg-[#222] p-8 rounded border border-[#333]">
+            <p class="text-gray-300">여기는 <b>차량관리</b> 탭 공간입니다. (추후 차량 CRUD 화면을 이곳에 연결하면 됩니다.)</p>
+        </div>
+    </main>
+
+</body>
+</html>

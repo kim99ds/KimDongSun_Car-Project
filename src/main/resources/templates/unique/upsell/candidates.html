@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>같은 가격, 다른 클래스</title>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- reset -->
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+
+    <!-- 결과창 전용 CSS -->
+    <link rel="stylesheet" th:href="@{/unique/css/result-page.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+<main class="result-page">
+    <header th:replace="fragments/header :: header"></header>
+    <section class="panel">
+        <header class="header">
+            <h1 class="upsell-title">
+                같은 가격, 다른 클래스
+                <span th:if="${page.unlimited}" class="upsell-subtitle">님 이거 못삼(예산을 현실적으로 잡으세요)</span>
+            </h1>
+        </header>
+
+        <section class="content">
+
+            <!-- LEFT: 선택한 차량(picked) -->
+            <article class="base">
+                <div class="card" th:if="${page.picked != null}">
+                    <div class="img">
+                        <img th:src="${page.picked.imageUrl}"
+                             onerror="this.src='/images/santafe1.webp'"
+                             th:alt="${page.picked.modelName + ' ' + page.picked.trimName}">
+                    </div>
+
+                    <div class="info">
+                        <p class="name"
+                           th:text="${page.picked.brandName + ' ' + page.picked.modelName}">
+                            내 차량
+                        </p>
+
+                        <p class="price"
+                           th:text="${#numbers.formatInteger(page.picked.basePrice, 3, 'COMMA')} + '원'">
+                            0원
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card" th:if="${page.picked == null}">
+                    <div class="img">
+                        <img src="/images/santafe1.webp" alt="선택 차량 없음">
+                    </div>
+                    <div class="info">
+                        <p class="name">선택한 차량을 찾을 수 없습니다</p>
+                        <p class="price">다시 선택해 주세요</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- RIGHT: 후보 차량(candidates) 슬라이더 -->
+            <section class="compare">
+                <div class="swiper slider" id="candidateSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide"
+                             th:each="c : ${page.candidates}"
+                             th:attr="data-model-id=${c.modelId},data-trim-id=${c.trimId}">
+                            <div class="card candidate-card">
+                                <div class="img">
+                                    <img th:src="${c.imageUrl}"
+                                         onerror="this.src='/images/santafe1.webp'"
+                                         th:alt="${c.modelName + ' ' + c.trimName}">
+                                </div>
+
+                                <div class="info">
+                                    <p class="name"
+                                       th:text="${c.brandName + ' ' + c.modelName}">
+                                        추천 차량
+                                    </p>
+
+                                    <p class="price"
+                                       th:text="${#numbers.formatInteger(c.basePrice, 3, 'COMMA')} + '원'">
+                                        0원
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 후보 없을 때 -->
+                        <div class="swiper-slide"
+                             th:if="${page.candidates == null or #lists.isEmpty(page.candidates)}">
+                            <div class="card">
+                                <div class="img">
+                                    <img src="/images/santafe1.webp" alt="추천 차량 없음">
+                                </div>
+                                <div class="info">
+                                    <p class="name">추천 차량 없음</p>
+                                    <p class="price">조건을 바꿔 다시 시도해 주세요</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 네비게이션(후보가 있을 때만) -->
+                <div class="nav"
+                     th:if="${page.candidates != null and !#lists.isEmpty(page.candidates)}">
+                    <button type="button" class="prev" aria-label="이전">‹</button>
+                    <button type="button" class="next" aria-label="다음">›</button>
+                </div>
+            </section>
+
+            <!-- ✅ 버튼 2개: content 안에서 같은 줄 -->
+            <div class="actions-row">
+                <div class="card-action card-action--left">
+                    <a class="action-btn"
+                       th:if="${page.picked != null}"
+                       th:href="@{/cars/{modelId}(modelId=${page.picked.modelId})}">
+                        내 차량 자세히 보기
+                    </a>
+
+                    <a class="action-btn"
+                       th:if="${page.picked == null}"
+                       th:href="@{/unique/upsell}">
+                        다시 선택하기
+                    </a>
+                </div>
+
+                <div class="card-action card-action--right">
+                    <a class="action-btn" id="btnCandidateDetail" href="#">
+                        차량 견적도 확인하기
+                    </a>
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script th:src="@{/js/result_page.js}"></script>
+<script th:src="@{/css/script.js}"></script>
+</body>
+</html>

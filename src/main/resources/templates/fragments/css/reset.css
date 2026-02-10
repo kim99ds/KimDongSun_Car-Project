@@ -1,0 +1,231 @@
+@charset "utf-8";
+
+/* =============================== RESET =============================== */
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/PretendardVariable.woff2')
+    format('woff2-variations');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+body{
+    font-family: "Pretendard";
+    background: #111111;
+    letter-spacing: -1px;
+    /* color: #fff; */
+    /* overflow-x: hidden; */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+img{
+    max-width: 100%;
+    border: none;
+    vertical-align: top;
+}
+
+
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+}
+
+input, textarea, select{
+    font: inherit;
+    color: inherit;
+    outline: none;
+    border: none;
+    background: none;
+}
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* ---------------- */
+
+/* ========================================HEADER */
+
+.site-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    z-index: 9999;
+    background-color: #111111;
+    /* border: 1px solid red; */
+}
+
+.site-header .header-inner{
+    width: 1700px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-header .header-inner .logo img{
+    height: 50px;
+}
+
+.site-header .header-inner .gnb .gnb-list{
+    display: flex;
+    gap: 105px;
+    /* margin-left: -300px; */
+}
+
+.site-header .header-inner .gnb .gnb-item{
+    position: relative;
+}
+
+.site-header .header-inner .gnb .gnb-item .gnb-link{
+    color: #bbbbbb;
+    /* font-size: 16px; */
+    letter-spacing: 0.05em;
+    display: block;
+    padding: 10px 0;
+
+    transition: 0.3s;
+}
+
+
+.site-header .header-inner .gnb .gnb-item.is-highlight .gnb-link{
+    color: #ff7a00;
+}
+
+.site-header .header-inner .gnb .gnb-item .sub-menu{
+    color: #767676;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    width: 130px;
+    /* border: 1px solid red; */
+    padding: 20px 0;
+    z-index: 2;
+    /* // ▽ 호버했을 때 나오게 수정할거임 */
+    display: none;
+}
+
+.site-header .header-inner .gnb .gnb-item .sub-menu li a{
+    display: block;
+    /* padding: 6px 20px; */
+    margin-bottom: 20px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.site-header .header-inner .gnb .gnb-item .sub-menu li a:hover,
+.site-header .header-inner .gnb .gnb-item .gnb-link:hover{
+    color: #fff;
+}
+
+.site-header .header-inner .gnb .gnb-item.is-highlight .gnb-link:hover{
+    color: #ff7a00;
+}
+
+.site-header .header-inner .header-auth{
+    color: #bbbbbb;
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.site-header .header-inner .header-auth a{
+    transition: 0.3s;
+}
+
+.site-header .header-inner .header-auth a:hover{
+    color: #fff;
+}
+
+.header-drop-bg{
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background: rgba(0,0,0,0.7);
+    /* // ▽ 호버했을 때 나오게 수정할거임 */
+    display: none;
+}
+/* -------------------- */
+
+/* ===========================푸터 */
+
+#footer{
+    border-top: 1px solid #222;
+    color: #bbb;
+    font-weight: 300;
+    padding: 60px 0;
+}
+
+#footer .footer-inner{
+    /* border: 1px solid red; */
+    width: 1700px;
+    margin: 0 auto;
+}
+
+#footer .footer-inner .footer-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* #footer .footer-inner .footer-top .footer-links{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+} */
+
+#footer .footer-inner .footer-top .footer-links .sep,
+#footer .footer-inner .footer-mid .sep{
+    margin: 0 15px;
+    opacity: 0.5;
+}
+
+#footer .footer-inner .footer-top .footer-links a.is-highlight{
+    color: #ff6D00;
+}
+
+#footer .footer-inner .footer-top .footer-sns{
+    margin-top: -5px;
+}
+
+#footer .footer-inner .footer-bottom{
+    text-align: center;
+    margin-top: 100px;
+}
+
+#footer .footer-inner .footer-bottom .footer-logo img{
+    height: 70px;
+    margin-bottom: 20px;
+}
+
+#footer .footer-inner .footer-bottom .copyright{
+    font-size: 14px;
+    font-weight: 200;
+    opacity: 0.8;
+}
+
+
+
+

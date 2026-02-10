@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.table th { 
+    font-size: var(--font-size-base); 
+    color: white; 
+    font-weight: 400; 
+    border-bottom: 1px solid #333; 
+    text-align: center; 
+    background-color: var(--color-bg-3); 
+    z-index: 10;
+}
+.table tbody th {
+    background-color: #222;
+}
+.table td { 
+    font-size: var(--font-size-base); 
+    border-bottom: 1px solid #333; 
+    padding-top: 1rem; 
+    padding-bottom: 1rem; 
+    text-align: center; 
+    vertical-align: middle; 
+}
+
+/* 2. 페이지네이션 */
+.pagination-group {
+    display: flex;
+    justify-content: center;
+}
+.pagination-group .btn-custom {
+    border-radius: 0;
+    margin-left: -1px;
+    position: relative;
+}
+.pagination-group .btn-custom:first-child {
+    margin-left: 0;
+}
+.pagination-group .btn-custom:hover,
+.pagination-group .btn-custom.active-page {
+    z-index: 10;
+}
+
+/* 3. 탭 스타일 */
+.tab-btn { 
+    font-size: var(--font-size-lg); 
+    padding-bottom: 10px; 
+    color: var(--color-text-sub); 
+    border-radius: 0; 
+    background: transparent;
+}
+.tab-btn.active { 
+    border-bottom: 2px solid var(--color-brand); 
+    color: white; 
+    font-weight: 500; 
+}
+.tab-btn:hover { color: var(--color-brand); }
+
+/* 탭 컨텐츠 제어 */
+.tab-content { display: none; }
+.tab-content.active { display: flex; flex-direction: column; height: 100%; overflow: hidden; }

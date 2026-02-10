@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${model.modelName} + ' 견적'">견적</title>
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- ✅ 분리된 CSS -->
+    <link rel="stylesheet" th:href="@{/main/reset.css}">
+    <link rel="stylesheet" th:href="@{/main/style.css}">
+  <link rel="stylesheet" th:href="@{/css/cars-detail.css}">
+</head>
+
+<body>
+
+<header th:replace="fragments/header :: header"></header>
+
+<section>
+  <form action="#" method="post" id="estimateForm">
+    <div class="wrap">
+
+      <div class="likesview">
+        <button type="button"
+                id="like-btn"
+                class="like-btn"
+                th:data-model-id="${model.modelId}"
+                sec:authorize="isAuthenticated()">
+          <span id="like-btn-text">♡ 좋아요</span>
+        </button>
+        <span class="like-hint" sec:authorize="isAnonymous()">로그인 후 좋아요를 누를 수 있어요.</span>
+        <span>|</span>
+        <i class="fa-solid fa-eye"></i>
+        <span th:text="${model.viewCount}">0</span>
+        <span>/</span>
+        <span id="like-count" th:text="${model.likeCount}">0</span>
+      </div>
+
+      <h1 class="cars_model" th:text="${model.modelName}">MODEL</h1>
+
+      <div class="model_img">
+        <img th:src="${mainImageUrl}" alt="차량 이미지">
+      </div>
+
+      <div class="dropdown-wrap">
+
+        <div class="dropdown-box">
+          <h2 class="label-border">엔진</h2>
+          <select name="build-engine" id="engine">
+            <option value="">엔진 선택</option>
+            <option th:each="variant : ${model.variants}"
+                    th:value="${variant.variantId}"
+                    th:text="${variant.engineType} + ' - ' + ${variant.engineName}">
+            </option>
+          </select>
+        </div>
+
+        <div class="dropdown-box">
+          <h2 class="label-border">트림 <span class="help-tip" id="trimHelp" tabindex="0" aria-label="트림 설명 보기" data-tooltip="?">트림설명</span></h2>
+          <select name="build-trim" id="trim">
+            <option value="">트림 선택</option>
+          </select>
+        </div>
+
+        <div class="dropdown-box">
+          <h2 class="label-border">색상</h2>
+          <div id="color-area">
+            <select id="trimColorSelect" name="build-color">
+              <option value="">색상 선택</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="package-wrap section-panel package-panel">
+                <div class="package-inner">
+          <h2 class="label-border">패키지 옵션</h2>
+          <div class="card-grid" id="package-area">
+            <div style="color:#767676;font-size:13px;">트림을 선택해주세요</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-wrap">
+        <div class="option-box">
+          <h2 class="label-border">선택한 옵션</h2>
+
+          <div id="selected-summary" class="selected-tags" style="display:none;"></div>
+
+          <div class="option-tabmenu">
+            <div id="option-tabs" style="display:none;"></div>
+            <div id="option-area">
+              <div style="color:#767676;font-size:13px;">트림을 선택해주세요</div>
+            </div>
+          </div>
+            </div>
+
+            <!-- ✅ 기능용 legacy variant/trim radios 그대로 유지 -->
+      <div id="legacy-variant-trim" style="display:none">
+        <h2>엔진 선택</h2>
+        <div th:each="variant : ${model.variants}">
+          <label>
+            <input type="radio" name="variantId" th:value="${variant.variantId}">
+            <strong th:text="${variant.engineType}"></strong>
+            -
+            <span th:text="${variant.engineName}"></span>
+          </label>
+
+          <div class="trim-container" style="display:none;">
+            <h3>트림</h3>
+            <div th:each="trim : ${variant.trims}">
+              <label>
+                <input type="radio"
+                       name="trimId"
+                       class="trim-radio"
+                       th:value="${trim.trimId}"
+                       th:attr="data-desc=${trim.description}">
+                <span th:text="${trim.trimName}"></span>
+                (
+                <span th:text="${trim.basePrice != null ? #numbers.formatInteger(trim.basePrice, 0, 'COMMA') : '0'}"></span>원
+                )
+              </label>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="total-price-bar">
+      <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;padding:0;margin:0 auto;width:80%;">
+        <div class="price-info">
+          <span class="price-label">예상 견적 가격</span>
+          <div class="final-price">
+            <span id="total-price">0</span><span>원</span>
+          </div>
+          <div id="quote-msg"></div>
+        </div>
+
+        <button type="button"
+                class="submit-btn"
+                id="submit-quote-btn"
+                th:data-model-id="${model.modelId}"
+                sec:authorize="isAuthenticated()">견적서 보러가기</button>
+      </div>
+    </div>
+
+  </form>
+</section>
+<footer th:replace="fragments/footer :: footer"></footer>
+<!-- ✅ 분리된 JS (defer: 로딩 순서 유지 + DOM 후 실행) -->
+<script th:src="@{/js/cars-detail.bridge.js}" defer></script>
+<script th:src="@{/js/cars-detail.logic.js}" defer></script>
+<script th:src="@{/js/cars-detail.popular.js}" defer></script>
+<script th:src="@{/css/script.js}"></script>
+</body>
+</html>

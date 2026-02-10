@@ -1,0 +1,746 @@
+section{
+    width: 100%;
+}
+.site-header{
+    border-bottom: 1px solid #bbbbbb5d;
+}
+
+/* --------------------------    main-tit */
+section .main-tit{
+    width: 80%; margin: 0 auto;
+    text-align: center;
+    margin-top: 150px;
+}
+section .main-tit h1{
+    color: #fff;
+    font-size: 50px;
+}
+
+section .top-line{
+    border-top: 1px solid #fff;
+    width: 80%; margin: 0 auto;
+    margin-top: 50px;
+}
+
+
+/* ----------------------         question-1 */
+section .question-1{
+    width: 80%;
+    margin: 60px auto 0;
+    font-weight: 300;
+    color: #777;
+}
+
+section .question-1 .q-title{
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+section .question-1 .select-wrap{
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-right: 35px;
+    cursor: pointer;
+}
+
+section .question-1 .select-wrap select{
+    background:#111;
+    color:#ddd;
+    border:1px solid #777;
+    padding: 5px;
+}
+
+
+
+
+
+
+/* -------------------------------     question-2 */
+section .question-2{
+    color:#fff;
+    width: 80%;
+    margin: 60px auto 0;
+}
+
+section .question-2 .q-title{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+section .question-2 .select-wrap{
+    width: 240px;
+}
+
+section .question-2 .select-wrap select{
+    width: 100%;
+    height: 44px;
+
+    background:#111;
+    color:#ddd;
+
+    border:1px solid #777;
+    padding:0 40px 0 14px;
+    font-size: 16px;
+    font-weight: 300;
+
+    outline:none;
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    cursor:pointer;
+}
+
+section .question-2 .select-wrap{
+    position: relative;
+}
+section .question-2 .select-wrap::after{
+    content: "";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid #bbb;
+    pointer-events: none;
+}
+
+section .question-2 .select-wrap select:focus{
+    border-color: #aaa;
+}
+
+
+/* -------------------------------     question-3 */
+section .question-3{
+    width: 80%;
+    margin: 60px auto 0;
+    font-weight: 300;
+    color:#fff;
+}
+
+section .question-3 .q-title{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+section .question-3 .radio-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section .question-3 .radio-item{
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+
+section .question-3 .radio-item input{
+    display: none;
+}
+
+section .question-3 .radio-item .custom-radio{
+    width: 20px;
+    height: 20px;
+    border: 2px solid #777;
+    border-radius: 50%;
+    position: relative;
+    flex: 0 0 20px;
+}
+
+section .question-3 .radio-item .custom-radio::after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #ff7a00;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.25s ease;
+}
+
+section .question-3 .radio-item input:checked + .custom-radio::after{
+    opacity: 1;
+}
+
+section .question-3 .radio-item .text{
+    font-size: 18px;
+    color: #ddd;
+    line-height: 1.4;
+}
+
+
+
+/* ------------------------------- question-4 (✅ 여기 수정됨) */
+/* ------------------------------- question-4 (✅ JS 없이 완전 고정) */
+/* ------------------------------- question-4 (✅ 디자인 고정본) */
+/* ------------------------------- question-4 (✅ 최종본: JS 픽셀배치용) */
+/* ------------------------------- question-4 (예산 range: 2번째 이미지 스타일) */
+section .question-4{
+    width: 80%;
+    margin: 60px auto 0;
+    color:#fff;
+    font-weight: 300;
+}
+
+section .question-4 .q-title{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+/* ✅ 라인 길이(2번째 이미지처럼 더 길게) + 왼쪽 들여쓰기 제거 */
+section .question-4 .range-wrap{
+    width: 100%;
+    max-width: 980px;     /* 필요하면 1100px까지 올려도 됨 */
+    position: relative;
+    margin-left: 40px;       /* 기존 50px 때문에 짧아보이고 어긋나 보였을 가능성 큼 */
+}
+
+/* 라벨/눈금 줄 */
+section .question-4 .range-labels,
+section .question-4 .range-ticks{
+    position: relative;
+    height: 32px;
+}
+
+section .question-4 .range-labels{ margin-bottom: 8px; }
+section .question-4 .range-ticks{ margin-top: 8px; }
+
+/* 라벨 텍스트(위/아래 공통) */
+section .question-4 .range-labels span,
+section .question-4 .range-ticks span{
+    position: absolute;
+    left: 0;                 /* JS가 px로 넣어줌 */
+    top: 0;
+    font-size: 16px;
+    white-space: nowrap;
+    color:#ddd;
+    cursor: pointer;
+    transform: translateX(-50%);
+    user-select: none;
+}
+
+/* 아래 라벨은 살짝 더 아래로 */
+section .question-4 .range-ticks span{
+    top: 14px;
+}
+
+/* ✅ 기존 tick div는 사용 안 함 */
+section .question-4 .tick{
+    display: none !important;
+}
+
+/* ✅ 위 라벨의 아래로 tick(세로선) */
+section .question-4 .range-labels span::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -16px;
+    width: 1px;
+    height: 14px;
+    background: #fff;
+    transform: translateX(-50%);
+    opacity: .85;
+}
+
+/* ✅ 아래 라벨의 위로 tick(세로선) */
+section .question-4 .range-ticks span::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -16px;
+    width: 1px;
+    height: 14px;
+    background: #fff;
+    transform: translateX(-50%);
+    opacity: .85;
+}
+
+/* range 기본 */
+section .question-4 input[type="range"]{
+    width: 100%;
+    background: transparent;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ✅ 라인(트랙) */
+section .question-4 input[type="range"]::-webkit-slider-runnable-track{
+    height: 2px;          /* 2번째 이미지처럼 조금 더 선명하게 */
+    background: #bdbdbd;
+    border-radius: 999px;
+}
+
+/* ✅ 동그라미(thumb) */
+section .question-4 input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff7a00;
+    border: none;
+    margin-top: -9px; /* 트랙 중앙에 정확히 */
+    cursor: pointer;
+}
+
+/* ------------------------------- question-5 */
+/* ------------------------------- question-5 (파워트레인 선택) */
+section .question-5{
+    width: 80%;
+    margin: 60px auto 0;
+    color: #fff;
+    font-weight: 300;
+}
+
+section .question-5 .q-title{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+section .question-5 .chip-group{
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* label */
+section .question-5 .chip{
+    position: relative;
+    cursor: pointer;
+}
+
+/* checkbox (th:field 때문에 hidden input이 끼어들 수 있음 → CSS는 ~ 사용) */
+section .question-5 .chip input{
+    position: absolute;
+    opacity: 0;
+}
+
+/* 버튼 박스 */
+section .question-5 .chip span{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    height: 44px;
+    padding: 0 22px;
+
+    font-size: 18px;
+    color: #ddd;
+
+    background: #1b1b1b;
+    border-radius: 3px;
+
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* hover */
+section .question-5 .chip:hover span{
+    background: #2a2a2a;
+}
+
+/* ✅ 선택 상태 (사진처럼 주황색 채움) */
+section .question-5 .chip input:checked ~ span{
+    background: #ff6d00;
+    color: #fff;
+}
+
+/* 왼쪽 원 (외곽) */
+section .question-5 .chip span::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #bbb;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/* 왼쪽 원 (안쪽 점) */
+section .question-5 .chip span::after{
+    content: "";
+    position: absolute;
+    left: 32px;                /* padding(22) + 반지름(10) */
+    top: 50%;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* ✅ 선택 시 안쪽 점 표시 */
+section .question-5 .chip input:checked ~ span::after{
+    opacity: 1;
+}
+
+/* 크롬 포커스 파란 테두리 제거 */
+section .question-5 .chip:focus-within span{
+    outline: none;
+    box-shadow: none;
+}
+
+/* ------------------------------- question-51 */
+section .question-51{
+    width: 80%;
+    margin: 0 auto;
+    font-weight: 300;
+    color:#fff;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition:
+            max-height 0.35s ease,
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            margin 0.3s ease;
+}
+
+section .question-51.is-open{
+    max-height: 220px;
+    margin: 60px auto 0;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section .question-51 .q-title{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+section .question-51 .select-wrap select{
+    background:#111;
+    color:#ddd;
+    border:1px solid #777;
+    padding: 7px;
+}
+
+
+
+
+
+/* ------------------------------- question-6 */
+section .question-6{
+    width: 80%;
+    margin: 60px auto 0;
+    color: #fff;
+    font-weight: 300;
+}
+
+section .question-6 .q-title{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+section .question-6 .select-wrap select{
+    background:#111;
+    border: 1px solid #777;
+    color:#ddd;
+    padding: 7px;
+}
+
+section .question-6 .flexBox{
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: nowrap;
+}
+
+section .question-6 .chip{
+    position: relative;
+    cursor: pointer;
+}
+
+section .question-6 .chip input{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+section .question-6 .chip span{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    transform: translateY(-1px);
+
+    height: 44px;
+    padding: 0px 22px 0px 22px;
+
+    font-size: 18px;
+
+    border-radius: 3px;
+    background: #1b1b1b;
+
+    transition: all 0.25s ease;
+}
+
+section .question-6 .chip input:checked + span{
+    background: #ff6d00;
+}
+
+section .question-6 .chip span::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #bbb;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition: 0.2s ease;
+}
+
+section .question-6 .chip span::after{
+    content: "";
+    position: absolute;
+
+    left: calc(22px + 10px);
+    top: 50%;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: 0.2s ease;
+}
+
+section .question-6 .chip input:checked + span::before{
+    border-color: #bbb;
+}
+
+section .question-6 .chip input:checked + span::after{
+    opacity: 1;
+}
+
+
+/* ------------------------------- question-7 */
+section .question-7{
+    width: 80%;
+    margin: 60px auto 0;
+    color: #fff;
+}
+
+section .question-7 .q-title{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+section .question-7 .select-wrap select{
+    background:#111;
+    border: 1px solid #777;
+    color:#ddd;
+    padding: 7px;
+}
+
+section .question-7 .color-group{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 14px;
+}
+
+section .question-7 .color-item{
+    position: relative;
+    cursor: pointer;
+}
+
+section .question-7 .color-item input{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+section .question-7 .color-item .color-swatch{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 4px solid transparent;
+    transition: all 0.25s ease;
+}
+
+section .question-7 .color-item:hover .color-swatch{
+    border-color: #666;
+}
+
+section .question-7 .color-item input:checked + .color-swatch{
+    border-color: #ff7a00;
+}
+
+
+
+/* ------------------------------- question-8 */
+section .question-8{
+    width: 80%;
+    margin: 60px auto 0;
+    color: #fff;
+    font-weight: 300;
+}
+
+section .question-8 .q-title{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+section .question-8 .select-wrap select{
+    background:#111;
+    border: 1px solid #777;
+    color:#ddd;
+    padding: 7px;
+}
+
+section .question-8 .flexBox{
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: nowrap;
+}
+
+section .question-8 .chip{
+    position: relative;
+    cursor: pointer;
+}
+
+section .question-8 .chip input{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+section .question-8 .chip span{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    transform: translateY(-1px);
+
+    height: 44px;
+    padding: 0px 22px 0px 22px;
+
+    font-size: 18px;
+
+    border-radius: 3px;
+    background: #1b1b1b;
+
+    transition: all 0.25s ease;
+}
+
+section .question-8 .chip input:checked + span{
+    background: #ff6d00;
+}
+
+section .question-8 .chip span::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #bbb;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition: 0.2s ease;
+}
+
+section .question-8 .chip span::after{
+    content: "";
+    position: absolute;
+
+    left: calc(22px + 10px);
+    top: 50%;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: 0.2s ease;
+}
+
+section .question-8 .chip input:checked + span::before{
+    border-color: #bbb;
+}
+
+section .question-8 .chip input:checked + span::after{
+    opacity: 1;
+}
+
+
+/* ------------------------------- 결과 확인 버튼 */
+
+section .submit-wrap {
+    text-align: center;
+    margin: 50px auto 0;
+    border-top: 1px solid #fff;
+    width: 80%;
+    height: 200px;
+}
+
+section .submit-wrap .submit-btn {
+    position: relative;
+    width: 200px;
+    height: 60px;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border: 1px solid #ff7a00;
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 55px;
+
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+
+    transition: color 0.3s ease;
+}
+
+section .submit-wrap .submit-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0%;
+    height: 100%;
+
+    background-color: #ff7a00;
+
+    z-index: -1;
+    transition: width 0.4s ease;
+}
+
+section .submit-wrap .submit-btn:hover::before {
+    width: 100%;
+}
+

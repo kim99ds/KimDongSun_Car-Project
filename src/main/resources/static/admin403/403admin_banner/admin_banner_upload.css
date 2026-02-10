@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/* 1. 파일 업로드 인풋 커스텀 */
+.file-input {
+    border-radius: 0;
+    background: #333;
+    border: 1px solid #333;
+}
+.file-input::file-selector-button {
+    border-radius: 0;
+    background-color: #444;
+    color: white;
+    border: none;
+    height: 100%; 
+    padding: 0 1.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.file-input::file-selector-button:hover {
+    background-color: #555;
+}
+
+/* 2. 섹션 헤더 (STEP 구분용) */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+/* 3. 스텝 배지 (STEP 1, 2, 3...) */
+.step-badge {
+    background-color: var(--color-brand);
+    color: black;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 2px 8px;
+}
