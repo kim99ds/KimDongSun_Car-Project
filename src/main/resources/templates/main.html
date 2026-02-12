@@ -434,8 +434,30 @@
     <img src="/main/images/TOP_BTN_H.png" alt="" class="top-hover">
 </button>
 
+<!-- ✅ redirect 결과 메시지 처리 -->
+<script>
+    (function () {
+        const params = new URLSearchParams(window.location.search);
+        const msg = params.get('msg'); // 예: withdraw_success
+
+        if (msg === 'withdraw_success') {
+            alert('탈퇴 처리가 완료되었습니다. 이용해 주셔서 감사합니다.');
+        } else if (msg === 'update_success') {
+            alert('회원 정보가 수정되었습니다.');
+        } else if (msg === 'withdraw_fail') {
+            alert('탈퇴에 실패했습니다. 비밀번호를 확인해 주세요.');
+        }
+
+        // ✅ 알림 띄운 뒤 URL 깔끔하게 (새로고침해도 alert 반복 안 뜨게)
+        if (msg) {
+            params.delete('msg');
+            const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+            window.history.replaceState({}, '', newUrl);
+        }
+    })();
+</script>
+
 <!-- JS연결 -->
 <script th:src="@{/main/script.js}"></script>
 </body>
-
 </html>

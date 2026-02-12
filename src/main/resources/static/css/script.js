@@ -4,26 +4,14 @@ $(function () {
     const $allSub = $(".sub-menu");
     const $dropBg = $(".header-drop-bg");
 
-
-    $header.on("click", function (e) {
-
-        if (!$(e.target).closest(".gnb").length) return;
-
-        if ($allSub.is(":visible")) {
-            $allSub.stop().slideUp(350);
-            $dropBg.stop().slideUp(350);
-        } else {
-            $allSub.stop().slideDown(350);
-            $dropBg.stop().slideDown(350);
-        }
+    $header.on("mouseenter", function () {
+        $allSub.stop(true, true).slideDown(300);
+        $dropBg.stop(true, true).slideDown(300);
     });
 
-    // 바깥 클릭하면 닫기
-    $(document).on("click", function (e) {
-        if (!$(e.target).closest(".site-header").length) {
-            $allSub.stop().slideUp(200);
-            $dropBg.stop().slideUp(200);
-        }
+    $header.on("mouseleave", function () {
+        $allSub.stop(true, true).slideUp(200);
+        $dropBg.stop(true, true).slideUp(200);
     });
 });
 
@@ -80,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 배경 세팅 (이미지 or 영상)
     function setBackground(layer, slide) {
-        layer.innerHTML = "";               
-        layer.style.backgroundImage = ""; 
+        layer.innerHTML = "";
+        layer.style.backgroundImage = "";
 
         if (slide.dataset.video) {
             const video = document.createElement("video");
@@ -173,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startAuto();
 
     // 드래그
-    let startX = 0; 
+    let startX = 0;
     let isDragging = false;
 
     // 드래그 시작
@@ -244,106 +232,106 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ====================베스트카==================
 
-    const cards = document.querySelectorAll("#bestCar .bestcar-card");
-    let hasInteracted = false;
+const cards = document.querySelectorAll("#bestCar .bestcar-card");
+let hasInteracted = false;
 
-    cards.forEach(card => {
-        card.addEventListener("mouseenter", () => {
+cards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
 
-            cards.forEach(c => c.classList.remove("is-active"));
+        cards.forEach(c => c.classList.remove("is-active"));
 
-            card.classList.add("is-active");
+        card.classList.add("is-active");
 
-            hasInteracted = true;
-        });
+        hasInteracted = true;
     });
+});
 
 
 //===============이벤트배너============================================
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const viewport = document.querySelector(".eventbanner-viewport");
-        const slides = document.querySelectorAll(".eventbanner-slide");
-        const dots = document.querySelectorAll(".eventbanner-pagination .dot");
+document.addEventListener("DOMContentLoaded", () => {
+    const viewport = document.querySelector(".eventbanner-viewport");
+    const slides = document.querySelectorAll(".eventbanner-slide");
+    const dots = document.querySelectorAll(".eventbanner-pagination .dot");
 
-        const titleEl = document.querySelector(".eventbanner-title");
-        const descEl = document.querySelector(".eventbanner-desc");
-        const ctaEl = document.querySelector(".eventbanner-cta");
+    const titleEl = document.querySelector(".eventbanner-title");
+    const descEl = document.querySelector(".eventbanner-desc");
+    const ctaEl = document.querySelector(".eventbanner-cta");
 
-        let current = 0;
-        let timer = null;
-        const interval = 2500;
+    let current = 0;
+    let timer = null;
+    const interval = 2500;
 
-        function init() {
-            slides.forEach((slide, i) => {
-                slide.style.backgroundImage = `url(${slide.dataset.bg})`;
-                // 첫 번째만 보이고, 나머지는 숨김
-                slide.style.opacity = i === 0 ? "1" : "0";
-            });
-
-            updateContent(0);
-            updateDots(0);
-            startAuto();
-        }
-
-        function updateContent(index) {
-            const slide = slides[index];
-            titleEl.textContent = slide.dataset.title;
-            descEl.textContent = slide.dataset.desc;
-            ctaEl.setAttribute("href", slide.dataset.link);
-
-            const content = document.querySelector(".eventbanner-content");
-            content.classList.toggle("is-right", index === 2);
-        }
-
-        function updateDots(index) {
-            dots.forEach((dot, i) => {
-                dot.classList.toggle("is-active", i === index);
-            });
-        }
-
-        // 슬라이드 전환 (페이드)
-        function goTo(index) {
-            if (index === current) return;
-
-            slides[current].style.opacity = "0";
-            slides[index].style.opacity = "1";
-
-            current = index;
-            updateContent(index);
-            updateDots(index);
-        }
-
-        // 자동 슬라이드
-        function startAuto() {
-            stopAuto();
-            timer = setInterval(() => {
-                const next = (current + 1) % slides.length;
-                goTo(next);
-            }, interval);
-        }
-
-        function stopAuto() {
-            if (timer) clearInterval(timer);
-        }
-
-        dots.forEach((dot, i) => {
-            dot.addEventListener("click", () => {
-                goTo(i);
-                startAuto();
-            });
+    function init() {
+        slides.forEach((slide, i) => {
+            slide.style.backgroundImage = `url(${slide.dataset.bg})`;
+            // 첫 번째만 보이고, 나머지는 숨김
+            slide.style.opacity = i === 0 ? "1" : "0";
         });
 
-        // 마우스 올리면 멈춤 / 벗어나면 재개
-        viewport.addEventListener("mouseenter", stopAuto);
-        viewport.addEventListener("mouseleave", startAuto);
+        updateContent(0);
+        updateDots(0);
+        startAuto();
+    }
 
-        init();
+    function updateContent(index) {
+        const slide = slides[index];
+        titleEl.textContent = slide.dataset.title;
+        descEl.textContent = slide.dataset.desc;
+        ctaEl.setAttribute("href", slide.dataset.link);
+
+        const content = document.querySelector(".eventbanner-content");
+        content.classList.toggle("is-right", index === 2);
+    }
+
+    function updateDots(index) {
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("is-active", i === index);
+        });
+    }
+
+    // 슬라이드 전환 (페이드)
+    function goTo(index) {
+        if (index === current) return;
+
+        slides[current].style.opacity = "0";
+        slides[index].style.opacity = "1";
+
+        current = index;
+        updateContent(index);
+        updateDots(index);
+    }
+
+    // 자동 슬라이드
+    function startAuto() {
+        stopAuto();
+        timer = setInterval(() => {
+            const next = (current + 1) % slides.length;
+            goTo(next);
+        }, interval);
+    }
+
+    function stopAuto() {
+        if (timer) clearInterval(timer);
+    }
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+            goTo(i);
+            startAuto();
+        });
     });
+
+    // 마우스 올리면 멈춤 / 벗어나면 재개
+    viewport.addEventListener("mouseenter", stopAuto);
+    viewport.addEventListener("mouseleave", startAuto);
+
+    init();
+});
 
 //================브랜드 별 인기============================================
 
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const tabs = document.querySelectorAll("#brandPopular .tab");
     const tracks = document.querySelectorAll("#brandPopular .cars-track");
 
@@ -352,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const prevBtn = document.querySelector("#brandPopular .prev");
     const nextBtn = document.querySelector("#brandPopular .next");
-    
+
     let activeTrack = document.querySelector(
         "#brandPopular .cars-track.is-active"
     );
@@ -360,21 +348,21 @@ document.addEventListener("DOMContentLoaded", () => {
     /* 탭 전환 */
     tabs.forEach(tab => {
         tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("is-active"));
-        tab.classList.add("is-active");
+            tabs.forEach(t => t.classList.remove("is-active"));
+            tab.classList.add("is-active");
 
 
-        brandName.textContent = tab.dataset.name;
-        brandSub.textContent = tab.dataset.sub;
+            brandName.textContent = tab.dataset.name;
+            brandSub.textContent = tab.dataset.sub;
 
-        const brand = tab.textContent.trim();
+            const brand = tab.textContent.trim();
 
             tracks.forEach(track => {
                 track.classList.remove("is-active");
                 if (track.dataset.brand === brand) {
-                track.classList.add("is-active");
-                activeTrack = track;
-                updateBig();
+                    track.classList.add("is-active");
+                    activeTrack = track;
+                    updateBig();
                 }
             });
         });
@@ -413,90 +401,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ===========어워즈=================================
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const section = document.querySelector("#awards");
-        // awards 섹션이 없는 페이지에서는 실행 안 되게 안전장치
-        if (!section) return;
+document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector("#awards");
+    // awards 섹션이 없는 페이지에서는 실행 안 되게 안전장치
+    if (!section) return;
 
-        // DOM 캐싱
-        const track = section.querySelector(".awards-track");
-        const cards = Array.from(section.querySelectorAll(".award-card"));
-        const bg = section.querySelector(".awards-bg");
+    // DOM 캐싱
+    const track = section.querySelector(".awards-track");
+    const cards = Array.from(section.querySelectorAll(".award-card"));
+    const bg = section.querySelector(".awards-bg");
 
-        const prevBtn = section.querySelector(".awards-nav.prev");
-        const nextBtn = section.querySelector(".awards-nav.next");
+    const prevBtn = section.querySelector(".awards-nav.prev");
+    const nextBtn = section.querySelector(".awards-nav.next");
 
-        const segs = Array.from(section.querySelectorAll(".awards-progress .seg"));
-        const playBtn = section.querySelector(".awards-progress .play");
-        const pauseBtn = section.querySelector(".awards-progress .pause");
+    const segs = Array.from(section.querySelectorAll(".awards-progress .seg"));
+    const playBtn = section.querySelector(".awards-progress .play");
+    const pauseBtn = section.querySelector(".awards-progress .pause");
 
-        const GAP = 130;
-        const CARD_WIDTH = 660; 
-        const ACTIVE_SCALE = 1.1;
+    const GAP = 130;
+    const CARD_WIDTH = 660;
+    const ACTIVE_SCALE = 1.1;
 
-        let currentIndex = cards.findIndex(c => c.classList.contains("is-active"));
-        if (currentIndex === -1) currentIndex = 0;
+    let currentIndex = cards.findIndex(c => c.classList.contains("is-active"));
+    if (currentIndex === -1) currentIndex = 0;
 
 
-        let isPlaying = true;
-        let timer = null;
-        let progressRAF = null;
-        let progressStart = null;
+    let isPlaying = true;
+    let timer = null;
+    let progressRAF = null;
+    let progressStart = null;
 
-        const DURATION = 4000; 
+    const DURATION = 4000;
 
-        function updateBackground(index) {
-            const img = cards[index].querySelector("img");
-            if (!img) return;
-            bg.style.backgroundImage = `url(${img.src})`;
-        }
-    
-        function updateSeg(index) {
-            segs.forEach((s, i) => {
+    function updateBackground(index) {
+        const img = cards[index].querySelector("img");
+        if (!img) return;
+        bg.style.backgroundImage = `url(${img.src})`;
+    }
+
+    function updateSeg(index) {
+        segs.forEach((s, i) => {
             s.classList.toggle("is-active", i === index);
-            });
-        }
+        });
+    }
 
-        function updateCards(index) {
-            cards.forEach((c, i) => {
+    function updateCards(index) {
+        cards.forEach((c, i) => {
             c.classList.toggle("is-active", i === index);
-            });
-        }
+        });
+    }
 
 
-        function moveTrack(index) {
-            const viewport = section.querySelector(".awards-viewport");
-            const viewportCenter = viewport.offsetWidth / 2;
+    function moveTrack(index) {
+        const viewport = section.querySelector(".awards-viewport");
+        const viewportCenter = viewport.offsetWidth / 2;
 
-            const centerOffset = (CARD_WIDTH * ACTIVE_SCALE) / 2;
-            // index에 따라 얼마나 이동해야 하는지
-            const base = (CARD_WIDTH + GAP) * index;
+        const centerOffset = (CARD_WIDTH * ACTIVE_SCALE) / 2;
+        // index에 따라 얼마나 이동해야 하는지
+        const base = (CARD_WIDTH + GAP) * index;
 
-            // 시각적 중앙 보정값
-            const ADJUST = 60;
-            const x = viewportCenter - centerOffset - base + ADJUST;
-            track.style.transition = "transform 0.8s ease";
-            track.style.transform = `translateX(${x}px)`;
-        }
+        // 시각적 중앙 보정값
+        const ADJUST = 60;
+        const x = viewportCenter - centerOffset - base + ADJUST;
+        track.style.transition = "transform 0.8s ease";
+        track.style.transform = `translateX(${x}px)`;
+    }
 
 
-        function resetProgress() {
-            if (progressRAF) cancelAnimationFrame(progressRAF);
-            progressStart = null;
+    function resetProgress() {
+        if (progressRAF) cancelAnimationFrame(progressRAF);
+        progressStart = null;
 
-            segs.forEach(seg => {
+        segs.forEach(seg => {
             seg.style.background = "rgba(255,255,255,0.3)";
-            });
-        }
+        });
+    }
 
-        function animateProgress() {
-            function step(ts) {
+    function animateProgress() {
+        function step(ts) {
             if (!progressStart) progressStart = ts;
-                const elapsed = ts - progressStart;
-                const ratio = Math.min(elapsed / DURATION, 1);
+            const elapsed = ts - progressStart;
+            const ratio = Math.min(elapsed / DURATION, 1);
 
-                const activeSeg = segs[currentIndex];
-                activeSeg.style.background = `
+            const activeSeg = segs[currentIndex];
+            activeSeg.style.background = `
                     linear-gradient(
                     to right,
                     #fff ${ratio * 100}%,
@@ -504,127 +492,127 @@ document.addEventListener("DOMContentLoaded", () => {
                     )
                 `;
 
-                if (ratio < 1 && isPlaying) {
-                    progressRAF = requestAnimationFrame(step);
-                }
+            if (ratio < 1 && isPlaying) {
+                progressRAF = requestAnimationFrame(step);
             }
-
-            progressRAF = requestAnimationFrame(step);
         }
 
+        progressRAF = requestAnimationFrame(step);
+    }
 
-        function moveTo(index) {
-            if (index < 0) index = cards.length - 1;
-            if (index >= cards.length) index = 0;
 
-            currentIndex = index;
+    function moveTo(index) {
+        if (index < 0) index = cards.length - 1;
+        if (index >= cards.length) index = 0;
 
-            updateCards(index); // 중앙 카드 교체
-            moveTrack(index); // 트랙 이동
-            updateBackground(index); // 배경 변경
-            updateSeg(index); // 하단 bar 변경
+        currentIndex = index;
 
-            resetProgress();
+        updateCards(index); // 중앙 카드 교체
+        moveTrack(index); // 트랙 이동
+        updateBackground(index); // 배경 변경
+        updateSeg(index); // 하단 bar 변경
 
-            if (isPlaying) {
+        resetProgress();
+
+        if (isPlaying) {
             animateProgress();
-            }
         }
+    }
 
-        // 자동재생 시작
-        function startAuto() {
-            isPlaying = true;
+    // 자동재생 시작
+    function startAuto() {
+        isPlaying = true;
 
-            // 아이콘 토글 (레이아웃 안 흔들리게 visibility 사용)
-            playBtn.style.visibility = "hidden";
-            playBtn.style.opacity = "0";
-
-            pauseBtn.style.visibility = "visible";
-            pauseBtn.style.opacity = "1";
-
-            resetProgress();
-            animateProgress();
-
-            timer = setInterval(() => {
-                moveTo(currentIndex + 1);
-            }, DURATION);
-        }
-
-        function stopAuto() {
-            isPlaying = false;
-            pauseBtn.style.visibility = "hidden";
-            pauseBtn.style.opacity = "0";
-
-            playBtn.style.visibility = "visible";
-            playBtn.style.opacity = "1";
-            clearInterval(timer);
-            timer = null;
-
-            if (progressRAF) cancelAnimationFrame(progressRAF);
-        }
-
-        prevBtn.addEventListener("click", () => {
-            moveTo(currentIndex - 1);
-                if (isPlaying) {
-                clearInterval(timer);
-                startAuto();
-            }
-        });
-
-        nextBtn.addEventListener("click", () => {
-            moveTo(currentIndex + 1);
-                if (isPlaying) {
-                clearInterval(timer);
-                startAuto();
-            }
-        });
-
-        playBtn.addEventListener("click", () => {
-            if (!isPlaying) startAuto();
-        });
-
-        pauseBtn.addEventListener("click", () => {
-            stopAuto();
-        });
-
-        playBtn.style.display = "inline-block";
-        pauseBtn.style.display = "inline-block";
-
+        // 아이콘 토글 (레이아웃 안 흔들리게 visibility 사용)
         playBtn.style.visibility = "hidden";
         playBtn.style.opacity = "0";
 
         pauseBtn.style.visibility = "visible";
         pauseBtn.style.opacity = "1";
 
-        // 초기화
-        updateBackground(currentIndex);
-        moveTrack(currentIndex);
-        updateSeg(currentIndex);
-        startAuto();
+        resetProgress();
+        animateProgress();
+
+        timer = setInterval(() => {
+            moveTo(currentIndex + 1);
+        }, DURATION);
+    }
+
+    function stopAuto() {
+        isPlaying = false;
+        pauseBtn.style.visibility = "hidden";
+        pauseBtn.style.opacity = "0";
+
+        playBtn.style.visibility = "visible";
+        playBtn.style.opacity = "1";
+        clearInterval(timer);
+        timer = null;
+
+        if (progressRAF) cancelAnimationFrame(progressRAF);
+    }
+
+    prevBtn.addEventListener("click", () => {
+        moveTo(currentIndex - 1);
+        if (isPlaying) {
+            clearInterval(timer);
+            startAuto();
+        }
     });
+
+    nextBtn.addEventListener("click", () => {
+        moveTo(currentIndex + 1);
+        if (isPlaying) {
+            clearInterval(timer);
+            startAuto();
+        }
+    });
+
+    playBtn.addEventListener("click", () => {
+        if (!isPlaying) startAuto();
+    });
+
+    pauseBtn.addEventListener("click", () => {
+        stopAuto();
+    });
+
+    playBtn.style.display = "inline-block";
+    pauseBtn.style.display = "inline-block";
+
+    playBtn.style.visibility = "hidden";
+    playBtn.style.opacity = "0";
+
+    pauseBtn.style.visibility = "visible";
+    pauseBtn.style.opacity = "1";
+
+    // 초기화
+    updateBackground(currentIndex);
+    moveTrack(currentIndex);
+    updateSeg(currentIndex);
+    startAuto();
+});
 
 // ================= TOP BUTTON ===========================
-    document.addEventListener("DOMContentLoaded", () => {
-        const topBtn = document.querySelector("#topBtn");
-        const mainVisual = document.querySelector("#mainVisual");
-        // 둘 중 하나라도 없으면 실행 중단 (에러 방지용 안전장치)
-        if (!topBtn || !mainVisual) return;
+document.addEventListener("DOMContentLoaded", () => {
+    const topBtn = document.querySelector("#topBtn");
+    const mainVisual = document.querySelector("#mainVisual");
+    // 둘 중 하나라도 없으면 실행 중단 (에러 방지용 안전장치)
+    if (!topBtn || !mainVisual) return;
 
-        const triggerY = mainVisual.offsetHeight * 0.7;
+    const triggerY = mainVisual.offsetHeight * 0.7;
 
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > triggerY) {
-                topBtn.classList.add("is-show");
-            } else {
-                topBtn.classList.remove("is-show");
-            }
-        });
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > triggerY) {
+            topBtn.classList.add("is-show");
+        } else {
+            topBtn.classList.remove("is-show");
+        }
+    });
 
-        topBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+    topBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
         });
     });
+});
 

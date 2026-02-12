@@ -4,17 +4,41 @@ import com.carproject.car.dto.QuoteListItemDto;
 import com.carproject.car.dto.QuoteRequestDto;
 import com.carproject.car.dto.QuoteViewDto;
 import com.carproject.car.dto.QuoteViewDto.QuoteOptionLineDto;
-import com.carproject.car.entity.*;
-import com.carproject.car.repository.*;
+import com.carproject.car.entity.CarTrim;
+import com.carproject.car.entity.OptionItem;
+import com.carproject.car.entity.OptionPackageItem;
+import com.carproject.car.entity.OptionType;
+import com.carproject.car.entity.TrimColor;
+import com.carproject.car.repository.CarImageRepository;
+import com.carproject.car.repository.CarTrimRepository;
+import com.carproject.car.repository.OptionDependencyRepository;
+import com.carproject.car.repository.OptionItemRepository;
+import com.carproject.car.repository.OptionPackageItemRepository;
+import com.carproject.car.repository.TrimColorRepository;
+import com.carproject.car.repository.TrimOptionRepository;
 import com.carproject.global.common.entity.Yn;
 import com.carproject.member.entity.Member;
 import com.carproject.member.repository.MemberRepository;
-import com.carproject.quote.entity.*;
-import com.carproject.quote.repository.*;
+import com.carproject.quote.entity.Quote;
+import com.carproject.quote.entity.QuoteEvent;
+import com.carproject.quote.entity.QuoteOption;
+import com.carproject.quote.entity.QuoteStatus;
+import com.carproject.quote.repository.QuoteEventRepository;
+import com.carproject.quote.repository.QuoteOptionRepository;
+import com.carproject.quote.repository.QuoteRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +49,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class QuoteService {
+
+    private static final String VIEW_TYPE_EXTERIOR = "exterior"; // ✅ 하드코딩 방지(추후 공통 상수로 분리 가능)
 
     private final QuoteRepository quoteRepository;
     private final QuoteOptionRepository quoteOptionRepository;
@@ -40,7 +66,6 @@ public class QuoteService {
 
     // ✅ 견적서/견적리스트 이미지 출력용
     private final CarImageRepository carImageRepository;
-
 
     // ✅ 할인 계산은 전용 서비스로 위임 (MultipleBagFetchException 회피 구조)
     private final QuoteDiscountService quoteDiscountService;
@@ -59,6 +84,38 @@ public class QuoteService {
         CarTrim trim = carTrimRepository.findById(req.getTrimId())
                 .orElseThrow(() -> new EntityNotFoundException("트림 없음. trimId=" + req.getTrimId()));
 
+        // =========================================================
+        // ✅ [C] 요청값 정합성 검증(호환 유지용 안전벨트)
+        // - req.modelId / req.variantId가 들어온 경우에만 검증
+        // =========================================================
+        if (req.getVariantId() != null) {
+            Long actualVariantId = (trim.getVariant() != null) ? trim.getVariant().getVariantId() : null;
+            if (!Objects.equals(req.getVariantId(), actualVariantId)) {
+                throw new IllegalArgumentException(
+                        "요청 variantId와 trim의 variantId가 일치하지 않습니다. " +
+                                "req=" + req.getVariantId() + ", actual=" + actualVariantId
+                );
+            }
+        }
+
+        if (req.getModelId() != null) {
+            Long actualModelId = (trim.getVariant() != null && trim.getVariant().getModel() != null)
+                    ? trim.getVariant().getModel().getModelId()
+                    : null;
+
+            if (!Objects.equals(req.getModelId(), actualModelId)) {
+                throw new IllegalArgumentException(
+                        "요청 modelId와 trim의 modelId가 일치하지 않습니다. " +
+                                "req=" + req.getModelId() + ", actual=" + actualModelId
+                );
+            }
+        }
+
+        // ✅ trimColorId null 방어 (NPE/IllegalArgument 방지)
+        if (req.getTrimColorId() == null) {
+            throw new IllegalArgumentException("trimColorId는 필수입니다.");
+        }
+
         TrimColor trimColor = trimColorRepository.findById(req.getTrimColorId())
                 .orElseThrow(() -> new EntityNotFoundException("컬러 없음. trimColorId=" + req.getTrimColorId()));
 
@@ -70,7 +127,12 @@ public class QuoteService {
         // 기본 가격
         // -------------------------
         BigDecimal basePrice = nvl(trim.getBasePrice());
-        BigDecimal colorPrice = nvl(trimColor.getColor() != null ? trimColor.getColor().getColorPrice() : BigDecimal.ZERO);
+
+        // ✅ 컬러 가격 계산 (중복/가독성 개선)
+        BigDecimal colorPrice = BigDecimal.ZERO;
+        if (trimColor.getColor() != null) {
+            colorPrice = nvl(trimColor.getColor().getColorPrice());
+        }
 
         // -------------------------
         // 사용자 선택 옵션 (가변 리스트로)
@@ -284,9 +346,24 @@ public class QuoteService {
         // ✅ MODEL 기준 exterior 이미지 1장 (COLOR_ID 무시)
         Long modelId = q.getTrim().getVariant().getModel().getModelId();
         String exteriorUrl = carImageRepository
-                .findFirstByModel_ModelIdAndViewTypeOrderByImageIdAsc(modelId, "exterior")
+                .findFirstByModel_ModelIdAndViewTypeOrderByImageIdAsc(modelId, VIEW_TYPE_EXTERIOR)
                 .map(img -> normalizeWebPath(img.getImageUrl()))
                 .orElse(null);
+
+        // =========================================================
+        // ✅ [D] trimColor null-safe (조회단 NPE 방어)
+        // =========================================================
+        TrimColor tc = q.getTrimColor();
+
+        String colorName = "-";
+        BigDecimal colorPrice = BigDecimal.ZERO;
+
+        if (tc != null && tc.getColor() != null) {
+            if (tc.getColor().getColorName() != null) {
+                colorName = tc.getColor().getColorName();
+            }
+            colorPrice = nvl(tc.getColor().getColorPrice());
+        }
 
         return new QuoteViewDto(
                 q.getQuoteId(),
@@ -295,10 +372,10 @@ public class QuoteService {
                 q.getTrim().getVariant().getEngineType(),
                 q.getTrim().getVariant().getEngineName(),
                 q.getTrim().getTrimName(),
-                q.getTrimColor().getColor().getColorName(),
+                colorName,
                 exteriorUrl,
                 nvl(q.getBasePrice()),
-                nvl(q.getTrimColor().getColor().getColorPrice()),
+                colorPrice,
                 nvl(q.getOptionPrice()),
                 nvl(q.getDiscountPrice()),
                 nvl(q.getTotalPrice()),
@@ -313,10 +390,12 @@ public class QuoteService {
         // ✅ 각 카드에 exterior 이미지 1장 세팅 (MODEL 기준)
         for (QuoteListItemDto dto : list) {
             if (dto.getModelId() == null) continue;
+
             String url = carImageRepository
-                    .findFirstByModel_ModelIdAndViewTypeOrderByImageIdAsc(dto.getModelId(), "exterior")
+                    .findFirstByModel_ModelIdAndViewTypeOrderByImageIdAsc(dto.getModelId(), VIEW_TYPE_EXTERIOR)
                     .map(img -> normalizeWebPath(img.getImageUrl()))
                     .orElse(null);
+
             dto.setImageUrl(url);
         }
 
@@ -324,29 +403,27 @@ public class QuoteService {
     }
 
     // =========================================================
+    // 삭제
+    // =========================================================
+    @Transactional
+    public void deleteQuote(Long memberId, Long quoteId) {
 
+        Quote q = quoteRepository.findById(quoteId)
+                .orElseThrow(() -> new EntityNotFoundException("견적 없음. quoteId=" + quoteId));
 
-// =========================================================
-// 삭제
-// =========================================================
-@Transactional
-public void deleteQuote(Long memberId, Long quoteId) {
+        if (q.getMember() == null || !Objects.equals(q.getMember().getMemberId(), memberId)) {
+            throw new IllegalArgumentException("권한 없음");
+        }
 
-    Quote q = quoteRepository.findById(quoteId)
-            .orElseThrow(() -> new EntityNotFoundException("견적 없음. quoteId=" + quoteId));
+        // 자식 먼저 삭제 (FK 제약 방어)
+        quoteEventRepository.deleteByQuote_QuoteId(quoteId);
+        quoteOptionRepository.deleteByQuote_QuoteId(quoteId);
 
-    if (q.getMember() == null || !Objects.equals(q.getMember().getMemberId(), memberId)) {
-        throw new IllegalArgumentException("권한 없음");
+        quoteRepository.delete(q);
     }
 
-    // 자식 먼저 삭제 (FK 제약 방어)
-    quoteEventRepository.deleteByQuote_QuoteId(quoteId);
-    quoteOptionRepository.deleteByQuote_QuoteId(quoteId);
-
-    quoteRepository.delete(q);
-}
-
-// helpers
+    // =========================================================
+    // helpers
     // =========================================================
     private Map<Long, Set<Long>> loadPackageChildren(List<Long> pkgIds) {
         if (pkgIds == null || pkgIds.isEmpty()) return Map.of();
@@ -393,7 +470,6 @@ public void deleteQuote(Long memberId, Long quoteId) {
 
         return u;
     }
-
 
     private static <T> List<T> distinct(List<T> list) {
         if (list == null) return List.of();

@@ -41,6 +41,7 @@
             justify-content: space-between;
             align-items: baseline;
         }
+
         /* ✅ 견적서 이미지: 카드 영역 안에서만 'contain'으로 맞춤 */
         .car-body .quote-img-frame{
             width: 100%;
@@ -49,7 +50,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow: hidden; /* ✅ 이미지만 프레임 안에서 잘라야 해서 유지 */
         }
         .car-body .quote-img-frame img{
             width: 100%;
@@ -59,12 +60,94 @@
             margin: 0 !important;
             transform: none !important;
         }
+
+        /* ✅ [견적서 페이지 전용]
+           이미지 아래 텍스트가 "카드 밖으로 튀어나감" + "잘림" 둘 다 방지
+           - 핵심: car-body에 overflow:hidden 금지(텍스트가 잘림)
+           - 대신 텍스트 폭/줄바꿈으로만 제어
+        */
+        .car-visual .car-body{
+            overflow: visible !important;  /* ✅ 텍스트 안 잘리게 */
+            height: auto !important;       /* ✅ 혹시 공통 CSS에 고정 height 있으면 해제 */
+            padding-bottom: 0 !important;  /* ✅ 아래 여유는 car-info에서 제어 */
+        }
+
+        /* =========================
+           ✅ 카드 하단 빈 공간 제거 + 버튼 위치(조금 위로)
+           ========================= */
+        .car .car-panner{
+            height: auto !important;
+            min-height: 0 !important;
+            padding-bottom: 0 !important;
+            overflow: visible !important;
+        }
+        .car .car-panner .car-visual{
+            height: auto !important;
+            min-height: 0 !important;
+            align-items: flex-start !important;
+        }
+        .car .car-panner .estimate-btn{
+            position: static !important;   /* ✅ absolute/fixed 해제 */
+            margin-top: -6px !important;   /* ✅ 버튼을 조금 더 위로 */
+            padding-bottom: 0 !important;
+            text-align: right;
+        }
+
+        /* =========================
+           ✅ 차량 정보(가독성 개선)
+           차량명
+           (트림명)
+           엔진명
+           색상명
+           ========================= */
+        .car-info{
+            max-width: 340px;
+            margin: 18px auto 0;
+            text-align: center;
+
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .car-brand-small{
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+
+        .car-model-main{
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 6px;
+        }
+
+        .car-trim-main{
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.85;
+            margin-bottom: 14px;
+        }
+
+        .car-engine,
+        .car-color{
+            font-size: 14px;
+            opacity: 0.75;
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+        .car-color{ margin-bottom: 0; }
     </style>
 </head>
 
 <body>
 <!-- ============================= HEADER ============================== -->
 <header th:replace="fragments/header :: header"></header>
+
 <!-- ============================= CONTENT ============================== -->
 <section class="car">
     <div class="car-panner">
@@ -75,8 +158,6 @@
         <div class="car-visual">
             <!-- 좌측: 차량 이미지/이름 -->
             <div class="car-body">
-                <!-- ✅ 이미지 필드가 따로 없다면: quote에 imageUrl 같은 필드를 추가하거나,
-                     아래처럼 임시로 기본 이미지 보여주게 두면 안전 -->
                 <a th:href="@{/cars}">
                     <div class="quote-img-frame">
                         <img th:src="${quote.exteriorImageUrl != null ? quote.exteriorImageUrl : '/images/default_car.png'}"
@@ -86,37 +167,42 @@
                     </div>
                 </a>
 
-                <p class="car-name">
-                    <span th:text="${quote.brandName}">BRAND</span>
-                    <span> </span>
-                    <span th:text="${quote.modelName}">MODEL</span>
-                    <span th:if="${quote.trimName != null and !#strings.isEmpty(quote.trimName)}">
-                        <span> </span> <span th:text="${quote.trimName}">TRIM</span>
-                    </span>
-                </p>
+                <!-- ✅ 가독성 개선된 차량 정보 -->
+                <div class="car-info">
+                    <!-- 브랜드(작게) -->
+                    <div class="car-brand-small" th:text="${quote.brandName}">현대</div>
 
-                <!-- (선택) 엔진/컬러 정보도 좌측에 한 줄 더 -->
-                <p class="car-name" style="font-size: 14px; opacity: .85;">
-                    <span th:text="${quote.engineType}">ENGINE</span>
-                    <span th:if="${quote.engineName != null and !#strings.isEmpty(quote.engineName)}">
-                        (<span th:text="${quote.engineName}">ENGINE_NAME</span>)
-                    </span>
-                    <span> · </span>
-                    <span th:text="${quote.colorName}">COLOR</span>
-                </p>
+                    <!-- 차량명 -->
+                    <div class="car-model-main" th:text="${quote.modelName}">Santa Fe</div>
+
+                    <!-- (트림명) -->
+                    <div class="car-trim-main"
+                         th:if="${quote.trimName != null and !#strings.isEmpty(quote.trimName)}"
+                         th:text="${'(' + quote.trimName + ')'}">
+                        (Exclusive)
+                    </div>
+
+                    <!-- 엔진명: engineType + engineName 있으면 같이 표시 -->
+                    <div class="car-engine">
+                        <span th:text="${quote.engineType}">ENGINE</span>
+                        <span th:if="${quote.engineName != null and !#strings.isEmpty(quote.engineName)}">
+                            (<span th:text="${quote.engineName}">ENGINE_NAME</span>)
+                        </span>
+                    </div>
+
+                    <!-- 색상명 -->
+                    <div class="car-color" th:text="${quote.colorName}">COLOR</div>
+                </div>
             </div>
 
             <!-- 우측: 옵션 리스트 + 합계 -->
             <div class="right-estimate">
-                <!-- 옵션 리스트 -->
                 <ul class="estimate">
-                    <!-- 옵션 없음 -->
                     <li th:if="${quote.options == null or #lists.isEmpty(quote.options)}">
                         <span class="opt-left">선택된 옵션이 없습니다.</span>
                         <span class="opt-price">+0원</span>
                     </li>
 
-                    <!-- 옵션 있음 -->
                     <li th:each="o : ${quote.options}">
                         <span class="opt-left">
                             <span th:text="${'+' + o.optionName}">+옵션명</span>
@@ -133,7 +219,6 @@
                     </li>
                 </ul>
 
-                <!-- 합계 영역 (프론트 스타일 유지) -->
                 <ul class="estimate-tit">
                     <li>
                         <span>기본가</span>
@@ -161,22 +246,13 @@
 
         <!-- 버튼 영역 -->
         <div class="estimate-btn">
-            <!-- ✅ 프론트 버튼 텍스트 유지 + 실제 라우팅만 연결 -->
-            <a th:href="@{/quotes}" class="btn-text">내 견적 리스트</a>
-
-            <!-- ✅ 네가 원래 갖고 있던 버튼도 같이 두고 싶으면(선택) -->
-            <!--
-            <a th:href="@{/main}">메인으로</a>
-            <a th:href="@{/cars}">차량 다시보기</a>
-            -->
+            <a th:href="@{/quotes}">견적 목록으로</a>
         </div>
     </div>
 </section>
 
 <!-- ============================= FOOTER ============================== -->
-
 <footer th:replace="fragments/footer :: footer"></footer>
-
 
 <script th:src="@{/css/script.js}"></script>
 </body>

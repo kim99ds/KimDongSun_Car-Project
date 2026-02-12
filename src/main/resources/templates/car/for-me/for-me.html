@@ -89,7 +89,7 @@
 
         <!-- 4) 파워트레인(복수 선택) : chip UI로 매핑 -->
         <div class="question-5">
-            <div class="q-title">4. 선호하는 파워트레인을 선택해주세요 (복수 선택)</div>
+            <div class="q-title">4. 선호하는 파워트레인을 선택해주세요 (복수 선택, EV선택 시, 5번 문제 등장)</div>
             <div class="chip-group">
                 <label class="chip">
                     <input type="checkbox" th:field="*{powertrains}" value="GASOLINE"/>
@@ -321,5 +321,6 @@
     });
 
 </script>
+<script th:src="@{/main/script.js}"></script>
 </body>
 </html>

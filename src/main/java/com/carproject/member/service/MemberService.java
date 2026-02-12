@@ -92,6 +92,14 @@ public class MemberService {
             String email,
             LocalDate birthDate
     ) {
+        // ✅ 기존 기능(탈퇴 계정 복구)은 유지하면서,
+        // ✅ "다른 계정이 이미 쓰는 이메일"만 선제 차단 (DB UNIQUE 예외 방지)
+        memberRepository.findByEmail(email)
+                .filter(other -> !other.getMemberId().equals(member.getMemberId()))
+                .ifPresent(other -> {
+                    throw new IllegalArgumentException("이미 사용중인 이메일입니다.");
+                });
+
         member.setStatus(MemberStatus.ACTIVE);
         member.setLoginId(userId);
         member.setPassword(passwordEncoder.encode(rawPassword));
@@ -103,11 +111,12 @@ public class MemberService {
 
         ensureUserRole(member);
 
-        // ADMIN이 붙어있으면 제거
         if (memberRoleRepository.existsByMember_MemberIdAndRole_RoleName(member.getMemberId(), "ADMIN")) {
             memberRoleRepository.deleteByMember_MemberIdAndRole_RoleName(member.getMemberId(), "ADMIN");
         }
     }
+
+
 
     /* =====================================================
        USER 권한 보장
