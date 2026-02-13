@@ -14,38 +14,31 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.ErrorResponseException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 /**
- * /api/** 전역 예외 처리:
- * - 예외 -> (HTTP Status + ErrorResponse)로 통일
+ * ✅ REST(API) 컨트롤러 전용 전역 예외 처리
+ * - MVC(Thymeleaf) 에러 페이지 렌더링과 충돌하지 않게 @RestController에만 적용
  */
 @Slf4j
-@RestControllerAdvice
+@RestControllerAdvice(annotations = RestController.class)
 public class ApiExceptionAdvice {
 
     /**
-     * ✅ 정적 리소스(예: /favicon.ico) 없을 때 나는 예외는
+     * 정적 리소스(예: /favicon.ico) 없을 때 나는 예외는
      * API 예외로 보지 않고 "조용히 404"만 내려보낸다.
-     *
-     * - 이렇게 하면 handleEtc(Exception)로 떨어지지 않아서
-     *   [API] unhandled error 로그가 ERROR로 찍히는 문제가 사라짐.
      */
     @ExceptionHandler(NoResourceFoundException.class)
     public ResponseEntity<Void> handleNoResourceFound(
             NoResourceFoundException e,
             HttpServletRequest req
     ) {
-        // 원하면 완전 무로그로 두어도 됨. 필요시 debug 정도만.
-        // log.debug("[STATIC] not found uri={}", req.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-    /**
-     * @Valid 검증 실패 -> 400 + fieldErrors
-     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidation(
             MethodArgumentNotValidException e,
@@ -66,9 +59,6 @@ public class ApiExceptionAdvice {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
     }
 
-    /**
-     * JSON 파싱 실패(형식 깨짐/타입 불일치) -> 400
-     */
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ErrorResponse> handleJsonParse(
             HttpMessageNotReadableException e,
@@ -77,9 +67,6 @@ public class ApiExceptionAdvice {
         return respond(ErrorCode.INVALID_REQUEST, "요청 본문(JSON) 형식이 올바르지 않습니다.", req, e);
     }
 
-    /**
-     * 엔티티 없음 -> 404
-     */
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleNotFound(
             EntityNotFoundException e,
@@ -91,10 +78,6 @@ public class ApiExceptionAdvice {
         return respond(ErrorCode.NOT_FOUND, msg, req, e);
     }
 
-    /**
-     * 도메인 검증 실패 -> 400
-     * (현재 프로젝트에서 trimColor 불일치, 허용되지 않은 옵션 등은 IllegalArgumentException으로 던지는 흐름이 많음)
-     */
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResponse> handleBadRequest(
             IllegalArgumentException e,
@@ -106,9 +89,6 @@ public class ApiExceptionAdvice {
         return respond(ErrorCode.INVALID_REQUEST, msg, req, e);
     }
 
-    /**
-     * DB 제약 위반 -> 409
-     */
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<ErrorResponse> handleIntegrity(
             DataIntegrityViolationException e,
@@ -116,15 +96,11 @@ public class ApiExceptionAdvice {
     ) {
         return respond(
                 ErrorCode.DATA_INTEGRITY_VIOLATION,
-                "DB 제약조건 위반입니다. (중복/참조/필수값/허용값을 확인하세요)",
+                "DB 제약조건 위반입니다. (중복/참조/필수값/허용값/허용범위를 확인하세요)",
                 req, e
         );
     }
 
-    /**
-     * ResponseStatusException -> 해당 status 유지 + 표준 JSON으로 변환
-     * (예: SecurityMemberResolver가 401 던지는 경우도 여기로)
-     */
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<ErrorResponse> handleResponseStatus(
             ResponseStatusException e,
@@ -141,9 +117,6 @@ public class ApiExceptionAdvice {
                 .body(ErrorResponse.of(code, msg, req.getRequestURI()));
     }
 
-    /**
-     * Spring 내부에서 ErrorResponseException 계열이 나올 수 있어 방어적으로 처리
-     */
     @ExceptionHandler(ErrorResponseException.class)
     public ResponseEntity<ErrorResponse> handleErrorResponseException(
             ErrorResponseException e,
@@ -160,9 +133,6 @@ public class ApiExceptionAdvice {
                 .body(ErrorResponse.of(code, msg, req.getRequestURI()));
     }
 
-    /**
-     * 그 외 -> 500
-     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleEtc(
             Exception e,
@@ -186,7 +156,6 @@ public class ApiExceptionAdvice {
             HttpServletRequest req,
             Exception e
     ) {
-        // 예상 가능한 예외는 warn 정도로 남김(500은 handleEtc에서 error)
         log.warn("[API] {} uri={} msg={}", code.name(), req.getRequestURI(), message, e);
         return ResponseEntity.status(code.status())
                 .body(ErrorResponse.of(code, message, req.getRequestURI()));
