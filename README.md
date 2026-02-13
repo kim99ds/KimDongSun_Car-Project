@@ -7,8 +7,8 @@ Spring Boot 기반 **차량 구성 및 견적 저장 서비스**입니다.
 
 ## 📊 프로젝트 발표 자료
 
-👉 [PDF 바로 보기](./presentation/403motors.pdf)
-
+👉  [백엔드 PDF 바로 보기](./presentation/403motors.pdf)
+👉  [백엔드+프론트 합본 PDF 바로 보기](./presentation/403motors_합본.pdf)
 ---
 
 ## 🚀 실행 주소 (로컬 기준)
