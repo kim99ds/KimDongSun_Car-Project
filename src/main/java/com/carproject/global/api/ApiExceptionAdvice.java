@@ -16,6 +16,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 /**
  * /api/** 전역 예외 처리:
@@ -24,6 +25,23 @@ import org.springframework.web.server.ResponseStatusException;
 @Slf4j
 @RestControllerAdvice
 public class ApiExceptionAdvice {
+
+    /**
+     * ✅ 정적 리소스(예: /favicon.ico) 없을 때 나는 예외는
+     * API 예외로 보지 않고 "조용히 404"만 내려보낸다.
+     *
+     * - 이렇게 하면 handleEtc(Exception)로 떨어지지 않아서
+     *   [API] unhandled error 로그가 ERROR로 찍히는 문제가 사라짐.
+     */
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<Void> handleNoResourceFound(
+            NoResourceFoundException e,
+            HttpServletRequest req
+    ) {
+        // 원하면 완전 무로그로 두어도 됨. 필요시 debug 정도만.
+        // log.debug("[STATIC] not found uri={}", req.getRequestURI());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 
     /**
      * @Valid 검증 실패 -> 400 + fieldErrors
