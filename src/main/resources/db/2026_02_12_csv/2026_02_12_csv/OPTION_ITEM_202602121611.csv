@@ -1,0 +1,1847 @@
+"OPTION_ITEM_ID","BRAND_ID","OPTION_NAME","OPTION_DESC","OPTION_PRICE","OPTION_TYPE","OPTION_CATEGORY","SELECT_RULE"
+1,1,컨비니언스,듀얼 풀오토 에어컨(오토디포그/미세먼지센서/공기청정모드/애프터블로우포함),380000,SINGLE,interior,MULTI
+2,1,인포테인먼트 내비,"12.3인치 내비, 듀얼 풀오토 에어컨",890000,SINGLE,assistant,MULTI
+3,1,하이패스,e hi-pass 기능 포함 하이패스 시스템,200000,SINGLE,etc,MULTI
+4,1,현대 스마트센스,"전방 충돌방지, 스마트 크루즈",400000,SINGLE,assistant,MULTI
+5,1,"17인치 알로이 휠 & 타이어Ⅰ","17인치 알로이 휠 & 타이어Ⅰ(15인치 → 17인치)",490000,SINGLE,wheel,SINGLE
+6,1,선루프,선루프,450000,SINGLE,etc,MULTI
+7,1,파킹 어시스트 플러스,"파노라마 디스플레이(클러스터(10.25인치 컬러 LCD), 클러스터/내비게이션 일체형 글라스), 서라운드 뷰 모니터, 후측방 모니터, 후방 주차 충돌방지 보조",1290000,SINGLE,assistant,MULTI
+8,1,익스테리어 디자인,"Full LED 헤드램프(프로젝션 타입), LED 방향지시등(앞), LED 리어 콤비램프, LED 보조제동등",450000,SINGLE,etc,MULTI
+9,1,컴포트Ⅰ,"운전석 전동시트(8way, 럼버서포트, 자세 메모리 시스템), 동승석 전동시트(4way), 현대 디지털 키 2 터치, 스마트폰 무선충전, 2열 열선시트, 2열 암레스트, 2열 6:4 폴딩, 2열 높이조절 헤드레스트(센터), 동승석 시트백 포켓",1060000,SINGLE,interior,MULTI
+10,1,"17인치 알로이 휠 & 타이어Ⅱ","17인치 알로이 휠 & 타이어Ⅱ(16인치 → 17인치)",300000,SINGLE,wheel,SINGLE
+11,1,세이지 그린 인테리어 컬러,세이지 그린 인테리어 컬러,150000,SINGLE,interior,SINGLE
+12,1,빌트인 캠(보조배터리 포함),"빌트인 캠, 보조배터리",690000,SINGLE,assistant,MULTI
+13,1,디자인 휠 패키지,"18인치 스포츠 디자인 휠 & N로고 스피닝 휠캡",670000,SINGLE,wheel,SINGLE
+14,1,대용량 브레이크 패키지,레드 캘리퍼 & 대용량 디스크 & 로우 스틸 패드,390000,SINGLE,wheel,MULTI
+15,1,N로고 플로어 매트,"N로고 플로어 매트(1열, 2열)",200000,SINGLE,interior,MULTI
+16,1,N Line 전용 블랙 원톤(레드스티치),N Line 전용 블랙 원톤(레드스티치),0,SINGLE,interior,SINGLE
+17,1,컴포트Ⅱ,"운전석 전동시트(8way, 럼버서포트, 자세 메모리 시스템), 동승석 전동시트(4way), 현대 디지털 키 2 터치, 스마트폰 무선충전, 2열 열선시트, 동승석 시트백 포켓",910000,SINGLE,interior,MULTI
+18,1,블랙 원톤,블랙 원톤 인테리어 컬러,0,SINGLE,interior,SINGLE
+19,1,캐쉬미어 베이지,캐쉬미어 베이지 인테리어 컬러,0,SINGLE,interior,SINGLE
+20,1,컴포트Ⅲ,"운전석 전동시트(8way, 럼버서포트), 운전석 자세 메모리 시스템, 동승석 4way 전동시트, 2열 열선시트, 2열 암레스트, 2열 6:4 폴딩, 2열 높이조절 헤드레스트(센터), 동승석 시트백 포켓",760000,SINGLE,interior,MULTI
+21,1,인포테인먼트 내비(HEV),"10.25인치 내비게이션(블루링크, 폰 프로젝션, 블루투스 핸즈프리, 인카페이먼트, 발레모드), 내비게이션 무선 업데이트, 앰비언트 무드램프",790000,SINGLE,assistant,MULTI
+139,1,KONA_내비게이션 패키지,"12.3인치 내비게이션 등",450000,SINGLE,interior,MULTI
+140,1,KONA_하이패스,e hi-pass 포함,200000,SINGLE,etc,MULTI
+141,1,KONA_스타일Ⅰ,휠/램프 등 스타일 구성,640000,SINGLE,wheel,MULTI
+142,1,KONA_스타일Ⅱ,스타일 구성(Ⅱ),640000,SINGLE,wheel,MULTI
+143,1,KONA_현대 스마트센스Ⅰ,주행/안전 보조 패키지,1100000,SINGLE,assistant,MULTI
+144,1,KONA_현대 스마트센스Ⅲ,주행/안전 보조 패키지(Ⅲ),550000,SINGLE,assistant,MULTI
+145,1,KONA_베스트 셀렉션Ⅰ,내비/클러스터 등 통합,690000,SINGLE,etc,MULTI
+146,1,KONA_베스트 셀렉션Ⅱ,스마트센스/클러스터 등,790000,SINGLE,etc,MULTI
+147,1,"KONA_빌트인 캠 2, 증강현실 내비게이션","빌트인 캠2
+(선택 조건) 'KONA_내비게이션 패키지' 선택 시에만 선택 가능",450000,SINGLE,interior,MULTI
+148,1,KONA_파킹어시스트,주차 보조 패키지,990000,SINGLE,assistant,MULTI
+149,1,KONA_와이드 선루프,전동식 와이드 선루프,590000,SINGLE,etc,MULTI
+150,1,KONA_투톤 컬러 루프,투톤 루프,300000,SINGLE,etc,MULTI
+151,1,KONA_BOSE 프리미엄 사운드,BOSE 오디오,590000,SINGLE,interior,MULTI
+152,1,KONA_클러스터(12.3인치 컬러 LCD),"12.3인치 클러스터",400000,SINGLE,interior,MULTI
+153,1,KONA_컨비니언스,편의 사양 패키지,400000,SINGLE,etc,MULTI
+154,1,KONA_시트플러스,시트 편의 패키지,490000,SINGLE,interior,MULTI
+155,1,KONA_실내 컬러 패키지,인테리어 컬러 구성,200000,SINGLE,interior,MULTI
+156,1,KONA_에코패키지,에코 관련 구성,200000,SINGLE,etc,MULTI
+157,1,KONA_알칸타라 인테리어 패키지,알칸타라 인테리어,370000,SINGLE,interior,MULTI
+158,1,KONA_HTRAC(험로주행모드),AWD/험로 주행 모드,2030000,SINGLE,etc,MULTI
+159,1,KONA_HYBRID_내비게이션 패키지,"12.3인치 내비게이션 등",450000,SINGLE,interior,MULTI
+160,1,KONA_HYBRID_하이패스,e hi-pass 포함,200000,SINGLE,etc,MULTI
+161,1,KONA_HYBRID_스타일Ⅰ,휠/램프 등 스타일 구성,640000,SINGLE,wheel,MULTI
+162,1,KONA_HYBRID_스타일Ⅱ,스타일 구성(Ⅱ),640000,SINGLE,wheel,MULTI
+163,1,KONA_HYBRID_현대 스마트센스Ⅰ,주행/안전 보조 패키지,1100000,SINGLE,assistant,MULTI
+164,1,KONA_HYBRID_현대 스마트센스Ⅲ,주행/안전 보조 패키지(Ⅲ),550000,SINGLE,assistant,MULTI
+165,1,KONA_HYBRID_베스트 셀렉션Ⅰ,내비/클러스터 등 통합,690000,SINGLE,etc,MULTI
+166,1,KONA_HYBRID_베스트 셀렉션Ⅱ,스마트센스/클러스터 등,790000,SINGLE,etc,MULTI
+167,1,"KONA_HYBRID_빌트인 캠 2, 증강현실 내비게이션","빌트인 캠2
+(선택 조건) 'KONA_HYBRID_내비게이션 패키지' 선택 시에만 선택 가능",450000,SINGLE,interior,MULTI
+168,1,KONA_HYBRID_파킹어시스트,주차 보조 패키지,990000,SINGLE,assistant,MULTI
+169,1,KONA_HYBRID_와이드 선루프,전동식 와이드 선루프,590000,SINGLE,etc,MULTI
+170,1,KONA_HYBRID_투톤 컬러 루프,투톤 루프,300000,SINGLE,etc,MULTI
+171,1,KONA_HYBRID_BOSE 프리미엄 사운드,BOSE 오디오,590000,SINGLE,interior,MULTI
+172,1,KONA_HYBRID_클러스터(12.3인치 컬러 LCD),"12.3인치 클러스터",400000,SINGLE,interior,MULTI
+173,1,KONA_HYBRID_컨비니언스,편의 사양 패키지,400000,SINGLE,etc,MULTI
+174,1,KONA_HYBRID_시트플러스,시트 편의 패키지,490000,SINGLE,interior,MULTI
+175,1,KONA_HYBRID_실내 컬러 패키지,인테리어 컬러 구성,200000,SINGLE,interior,MULTI
+176,1,KONA_HYBRID_에코패키지,에코 관련 구성,200000,SINGLE,etc,MULTI
+177,1,KONA_HYBRID_알칸타라 인테리어 패키지,알칸타라 인테리어,370000,SINGLE,interior,MULTI
+178,1,KONA_HYBRID_HTRAC(험로주행모드),AWD/험로 주행 모드,2030000,SINGLE,etc,MULTI
+41,1,네이비 투톤 인테리어,,0,SINGLE,interior,SINGLE
+42,1,그레이지 투톤 인테리어,,0,SINGLE,interior,SINGLE
+43,1,카멜 투톤 인테리어,,0,SINGLE,interior,SINGLE
+44,1,다크 그레이 투톤 인테리어 (레드 스티치),,0,SINGLE,interior,SINGLE
+45,1,"19인치 알로이 휠 & 피렐리 타이어 (기본)",N Line 기본 적용 휠,0,SINGLE,wheel,SINGLE
+46,1,파킹 어시스트 I (N Line),"원격 스마트 주차 보조, 후방 주차 충돌방지 보조, 서라운드 뷰 등 (N Line 전용)",1680000,SINGLE,assistant,MULTI
+47,1,인포테인먼트 내비 II,"12.3인치 내비게이션, 클러스터 등 ※ 하이패스 선택 시 e hi-pass 가능",1060000,SINGLE,assistant,MULTI
+48,1,파킹 어시스트 I (HEV),"서라운드 뷰, 원격 스마트 주차 보조 등 ※ 인포테인먼트 내비 II 선택 시 가능",1680000,SINGLE,assistant,MULTI
+49,1,빌트인 캠 2 (HEV),"빌트인 캠 2, 증강현실 내비게이션 ※ 내비게이션 선택 시 가능",450000,SINGLE,assistant,MULTI
+50,1,익스테리어 디자인 III,"17인치 휠, Full LED 헤드램프(프로젝션), 순차점등 턴시그널",400000,SINGLE,wheel,SINGLE
+22,1,빌트인 캠 2,"고화질 녹화 및 음성 녹음 지원 (내비게이션 패키지 선택 필수)
+(선택 조건) '내비게이션 패키지' 선택 시에만 선택 가능",450000,SINGLE,etc,MULTI
+23,1,LED 라이팅 플러스 패키지,"러기지 매트, 도어스팟 램프, 선바이저 램프, 러기지 램프",250000,SINGLE,etc,MULTI
+24,1,인포테인먼트 내비 I,"12.3인치 내비게이션, 파노라믹 커브드 디스플레이, 클러스터(12.3인치 LCD), 듀얼 풀오토 에어컨 등",1400000,SINGLE,assistant,MULTI
+25,1,파킹 어시스트 I,,1230000,SINGLE,assistant,MULTI
+26,1,현대 스마트센스 I,"전방 충돌방지 보조, HDA, 스마트 크루즈 컨트롤 포함",1100000,SINGLE,assistant,MULTI
+27,1,컴포트 I,"1열 통풍, 운전석 전동시트, 2열 열선",690000,SINGLE,interior,MULTI
+28,1,컴포트 II,"메모리 시트, 동승석 전동시트",740000,SINGLE,interior,MULTI
+29,1,익스테리어 디자인 I,"18인치 휠 & LED 램프 (※ 휠 포함)",690000,SINGLE,wheel,SINGLE
+30,1,플래티넘 I,"헤드업 디스플레이, 디지털 키 2, 실내 지문 인증, 터치타입 도어핸들",1300000,SINGLE,wheel,SINGLE
+31,1,파노라마 선루프,,1090000,SINGLE,etc,MULTI
+32,1,BOSE 프리미엄 사운드,BOSE 8스피커 시스템,590000,SINGLE,etc,MULTI
+33,1,파킹 어시스트 II,"서라운드 뷰, 후측방 모니터, 헤드업 디스플레이 (원격 주차 제외)",1380000,SINGLE,assistant,MULTI
+34,1,컴포트 III,"2열 열선, 전동 커튼, 2열 암레스트(스키쓰루 포함) ※폴딩 불가",570000,SINGLE,interior,MULTI
+35,1,익스테리어 디자인 II,"19인치 휠 포함",690000,SINGLE,wheel,SINGLE
+36,1,컴포트 IV,"2열 열선시트, 2열 수동/전동 커튼, 6:4 폴딩, 승객 알림",640000,SINGLE,interior,MULTI
+37,1,"2.5 터보 퍼포먼스","2.5 터보 엔진, 8단 습식 DCT, 듀얼 트윈팁 머플러 등 (원격주차/ISG 제외)",2000000,SINGLE,etc,MULTI
+38,1,모노블록 브레이크 & 19인치 경량 휠 패키지,,2230000,SINGLE,wheel,SINGLE
+39,1,"19인치 블랙 경량 휠 & 리얼 카본 휠캡",단조 휠 (기본 휠 대품),870000,SINGLE,wheel,SINGLE
+40,1,블랙 원톤 인테리어,,0,SINGLE,interior,SINGLE
+51,1,파킹 어시스트 I (HEV S),"서라운드 뷰, 원격 스마트 주차 보조, 후측방 모니터 등",1680000,SINGLE,assistant,MULTI
+52,1,빌트인 캠 2 (HEV S),"빌트인 캠 2, 증강현실 내비게이션",450000,SINGLE,assistant,MULTI
+53,1,스마트스트림 가솔린 3.5 엔진,V6 3.5 엔진,2470000,SINGLE,etc,MULTI
+54,1,HTRAC,"4WD 시스템, 후륜 멀티링크 서스펜션
+(참고) HTRAC은 4WD/험로 주행 사양에서만 적용됩니다. (파워트레인/트림에 따라 선택 불가할 수 있음)",2030000,SINGLE,etc,MULTI
+55,1,차량 보호 필름,,450000,SINGLE,etc,MULTI
+56,1,헤드업 디스플레이,"운전자 전방 유리에 주행 속도, 내비게이션 경로 등 주요 주행 정보 투영",700000,SINGLE,etc,MULTI
+57,1,빌트인 공기청정기 2.0,,590000,SINGLE,interior,MULTI
+58,1,LED 메탈 패키지,,540000,SINGLE,interior,MULTI
+59,1,"20인치 고휘도 스퍼터링 휠",,950000,SINGLE,wheel,SINGLE
+60,1,파킹 어시스트,"서라운드 뷰 모니터, 후측방 모니터, 측방 주차 거리 경고, 후방 주차 충돌방지 보조",1000000,SINGLE,assistant,MULTI
+61,1,플래티넘,,1090000,SINGLE,interior,MULTI
+62,1,현대 스마트센스 II 플러스,"HDA2, 빌트인 캠 2",1350000,SINGLE,assistant,MULTI
+63,1,BOSE 프리미엄 사운드 패키지,,1190000,SINGLE,interior,MULTI
+64,1,"2열 컴포트 패키지","2열 리클라이닝/통풍",990000,SINGLE,interior,MULTI
+65,1,프리뷰 전자제어 서스펜션 I,"20인치 휠 포함 (19인치 휠 중복불가)",1290000,SINGLE,wheel,SINGLE
+66,1,"19인치 알로이 휠 & 타이어",,250000,SINGLE,wheel,SINGLE
+67,1,프리뷰 전자제어 서스펜션 II,"20인치 캘리그래피 휠",1290000,SINGLE,wheel,SINGLE
+68,1,"2열 VIP 패키지","2열 리클라이닝/통풍/전동커튼",1480000,SINGLE,interior,MULTI
+69,1,"2열 전동식 도어커튼",,490000,SINGLE,interior,MULTI
+70,1,블랙 모노톤 내장,내장 색상 선택,0,SINGLE,interior,SINGLE
+71,1,인디고/브라운 투톤 내장,내장 색상 선택,0,SINGLE,interior,SINGLE
+72,1,브라운/베이지 투톤 내장,내장 색상 선택,0,SINGLE,interior,SINGLE
+73,1,인디고/라이트 그레이 투톤 내장,내장 색상 선택,0,SINGLE,interior,SINGLE
+74,1,블랙 잉크 전용 내장,내장 색상 선택,0,SINGLE,interior,SINGLE
+75,1,사이드 스텝,승하차 편의성을 높여주는 고정식 사이드 스텝,430000,SINGLE,etc,MULTI
+76,1,빌트인 공기청정기,차량 실내 미세먼지 케어 (H Genuine Accessories),520000,SINGLE,interior,MULTI
+77,1,파노라마 선루프 + 루프랙,루프랙 포함,1160000,SINGLE,etc,MULTI
+78,1,"빌트인 캠 2, 증강현실 내비게이션","고화질 녹화 및 AR 내비
+(선택 조건) '내비게이션 패키지' 선택 시에만 선택 가능",450000,SINGLE,etc,MULTI
+79,1,베스트 셀렉션 III,파킹 어시스트 III + BOSE 사운드,1220000,SINGLE,interior,MULTI
+80,1,파킹 어시스트 III,서라운드 뷰 (인스퍼레이션 전용),830000,SINGLE,assistant,MULTI
+81,1,"19인치 알로이 휠 & 미쉐린 타이어",,450000,SINGLE,wheel,SINGLE
+82,1,"19인치 매트블랙 경량 휠",,1140000,SINGLE,wheel,SINGLE
+83,1,미쉐린 타이어,N Line 전용 휠에 미쉐린 타이어 적용,200000,SINGLE,wheel,SINGLE
+84,1,스마트스트림 가솔린 1.6 터보 엔진,기본 적용 엔진,0,SINGLE,etc,MULTI
+85,1,스마트스트림 가솔린 2.5 터보 엔진,기본 적용 엔진,0,SINGLE,etc,MULTI
+86,1,"9인승 (기본)","2-3-4 배열 (기본)",0,SINGLE,seats,SINGLE
+87,1,"7인승 패키지 (Exclusive)","2열 독립시트(통풍/리클라이닝), 3열 6:4 폴딩 (2-2-3 배열)",1330000,SINGLE,seats,SINGLE
+88,1,"7인승 패키지 (Prestige)","2열 독립시트(통풍/리클라이닝), 3열 6:4 폴딩 (2-2-3 배열)",1630000,SINGLE,seats,SINGLE
+89,1,"7인승 패키지 (Calligraphy)","2열 독립시트(통풍/리클라이닝), 3열 6:4 폴딩 (2-2-3 배열)",2080000,SINGLE,seats,SINGLE
+101,1,"18인치 알로이 휠 및 타이어",익스클루시브 기본 휠 사양. 복합연비 107.6km/kg 달성용 공력 설계 디자인 적용,0,SINGLE,wheel,SINGLE
+102,1,"19인치 알로이 휠 및 타이어",대구경 알로이 휠로 외관 스타일 향상. 미쉐린 타이어 포함. ※ 복합연비 95.1km/kg로 변경됨,250000,SINGLE,wheel,SINGLE
+90,1,듀얼 와이드 선루프,고정식 듀얼 글래스 + 전동 롤블라인드,850000,SINGLE,etc,MULTI
+91,1,"빌트인 캠 2 Plus, 증강현실 내비게이션","고해상도 QHD 영상 저장, 음성 녹음, 증강현실 길안내",660000,SINGLE,interior,MULTI
+92,1,컴포트,"천연가죽시트, 운전석 메모리/4way 럼버, 전동식 핸들, 스마트 테일게이트, 1열 발수유리",1330000,SINGLE,interior,MULTI
+93,1,원격 스마트 주차 보조,차량 외부에서 원격으로 주차 및 출차 제어,660000,SINGLE,assistant,MULTI
+94,1,프리뷰 전자제어 서스펜션,"21인치 휠 & 피렐리 타이어 포함 (휠 교체), 노면 정보 기반 서스펜션 제어",1230000,SINGLE,wheel,SINGLE
+95,1,컴포트 플러스 (9인승),"※ [조건: 9인승] 나파가죽, 스웨이드 내장, 에르고 모션, 1열 릴렉션, 3열 전동/열선, 2열 수동커튼
+(선택 조건) 7인승 사양 선택 시 선택 불가",1850000,SINGLE,interior,MULTI
+96,1,컴포트 플러스 (7인승),"※ [조건: 7인승] 나파가죽, 스웨이드 내장, 2열 전동 독립시트(통풍/윙아웃/리클라이닝), 3열 전동/열선
+(선택 조건) 9인승 사양 선택 시 선택 불가",2200000,SINGLE,interior,MULTI
+97,1,라이프스타일 (9인승),"※ [조건: 9인승] LED 도어스팟/테일게이트 램프, 러기지 매트/스크린/네트
+(선택 조건) 7인승 사양 선택 시 선택 불가",630000,SINGLE,interior,MULTI
+98,1,라이프스타일 (7인승),"※ [조건: 7인승] 220V 인버터 포함, LED 도어스팟/테일게이트 램프, 러기지 매트/스크린/네트
+(선택 조건) 9인승 사양 선택 시 선택 불가",700000,SINGLE,interior,MULTI
+99,1,"2열 다이내믹 바디케어 시트 (Prestige)",※ [조건: 프레스티지 7인승] 2열 진동/두드림 마사지 기능 (독립시트 전용),800000,SINGLE,interior,MULTI
+100,1,"2열 다이내믹 바디케어 시트 (Calligraphy)",※ [조건: 캘리그래피 7인승] 2열 진동/두드림 마사지 기능 (독립시트 전용),800000,SINGLE,interior,MULTI
+103,1,하이패스(e hi-pass 포함),,200000,SINGLE,etc,MULTI
+104,1,빌트인 캠 2 Plus,고해상도 영상 및 음성 녹화. 블루링크 앱 연동 및 증강현실 내비게이션 기능 포함,600000,SINGLE,interior,MULTI
+105,1,실내외 V2L,차량 외부/내부 가전제품 사용 가능. 실외 V2L 커넥터 포함. 캠핑 및 야외 활동 최적화,850000,SINGLE,etc,MULTI
+106,1,파킹어시스트,"서라운드 뷰, 후측방 모니터, 원격 스마트 주차 보조",990000,SINGLE,assistant,MULTI
+107,1,B&O 프리미엄 사운드,,1150000,SINGLE,interior,MULTI
+108,1,비전루프,파노라마 타입의 와이드 루프 적용으로 개방감 극대화. 전동 롤 블라인드 포함,900000,SINGLE,etc,MULTI
+109,1,디지털 사이드 미러,사이드 미러를 카메라와 OLED 모니터로 대체. 우천 시 시야 확보 및 사각지대 해소,1380000,SINGLE,etc,MULTI
+110,1,카메라 패키지,"디지털 센터 미러(카메라 클리닝 기능 포함), 운전자 모니터링 시스템 포함",750000,SINGLE,assistant,MULTI
+111,1,"18인치 에어로 휠 및 타이어",공기역학 성능을 극대화한 휠 디자인. 복합 전비 6.2km/kWh 구현의 핵심 사양,0,SINGLE,wheel,SINGLE
+112,1,"20인치 에어로 휠 및 타이어",고성능 피렐리 타이어 포함. 안정적인 주행감과 스포티한 외관 연출,600000,SINGLE,wheel,SINGLE
+113,1,실외 V2L 커넥터,차량 외부 충전구에 연결하여 가전제품 사용 가능. 야외 활동 시 220V 전원 공급,250000,SINGLE,etc,MULTI
+114,1,와이드 선루프,탁 트인 개방감을 제공하는 전동식 와이드 선루프,590000,SINGLE,etc,MULTI
+115,3,"7인승 시트 구성","2-3-2 배열. 2열 벤치 시트 적용",0,SINGLE,seats,SINGLE
+116,3,"6인승 시트 구성","2-2-2 배열. 2열 독립 캡틴 시트 적용",785000,SINGLE,seats,SINGLE
+117,3,"21인치 R-Line 알로이 휠",R-Line 전용 대구경 디자인 휠,0,SINGLE,wheel,SINGLE
+118,3,비엔나 가죽 시트 베이지,세련되고 밝은 톤의 베이지 인테리어,0,SINGLE,interior,SINGLE
+119,3,비엔나 가죽 시트 블랙,모던하고 관리가 용이한 블랙 인테리어,0,SINGLE,interior,SINGLE
+120,3,노팅엄 7.5J X 17,,0,SINGLE,wheel,SINGLE
+121,3,아트 벨루어스 & 소울버 블랙,,0,SINGLE,interior,SINGLE
+122,3,요크 9J X 20,,0,SINGLE,wheel,SINGLE
+123,3,비에나 가죽 시트 미스트랄 그레이,,0,SINGLE,interior,SINGLE
+124,3,비에나 가죽 시트 소울 블랙,,0,SINGLE,interior,SINGLE
+125,,내비게이션 패키지,"12.3인치 내비게이션, 듀얼 풀오토 에어컨",450000,SINGLE,etc,MULTI
+126,,스타일 I,"Full LED 헤드램프, 18인치 알로이 휠",640000,SINGLE,wheel,SINGLE
+127,,베스트 셀렉션 I,내비 패키지 + 12.3인치 클러스터,690000,SINGLE,etc,MULTI
+128,,현대 스마트센스 III,"스마트 크루즈 컨트롤, 진동 경고 스티어링 휠 등",550000,SINGLE,assistant,MULTI
+129,,HTRAC(험로주행모드),"4WD 시스템, 후륜 멀티링크 서스펜션",2030000,SINGLE,etc,MULTI
+130,,시트플러스,운전석/동승석 전동 릴렉션 컴포트 시트,490000,SINGLE,interior,MULTI
+131,,스타일 II,"Full LED 헤드램프, 19인치 알로이 휠",640000,SINGLE,wheel,SINGLE
+132,,실내 컬러 패키지,세이지 그린/베이지 컬러 포인트,200000,SINGLE,interior,SINGLE
+133,,에코패키지,친환경 소재 내장재 적용,200000,SINGLE,interior,MULTI
+134,,투톤 컬러 루프,블랙 투톤 루프 디자인,300000,SINGLE,etc,MULTI
+135,,알칸타라 인테리어 패키지,N Line 전용 알칸타라 패키지,370000,SINGLE,interior,SINGLE
+136,,클러스터(12.3인치 컬러 LCD),"12.3인치 컬러 LCD 클러스터",400000,SINGLE,etc,MULTI
+137,1,내비게이션 패키지,"12.3인치 내비게이션, 듀얼 풀오토 에어컨(애프터 블로우 포함)",450000,SINGLE,etc,MULTI
+138,1,투톤 컬러 루프,블랙 외장 포인트 디자인 (선루프와 중복 선택 불가),300000,SINGLE,etc,MULTI
+20001,20002,K5_GASOLINE_TURBO_Prestige | 스타일,"휠/램프 등 스타일 패키지(할인 패키지 아님, 단일 옵션)",1190000,SINGLE,wheel,MULTI
+20002,20002,K5_GASOLINE_TURBO_Prestige | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",990000,SINGLE,assistant,MULTI
+20003,20002,K5_GASOLINE_TURBO_Prestige | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",740000,SINGLE,assistant,MULTI
+20004,20002,K5_GASOLINE_TURBO_Prestige | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",1040000,SINGLE,assistant,MULTI
+20005,20002,K5_GASOLINE_TURBO_Prestige | HUD+빌트인캠2,"헤드업 디스플레이 + 빌트인 캠 2 구성
+※ 12.3인치 클러스터 팩 선택 시에만 적용 가능합니다.",1090000,SINGLE,assistant,MULTI
+20006,20002,K5_GASOLINE_TURBO_Prestige | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20007,20002,K5_GASOLINE_TURBO_Prestige | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,890000,SINGLE,etc,MULTI
+20008,20002,K5_GASOLINE_TURBO_Prestige | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20009,20002,K5_GASOLINE_TURBO_Noblesse | 스타일,"휠/램프 등 스타일 패키지(할인 패키지 아님, 단일 옵션)",790000,SINGLE,wheel,MULTI
+20010,20002,K5_GASOLINE_TURBO_Noblesse | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",890000,SINGLE,assistant,MULTI
+20011,20002,K5_GASOLINE_TURBO_Noblesse | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",450000,SINGLE,assistant,MULTI
+20012,20002,K5_GASOLINE_TURBO_Noblesse | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",0,SINGLE,assistant,MULTI
+20013,20002,K5_GASOLINE_TURBO_Noblesse | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20014,20002,K5_GASOLINE_TURBO_Noblesse | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20015,20002,K5_GASOLINE_TURBO_Noblesse | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,300000,SINGLE,etc,MULTI
+20016,20002,K5_GASOLINE_TURBO_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20017,20002,K5_GASOLINE_TURBO_Signature | 스타일,"휠/램프 등 스타일 패키지(할인 패키지 아님, 단일 옵션)",300000,SINGLE,wheel,MULTI
+20018,20002,K5_GASOLINE_TURBO_Signature | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",590000,SINGLE,assistant,MULTI
+20019,20002,K5_GASOLINE_TURBO_Signature | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",0,SINGLE,assistant,MULTI
+20020,20002,K5_GASOLINE_TURBO_Signature | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",0,SINGLE,assistant,MULTI
+20021,20002,K5_GASOLINE_TURBO_Signature | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20022,20002,K5_GASOLINE_TURBO_Signature | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20023,20002,K5_GASOLINE_TURBO_Signature | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,0,SINGLE,etc,MULTI
+20024,20002,K5_GASOLINE_TURBO_Signature | 블랙 핏,블랙 전용 내/외장 디자인 요소,790000,SINGLE,etc,MULTI
+20025,20002,EV6_라이트 | 스마트 파워테일게이트,라이트 트림 전용 가격표 기준,400000,SINGLE,etc,MULTI
+20026,20002,EV6_라이트 | 드라이브 와이즈,라이트 트림 전용 가격표 기준,1100000,SINGLE,assistant,MULTI
+20027,20002,EV6_라이트 | 컨비니언스 I,라이트 트림 전용 가격표 기준,500000,SINGLE,etc,MULTI
+20028,20002,EV6_라이트 | 컨비니언스 II,라이트 트림 전용 가격표 기준,900000,SINGLE,etc,MULTI
+20029,20002,EV6_라이트 | 듀얼 모터 4WD,라이트 트림 전용 가격표 기준,2470000,SINGLE,etc,MULTI
+20030,20002,EV6_라이트 | 20인치 휠&타이어,라이트 트림 전용 가격표 기준,400000,SINGLE,wheel,MULTI
+20031,20002,EV6_에어 | 스마트 파워테일게이트,에어 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20032,20002,EV6_에어 | 드라이브 와이즈,에어 트림 전용 가격표 기준,650000,SINGLE,assistant,MULTI
+20033,20002,EV6_에어 | 컴포트,에어 트림 전용 가격표 기준,1040000,SINGLE,etc,MULTI
+20034,20002,EV6_에어 | 컨비니언스 I,에어 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20035,20002,EV6_에어 | 컨비니언스 II,에어 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20036,20002,EV6_에어 | 하이테크,에어 트림 전용 가격표 기준,690000,SINGLE,etc,MULTI
+20037,20002,EV6_에어 | 프리미엄,에어 트림 전용 가격표 기준,1040000,SINGLE,etc,MULTI
+20038,20002,EV6_에어 | 메리디안 프리미엄 사운드,에어 트림 전용 가격표 기준,790000,SINGLE,etc,MULTI
+20039,20002,EV6_에어 | 듀얼 모터 4WD,에어 트림 전용 가격표 기준,450000,SINGLE,etc,MULTI
+20040,20002,EV6_에어 | 스마트 커넥트,에어 트림 전용 가격표 기준,2470000,SINGLE,etc,MULTI
+20041,20002,EV6_에어 | 20인치 휠&타이어,에어 트림 전용 가격표 기준,650000,SINGLE,wheel,MULTI
+20042,20002,EV6_에어 | 스웨이드 컬렉션,에어 트림 전용 가격표 기준,400000,SINGLE,interior,MULTI
+20043,20002,EV6_어스 | 스마트 파워테일게이트,어스 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20044,20002,EV6_어스 | 드라이브 와이즈,어스 트림 전용 가격표 기준,650000,SINGLE,assistant,MULTI
+20045,20002,EV6_어스 | 컴포트,어스 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20046,20002,EV6_어스 | 컨비니언스 I,어스 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20047,20002,EV6_어스 | 컨비니언스 II,어스 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20048,20002,EV6_어스 | 하이테크,어스 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20049,20002,EV6_어스 | 프리미엄,어스 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20050,20002,EV6_어스 | 메리디안 프리미엄 사운드,어스 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20051,20002,EV6_어스 | 와이드 선루프,어스 트림 전용 가격표 기준,990000,SINGLE,etc,MULTI
+20052,20002,EV6_어스 | 빌트인 캠 2,어스 트림 전용 가격표 기준,640000,SINGLE,etc,MULTI
+20053,20002,EV6_어스 | 듀얼 모터 4WD,어스 트림 전용 가격표 기준,450000,SINGLE,etc,MULTI
+20054,20002,EV6_어스 | 스마트 커넥트,어스 트림 전용 가격표 기준,2470000,SINGLE,etc,MULTI
+20055,20002,EV6_어스 | 20인치 휠&타이어,어스 트림 전용 가격표 기준,700000,SINGLE,wheel,MULTI
+20056,20002,EV6_어스 | 스웨이드 컬렉션,어스 트림 전용 가격표 기준,400000,SINGLE,interior,MULTI
+20057,20002,EV6_GT-Line | 스마트 파워테일게이트,GT-Line 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20058,20002,EV6_GT-Line | 드라이브 와이즈,GT-Line 트림 전용 가격표 기준,650000,SINGLE,assistant,MULTI
+20059,20002,EV6_GT-Line | 컴포트,GT-Line 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20060,20002,EV6_GT-Line | 컨비니언스 I,GT-Line 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20061,20002,EV6_GT-Line | 컨비니언스 II,GT-Line 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20062,20002,EV6_GT-Line | 하이테크,GT-Line 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20063,20002,EV6_GT-Line | 프리미엄,GT-Line 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20064,20002,EV6_GT-Line | 메리디안 프리미엄 사운드,GT-Line 트림 전용 가격표 기준,0,SINGLE,etc,MULTI
+20065,20002,EV6_GT-Line | 와이드 선루프,GT-Line 트림 전용 가격표 기준,990000,SINGLE,etc,MULTI
+20066,20002,EV6_GT-Line | 빌트인 캠 2,GT-Line 트림 전용 가격표 기준,640000,SINGLE,etc,MULTI
+20067,20002,EV6_GT-Line | 듀얼 모터 4WD,GT-Line 트림 전용 가격표 기준,450000,SINGLE,etc,MULTI
+20068,20002,EV6_GT-Line | 스마트 커넥트,GT-Line 트림 전용 가격표 기준,2470000,SINGLE,etc,MULTI
+20069,20002,EV6_GT-Line | 20인치 휠&타이어,GT-Line 트림 전용 가격표 기준,700000,SINGLE,wheel,MULTI
+20070,20002,EV6_GT-Line | 스웨이드 컬렉션,GT-Line 트림 전용 가격표 기준,400000,SINGLE,interior,MULTI
+20071,20002,EV6_GT-Line | 모니터링,GT-Line 트림 전용 가격표 기준,450000,SINGLE,assistant,MULTI
+20072,20002,EV3_에어 | 스타일,EV3 선택품목,940000,SINGLE,etc,MULTI
+20073,20002,EV3_에어 | 컴포트,EV3 선택품목,1380000,SINGLE,assistant,MULTI
+20074,20002,EV3_에어 | 컨비니언스,EV3 선택품목,1190000,SINGLE,assistant,MULTI
+20075,20002,EV3_에어 | 19인치 휠&타이어,EV3 선택품목,490000,SINGLE,wheel,MULTI
+20076,20002,EV3_에어 | 모니터링,EV3 선택품목,1040000,SINGLE,assistant,MULTI
+20077,20002,EV3_에어 | 드라이브 와이즈,EV3 선택품목,1090000,SINGLE,assistant,MULTI
+20078,20002,EV3_에어 | 와이드 선루프,EV3 선택품목,640000,SINGLE,etc,MULTI
+20079,20002,EV3_에어 | 빌트인 캠 2,EV3 선택품목,450000,SINGLE,etc,MULTI
+20080,20002,EV3_에어 | 헤드업 디스플레이,EV3 선택품목,590000,SINGLE,assistant,MULTI
+20081,20002,EV3_어스 | 스타일,EV3 선택품목,0,SINGLE,etc,MULTI
+20082,20002,EV3_어스 | 컴포트,EV3 선택품목,0,SINGLE,assistant,MULTI
+20083,20002,EV3_어스 | 컨비니언스,EV3 선택품목,0,SINGLE,assistant,MULTI
+20084,20002,EV3_어스 | 19인치 휠&타이어,EV3 선택품목,490000,SINGLE,wheel,MULTI
+20085,20002,EV3_어스 | 모니터링,EV3 선택품목,1040000,SINGLE,assistant,MULTI
+20086,20002,EV3_어스 | 드라이브 와이즈,EV3 선택품목,1090000,SINGLE,assistant,MULTI
+20087,20002,EV3_어스 | 와이드 선루프,EV3 선택품목,640000,SINGLE,etc,MULTI
+20088,20002,EV3_어스 | 하만카돈 프리미엄 사운드,EV3 선택품목,590000,SINGLE,etc,MULTI
+20089,20002,EV3_어스 | 빌트인 캠 2,EV3 선택품목,450000,SINGLE,etc,MULTI
+20090,20002,EV3_어스 | 헤드업 디스플레이,EV3 선택품목,590000,SINGLE,assistant,MULTI
+20091,20002,EV3_GT-Line | 스타일,EV3 선택품목,0,SINGLE,etc,MULTI
+20092,20002,EV3_GT-Line | 컴포트,EV3 선택품목,0,SINGLE,etc,MULTI
+20093,20002,EV3_GT-Line | 컨비니언스,EV3 선택품목,0,SINGLE,assistant,MULTI
+20094,20002,EV3_GT-Line | 19인치 휠&타이어,EV3 선택품목,0,SINGLE,wheel,MULTI
+20095,20002,EV3_GT-Line | 모니터링,EV3 선택품목,1040000,SINGLE,assistant,MULTI
+20096,20002,EV3_GT-Line | 드라이브 와이즈,EV3 선택품목,1090000,SINGLE,assistant,MULTI
+20097,20002,EV3_GT-Line | 와이드 선루프,EV3 선택품목,640000,SINGLE,etc,MULTI
+20098,20002,EV3_GT-Line | 하만카돈 프리미엄 사운드,EV3 선택품목,590000,SINGLE,etc,MULTI
+20099,20002,EV3_GT-Line | 빌트인 캠 2,EV3 선택품목,450000,SINGLE,etc,MULTI
+20100,20002,EV3_GT-Line | 헤드업 디스플레이,EV3 선택품목,590000,SINGLE,assistant,MULTI
+20101,20002,EV4_AIR | 스타일,,740000,SINGLE,etc,MULTI
+20102,20002,EV4_AIR | 컴포트,,890000,SINGLE,assistant,MULTI
+20103,20002,EV4_AIR | 컨비니언스,,890000,SINGLE,assistant,MULTI
+20104,20002,EV4_AIR | 19인치 휠&타이어,,490000,SINGLE,wheel,MULTI
+20105,20002,EV4_AIR | 모니터링,,1040000,SINGLE,assistant,MULTI
+20106,20002,EV9_EARTH_LONGRANGE_2WD | 20인치 휠,"20인치 휠 적용으로 외관 디자인 및 주행 성능 강화",590000,SINGLE,wheel,MULTI
+20107,20002,EV9_AIR_LONGRANGE_4WD | 6인승 스위블,"6인승 스위블 시트 구성 선택 사양",990000,SINGLE,seats,SINGLE
+20108,20002,EV9_AIR_LONGRANGE_4WD | 6인승 릴렉션,"6인승 릴렉션 시트 구성 선택 사양",2470000,SINGLE,seats,SINGLE
+20109,20002,EV9_AIR_LONGRANGE_4WD | 컨비니언스,전동/편의 기능을 포함한 편의 사양 묶음,1090000,SINGLE,assistant,MULTI
+20110,20002,EV9_AIR_LONGRANGE_4WD | 헤드업 디스플레이,주행 정보를 전면 유리에 투영해 시인성을 높이는 사양,590000,SINGLE,assistant,MULTI
+20111,20002,EV9_AIR_LONGRANGE_4WD | 스타일,외관 디자인 요소를 강화한 스타일 사양,1480000,SINGLE,etc,MULTI
+20112,20002,EV9_AIR_LONGRANGE_4WD | 21인치 휠,"21인치 휠 적용으로 외관 디자인 및 주행 성능 강화",1190000,SINGLE,wheel,MULTI
+20113,20002,EV9_AIR_LONGRANGE_4WD | 메리디안 프리미엄 사운드,메리디안 프리미엄 오디오 시스템 적용,1190000,SINGLE,assistant,MULTI
+20114,20002,EV9_AIR_LONGRANGE_4WD | 빌트인 캠 2,주행 영상 녹화가 가능한 빌트인 블랙박스 시스템,590000,SINGLE,assistant,MULTI
+20115,20002,EV9_AIR_LONGRANGE_4WD | 듀얼 선루프,개방감을 높여주는 파노라마 글래스 루프,1190000,SINGLE,etc,MULTI
+20116,20002,EV9_EARTH_LONGRANGE_4WD | 6인승 스위블,"6인승 스위블 시트 구성 선택 사양",990000,SINGLE,seats,SINGLE
+20117,20002,EV9_EARTH_LONGRANGE_4WD | 6인승 릴렉션,"6인승 릴렉션 시트 구성 선택 사양",1980000,SINGLE,seats,SINGLE
+20118,20002,EV9_EARTH_LONGRANGE_4WD | 컨비니언스,전동/편의 기능을 포함한 편의 사양 묶음,0,SINGLE,assistant,MULTI
+20119,20002,EV9_EARTH_LONGRANGE_4WD | 헤드업 디스플레이,주행 정보를 전면 유리에 투영해 시인성을 높이는 사양,0,SINGLE,assistant,MULTI
+20120,20002,EV9_EARTH_LONGRANGE_4WD | 스타일,외관 디자인 요소를 강화한 스타일 사양,1480000,SINGLE,etc,MULTI
+20121,20002,EV9_EARTH_LONGRANGE_4WD | 21인치 휠,"21인치 휠 적용으로 외관 디자인 및 주행 성능 강화",1190000,SINGLE,wheel,MULTI
+20122,20002,EV9_EARTH_LONGRANGE_4WD | 메리디안 프리미엄 사운드,메리디안 프리미엄 오디오 시스템 적용,0,SINGLE,etc,MULTI
+20123,20002,EV9_EARTH_LONGRANGE_4WD | 빌트인 캠 2,주행 영상 녹화가 가능한 빌트인 블랙박스 시스템,590000,SINGLE,etc,MULTI
+20124,20002,EV9_EARTH_LONGRANGE_4WD | 듀얼 선루프,개방감을 높여주는 파노라마 글래스 루프,1190000,SINGLE,etc,MULTI
+20125,20002,EV9_GTLINE_LONGRANGE_4WD | 6인승 스위블,"6인승 스위블 시트 구성 선택 사양",990000,SINGLE,seats,SINGLE
+20126,20002,EV9_GTLINE_LONGRANGE_4WD | 6인승 릴렉션,"6인승 릴렉션 시트 구성 선택 사양",1980000,SINGLE,seats,SINGLE
+20127,20002,EV9_GTLINE_LONGRANGE_4WD | 컨비니언스,전동/편의 기능을 포함한 편의 사양 묶음,0,SINGLE,assistant,MULTI
+20128,20002,EV9_GTLINE_LONGRANGE_4WD | 헤드업 디스플레이,주행 정보를 전면 유리에 투영해 시인성을 높이는 사양,0,SINGLE,assistant,MULTI
+20129,20002,EV9_GTLINE_LONGRANGE_4WD | 스타일,외관 디자인 요소를 강화한 스타일 사양,690000,SINGLE,etc,MULTI
+20130,20002,EV9_GTLINE_LONGRANGE_4WD | 21인치 휠,"21인치 휠 적용으로 외관 디자인 및 주행 성능 강화",0,SINGLE,wheel,MULTI
+20213,20002,K5_LPG_RENTAL_Prestige | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,1030000,SINGLE,etc,MULTI
+20214,20002,K5_LPG_RENTAL_Prestige | 파노라마 선루프,파노라마 선루프,1030000,SINGLE,etc,MULTI
+20215,20002,K5_HYBRID_Prestige | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20216,20002,K5_HYBRID_Prestige | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20217,20002,K5_HYBRID_Prestige | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20218,20002,K5_HYBRID_Noblesse | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20219,20002,K5_HYBRID_Noblesse | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20220,20002,K5_HYBRID_Noblesse | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20221,20002,K5_HYBRID_Signature | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20222,20002,K5_HYBRID_Signature | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20223,20002,K5_HYBRID_Signature | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20224,20002,K5_GASOLINE_Smart Selection | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20225,20002,K5_GASOLINE_Smart Selection | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20226,20002,K5_GASOLINE_Prestige | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20227,20002,K5_GASOLINE_Prestige | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20228,20002,K5_GASOLINE_Prestige | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20229,20002,K5_GASOLINE_Noblesse | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20230,20002,K5_GASOLINE_Noblesse | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20231,20002,K5_GASOLINE_Noblesse | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20232,20002,K5_GASOLINE_Signature | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20233,20002,K5_GASOLINE_Signature | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20234,20002,K5_GASOLINE_Signature | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20235,20002,K5_GASOLINE_TURBO_Prestige | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20236,20002,K5_GASOLINE_TURBO_Prestige | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20237,20002,K5_GASOLINE_TURBO_Prestige | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20238,20002,K5_GASOLINE_TURBO_Noblesse | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20239,20002,K5_GASOLINE_TURBO_Noblesse | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20240,20002,K5_GASOLINE_TURBO_Noblesse | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20241,20002,K5_GASOLINE_TURBO_Signature | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20242,20002,K5_GASOLINE_TURBO_Signature | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20243,20002,K5_GASOLINE_TURBO_Signature | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20244,20002,K5_LPG_Prestige | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20245,20002,K5_LPG_Prestige | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20246,20002,K5_LPG_Prestige | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20247,20002,K5_LPG_Noblesse | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20248,20002,K5_LPG_Noblesse | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20249,20002,K5_LPG_Noblesse | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20250,20002,K5_LPG_Signature | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20251,20002,K5_LPG_Signature | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20252,20002,K5_LPG_Signature | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20253,20002,K5_LPG_RENTAL_Trendy | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20254,20002,K5_LPG_RENTAL_Trendy | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20255,20002,K5_LPG_RENTAL_Trendy | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20256,20002,K5_LPG_RENTAL_Prestige | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20257,20002,K5_LPG_RENTAL_Prestige | 마션 브라운 인테리어,"마션 브라운 인테리어 선택
+※ 스타일 옵션 선택 시에만 적용 가능합니다.",0,SINGLE,interior,SINGLE
+20258,20002,K5_LPG_RENTAL_Prestige | 샌드 인테리어,샌드 인테리어 선택,0,SINGLE,interior,SINGLE
+20259,20002,MORNING_시그니처 | 컨비니언스,"인조가죽 스티어링 휠
+가죽 변속기 노브
+열선 스티어링 휠
+[트렌디 적용 시 추가]
+전동접이&락폴딩 아웃사이드 미러, 뒷좌석 파워윈도우",0,SINGLE,etc,MULTI
+20260,20002,MORNING_시그니처 | 드라이브 와이즈,"전방 충돌방지 보조(교차로 대향차/정면 대향차)
+스마트 크루즈 컨트롤(정차&재출발)
+후측방 충돌 경고
+후측방 충돌방지 보조(전진 출차)
+후방 교차 충돌방지 보조
+안전 하차 경고
+※ 내비게이션 적용 시: 내비게이션 기반 스마트 크루즈 컨트롤(고속도로/자동차 전용도로 內 안전구간/곡선로), 고속도로 주행보조 기능 지원
+※ 프레스티지: 16인치 전면가공 휠 선택 시 선택 가능",0,SINGLE,assistant,MULTI
+20261,20002,MORNING_시그니처 | 스타일,"[트렌디 적용 시]
+LED 헤드램프, 프론트 LED 턴시그널램프, LED 주간주행등, LED 리어 콤비네이션램프, 14인치 알로이 휠, LED 리피터 일체형 아웃사이드 미러
+[프레스티지/시그니처 적용 시]
+LED 헤드램프, 프론트 LED 턴시그니얼램프, LED 주간주행등, LED 리어 콤비네이션램프, 프론트 LED 센터 포지셔닝 램프",850000,SINGLE,etc,MULTI
+20262,20002,MORNING_시그니처 | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트)
+내비게이션 무선 업데이트
+[트렌디 적용 시 추가]
+6스피커, 전자식 룸미러, 풀오토 에어컨
+[프레스티지/시그니처/GT-Line 적용 시 추가]
+6스피커, 전자식 룸미러
+※ 버튼시동 PACK 선택 시에만 적용 가능합니다.",700000,SINGLE,assistant,MULTI
+20263,20002,MORNING_시그니처 | 선루프,선루프 적용,400000,SINGLE,etc,MULTI
+20264,20002,MORNING_GTLine | 버튼시동 PACK,"버튼시동 스마트키 시스템(원격시동 포함)
+하이패스 자동결제 시스템",0,SINGLE,assistant,MULTI
+20265,20002,MORNING_GTLine | 스타일,"[트렌디 적용 시]
+LED 헤드램프, 프론트 LED 턴시그널램프, LED 주간주행등, LED 리어 콤비네이션램프, 14인치 알로이 휠, LED 리피터 일체형 아웃사이드 미러
+[프레스티지/시그니처 적용 시]
+LED 헤드램프, 프론트 LED 턴시그니얼램프, LED 주간주행등, LED 리어 콤비네이션램프, 프론트 LED 센터 포지셔닝 램프",0,SINGLE,etc,MULTI
+20266,20002,MORNING_GTLine | 16인치 전면가공 휠,"[트렌디 적용 시]
+195/45 R16 타이어&전면가공 휠, 후륜 디스크 브레이크
+[프레스티지 적용 시]
+195/45 R16 타이어&전면가공 휠, 후륜 디스크 브레이크, 전자식 파킹 브레이크(오토홀드 포함)
+※ 트렌디: 스타일/16인치 전면가공 휠 중복 선택 시 14인치 알로이 휠 미적용",0,SINGLE,wheel,MULTI
+20267,20002,MORNING_GTLine | 컴포트,"인조가죽시트(블랙)
+앞좌석 열선시트
+운전석 시트 암레스트
+운전석 시트 높이조절장치
+앞좌석 시트벨트 높이조절장치
+동승석 시트백 포켓",0,SINGLE,assistant,MULTI
+20268,20002,MORNING_GTLine | 컨비니언스,"인조가죽 스티어링 휠
+가죽 변속기 노브
+열선 스티어링 휠
+[트렌디 적용 시 추가]
+전동접이&락폴딩 아웃사이드 미러, 뒷좌석 파워윈도우",0,SINGLE,etc,MULTI
+20269,20002,MORNING_GTLine | 드라이브 와이즈,"전방 충돌방지 보조(교차로 대향차/정면 대향차)
+스마트 크루즈 컨트롤(정차&재출발)
+후측방 충돌 경고
+후측방 충돌방지 보조(전진 출차)
+후방 교차 충돌방지 보조
+안전 하차 경고
+※ 내비게이션 적용 시: 내비게이션 기반 스마트 크루즈 컨트롤(고속도로/자동차 전용도로 內 안전구간/곡선로), 고속도로 주행보조 기능 지원
+※ 프레스티지: 16인치 전면가공 휠 선택 시 선택 가능",0,SINGLE,assistant,MULTI
+20270,20002,MORNING_GTLine | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트)
+내비게이션 무선 업데이트
+[트렌디 적용 시 추가]
+6스피커, 전자식 룸미러, 풀오토 에어컨
+[프레스티지/시그니처/GT-Line 적용 시 추가]
+6스피커, 전자식 룸미러
+※ 버튼시동 PACK 선택 시에만 적용 가능합니다.",700000,SINGLE,assistant,MULTI
+20271,20002,MORNING_GTLine | 선루프,선루프 적용,400000,SINGLE,etc,MULTI
+20272,20002,MORNING_트렌디밴 | 버튼시동 PACK,"버튼시동 스마트키 시스템(원격시동 포함)
+하이패스 자동결제 시스템",500000,SINGLE,assistant,MULTI
+20273,20002,MORNING_트렌디밴 | 컨비니언스,"인조가죽 스티어링 휠
+가죽 변속기 노브
+열선 스티어링 휠
+[트렌디 적용 시 추가]
+전동접이&락폴딩 아웃사이드 미러, 뒷좌석 파워윈도우",150000,SINGLE,etc,MULTI
+20274,20002,MORNING_트렌디밴 | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트)
+내비게이션 무선 업데이트
+[트렌디 적용 시 추가]
+6스피커, 전자식 룸미러, 풀오토 에어컨
+[프레스티지/시그니처/GT-Line 적용 시 추가]
+6스피커, 전자식 룸미러
+※ 버튼시동 PACK 선택 시에만 적용 가능합니다.",800000,SINGLE,assistant,MULTI
+20275,20002,MORNING_프레스티지밴 | 버튼시동 PACK,"버튼시동 스마트키 시스템(원격시동 포함)
+하이패스 자동결제 시스템",500000,SINGLE,assistant,MULTI
+20276,20002,EV4_AIR | 드라이브 와이즈,,1280000,SINGLE,assistant,MULTI
+20277,20002,EV4_AIR | 유틸리티,,400000,SINGLE,assistant,MULTI
+20278,20002,EV4_AIR | 와이드 선루프,,640000,SINGLE,etc,MULTI
+20279,20002,EV4_AIR | 빌트인 캠 2 플러스,,450000,SINGLE,etc,MULTI
+20280,20002,EV4_EARTH | 스타일,,0,SINGLE,etc,MULTI
+20281,20002,EV4_EARTH | 컴포트,,0,SINGLE,assistant,MULTI
+20282,20002,EV4_EARTH | 컨비니언스,,0,SINGLE,assistant,MULTI
+20283,20002,EV4_EARTH | 19인치 휠&타이어,,490000,SINGLE,wheel,MULTI
+20284,20002,EV4_EARTH | 모니터링,,0,SINGLE,assistant,MULTI
+20285,20002,EV4_EARTH | 드라이브 와이즈,,1280000,SINGLE,assistant,MULTI
+20286,20002,EV4_EARTH | 유틸리티,,400000,SINGLE,assistant,MULTI
+20287,20002,EV4_EARTH | 와이드 선루프,,640000,SINGLE,etc,MULTI
+20288,20002,EV4_EARTH | 하만카돈 프리미엄 사운드,,640000,SINGLE,etc,MULTI
+20289,20002,EV4_EARTH | 빌트인 캠 2 플러스,,450000,SINGLE,etc,MULTI
+20290,20002,EV4_GTLINE | 스타일,,0,SINGLE,etc,MULTI
+20291,20002,EV4_GTLINE | 컴포트,,0,SINGLE,assistant,MULTI
+20292,20002,EV4_GTLINE | 컨비니언스,,0,SINGLE,assistant,MULTI
+20293,20002,EV4_GTLINE | 19인치 휠&타이어,,0,SINGLE,wheel,MULTI
+20294,20002,EV4_GTLINE | 모니터링,,0,SINGLE,assistant,MULTI
+20295,20002,EV4_GTLINE | 드라이브 와이즈,,1280000,SINGLE,assistant,MULTI
+20296,20002,EV4_GTLINE | 유틸리티,,400000,SINGLE,assistant,MULTI
+20297,20002,EV4_GTLINE | 와이드 선루프,,640000,SINGLE,etc,MULTI
+20298,20002,EV4_GTLINE | 하만카돈 프리미엄 사운드,,640000,SINGLE,etc,MULTI
+20299,20002,EV4_GTLINE | 빌트인 캠 2 플러스,,450000,SINGLE,etc,MULTI
+20300,20002,EV4_INTERIOR | 블랙 인테리어(오닉스 블랙&휴먼 그레이),인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20301,20002,EV4_INTERIOR | 브라운 인테리어(에스프레소 브라운&오닉스 블랙),인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20302,20002,EV4_INTERIOR | 그레이 인테리어(미스티 그레이&누가 브라운),인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20303,20002,EV4_INTERIOR | 블랙&화이트 인테리어(오닉스 블랙&오프 화이트),인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20304,20002,MORNING_프레스티지밴 | 컨비니언스,"인조가죽 스티어링 휠
+가죽 변속기 노브
+열선 스티어링 휠
+[트렌디 적용 시 추가]
+전동접이&락폴딩 아웃사이드 미러, 뒷좌석 파워윈도우",150000,SINGLE,etc,MULTI
+20305,20002,MORNING_프레스티지밴 | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트)
+내비게이션 무선 업데이트
+[트렌디 적용 시 추가]
+6스피커, 전자식 룸미러, 풀오토 에어컨
+[프레스티지/시그니처/GT-Line 적용 시 추가]
+6스피커, 전자식 룸미러
+※ 버튼시동 PACK 선택 시에만 적용 가능합니다.",800000,SINGLE,assistant,MULTI
+20306,20002,INTERIOR_CARNIVAL_HI_내장컬러_코튼베이지(가죽/나파),코튼 베이지 (가죽/나파가죽),0,SINGLE,interior,SINGLE
+20307,20002,INTERIOR_CARNIVAL_HI_내장컬러_코튼베이지(퀼팅나파-4인승후석),"코튼 베이지 (퀼팅 나파가죽, 4인승 후석 전용)",0,SINGLE,interior,SINGLE
+20308,20002,CARNIVAL_HI_9_NOBLESSE | 스마트커넥트&HUD+빌트인캠2&BOSE 사운드,"스마트커넥트, HUD, 빌트인캠2, BOSE 사운드 구성",2850000,SINGLE,etc,MULTI
+20309,20002,CARNIVAL_HI_9_SIGNATURE | 스마트커넥트&HUD+빌트인캠2&BOSE 사운드,"스마트커넥트, HUD, 빌트인캠2, BOSE 사운드 구성(",2850000,SINGLE,etc,MULTI
+20310,20002,CARNIVAL_HI_7_SIGNATURE | 스마트커넥트&HUD+빌트인캠2&BOSE 사운드,"스마트커넥트, HUD, 빌트인캠2, BOSE 사운드 구성",2850000,SINGLE,etc,MULTI
+20311,20002,CARNIVAL_HI_4_SIGNATURE | 스마트커넥트&HUD+빌트인캠2&BOSE 사운드,"스마트커넥트, HUD, 빌트인캠2, BOSE 사운드 구성",3010000,SINGLE,etc,MULTI
+20312,20002,CARNIVAL_HI_9_NOBLESSE | 프리미엄 팩,"사이드 스텝, 하이리무진 전용 승하차 스팟램프(슬라이딩 도어),1열/후석 냉온 컵홀더,Led 도어 스커프, 스태리 스카이 무드조명",3250000,SINGLE,etc,MULTI
+20313,20002,CARNIVAL_HI_9_SIGNATURE | 프리미엄 팩,"사이드 스텝, 하이리무진 전용 승하차 스팟램프(슬라이딩 도어),1열/후석 냉온 컵홀더,Led 도어 스커프, 스태리 스카이 무드조명",3250000,SINGLE,etc,MULTI
+20314,20002,CARNIVAL_HI_7_SIGNATURE | 프리미엄 팩,"사이드 스텝, 하이리무진 전용 승하차 스팟램프(슬라이딩 도어),1열/후석 냉온 컵홀더,Led 도어 스커프, 스태리 스카이 무드조명",3250000,SINGLE,etc,MULTI
+20315,20002,CARNIVAL_HI_4_SIGNATURE | 프리미엄 팩,"사이드 스텝, 하이리무진 전용 승하차 스팟램프(슬라이딩 도어),1열/후석 냉온 컵홀더,Led 도어 스커프, 스태리 스카이 무드조명",3350000,SINGLE,etc,MULTI
+20316,20002,CARNIVAL_HI_4_SIGNATURE | 프리미엄 팩2,"지문 인증 시스템, 디지털 센서 미러, 헤드업디스플레이, 빌트인캠2, 증강현실 내비게이션,BOSE프리미엄사운드(12스피커,외장엠프), 사이드스텝, 하이리무진 전용승하차 스팟램프(슬라이딩도어),1열/후석 냉온컵홀더, Led도어스커프,스태리 스카이 무드조명, 후석 스마트폰 무선충전 시스템, 옷걸이",7000000,SINGLE,etc,MULTI
+20317,20002,INTERIOR_NIRO_EV_차콜,차콜 인테리어,0,SINGLE,interior,SINGLE
+20318,20002,INTERIOR_NIRO_EV_페트롤,페트롤 인테리어(어스 트림 선택 가능),0,SINGLE,interior,SINGLE
+20319,20002,INTERIOR_NIRO_EV_라이트그레이_투톤,라이트 그레이 투톤 인테리어,0,SINGLE,interior,SINGLE
+20320,20002,NIRO_EV_AIR | 드라이브 와이즈,"전방 충돌방지 보조(교차 차량, 추월 시 대향차, 측방 접근차, 회피 조향 보조 기능 포함), 내비게이션 기반 스마트 크루즈 컨트롤(진출입로), 고속도로 주행 보조 2(차로변경 보조 기능 포함), 후측방 충돌방지 보조(주행)",490000,SINGLE,assistant,MULTI
+20321,20002,NIRO_EV_AIR | 스타일,"프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널 램프, LED 후진등, LED 포그램프, 블랙 유광 휠아치&사이드 가니쉬, 루프랙",760000,SINGLE,etc,MULTI
+20322,20002,NIRO_EV_AIR | 스마트 커넥트,"기아 디지털 키 2 터치, 크롬&터치 타입 아웃사이드 도어핸들, 빌트인 캠, 보조배터리, 스마트폰 무선충전 시스템",990000,SINGLE,etc,MULTI
+20323,20002,NIRO_EV_AIR | 하이테크,스마트 파워테일게이트,400000,SINGLE,etc,MULTI
+20324,20002,NIRO_EV_AIR | HUD,헤드업 디스플레이,590000,SINGLE,assistant,MULTI
+20325,20002,NIRO_EV_AIR | 컴포트,"운전자세 메모리 시스템(운전석 시트, 아웃사이드 미러), 운전석 이지억세스, 후진연동 자동하향 아웃사이드 미러, 가죽시트, 2열 열선시트, 2열 센터 암레스트, 동승석/2열 세이프티 파워윈도우, 스웨이드 내장재(헤드라이닝, 필라트림, 선바이저), 2열 이중접합 차음 글라스",740000,SINGLE,interior,MULTI
+20326,20002,EV5_AIR | 블랙 인테리어,,0,SINGLE,interior,SINGLE
+20327,20002,EV5_AIR | 브라운 인테리어,,0,SINGLE,interior,SINGLE
+20328,20002,EV5_EARTH | 블랙 인테리어,,0,SINGLE,interior,SINGLE
+20329,20002,EV5_EARTH | 브라운 인테리어,,0,SINGLE,interior,SINGLE
+20330,20002,EV5_EARTH | 그레이 인테리어,,0,SINGLE,interior,SINGLE
+20331,20002,EV5_GTLINE | 블랙&화이트 인테리어,,0,SINGLE,interior,SINGLE
+20332,20002,EV5_AIR | 스타일,,890000,SINGLE,etc,MULTI
+20333,20002,EV5_AIR | 컴포트 I,,1380000,SINGLE,assistant,MULTI
+20334,20002,EV5_AIR | 19인치 휠 & 타이어,,300000,SINGLE,wheel,MULTI
+20335,20002,EV5_AIR | 스마트 커넥트,,1340000,SINGLE,assistant,MULTI
+20336,20002,EV5_AIR | 모니터링,,1380000,SINGLE,assistant,MULTI
+20337,20002,EV5_AIR | 드라이브 와이즈,,1340000,SINGLE,assistant,MULTI
+20338,20002,EV5_AIR | 파노라마 선루프,,1190000,SINGLE,etc,MULTI
+20339,20002,EV5_AIR | 빌트인 캠 2 플러스,,590000,SINGLE,etc,MULTI
+20340,20002,EV5_EARTH | 스타일,,0,SINGLE,etc,MULTI
+20341,20002,EV5_EARTH | 컴포트 I,,0,SINGLE,assistant,MULTI
+20342,20002,EV5_EARTH | 컴포트 II,,690000,SINGLE,assistant,MULTI
+20343,20002,EV5_EARTH | 19인치 휠 & 타이어,,300000,SINGLE,wheel,MULTI
+20344,20002,EV5_EARTH | 스마트 커넥트,,740000,SINGLE,assistant,MULTI
+20345,20002,EV5_EARTH | 모니터링,,1380000,SINGLE,assistant,MULTI
+20346,20002,EV5_EARTH | 드라이브 와이즈,,1340000,SINGLE,assistant,MULTI
+20347,20002,EV5_EARTH | 파노라마 선루프,,1090000,SINGLE,etc,MULTI
+20348,20002,EV5_EARTH | 하만카돈 프리미엄 사운드,,640000,SINGLE,etc,MULTI
+20349,20002,EV5_EARTH | 빌트인 캠 2 플러스,,450000,SINGLE,etc,MULTI
+20350,20002,EV5_GTLINE | 스타일,,0,SINGLE,etc,MULTI
+20351,20002,EV5_GTLINE | 컴포트 I,,0,SINGLE,assistant,MULTI
+20352,20002,EV5_GTLINE | 컴포트 II,,690000,SINGLE,assistant,MULTI
+20353,20002,EV5_GTLINE | 19인치 휠 & 타이어,,0,SINGLE,wheel,MULTI
+20354,20002,EV5_GTLINE | 스마트 커넥트,,740000,SINGLE,assistant,MULTI
+20355,20002,EV5_GTLINE | 모니터링,,1380000,SINGLE,assistant,MULTI
+20356,20002,EV5_GTLINE | 드라이브 와이즈,,1340000,SINGLE,assistant,MULTI
+20357,20002,EV5_GTLINE | 파노라마 선루프,,1090000,SINGLE,etc,MULTI
+20358,20002,EV5_GTLINE | 하만카돈 프리미엄 사운드,,640000,SINGLE,etc,MULTI
+20359,20002,EV5_GTLINE | 빌트인 캠 2 플러스,,450000,SINGLE,etc,MULTI
+20131,20002,EV9_GTLINE_LONGRANGE_4WD | 메리디안 프리미엄 사운드,메리디안 프리미엄 오디오 시스템 적용,0,SINGLE,etc,MULTI
+20132,20002,EV9_GTLINE_LONGRANGE_4WD | 빌트인 캠 2,주행 영상 녹화가 가능한 빌트인 블랙박스 시스템,590000,SINGLE,etc,MULTI
+20133,20002,EV9_GTLINE_LONGRANGE_4WD | 듀얼 선루프,개방감을 높여주는 파노라마 글래스 루프,1190000,SINGLE,etc,MULTI
+20134,20002,EV9_GTLINE_LONGRANGE_4WD | 하이테크,차량 기능 및 편의성을 향상시키는 선택 사양,1980000,SINGLE,assistant,MULTI
+20135,20002,EV9_AIR_STANDARD_2WD | 캠핑 패키지,야외 활동에 최적화된 캠핑 전용 사양,1380000,SINGLE,etc,MULTI
+20136,20002,EV9_AIR_STANDARD_2WD | 사이드 스텝,승하차 편의를 위한 사이드 스텝 장착,540000,SINGLE,etc,MULTI
+20137,20002,EV9_AIR_STANDARD_2WD | 리버서블 러기지 매트,적재 공간 보호 및 활용도를 높이는 러기지 매트,100000,SINGLE,etc,MULTI
+20138,20002,EV9_AIR_STANDARD_2WD | 차량 보호 필름 I,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20139,20002,EV9_AIR_STANDARD_2WD | 차량 보호 필름 II,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20140,20002,EV9_EARTH_STANDARD_2WD | 캠핑 패키지,야외 활동에 최적화된 캠핑 전용 사양,1380000,SINGLE,etc,MULTI
+20141,20002,EV9_EARTH_STANDARD_2WD | 사이드 스텝,승하차 편의를 위한 사이드 스텝 장착,540000,SINGLE,etc,MULTI
+20142,20002,EV9_EARTH_STANDARD_2WD | 리버서블 러기지 매트,적재 공간 보호 및 활용도를 높이는 러기지 매트,100000,SINGLE,etc,MULTI
+20143,20002,EV9_EARTH_STANDARD_2WD | 차량 보호 필름 I,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20144,20002,EV9_EARTH_STANDARD_2WD | 차량 보호 필름 II,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20145,20002,EV9_AIR_LONGRANGE_2WD | 캠핑 패키지,야외 활동에 최적화된 캠핑 전용 사양,1380000,SINGLE,etc,MULTI
+20146,20002,EV9_AIR_LONGRANGE_2WD | 사이드 스텝,승하차 편의를 위한 사이드 스텝 장착,540000,SINGLE,etc,MULTI
+20147,20002,EV9_AIR_LONGRANGE_2WD | 리버서블 러기지 매트,적재 공간 보호 및 활용도를 높이는 러기지 매트,100000,SINGLE,etc,MULTI
+20148,20002,EV9_AIR_LONGRANGE_2WD | 차량 보호 필름 I,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20149,20002,EV9_AIR_LONGRANGE_2WD | 차량 보호 필름 II,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20150,20002,EV9_EARTH_LONGRANGE_2WD | 캠핑 패키지,야외 활동에 최적화된 캠핑 전용 사양,1380000,SINGLE,etc,MULTI
+20151,20002,EV9_EARTH_LONGRANGE_2WD | 사이드 스텝,승하차 편의를 위한 사이드 스텝 장착,540000,SINGLE,etc,MULTI
+20152,20002,EV9_EARTH_LONGRANGE_2WD | 리버서블 러기지 매트,적재 공간 보호 및 활용도를 높이는 러기지 매트,100000,SINGLE,etc,MULTI
+20153,20002,EV9_EARTH_LONGRANGE_2WD | 차량 보호 필름 I,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20154,20002,EV9_EARTH_LONGRANGE_2WD | 차량 보호 필름 II,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20155,20002,EV9_AIR_LONGRANGE_4WD | 라운지 패키지,후석 거주성을 높인 라운지 전용 사양,5440000,SINGLE,etc,MULTI
+20156,20002,EV9_AIR_LONGRANGE_4WD | 트레일러 패키지,견인 장치 및 트레일러 주행을 위한 전용 사양,1680000,SINGLE,etc,MULTI
+20157,20002,EV9_AIR_LONGRANGE_4WD | 캠핑 패키지,야외 활동에 최적화된 캠핑 전용 사양,1380000,SINGLE,etc,MULTI
+20158,20002,K5_HYBRID_Prestige | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20159,20002,K5_HYBRID_Noblesse | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20160,20002,K5_HYBRID_Signature | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20161,20002,K5_GASOLINE_Smart Selection | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20162,20002,K5_GASOLINE_Prestige | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20163,20002,K5_GASOLINE_Noblesse | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20164,20002,K5_GASOLINE_Signature | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20165,20002,K5_GASOLINE_TURBO_Prestige | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20166,20002,K5_GASOLINE_TURBO_Noblesse | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20167,20002,K5_GASOLINE_TURBO_Signature | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20168,20002,K5_LPG_Prestige | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20169,20002,K5_LPG_Noblesse | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20170,20002,K5_LPG_Signature | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20171,20002,K5_LPG_RENTAL_Trendy | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20172,20002,K5_LPG_RENTAL_Prestige | 인테리어 선택 안함,내장 인테리어 미선택,0,SINGLE,interior,SINGLE
+20173,20002,MORNING_트렌디 | 스타일,"[트렌디 적용 시]
+LED 헤드램프, 프론트 LED 턴시그널램프, LED 주간주행등, LED 리어 콤비네이션램프, 14인치 알로이 휠, LED 리피터 일체형 아웃사이드 미러
+[프레스티지/시그니처 적용 시]
+LED 헤드램프, 프론트 LED 턴시그니얼램프, LED 주간주행등, LED 리어 콤비네이션램프, 프론트 LED 센터 포지셔닝 램프",900000,SINGLE,etc,MULTI
+20174,20002,MORNING_트렌디 | 16인치 전면가공 휠,"[트렌디 적용 시]
+195/45 R16 타이어&전면가공 휠, 후륜 디스크 브레이크
+[프레스티지 적용 시]
+195/45 R16 타이어&전면가공 휠, 후륜 디스크 브레이크, 전자식 파킹 브레이크(오토홀드 포함)
+※ 트렌디: 스타일/16인치 전면가공 휠 중복 선택 시 14인치 알로이 휠 미적용",500000,SINGLE,wheel,MULTI
+20175,20002,MORNING_트렌디 | 컴포트,"인조가죽시트(블랙)
+앞좌석 열선시트
+운전석 시트 암레스트
+운전석 시트 높이조절장치
+앞좌석 시트벨트 높이조절장치
+동승석 시트백 포켓",300000,SINGLE,assistant,MULTI
+20176,20002,MORNING_트렌디 | 컨비니언스,"인조가죽 스티어링 휠
+가죽 변속기 노브
+열선 스티어링 휠
+[트렌디 적용 시 추가]
+전동접이&락폴딩 아웃사이드 미러, 뒷좌석 파워윈도우",150000,SINGLE,etc,MULTI
+20177,20002,MORNING_트렌디 | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트)
+내비게이션 무선 업데이트
+[트렌디 적용 시 추가]
+6스피커, 전자식 룸미러, 풀오토 에어컨
+[프레스티지/시그니처/GT-Line 적용 시 추가]
+6스피커, 전자식 룸미러
+※ 버튼시동 PACK 선택 시에만 적용 가능합니다.",800000,SINGLE,assistant,MULTI
+20178,20002,MORNING_트렌디 | 선루프,선루프 적용,0,SINGLE,etc,MULTI
+20179,20002,MORNING_프레스티지 | 버튼시동 PACK,"버튼시동 스마트키 시스템(원격시동 포함)
+하이패스 자동결제 시스템",0,SINGLE,assistant,MULTI
+20180,20002,MORNING_프레스티지 | 컴포트,"인조가죽시트(블랙)
+앞좌석 열선시트
+운전석 시트 암레스트
+운전석 시트 높이조절장치
+앞좌석 시트벨트 높이조절장치
+동승석 시트백 포켓",0,SINGLE,assistant,MULTI
+20181,20002,MORNING_프레스티지 | 스타일,"[트렌디 적용 시]
+LED 헤드램프, 프론트 LED 턴시그널램프, LED 주간주행등, LED 리어 콤비네이션램프, 14인치 알로이 휠, LED 리피터 일체형 아웃사이드 미러
+[프레스티지/시그니처 적용 시]
+LED 헤드램프, 프론트 LED 턴시그니얼램프, LED 주간주행등, LED 리어 콤비네이션램프, 프론트 LED 센터 포지셔닝 램프",850000,SINGLE,etc,MULTI
+20182,20002,MORNING_프레스티지 | 16인치 전면가공 휠,"[트렌디 적용 시]
+195/45 R16 타이어&전면가공 휠, 후륜 디스크 브레이크
+[프레스티지 적용 시]
+195/45 R16 타이어&전면가공 휠, 후륜 디스크 브레이크, 전자식 파킹 브레이크(오토홀드 포함)
+※ 트렌디: 스타일/16인치 전면가공 휠 중복 선택 시 14인치 알로이 휠 미적용",650000,SINGLE,wheel,MULTI
+20183,20002,MORNING_프레스티지 | 컨비니언스,"인조가죽 스티어링 휠
+가죽 변속기 노브
+열선 스티어링 휠
+[트렌디 적용 시 추가]
+전동접이&락폴딩 아웃사이드 미러, 뒷좌석 파워윈도우",150000,SINGLE,etc,MULTI
+20184,20002,MORNING_프레스티지 | 드라이브 와이즈,"전방 충돌방지 보조(교차로 대향차/정면 대향차)
+스마트 크루즈 컨트롤(정차&재출발)
+후측방 충돌 경고
+후측방 충돌방지 보조(전진 출차)
+후방 교차 충돌방지 보조
+안전 하차 경고
+※ 내비게이션 적용 시: 내비게이션 기반 스마트 크루즈 컨트롤(고속도로/자동차 전용도로 內 안전구간/곡선로), 고속도로 주행보조 기능 지원
+※ 프레스티지: 16인치 전면가공 휠 선택 시 선택 가능",500000,SINGLE,assistant,MULTI
+20185,20002,MORNING_프레스티지 | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트)
+내비게이션 무선 업데이트
+[트렌디 적용 시 추가]
+6스피커, 전자식 룸미러, 풀오토 에어컨
+[프레스티지/시그니처/GT-Line 적용 시 추가]
+6스피커, 전자식 룸미러
+※ 버튼시동 PACK 선택 시에만 적용 가능합니다.",800000,SINGLE,assistant,MULTI
+20186,20002,MORNING_시그니처 | 버튼시동 PACK,"버튼시동 스마트키 시스템(원격시동 포함)
+하이패스 자동결제 시스템",0,SINGLE,assistant,MULTI
+20187,20002,MORNING_시그니처 | 16인치 전면가공 휠,"[트렌디 적용 시]
+195/45 R16 타이어&전면가공 휠, 후륜 디스크 브레이크
+[프레스티지 적용 시]
+195/45 R16 타이어&전면가공 휠, 후륜 디스크 브레이크, 전자식 파킹 브레이크(오토홀드 포함)
+※ 트렌디: 스타일/16인치 전면가공 휠 중복 선택 시 14인치 알로이 휠 미적용",0,SINGLE,wheel,MULTI
+20188,20002,MORNING_시그니처 | 컴포트,"인조가죽시트(블랙)
+앞좌석 열선시트
+운전석 시트 암레스트
+운전석 시트 높이조절장치
+앞좌석 시트벨트 높이조절장치
+동승석 시트백 포켓",0,SINGLE,assistant,MULTI
+20189,20002,K5_GASOLINE_TURBO_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20190,20002,K5_LPG_Prestige | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",740000,SINGLE,assistant,MULTI
+20191,20002,K5_LPG_Prestige | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",1190000,SINGLE,assistant,MULTI
+20192,20002,K5_LPG_Prestige | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20193,20002,K5_LPG_Noblesse | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",590000,SINGLE,assistant,MULTI
+20194,20002,K5_LPG_Noblesse | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",450000,SINGLE,assistant,MULTI
+20195,20002,K5_LPG_Noblesse | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20196,20002,K5_LPG_Noblesse | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20197,20002,K5_LPG_Noblesse | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,300000,SINGLE,etc,MULTI
+20198,20002,K5_LPG_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20199,20002,K5_LPG_Signature | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",490000,SINGLE,assistant,MULTI
+20200,20002,K5_LPG_Signature | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20201,20002,K5_LPG_Signature | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20202,20002,K5_LPG_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20203,20002,K5_LPG_RENTAL_Trendy | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",540000,SINGLE,assistant,MULTI
+20204,20002,K5_LPG_RENTAL_Trendy | 애프터마켓용 컬렉션,렌터카용 애프터마켓 장착 지원 구성,250000,SINGLE,etc,MULTI
+20205,20002,K5_LPG_RENTAL_Trendy | 하이패스 시스템,하이패스 자동결제 시스템,200000,SINGLE,etc,MULTI
+20206,20002,K5_LPG_RENTAL_Trendy | SBW 팩,전자식 변속 다이얼/EPB 등 구성,480000,SINGLE,etc,MULTI
+20207,20002,K5_LPG_RENTAL_Trendy | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",700000,SINGLE,assistant,MULTI
+20208,20002,K5_LPG_RENTAL_Trendy | 파노라마 선루프,파노라마 선루프,1030000,SINGLE,etc,MULTI
+20209,20002,K5_LPG_RENTAL_Prestige | 애프터마켓용 컬렉션,렌터카용 애프터마켓 장착 지원 구성,250000,SINGLE,etc,MULTI
+20210,20002,K5_LPG_RENTAL_Prestige | SBW 팩,전자식 변속 다이얼/EPB 등 구성,480000,SINGLE,etc,MULTI
+20211,20002,K5_LPG_RENTAL_Prestige | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",700000,SINGLE,assistant,MULTI
+20212,20002,K5_LPG_RENTAL_Prestige | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",700000,SINGLE,assistant,MULTI
+20360,20002,EV9_AIR_LONGRANGE_4WD | 후석 스마트 엔터테인먼트 시스템,후석 승객을 위한 디스플레이 기반 엔터테인먼트 사양,2770000,SINGLE,assistant,MULTI
+20361,20002,EV9_AIR_LONGRANGE_4WD | 사이드 스텝,승하차 편의를 위한 사이드 스텝 장착,540000,SINGLE,etc,MULTI
+20362,20002,EV9_AIR_LONGRANGE_4WD | 리버서블 러기지 매트,적재 공간 보호 및 활용도를 높이는 러기지 매트,100000,SINGLE,etc,MULTI
+20363,20002,EV9_AIR_LONGRANGE_4WD | 차량 보호 필름 I,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20364,20002,EV9_AIR_LONGRANGE_4WD | 차량 보호 필름 II,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20365,20002,EV9_AIR_LONGRANGE_4WD | 19인치 휠,"19인치 휠 적용으로 외관 디자인 및 주행 성능 강화",1680000,SINGLE,wheel,MULTI
+20366,20002,EV9_AIR_LONGRANGE_4WD | 21인치 휠 I,"21인치 휠 I 적용으로 외관 디자인 및 주행 성능 강화",1380000,SINGLE,wheel,MULTI
+20367,20002,EV9_AIR_LONGRANGE_4WD | 21인치 휠 II,"21인치 휠 II 적용으로 외관 디자인 및 주행 성능 강화",1380000,SINGLE,wheel,MULTI
+20368,20002,EV9_EARTH_LONGRANGE_4WD | 라운지 패키지,후석 거주성을 높인 라운지 전용 사양,5440000,SINGLE,etc,MULTI
+20369,20002,EV9_EARTH_LONGRANGE_4WD | 트레일러 패키지,견인 장치 및 트레일러 주행을 위한 전용 사양,1680000,SINGLE,etc,MULTI
+20370,20002,EV9_EARTH_LONGRANGE_4WD | 캠핑 패키지,야외 활동에 최적화된 캠핑 전용 사양,1380000,SINGLE,etc,MULTI
+20371,20002,EV9_EARTH_LONGRANGE_4WD | 후석 스마트 엔터테인먼트 시스템,후석 승객을 위한 디스플레이 기반 엔터테인먼트 사양,2770000,SINGLE,assistant,MULTI
+20372,20002,EV9_EARTH_LONGRANGE_4WD | 사이드 스텝,승하차 편의를 위한 사이드 스텝 장착,540000,SINGLE,etc,MULTI
+20373,20002,EV9_EARTH_LONGRANGE_4WD | 리버서블 러기지 매트,적재 공간 보호 및 활용도를 높이는 러기지 매트,100000,SINGLE,etc,MULTI
+20374,20002,EV9_EARTH_LONGRANGE_4WD | 차량 보호 필름 I,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20375,20002,EV9_EARTH_LONGRANGE_4WD | 차량 보호 필름 II,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20376,20002,EV9_EARTH_LONGRANGE_4WD | 19인치 휠,"19인치 휠 적용으로 외관 디자인 및 주행 성능 강화",1680000,SINGLE,wheel,MULTI
+20377,20002,EV9_EARTH_LONGRANGE_4WD | 21인치 휠 I,"21인치 휠 I 적용으로 외관 디자인 및 주행 성능 강화",1380000,SINGLE,wheel,MULTI
+20378,20002,EV9_EARTH_LONGRANGE_4WD | 21인치 휠 II,"21인치 휠 II 적용으로 외관 디자인 및 주행 성능 강화",1380000,SINGLE,wheel,MULTI
+20379,20002,EV9_GTLINE_LONGRANGE_4WD | 라운지 패키지,후석 거주성을 높인 라운지 전용 사양,5440000,SINGLE,etc,MULTI
+20380,20002,EV9_GTLINE_LONGRANGE_4WD | 트레일러 패키지,견인 장치 및 트레일러 주행을 위한 전용 사양,1680000,SINGLE,etc,MULTI
+20381,20002,EV9_GTLINE_LONGRANGE_4WD | 캠핑 패키지,야외 활동에 최적화된 캠핑 전용 사양,1380000,SINGLE,etc,MULTI
+20382,20002,EV9_GTLINE_LONGRANGE_4WD | 후석 스마트 엔터테인먼트 시스템,후석 승객을 위한 디스플레이 기반 엔터테인먼트 사양,2770000,SINGLE,assistant,MULTI
+20383,20002,EV9_GTLINE_LONGRANGE_4WD | 사이드 스텝,승하차 편의를 위한 사이드 스텝 장착,540000,SINGLE,etc,MULTI
+20384,20002,EV9_GTLINE_LONGRANGE_4WD | 리버서블 러기지 매트,적재 공간 보호 및 활용도를 높이는 러기지 매트,100000,SINGLE,etc,MULTI
+20385,20002,EV9_GTLINE_LONGRANGE_4WD | 차량 보호 필름 I,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20386,20002,EV9_GTLINE_LONGRANGE_4WD | 차량 보호 필름 II,외장 보호를 위한 차량 전용 보호 필름,520000,SINGLE,etc,MULTI
+20387,20002,EV9_GTLINE_LONGRANGE_4WD | 19인치 휠,"19인치 휠 적용으로 외관 디자인 및 주행 성능 강화",1680000,SINGLE,wheel,MULTI
+20388,20002,EV9_GTLINE_LONGRANGE_4WD | 21인치 휠 I,"21인치 휠 I 적용으로 외관 디자인 및 주행 성능 강화",1380000,SINGLE,wheel,MULTI
+20389,20002,EV9_GTLINE_LONGRANGE_4WD | 21인치 휠 II,"21인치 휠 II 적용으로 외관 디자인 및 주행 성능 강화",1380000,SINGLE,wheel,MULTI
+20390,20002,MORNING_트렌디 | 버튼시동 PACK,"버튼시동 스마트키 시스템(원격시동 포함)
+하이패스 자동결제 시스템",500000,SINGLE,assistant,MULTI
+20391,20002,K5_HYBRID_Prestige | 스타일,"휠/램프 등 스타일 패키지(할인 패키지 아님, 단일 옵션)",1090000,SINGLE,wheel,MULTI
+20392,20002,K5_HYBRID_Prestige | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",990000,SINGLE,assistant,MULTI
+20393,20002,K5_HYBRID_Prestige | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",740000,SINGLE,assistant,MULTI
+20394,20002,K5_HYBRID_Prestige | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",690000,SINGLE,assistant,MULTI
+20395,20002,K5_HYBRID_Prestige | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20396,20002,K5_HYBRID_Prestige | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20397,20002,K5_HYBRID_Prestige | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,890000,SINGLE,etc,MULTI
+20398,20002,K5_HYBRID_Prestige | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20399,20002,K5_HYBRID_Noblesse | 스타일,"휠/램프 등 스타일 패키지(할인 패키지 아님, 단일 옵션)",890000,SINGLE,wheel,MULTI
+20400,20002,K5_HYBRID_Noblesse | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",890000,SINGLE,assistant,MULTI
+20401,20002,K5_HYBRID_Noblesse | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",450000,SINGLE,assistant,MULTI
+20402,20002,K5_HYBRID_Noblesse | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",0,SINGLE,assistant,MULTI
+20403,20002,K5_HYBRID_Noblesse | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20404,20002,K5_HYBRID_Noblesse | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20405,20002,K5_HYBRID_Noblesse | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,300000,SINGLE,etc,MULTI
+20406,20002,K5_HYBRID_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20407,20002,K5_HYBRID_Signature | 스타일,"휠/램프 등 스타일 패키지(할인 패키지 아님, 단일 옵션)",200000,SINGLE,wheel,MULTI
+20408,20002,K5_HYBRID_Signature | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",590000,SINGLE,assistant,MULTI
+20409,20002,K5_HYBRID_Signature | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",0,SINGLE,assistant,MULTI
+20410,20002,K5_HYBRID_Signature | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",0,SINGLE,assistant,MULTI
+20411,20002,K5_HYBRID_Signature | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20412,20002,K5_HYBRID_Signature | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20413,20002,K5_HYBRID_Signature | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,0,SINGLE,etc,MULTI
+20414,20002,K5_HYBRID_Signature | 블랙 핏,블랙 전용 내/외장 디자인 요소,690000,SINGLE,etc,MULTI
+20415,20002,K5_HYBRID_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20416,20002,K5_GASOLINE_Prestige | 스타일,"휠/램프 등 스타일 패키지(할인 패키지 아님, 단일 옵션)",890000,SINGLE,wheel,MULTI
+20417,20002,K5_GASOLINE_Prestige | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",990000,SINGLE,assistant,MULTI
+20418,20002,K5_GASOLINE_Prestige | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",740000,SINGLE,assistant,MULTI
+20419,20002,K5_GASOLINE_Prestige | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",1040000,SINGLE,assistant,MULTI
+20420,20002,K5_GASOLINE_Prestige | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20421,20002,K5_GASOLINE_Prestige | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20422,20002,K5_GASOLINE_Prestige | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,890000,SINGLE,etc,MULTI
+20423,20002,K5_GASOLINE_Prestige | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20424,20002,K5_GASOLINE_Noblesse | 스타일,"휠/램프 등 스타일 패키지(할인 패키지 아님, 단일 옵션)",890000,SINGLE,wheel,MULTI
+20425,20002,K5_GASOLINE_Noblesse | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",890000,SINGLE,assistant,MULTI
+20426,20002,K5_GASOLINE_Noblesse | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",450000,SINGLE,assistant,MULTI
+20427,20002,K5_GASOLINE_Noblesse | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",0,SINGLE,assistant,MULTI
+20428,20002,K5_GASOLINE_Noblesse | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20429,20002,K5_GASOLINE_Noblesse | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20430,20002,K5_GASOLINE_Noblesse | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,300000,SINGLE,etc,MULTI
+20431,20002,K5_GASOLINE_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20432,20002,K5_GASOLINE_Signature | 스타일,"휠/램프 등 스타일 패키지(할인 패키지 아님, 단일 옵션)",0,SINGLE,wheel,MULTI
+20433,20002,K5_GASOLINE_Signature | 컴포트,"시트/편의 사양 중심 컴포트 구성(할인 패키지 아님, 단일 옵션)",590000,SINGLE,assistant,MULTI
+20434,20002,K5_GASOLINE_Signature | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",0,SINGLE,assistant,MULTI
+20435,20002,K5_GASOLINE_Signature | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",0,SINGLE,assistant,MULTI
+20436,20002,K5_GASOLINE_Signature | HUD+빌트인캠2,헤드업 디스플레이 + 빌트인 캠 2 구성,1090000,SINGLE,assistant,MULTI
+20437,20002,K5_GASOLINE_Signature | KRELL 프리미엄 사운드,KRELL 프리미엄 사운드 시스템,590000,SINGLE,etc,MULTI
+20438,20002,K5_GASOLINE_Signature | 스마트커넥트,디지털 키/무선충전/트렁크 등 스마트 편의 구성,0,SINGLE,etc,MULTI
+20439,20002,K5_GASOLINE_Signature | 블랙 핏,블랙 전용 내/외장 디자인 요소,490000,SINGLE,etc,MULTI
+20440,20002,K5_GASOLINE_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20441,20002,K5_GASOLINE_Smart Selection | 12.3인치 클러스터 팩,"12.3인치 클러스터 및 디스플레이/편의 구성",1300000,SINGLE,assistant,MULTI
+20442,20002,K5_GASOLINE_Smart Selection | 드라이브 와이즈,"주행 보조 및 안전 사양 구성(할인 패키지 아님, 단일 옵션)",1140000,SINGLE,assistant,MULTI
+20443,20002,K5_GASOLINE_Smart Selection | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20444,20002,EV9_AIR_STANDARD_2WD | 블랙 인테리어,블랙 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20445,20002,EV9_AIR_STANDARD_2WD | 라이트 그레이 인테리어,라이트 그레이 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20446,20002,EV9_AIR_STANDARD_2WD | 브라운 인테리어,브라운 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20447,20002,EV9_EARTH_STANDARD_2WD | 블랙 인테리어,블랙 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20448,20002,EV9_EARTH_STANDARD_2WD | 라이트 그레이 인테리어,라이트 그레이 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20449,20002,EV9_EARTH_STANDARD_2WD | 브라운 인테리어,브라운 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20450,20002,EV9_AIR_LONGRANGE_2WD | 블랙 인테리어,블랙 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20451,20002,EV9_AIR_LONGRANGE_2WD | 라이트 그레이 인테리어,라이트 그레이 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20452,20002,EV9_AIR_LONGRANGE_2WD | 브라운 인테리어,브라운 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20453,20002,EV9_EARTH_LONGRANGE_2WD | 블랙 인테리어,블랙 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20454,20002,EV9_EARTH_LONGRANGE_2WD | 라이트 그레이 인테리어,라이트 그레이 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20455,20002,EV9_EARTH_LONGRANGE_2WD | 브라운 인테리어,브라운 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20456,20002,EV9_AIR_LONGRANGE_4WD | 블랙 인테리어,블랙 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20457,20002,EV9_AIR_LONGRANGE_4WD | 라이트 그레이 인테리어,라이트 그레이 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20458,20002,EV9_AIR_LONGRANGE_4WD | 브라운 인테리어,브라운 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20459,20002,EV9_EARTH_LONGRANGE_4WD | 블랙 인테리어,블랙 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20460,20002,EV9_EARTH_LONGRANGE_4WD | 라이트 그레이 인테리어,라이트 그레이 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20461,20002,EV9_EARTH_LONGRANGE_4WD | 브라운 인테리어,브라운 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20462,20002,EV9_GTLINE_LONGRANGE_4WD | 블랙&화이트 인테리어,블랙&화이트 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20463,20002,EV9_GTLINE_LONGRANGE_4WD | 네이비 인테리어,네이비 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20464,20002,EV9_GTLINE_LONGRANGE_4WD | 브라운 인테리어,브라운 인테리어 테마의 시트 및 실내 마감 사양,0,SINGLE,interior,SINGLE
+20465,20002,EV9_AIR_STANDARD_2WD | 6인승,"6인승 시트 구성 선택 사양",490000,SINGLE,seats,SINGLE
+20466,20002,EV9_AIR_STANDARD_2WD | 컨비니언스,전동/편의 기능을 포함한 편의 사양 묶음,1090000,SINGLE,assistant,MULTI
+20467,20002,EV9_AIR_STANDARD_2WD | 헤드업 디스플레이,주행 정보를 전면 유리에 투영해 시인성을 높이는 사양,590000,SINGLE,assistant,MULTI
+20468,20002,EV9_AIR_STANDARD_2WD | 스타일,외관 디자인 요소를 강화한 스타일 사양,1480000,SINGLE,etc,MULTI
+20469,20002,EV9_AIR_STANDARD_2WD | 메리디안 프리미엄 사운드,메리디안 프리미엄 오디오 시스템 적용,1190000,SINGLE,etc,MULTI
+20470,20002,EV9_AIR_STANDARD_2WD | 빌트인 캠 2,주행 영상 녹화가 가능한 빌트인 블랙박스 시스템,590000,SINGLE,etc,MULTI
+20471,20002,EV9_AIR_STANDARD_2WD | 듀얼 선루프,개방감을 높여주는 파노라마 글래스 루프,1190000,SINGLE,etc,MULTI
+20472,20002,EV9_AIR_LONGRANGE_2WD | 6인승,"6인승 시트 구성 선택 사양",490000,SINGLE,seats,SINGLE
+20473,20002,EV9_AIR_LONGRANGE_2WD | 컨비니언스,전동/편의 기능을 포함한 편의 사양 묶음,1090000,SINGLE,assistant,MULTI
+20474,20002,EV9_AIR_LONGRANGE_2WD | 헤드업 디스플레이,주행 정보를 전면 유리에 투영해 시인성을 높이는 사양,590000,SINGLE,assistant,MULTI
+20475,20002,EV9_AIR_LONGRANGE_2WD | 스타일,외관 디자인 요소를 강화한 스타일 사양,1480000,SINGLE,etc,MULTI
+20476,20002,EV9_AIR_LONGRANGE_2WD | 메리디안 프리미엄 사운드,메리디안 프리미엄 오디오 시스템 적용,1190000,SINGLE,etc,MULTI
+20477,20002,EV9_AIR_LONGRANGE_2WD | 빌트인 캠 2,주행 영상 녹화가 가능한 빌트인 블랙박스 시스템,590000,SINGLE,etc,MULTI
+20478,20002,EV9_AIR_LONGRANGE_2WD | 듀얼 선루프,개방감을 높여주는 파노라마 글래스 루프,1190000,SINGLE,etc,MULTI
+20479,20002,EV9_AIR_LONGRANGE_2WD | 20인치 휠,"20인치 휠 적용으로 외관 디자인 및 주행 성능 강화",590000,SINGLE,wheel,MULTI
+20480,20002,EV9_EARTH_STANDARD_2WD | 6인승,"6인승 시트 구성 선택 사양",490000,SINGLE,seats,SINGLE
+20481,20002,EV9_EARTH_STANDARD_2WD | 컨비니언스,전동/편의 기능을 포함한 편의 사양 묶음,0,SINGLE,assistant,MULTI
+20482,20002,EV9_EARTH_STANDARD_2WD | 헤드업 디스플레이,주행 정보를 전면 유리에 투영해 시인성을 높이는 사양,0,SINGLE,assistant,MULTI
+20483,20002,EV9_EARTH_STANDARD_2WD | 스타일,외관 디자인 요소를 강화한 스타일 사양,1480000,SINGLE,etc,MULTI
+20484,20002,EV9_EARTH_STANDARD_2WD | 메리디안 프리미엄 사운드,메리디안 프리미엄 오디오 시스템 적용,0,SINGLE,etc,MULTI
+20485,20002,EV9_EARTH_STANDARD_2WD | 빌트인 캠 2,주행 영상 녹화가 가능한 빌트인 블랙박스 시스템,590000,SINGLE,etc,MULTI
+20486,20002,EV9_EARTH_STANDARD_2WD | 듀얼 선루프,개방감을 높여주는 파노라마 글래스 루프,1190000,SINGLE,etc,MULTI
+20487,20002,EV9_EARTH_LONGRANGE_2WD | 6인승,"6인승 시트 구성 선택 사양",490000,SINGLE,seats,SINGLE
+20488,20002,EV9_EARTH_LONGRANGE_2WD | 컨비니언스,전동/편의 기능을 포함한 편의 사양 묶음,0,SINGLE,assistant,MULTI
+20489,20002,EV9_EARTH_LONGRANGE_2WD | 헤드업 디스플레이,주행 정보를 전면 유리에 투영해 시인성을 높이는 사양,0,SINGLE,assistant,MULTI
+20490,20002,EV9_EARTH_LONGRANGE_2WD | 스타일,외관 디자인 요소를 강화한 스타일 사양,1480000,SINGLE,etc,MULTI
+20491,20002,EV9_EARTH_LONGRANGE_2WD | 메리디안 프리미엄 사운드,메리디안 프리미엄 오디오 시스템 적용,0,SINGLE,etc,MULTI
+20492,20002,EV9_EARTH_LONGRANGE_2WD | 빌트인 캠 2,주행 영상 녹화가 가능한 빌트인 블랙박스 시스템,590000,SINGLE,etc,MULTI
+20493,20002,EV9_EARTH_LONGRANGE_2WD | 듀얼 선루프,개방감을 높여주는 파노라마 글래스 루프,1190000,SINGLE,etc,MULTI
+20494,20002,SELTOS_트렌디 | 전자식 4WD,,1780000,SINGLE,assistant,MULTI
+20495,20002,SELTOS_트렌디 | 드라이브 와이즈,,990000,SINGLE,assistant,MULTI
+20496,20002,SELTOS_트렌디 | 컨비니언스,,790000,SINGLE,etc,MULTI
+20497,20002,SELTOS_트렌디 | 10.25 인치 내비게이션,,890000,SINGLE,assistant,MULTI
+20498,20002,SELTOS_프레스티지 | 전자식 4WD,,1780000,SINGLE,assistant,MULTI
+20499,20002,SELTOS_프레스티지 | 드라이브 와이즈,,990000,SINGLE,assistant,MULTI
+20500,20002,SELTOS_프레스티지 | 컨비니언스,,0,SINGLE,etc,MULTI
+20501,20002,SELTOS_프레스티지 | 스타일,,840000,SINGLE,etc,MULTI
+20502,20002,SELTOS_프레스티지 | 10.25 인치 내비게이션,,890000,SINGLE,assistant,MULTI
+20503,20002,SELTOS_프레스티지 | HUD,,540000,SINGLE,assistant,MULTI
+20504,20002,SELTOS_프레스티지 | 스마트 커넥트,,890000,SINGLE,assistant,MULTI
+20505,20002,SELTOS_프레스티지 | 모니터링 팩,,1190000,SINGLE,assistant,MULTI
+20506,20002,SELTOS_시그니처 | 전자식 4WD,,1780000,SINGLE,assistant,MULTI
+20507,20002,SELTOS_시그니처 | 드라이브 와이즈,,990000,SINGLE,assistant,MULTI
+20508,20002,SELTOS_시그니처 | 컨비니언스,,0,SINGLE,etc,MULTI
+20509,20002,SELTOS_시그니처 | 스타일,,0,SINGLE,etc,MULTI
+20510,20002,SELTOS_시그니처 | 컴포트,,590000,SINGLE,etc,MULTI
+20511,20002,SELTOS_시그니처 | 10.25 인치 내비게이션,,0,SINGLE,assistant,MULTI
+20512,20002,SELTOS_시그니처 | HUD,,540000,SINGLE,assistant,MULTI
+20513,20002,SELTOS_시그니처 | 스마트 커넥트,,890000,SINGLE,assistant,MULTI
+20514,20002,SELTOS_시그니처 | 모니터링 팩,,1190000,SINGLE,assistant,MULTI
+20515,20002,SELTOS_시그니처 | Bose 프리미엄 사운드,,590000,SINGLE,interior,SINGLE
+20516,20002,SELTOS_시그니처 | 투톤루프,,300000,SINGLE,etc,MULTI
+20517,20002,K9_33T_Masters_BASIC | 드라이버 컬렉션,"12.3인치 슈퍼비전 클러스터, 운전석 에르고 모션 시트, 익스텐션·볼스터 전동 조절 (기본 적용)",0,SINGLE,etc,MULTI
+20518,20002,K9_33T_Masters | 프리미엄 팩,"퀼팅 나파가죽 시트, 최고급 가죽 내장재, 리얼 우드 내장재, 앰비언트 라이트, 인터랙티브 조명",1380000,SINGLE,interior,MULTI
+20519,20002,K9_33T_Masters | Lexicon 프리미엄 사운드,"17 스피커 및 외장 앰프 포함 프리미엄 오디오 시스템 (마스터즈 적용 가격)",2570000,SINGLE,etc,MULTI
+20802,20002,K8_GASOLINE_2_5_SIGNATURE | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20803,20002,K8_GASOLINE_2_5_SIGNATURE | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20804,20002,K8_GASOLINE_2_5_SIGNATURE | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20805,20002,K8_GASOLINE_2_5_SIGNATURE | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20806,20002,K8_GASOLINE_2_5_SIGNATURE_BLACK | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20807,20002,K8_GASOLINE_2_5_SIGNATURE_BLACK | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20808,20002,K8_GASOLINE_2_5_SIGNATURE_BLACK | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20809,20002,K8_GASOLINE_2_5_SIGNATURE_BLACK | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20810,20002,K8_GASOLINE_3_5_NOBLESSE | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20811,20002,K8_GASOLINE_3_5_NOBLESSE | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20812,20002,K8_GASOLINE_3_5_NOBLESSE | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20813,20002,K8_GASOLINE_3_5_NOBLESSE | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20814,20002,K8_GASOLINE_3_5_SIGNATURE | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20815,20002,K8_GASOLINE_3_5_SIGNATURE | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20816,20002,K8_GASOLINE_3_5_SIGNATURE | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20817,20002,K8_GASOLINE_3_5_SIGNATURE | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20818,20002,K8_GASOLINE_3_5_SIGNATURE_BLACK | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20819,20002,K8_GASOLINE_3_5_SIGNATURE_BLACK | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20820,20002,K8_GASOLINE_3_5_SIGNATURE_BLACK | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20821,20002,K8_GASOLINE_3_5_SIGNATURE_BLACK | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20822,20002,K8_LPG_3_5_NOBLESSE | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20823,20002,K8_LPG_3_5_NOBLESSE | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20824,20002,K8_LPG_3_5_NOBLESSE | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20825,20002,K8_LPG_3_5_NOBLESSE | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20826,20002,SORENTO_HEV4WD_X-Line_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+20827,20002,SORENTO_HEV4WD_X-Line_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+20828,20002,SORENTO_G25T_Prestige | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링 ※ 스타일 선택 시 선택 가능",11100000,SINGLE,etc,MULTI
+20829,20002,SORENTO_G25T_Prestige | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20830,20002,SORENTO_G25T_Prestige | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20831,20002,SORENTO_G25T_Prestige | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20832,20002,SORENTO_G25T_Prestige | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20833,20002,SORENTO_G25T_Noblesse | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링 ※ 스타일 선택 시 선택 가능",11100000,SINGLE,etc,MULTI
+20834,20002,SORENTO_G25T_Noblesse | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20835,20002,SORENTO_G25T_Noblesse | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20836,20002,SORENTO_G25T_Noblesse | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20837,20002,SORENTO_G25T_Noblesse | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20838,20002,SORENTO_G25T_Signature | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20839,20002,SORENTO_G25T_Signature | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20840,20002,SORENTO_G25T_Signature | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20841,20002,SORENTO_G25T_Signature | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20842,20002,SORENTO_G25T_Signature | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20843,20002,SORENTO_G25T_X-Line | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20844,20002,SORENTO_G25T_X-Line | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20845,20002,SORENTO_G25T_X-Line | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20846,20002,SORENTO_G25T_X-Line | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20847,20002,SORENTO_G25T_X-Line | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20520,20002,K9_33T_Masters | VIP 컬렉션,"뒷좌석 파워 시트, 통풍 시트, 전동식 헤드레스트 등 VIP 사양 구성",2470000,SINGLE,interior,MULTI
+20521,20002,K9_33T_BS2_BASIC | 모니터링 팩,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조, 증강현실 내비게이션 (기본 적용)",0,SINGLE,assistant,MULTI
+20522,20002,K9_33T_BS2_BASIC | 컴포트 팩,"인조가죽 감싸기(크래쉬패드·도어트림 상단), 후면 전동 선커튼, 뒷좌석 측면 수동 선커튼 (기본 적용)",0,SINGLE,etc,MULTI
+20523,20002,K9_33T_BS2_BASIC | 헤드업 디스플레이,전면 유리에 주행 정보 투사 표시 (기본 적용),0,SINGLE,etc,MULTI
+20524,20002,K9_33T_BS2_BASIC | AWD,전자식 사륜구동 시스템 (기본 적용),0,SINGLE,etc,MULTI
+20525,20002,K9_33T_BS2_BASIC | 드라이버 컬렉션,"12.3인치 슈퍼비전 클러스터, 운전석 에르고 모션 시트, 익스텐션·볼스터 전동 조절 (기본 적용)",0,SINGLE,etc,MULTI
+20526,20002,K9_33T_BS2_BASIC | 프리미엄 팩,"퀼팅 나파가죽 시트, 최고급 가죽 내장재, 리얼 우드 내장재, 앰비언트 라이트, 인터랙티브 조명 (기본 적용)",0,SINGLE,interior,MULTI
+20527,20002,K9_33T_BS2_BASIC | Lexicon 프리미엄 사운드,"17 스피커 및 외장 앰프 포함 프리미엄 오디오 시스템 (기본 적용)",0,SINGLE,etc,MULTI
+20528,20002,K9_33T_BS2_BASIC | VIP 컬렉션,"뒷좌석 파워 시트, 통풍 시트, 전동식 헤드레스트 등 VIP 사양 구성 (기본 적용)",0,SINGLE,interior,MULTI
+20529,20002,K9_33T_BS2 | 뒷좌석 듀얼 모니터,"뒷좌석 독립 디스플레이 2개, 센터 암레스트 USB 단자 포함",2470000,SINGLE,etc,MULTI
+20530,20002,K9_33T_Platinum | AWD,전자식 사륜구동 시스템,2470000,SINGLE,etc,MULTI
+20531,20002,K9_33T_BS1_BASIC | 모니터링 팩,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조, 증강현실 내비게이션 (기본 적용)",0,SINGLE,assistant,MULTI
+20532,20002,K9_33T_BS1_BASIC | 컴포트 팩,"인조가죽 감싸기(크래쉬패드·도어트림 상단), 후면 전동 선커튼, 뒷좌석 측면 수동 선커튼 (기본 적용)",0,SINGLE,etc,MULTI
+20533,20002,K9_33T_BS1_BASIC | 헤드업 디스플레이,전면 유리에 주행 정보 투사 표시 (기본 적용),0,SINGLE,etc,MULTI
+20534,20002,K9_33T_BS1_BASIC | AWD,전자식 사륜구동 시스템 (기본 적용),0,SINGLE,etc,MULTI
+20535,20002,K9_33T_BS1_BASIC | 드라이버 컬렉션,"12.3인치 슈퍼비전 클러스터, 운전석 에르고 모션 시트, 익스텐션·볼스터 전동 조절 (기본 적용)",0,SINGLE,etc,MULTI
+20536,20002,K9_33T_BS1 | 프리미엄 팩,"퀼팅 나파가죽 시트, 최고급 가죽 내장재, 리얼 우드 내장재, 앰비언트 라이트, 인터랙티브 조명",1380000,SINGLE,interior,MULTI
+20537,20002,K9_33T_BS1 | Lexicon 프리미엄 사운드,"17 스피커 및 외장 앰프 포함 프리미엄 오디오 시스템",3310000,SINGLE,etc,MULTI
+20538,20002,K9_33T_BS1 | VIP 컬렉션,"뒷좌석 파워 시트, 통풍 시트, 전동식 헤드레스트 등 VIP 사양 구성",2470000,SINGLE,interior,MULTI
+20539,20002,K9_33T_Masters_BASIC | 모니터링 팩,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조, 증강현실 내비게이션 (기본 적용)",0,SINGLE,assistant,MULTI
+20540,20002,K9_33T_Masters_BASIC | 컴포트 팩,"인조가죽 감싸기(크래쉬패드·도어트림 상단), 후면 전동 선커튼, 뒷좌석 측면 수동 선커튼 (기본 적용)",0,SINGLE,etc,MULTI
+20541,20002,K9_33T_Masters_BASIC | 헤드업 디스플레이,전면 유리에 주행 정보 투사 표시 (기본 적용),0,SINGLE,etc,MULTI
+20542,20002,K9_33T_Masters_BASIC | AWD,전자식 사륜구동 시스템 (기본 적용),0,SINGLE,etc,MULTI
+20543,20002,NIRO_HYBRID_Trendy_INTERIOR | 차콜 인테리어,차콜 인테리어 색상 선택,0,SINGLE,interior,SINGLE
+20544,20002,NIRO_HYBRID_Prestige_INTERIOR | 차콜 인테리어,차콜 인테리어 색상 선택,0,SINGLE,interior,SINGLE
+20545,20002,NIRO_HYBRID_Prestige_INTERIOR | 미디움 그레이 인테리어,미디움 그레이 인테리어 색상 선택,0,SINGLE,interior,SINGLE
+20546,20002,NIRO_HYBRID_Best Selection_INTERIOR | 차콜 인테리어,차콜 인테리어 색상 선택,0,SINGLE,interior,SINGLE
+20547,20002,NIRO_HYBRID_Best Selection_INTERIOR | 미디움 그레이 인테리어,미디움 그레이 인테리어 색상 선택,0,SINGLE,interior,SINGLE
+20548,20002,NIRO_HYBRID_Signature_INTERIOR | 차콜 인테리어,차콜 인테리어 색상 선택,0,SINGLE,interior,SINGLE
+20549,20002,NIRO_HYBRID_Signature_INTERIOR | 미디움 그레이 인테리어,미디움 그레이 인테리어 색상 선택,0,SINGLE,interior,SINGLE
+20550,20002,NIRO_HYBRID_Signature_INTERIOR | 페트롤 인테리어,페트롤 인테리어 색상 선택,0,SINGLE,interior,SINGLE
+20551,20002,NIRO_HYBRID_Trendy | 컨비니언스,"버튼시동 스마트키 시스템(원격시동 포함), 도어손잡이 조명(프론트), 1열 열선시트, 열선 스티어링 휠, 인조가죽 스티어링 휠, 가죽 변속기 노브",540000,SINGLE,etc,MULTI
+20552,20002,NIRO_HYBRID_Trendy | 드라이브 와이즈,"전방 충돌방지 보조(교차로 대향차), 스마트 크루즈 컨트롤(정차 및 재출발 포함), 후측방 충돌 경고/방지(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 보조, 전자식 차일드락",940000,SINGLE,assistant,MULTI
+20553,20002,NIRO_HYBRID_Trendy | 스타일,"225/45R18 타이어&전면가공 휠, 프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널, LED 후진등, LED 포그램프, 블랙 유광 휠아치&사이드 가니쉬",990000,SINGLE,wheel,MULTI
+20554,20002,NIRO_HYBRID_Trendy | 내비게이션,"10.25인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트",840000,SINGLE,etc,MULTI
+20555,20002,NIRO_HYBRID_Prestige_BASIC | 컨비니언스,"버튼시동 스마트키 시스템(원격시동 포함), 도어손잡이 조명(프론트), 1열 열선시트, 열선 스티어링 휠, 인조가죽 스티어링 휠, 가죽 변속기 노브 (기본 적용)",0,SINGLE,etc,MULTI
+20556,20002,NIRO_HYBRID_Prestige | 드라이브 와이즈,"전방 충돌방지 보조(교차로 대향차), 스마트 크루즈 컨트롤(정차 및 재출발 포함), 후측방 충돌 경고/방지(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 보조, 전자식 차일드락",940000,SINGLE,assistant,MULTI
+20557,20002,NIRO_HYBRID_Prestige | 스타일,"225/45R18 타이어&전면가공 휠, 프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널, LED 후진등, LED 포그램프, 블랙 유광 휠아치&사이드 가니쉬",990000,SINGLE,wheel,MULTI
+20558,20002,NIRO_HYBRID_Prestige | 내비게이션,"10.25인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트",840000,SINGLE,etc,MULTI
+20559,20002,NIRO_HYBRID_Prestige | 컴포트,"운전자세 메모리(운전석 시트/미러), 운전석 이지억세스, 후진연동 자동하향 미러, 가죽시트, 동승석 파워/릴렉션 컴포트/허리지지대, 동승석·2열 세이프티 파워윈도우, 스웨이드 내장재",890000,SINGLE,interior,MULTI
+20560,20002,NIRO_HYBRID_Prestige | 선루프 + LED 실내등,선루프 및 LED 실내등(맵램프/룸램프/러기지램프) 적용,590000,SINGLE,etc,MULTI
+20561,20002,NIRO_HYBRID_Prestige | 스마트 엣지 팩,C필러 칼라 가니쉬(스마트 엣지 팩),400000,SINGLE,etc,MULTI
+20562,20002,NIRO_HYBRID_Prestige | 스마트 커넥트,"기아 디지털 키 2 터치, 크롬&터치타입 아웃사이드 도어핸들, 빌트인 캠, 보조배터리",590000,SINGLE,etc,MULTI
+20563,20002,NIRO_HYBRID_Prestige | 하만카돈 사운드,"하만카돈 프리미엄 사운드(8스피커, 외장앰프)",890000,SINGLE,etc,MULTI
+20564,20002,NIRO_HYBRID_Prestige | 하이테크,"슈퍼비전 클러스터(10.25인치 칼라 TFT LCD/테마형 클러스터 기능 지원), 220V 인버터",450000,SINGLE,etc,MULTI
+20565,20002,NIRO_HYBRID_Best Selection_BASIC | 컨비니언스,"버튼시동 스마트키 시스템(원격시동 포함), 도어손잡이 조명(프론트), 1열 열선시트, 열선 스티어링 휠, 인조가죽 스티어링 휠, 가죽 변속기 노브 (기본 적용)",0,SINGLE,etc,MULTI
+20566,20002,NIRO_HYBRID_Best Selection_BASIC | 드라이브 와이즈,"전방 충돌방지 보조(교차로 대향차), 스마트 크루즈 컨트롤(정차 및 재출발 포함), 후측방 충돌 경고/방지(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 보조, 전자식 차일드락 (기본 적용)",0,SINGLE,assistant,MULTI
+20567,20002,NIRO_HYBRID_Best Selection | 내비게이션,"10.25인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트",840000,SINGLE,etc,MULTI
+20568,20002,NIRO_HYBRID_Best Selection | 컴포트,"운전자세 메모리(운전석 시트/미러), 운전석 이지억세스, 후진연동 자동하향 미러, 가죽시트, 동승석 파워/릴렉션 컴포트/허리지지대, 동승석·2열 세이프티 파워윈도우, 스웨이드 내장재",890000,SINGLE,interior,MULTI
+20569,20002,NIRO_HYBRID_Best Selection | 선루프 + LED 실내등,선루프 및 LED 실내등(맵램프/룸램프/러기지램프) 적용,590000,SINGLE,etc,MULTI
+20570,20002,NIRO_HYBRID_Best Selection | 스마트 엣지 팩,C필러 칼라 가니쉬(스마트 엣지 팩),400000,SINGLE,etc,MULTI
+20571,20002,NIRO_HYBRID_Best Selection | 스마트 커넥트,"기아 디지털 키 2 터치, 크롬&터치타입 아웃사이드 도어핸들, 빌트인 캠, 보조배터리",590000,SINGLE,etc,MULTI
+20572,20002,NIRO_HYBRID_Best Selection | 하만카돈 사운드,"하만카돈 프리미엄 사운드(8스피커, 외장앰프)",890000,SINGLE,etc,MULTI
+20573,20002,NIRO_HYBRID_Best Selection | 하이테크,"슈퍼비전 클러스터(10.25인치 칼라 TFT LCD/테마형 클러스터 기능 지원), 220V 인버터",450000,SINGLE,etc,MULTI
+20574,20002,NIRO_HYBRID_Signature_BASIC | 컨비니언스,"버튼시동 스마트키 시스템(원격시동 포함), 도어손잡이 조명(프론트), 1열 열선시트, 열선 스티어링 휠, 인조가죽 스티어링 휠, 가죽 변속기 노브 (기본 적용)",0,SINGLE,etc,MULTI
+20575,20002,NIRO_HYBRID_Signature_BASIC | 드라이브 와이즈,"전방 충돌방지 보조(교차로 대향차), 스마트 크루즈 컨트롤(정차 및 재출발 포함), 후측방 충돌 경고/방지(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 보조, 전자식 차일드락 (기본 적용)",0,SINGLE,assistant,MULTI
+20576,20002,NIRO_HYBRID_Signature_BASIC | 스타일,"225/45R18 타이어&전면가공 휠, 프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널, LED 후진등, LED 포그램프, 블랙 유광 휠아치&사이드 가니쉬 (기본 적용)",0,SINGLE,wheel,MULTI
+20577,20002,NIRO_EV_EARTH | 드라이브 와이즈,"전방 충돌방지 보조(교차 차량, 추월 시 대향차, 측방 접근차, 회피 조향 보조 기능 포함), 내비게이션 기반 스마트 크루즈 컨트롤(진출입로), 고속도로 주행 보조 2(차로변경 보조 기능 포함), 후측방 충돌방지 보조(주행)",0,SINGLE,assistant,MULTI
+20578,20002,NIRO_EV_EARTH | 원격 스마트 주차 보조,"원격 스마트 주차 보조, 후방 주차 충돌방지 보조",300000,SINGLE,assistant,MULTI
+20579,20002,NIRO_EV_EARTH | 스타일,"프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널 램프, LED 후진등, LED 포그램프, 블랙 유광 휠아치&사이드 가니쉬, 루프랙",0,SINGLE,etc,MULTI
+20580,20002,NIRO_EV_EARTH | 스마트 커넥트,"기아 디지털 키 2 터치, 크롬&터치 타입 아웃사이드 도어핸들, 빌트인 캠, 보조배터리",890000,SINGLE,etc,MULTI
+20581,20002,NIRO_EV_EARTH | 하만카돈 사운드,"하만카돈 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+20582,20002,NIRO_EV_EARTH | 하이테크,스마트 파워테일게이트,0,SINGLE,etc,MULTI
+20583,20002,NIRO_EV_EARTH | HUD,헤드업 디스플레이,590000,SINGLE,assistant,MULTI
+20584,20002,NIRO_EV_EARTH | 컴포트,"스웨이드 내장재(헤드라이닝, 필라트림, 선바이저), 2열 이중접합 차음 글라스",250000,SINGLE,interior,MULTI
+20585,20002,NIRO_EV_EARTH | 선루프+LED실내등,선루프 + LED 실내등(패키지 표기),450000,SINGLE,etc,MULTI
+20586,20002,NIRO_EV_EARTH | 엣지 팩,C필러 칼라 가니쉬(엣지 팩 선택 시 적용),200000,SINGLE,etc,MULTI
+20587,20002,INTERIOR_RAY_EV_블랙,블랙 인테리어,0,SINGLE,interior,SINGLE
+20588,20002,INTERIOR_RAY_EV_라이트그레이,라이트 그레이 인테리어,0,SINGLE,interior,SINGLE
+20589,20002,RAY_EV_PASSENGER_4_LIGHT | 스타일,"14인치 알로이 휠, 프로젝션 헤드램프, LED 주간 주행등, LED 리어 콤비네이션램프, LED 보조제동등 ※ 버튼시동 스마트키 적용 시 선택 가능",600000,SINGLE,etc,MULTI
+20590,20002,RAY_EV_PASSENGER_4_LIGHT | 컴포트 I,"인조가죽시트, 앞좌석 열선시트, 운전석 통풍시트, 운전석 풀 폴딩시트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 운전석 시트백 포켓 ※ 버튼시동 스마트키 적용 시 선택 가능",600000,SINGLE,interior,MULTI
+20591,20002,RAY_EV_PASSENGER_4_LIGHT | 컴포트 II,"뒷좌석 열선시트, 뒷좌석 슬라이딩 6:4 폴딩시트, 고급형 센터 콘솔, 운전석 세이프티 파워윈도우, 뒷좌석 C타입 USB 단자(충전용), 러기지 보드, 러기지 언더트레이 (컴포트 I 적용 시 선택가능) ※ 버튼시동 스마트키 적용 시 선택 가능",450000,SINGLE,interior,MULTI
+20592,20002,RAY_EV_PASSENGER_4_LIGHT | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 (컴포트 I 적용 시 선택가능) ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20593,20002,RAY_EV_PASSENGER_4_AIR | 스타일,"14인치 알로이 휠, 프로젝션 헤드램프, LED 주간 주행등, LED 리어 콤비네이션램프, LED 보조제동등 ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,etc,MULTI
+20594,20002,RAY_EV_PASSENGER_4_AIR | 컴포트 I,"인조가죽시트, 앞좌석 열선시트, 운전석 통풍시트, 운전석 풀 폴딩시트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 운전석 시트백 포켓 ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,interior,MULTI
+20595,20002,RAY_EV_PASSENGER_4_AIR | 컴포트 II,"뒷좌석 열선시트, 뒷좌석 슬라이딩 6:4 폴딩시트, 고급형 센터 콘솔, 운전석 세이프티 파워윈도우, 뒷좌석 C타입 USB 단자(충전용), 러기지 보드, 러기지 언더트레이 ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,interior,MULTI
+20596,20002,RAY_EV_PASSENGER_4_AIR | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,assistant,MULTI
+20597,20002,RAY_EV_VAN_2_LIGHT | 컴포트 I,"라이트 2인승 인조가죽시트, 앞좌석 열선시트, 운전석 시트 암레스트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 뒷유리 와이퍼&와셔 노즐 ※ 버튼시동 스마트키 적용 시 선택 가능",400000,SINGLE,interior,MULTI
+20598,20002,RAY_EV_VAN_2_LIGHT | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20599,20002,RAY_EV_VAN_2_AIR | 컴포트 I,"가죽 스티어링 휠(블랙 하이그로시 가니쉬 포함), 인조가죽시트, 앞좌석 열선시트, 운전석 시트 암레스트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 열선 스티어링 휠, 뒷유리 와이퍼&와셔 노즐 (에어 기본 품목 반영) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,interior,MULTI
+20600,20002,RAY_EV_VAN_2_AIR | 컴포트 II,"에어 2인승 운전석 통풍시트, 운전석 풀 폴딩 시트 ※ 버튼시동 스마트키 적용 시 선택 가능",250000,SINGLE,interior,MULTI
+20601,20002,RAY_EV_VAN_2_AIR | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20602,20002,RAY_EV_VAN_1_LIGHT | 컴포트 I,"라이트 1인승 인조가죽시트, 운전석 열선시트, 운전석 시트 암레스트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 뒷유리 와이퍼&와셔 노즐 ※ 버튼시동 스마트키 적용 시 선택 가능",350000,SINGLE,interior,MULTI
+20603,20002,RAY_EV_VAN_1_LIGHT | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20604,20002,RAY_EV_VAN_1_AIR | 컴포트 I,"가죽 스티어링 휠(블랙 하이그로시 가니쉬 포함), 인조가죽시트, 운전석 열선시트, 운전석 시트 암레스트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 열선 스티어링 휠, 뒷유리 와이퍼&와셔 노즐 (에어 기본 품목 반영) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,interior,MULTI
+20605,20002,RAY_EV_VAN_1_AIR | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20606,20002,K9_COMMON | 선루프,"전동식 글래스 선루프, 차광 기능 포함",790000,SINGLE,etc,MULTI
+20607,20002,K9_COMMON | 빌트인캠,"전·후방 주행 영상 녹화, 음성 녹음 및 주차 중 녹화 지원",740000,SINGLE,etc,MULTI
+20608,20002,K9_38_Platinum | 모니터링 팩,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조, 증강현실 내비게이션",1780000,SINGLE,assistant,MULTI
+20609,20002,K9_38_Platinum | 컴포트 팩,"인조가죽 감싸기(크래쉬패드·도어트림 상단), 후면 전동 선커튼, 뒷좌석 측면 수동 선커튼",1190000,SINGLE,etc,MULTI
+20610,20002,K9_38_Platinum | 19인치 휠&타이어,"앞 245/45 R19, 뒤 275/40 R19 외산 타이어 및 다크 스퍼터링 휠",790000,SINGLE,wheel,MULTI
+20611,20002,K9_38_Platinum | 헤드업 디스플레이,전면 유리에 주행 정보 투사 표시,1190000,SINGLE,etc,MULTI
+20612,20002,K9_38_Platinum | AWD,전자식 사륜구동 시스템,2470000,SINGLE,etc,MULTI
+20613,20002,K9_38_BS1_BASIC | 모니터링 팩,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조, 증강현실 내비게이션 (기본 적용)",0,SINGLE,assistant,MULTI
+20614,20002,K9_38_BS1_BASIC | 컴포트 팩,"인조가죽 감싸기(크래쉬패드·도어트림 상단), 후면 전동 선커튼, 뒷좌석 측면 수동 선커튼 (기본 적용)",0,SINGLE,etc,MULTI
+20615,20002,K9_38_BS1_BASIC | 19인치 휠&타이어,"앞 245/45 R19, 뒤 275/40 R19 외산 타이어 및 다크 스퍼터링 휠 (기본 적용)",0,SINGLE,wheel,MULTI
+20616,20002,K9_38_BS1_BASIC | 헤드업 디스플레이,전면 유리에 주행 정보 투사 표시 (기본 적용),0,SINGLE,etc,MULTI
+20617,20002,K9_38_BS1_BASIC | AWD,전자식 사륜구동 시스템 (기본 적용),0,SINGLE,etc,MULTI
+20618,20002,K9_38_BS1_BASIC | 프리뷰 전자제어 서스펜션,전방 노면 정보 기반 감쇠력 제어 서스펜션 (기본 적용),0,SINGLE,etc,MULTI
+20619,20002,K9_38_BS1 | 드라이버 컬렉션,"12.3인치 슈퍼비전 클러스터, 운전석 에르고 모션 시트, 익스텐션·볼스터 전동 조절",3260000,SINGLE,etc,MULTI
+20620,20002,K9_38_BS1 | 프리미엄 팩,"퀼팅 나파가죽 시트, 최고급 가죽 내장재, 리얼 우드 내장재, 앰비언트 라이트, 인터랙티브 조명",1380000,SINGLE,interior,MULTI
+20621,20002,K9_38_BS1 | Lexicon 프리미엄 사운드,"17 스피커 및 외장 앰프 포함 프리미엄 오디오 시스템",3310000,SINGLE,etc,MULTI
+20622,20002,K9_38_BS1 | VIP 컬렉션,"뒷좌석 파워 시트, 통풍 시트, 전동식 헤드레스트 등 VIP 사양 구성",990000,SINGLE,interior,MULTI
+20623,20002,K9_38_BS1 | 뒷좌석 듀얼 모니터,"뒷좌석 독립 디스플레이 2개, 센터 암레스트 USB 단자 포함",2470000,SINGLE,etc,MULTI
+20624,20002,K9_38_Masters_BASIC | 모니터링 팩,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조, 증강현실 내비게이션 (기본 적용)",0,SINGLE,assistant,MULTI
+20625,20002,K9_38_Masters_BASIC | 컴포트 팩,"인조가죽 감싸기(크래쉬패드·도어트림 상단), 후면 전동 선커튼, 뒷좌석 측면 수동 선커튼 (기본 적용)",0,SINGLE,etc,MULTI
+20626,20002,K9_38_Masters_BASIC | 19인치 휠&타이어,"앞 245/45 R19, 뒤 275/40 R19 외산 타이어 및 다크 스퍼터링 휠 (기본 적용)",0,SINGLE,wheel,MULTI
+20627,20002,K9_38_Masters_BASIC | 헤드업 디스플레이,전면 유리에 주행 정보 투사 표시 (기본 적용),0,SINGLE,etc,MULTI
+20628,20002,K9_38_Masters_BASIC | AWD,전자식 사륜구동 시스템 (기본 적용),0,SINGLE,etc,MULTI
+20629,20002,K9_38_Masters_BASIC | 프리뷰 전자제어 서스펜션,전방 노면 정보 기반 감쇠력 제어 서스펜션 (기본 적용),0,SINGLE,etc,MULTI
+20630,20002,K9_38_Masters_BASIC | VIP 컬렉션,"뒷좌석 파워 시트, 통풍 시트, 전동식 헤드레스트 등 VIP 사양 구성 (기본 적용)",0,SINGLE,interior,MULTI
+20631,20002,K9_38_Masters | 드라이버 컬렉션,"12.3인치 슈퍼비전 클러스터, 운전석 에르고 모션 시트, 익스텐션·볼스터 전동 조절",3260000,SINGLE,etc,MULTI
+20632,20002,K9_38_Masters | 프리미엄 팩,"퀼팅 나파가죽 시트, 최고급 가죽 내장재, 리얼 우드 내장재, 앰비언트 라이트, 인터랙티브 조명",1380000,SINGLE,interior,MULTI
+20633,20002,K9_38_Masters | Lexicon 프리미엄 사운드,"17 스피커 및 외장 앰프 포함 프리미엄 오디오 시스템 (마스터즈 적용 가격)",2570000,SINGLE,etc,MULTI
+20634,20002,K9_38_Masters | 뒷좌석 듀얼 모니터,"뒷좌석 독립 디스플레이 2개, 센터 암레스트 USB 단자 포함",2470000,SINGLE,etc,MULTI
+20635,20002,K9_38_BS2_BASIC | 모니터링 팩,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조, 증강현실 내비게이션 (기본 적용)",0,SINGLE,assistant,MULTI
+20636,20002,K9_38_BS2_BASIC | 컴포트 팩,"인조가죽 감싸기(크래쉬패드·도어트림 상단), 후면 전동 선커튼, 뒷좌석 측면 수동 선커튼 (기본 적용)",0,SINGLE,etc,MULTI
+20637,20002,K9_38_BS2_BASIC | 19인치 휠&타이어,"앞 245/45 R19, 뒤 275/40 R19 외산 타이어 및 다크 스퍼터링 휠 (기본 적용)",0,SINGLE,wheel,MULTI
+20638,20002,K9_38_BS2_BASIC | 헤드업 디스플레이,전면 유리에 주행 정보 투사 표시 (기본 적용),0,SINGLE,etc,MULTI
+20639,20002,K9_38_BS2_BASIC | AWD,전자식 사륜구동 시스템 (기본 적용),0,SINGLE,etc,MULTI
+20640,20002,K9_38_BS2_BASIC | 드라이버 컬렉션,"12.3인치 슈퍼비전 클러스터, 운전석 에르고 모션 시트, 익스텐션·볼스터 전동 조절 (기본 적용)",0,SINGLE,etc,MULTI
+20641,20002,K9_38_BS2_BASIC | 프리미엄 팩,"퀼팅 나파가죽 시트, 최고급 가죽 내장재, 리얼 우드 내장재, 앰비언트 라이트, 인터랙티브 조명 (기본 적용)",0,SINGLE,interior,MULTI
+20642,20002,K9_38_BS2_BASIC | Lexicon 프리미엄 사운드,"17 스피커 및 외장 앰프 포함 프리미엄 오디오 시스템 (기본 적용)",0,SINGLE,etc,MULTI
+20643,20002,K9_38_BS2_BASIC | VIP 컬렉션,"뒷좌석 파워 시트, 통풍 시트, 전동식 헤드레스트 등 VIP 사양 구성 (기본 적용)",0,SINGLE,interior,MULTI
+20644,20002,K9_38_BS2_BASIC | 프리뷰 전자제어 서스펜션,전방 노면 정보 기반 감쇠력 제어 서스펜션 (기본 적용),0,SINGLE,etc,MULTI
+20645,20002,K9_38_BS2 | 뒷좌석 듀얼 모니터,"뒷좌석 독립 디스플레이 2개, 센터 암레스트 USB 단자 포함",2470000,SINGLE,etc,MULTI
+20646,20002,K9_33T_Platinum | 모니터링 팩,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조, 증강현실 내비게이션",1780000,SINGLE,assistant,MULTI
+20647,20002,K9_33T_Platinum | 컴포트 팩,"인조가죽 감싸기(크래쉬패드·도어트림 상단), 후면 전동 선커튼, 뒷좌석 측면 수동 선커튼",1190000,SINGLE,etc,MULTI
+20648,20002,K9_33T_Platinum | 헤드업 디스플레이,전면 유리에 주행 정보 투사 표시,1190000,SINGLE,etc,MULTI
+20649,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 파노라마 선루프,대형 글라스 루프를 적용한 파노라마 선루프 옵션.,1090000,SINGLE,etc,MULTI
+20650,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 스타일,외장/내장 디자인 요소를 강화하는 스타일 패키지 옵션.,1190000,SINGLE,etc,MULTI
+20651,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 프리미엄,편의/고급 사양을 강화하는 프리미엄 패키지 옵션.,1090000,SINGLE,etc,MULTI
+20652,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 헤드업 디스플레이,주행 정보를 전면 유리에 표시하는 헤드업 디스플레이(HUD) 옵션.,840000,SINGLE,etc,MULTI
+20653,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 드라이브 와이즈,스마트크루즈/충돌방지 등 첨단 운전자 보조(ADAS) 기능 중심의 패키지 옵션.,540000,SINGLE,assistant,MULTI
+20654,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 메리디안 프리미엄 사운드,프리미엄 사운드(메리디안) 시스템 관련 패키지 옵션.,1090000,SINGLE,etc,MULTI
+20655,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 스마트 커넥트,빌트인캠/증강현실 내비 등 커넥티비티·인포테인먼트 관련 패키지 옵션.,690000,SINGLE,etc,MULTI
+20656,20002,K8_TURBO_HYBRID_SIGNATURE | 파노라마 선루프,대형 글라스 루프를 적용한 파노라마 선루프 옵션.,1090000,SINGLE,etc,MULTI
+20657,20002,K8_TURBO_HYBRID_SIGNATURE | 헤드업 디스플레이,주행 정보를 전면 유리에 표시하는 헤드업 디스플레이(HUD) 옵션.,840000,SINGLE,etc,MULTI
+20658,20002,K8_TURBO_HYBRID_SIGNATURE | 프리뷰 전자제어 서스펜션 I,노면/주행 상황에 따라 승차감을 보조하는 전자제어 서스펜션(프리뷰) 패키지 옵션.,1090000,SINGLE,etc,MULTI
+20659,20002,K8_TURBO_HYBRID_SIGNATURE | 메리디안 프리미엄 사운드,프리미엄 사운드(메리디안) 시스템 관련 패키지 옵션.,0,SINGLE,etc,MULTI
+20660,20002,K8_TURBO_HYBRID_SIGNATURE | 프리미엄,편의/고급 사양을 강화하는 프리미엄 패키지 옵션.,0,SINGLE,etc,MULTI
+20661,20002,K8_TURBO_HYBRID_SIGNATURE | 스마트 커넥트,빌트인캠/증강현실 내비 등 커넥티비티·인포테인먼트 관련 패키지 옵션.,0,SINGLE,etc,MULTI
+20662,20002,K8_TURBO_HYBRID_SIGNATURE | 드라이브 와이즈,스마트크루즈/충돌방지 등 첨단 운전자 보조(ADAS) 기능 중심의 패키지 옵션.,0,SINGLE,assistant,MULTI
+20663,20002,K8_TURBO_HYBRID_SIGNATURE | 스타일,외장/내장 디자인 요소를 강화하는 스타일 패키지 옵션.,1090000,SINGLE,etc,MULTI
+20664,20002,K8_GASOLINE_2_5_SIGNATURE | 파노라마 선루프,대형 글라스 루프를 적용한 파노라마 선루프 옵션.,1090000,SINGLE,etc,MULTI
+20665,20002,K8_GASOLINE_2_5_SIGNATURE | 헤드업 디스플레이,주행 정보를 전면 유리에 표시하는 헤드업 디스플레이(HUD) 옵션.,840000,SINGLE,etc,MULTI
+20848,20002,SORENTO_D22_Prestige | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링 ※ 스타일 선택 시 선택 가능",11100000,SINGLE,etc,MULTI
+20666,20002,K8_GASOLINE_2_5_SIGNATURE | 프리뷰 전자제어 서스펜션 I,노면/주행 상황에 따라 승차감을 보조하는 전자제어 서스펜션(프리뷰) 패키지 옵션.,1090000,SINGLE,etc,MULTI
+20667,20002,K8_GASOLINE_2_5_SIGNATURE | 메리디안 프리미엄 사운드,프리미엄 사운드(메리디안) 시스템 관련 패키지 옵션.,1290000,SINGLE,etc,MULTI
+20668,20002,K8_GASOLINE_2_5_SIGNATURE | 스타일,외장/내장 디자인 요소를 강화하는 스타일 패키지 옵션.,0,SINGLE,etc,MULTI
+20669,20002,K8_GASOLINE_2_5_SIGNATURE | 스마트 커넥트,빌트인캠/증강현실 내비 등 커넥티비티·인포테인먼트 관련 패키지 옵션.,0,SINGLE,etc,MULTI
+20670,20002,K8_GASOLINE_2_5_SIGNATURE | 드라이브 와이즈,스마트크루즈/충돌방지 등 첨단 운전자 보조(ADAS) 기능 중심의 패키지 옵션.,0,SINGLE,assistant,MULTI
+20671,20002,K8_GASOLINE_2_5_SIGNATURE | 프리미엄,편의/고급 사양을 강화하는 프리미엄 패키지 옵션.,1090000,SINGLE,etc,MULTI
+20672,20002,K8_GASOLINE_3_5_SIGNATURE | 파노라마 선루프,대형 글라스 루프를 적용한 파노라마 선루프 옵션.,1090000,SINGLE,etc,MULTI
+20673,20002,K8_GASOLINE_3_5_SIGNATURE | 헤드업 디스플레이,주행 정보를 전면 유리에 표시하는 헤드업 디스플레이(HUD) 옵션.,840000,SINGLE,etc,MULTI
+20674,20002,K8_GASOLINE_3_5_SIGNATURE | 프리뷰 전자제어 서스펜션 I,노면/주행 상황에 따라 승차감을 보조하는 전자제어 서스펜션(프리뷰) 패키지 옵션.,1090000,SINGLE,etc,MULTI
+20675,20002,K8_GASOLINE_3_5_SIGNATURE | 메리디안 프리미엄 사운드,프리미엄 사운드(메리디안) 시스템 관련 패키지 옵션.,1290000,SINGLE,etc,MULTI
+20676,20002,K8_GASOLINE_3_5_SIGNATURE | 스타일,외장/내장 디자인 요소를 강화하는 스타일 패키지 옵션.,0,SINGLE,etc,MULTI
+20677,20002,K8_GASOLINE_3_5_SIGNATURE | 프리미엄,편의/고급 사양을 강화하는 프리미엄 패키지 옵션.,2180000,SINGLE,etc,MULTI
+20678,20002,K8_GASOLINE_3_5_SIGNATURE | 드라이브 와이즈,스마트크루즈/충돌방지 등 첨단 운전자 보조(ADAS) 기능 중심의 패키지 옵션.,0,SINGLE,assistant,MULTI
+20679,20002,K8_GASOLINE_3_5_SIGNATURE | 스마트 커넥트,빌트인캠/증강현실 내비 등 커넥티비티·인포테인먼트 관련 패키지 옵션.,2180000,SINGLE,etc,MULTI
+20680,20002,K8_TURBO_HYBRID_NOBLESSE | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20681,20002,K8_TURBO_HYBRID_NOBLESSE | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20682,20002,K8_TURBO_HYBRID_NOBLESSE | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20683,20002,K8_TURBO_HYBRID_NOBLESSE | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20684,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20685,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20686,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20687,20002,K8_TURBO_HYBRID_NOBLESSE_LIGHT | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20688,20002,K8_TURBO_HYBRID_SIGNATURE | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20689,20002,K8_TURBO_HYBRID_SIGNATURE | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20690,20002,K8_TURBO_HYBRID_SIGNATURE | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20691,20002,CARNIVAL_Prestige_9 | 컨비니언스,,1100000,SINGLE,etc,MULTI
+20692,20002,CARNIVAL_Prestige_9 | 스타일,,1000000,SINGLE,etc,MULTI
+20693,20002,CARNIVAL_Prestige_9 | 12.3인치 클러스터,,600000,SINGLE,interior,MULTI
+20694,20002,CARNIVAL_Prestige_9 | 드라이브 와이즈,,1200000,SINGLE,assistant,MULTI
+20695,20002,CARNIVAL_Prestige_9 | 모니터링 팩,,900000,SINGLE,assistant,MULTI
+20696,20002,CARNIVAL_Noblesse_9 | 컨비니언스,,0,SINGLE,etc,MULTI
+20697,20002,CARNIVAL_Noblesse_9 | 스타일,,1000000,SINGLE,etc,MULTI
+20698,20002,CARNIVAL_Noblesse_9 | 컴포트,,1400000,SINGLE,etc,MULTI
+20699,20002,CARNIVAL_Noblesse_9 | 스마트 커넥트,,750000,SINGLE,etc,MULTI
+20700,20002,CARNIVAL_Noblesse_9 | 12.3인치 클러스터,,0,SINGLE,interior,MULTI
+20701,20002,CARNIVAL_Noblesse_9 | 드라이브 와이즈,,750000,SINGLE,assistant,MULTI
+20702,20002,CARNIVAL_Noblesse_9 | 모니터링 팩,,1200000,SINGLE,assistant,MULTI
+20703,20002,CARNIVAL_Noblesse_9 | HUD + 빌트인 캠 2,,1200000,SINGLE,interior,MULTI
+20704,20002,CARNIVAL_Noblesse_9 | 듀얼 선루프,,800000,SINGLE,etc,MULTI
+20705,20002,CARNIVAL_Signature_9 | 컨비니언스,,0,SINGLE,etc,MULTI
+20706,20002,CARNIVAL_Signature_9 | 스타일,,700000,SINGLE,etc,MULTI
+20707,20002,CARNIVAL_Signature_9 | 컴포트,,1400000,SINGLE,etc,MULTI
+20708,20002,CARNIVAL_Signature_9 | 스마트 커넥트,,750000,SINGLE,etc,MULTI
+20709,20002,CARNIVAL_Signature_9 | 12.3인치 클러스터,,0,SINGLE,interior,MULTI
+20710,20002,CARNIVAL_Signature_9 | 드라이브 와이즈,,750000,SINGLE,assistant,MULTI
+20711,20002,CARNIVAL_Signature_9 | 모니터링 팩,,1200000,SINGLE,assistant,MULTI
+20712,20002,CARNIVAL_Signature_9 | HUD + 빌트인 캠 2,,1200000,SINGLE,interior,MULTI
+20713,20002,CARNIVAL_Signature_9 | BOSE 프리미엄 사운드,,900000,SINGLE,etc,MULTI
+20714,20002,CARNIVAL_Signature_9 | 듀얼 선루프,,800000,SINGLE,etc,MULTI
+20715,20002,CARNIVAL_X-Line_9 | 컨비니언스,,0,SINGLE,etc,MULTI
+20716,20002,CARNIVAL_X-Line_9 | 스타일,,0,SINGLE,etc,MULTI
+20717,20002,CARNIVAL_X-Line_9 | 컴포트,,1400000,SINGLE,etc,MULTI
+20718,20002,CARNIVAL_X-Line_9 | 스마트 커넥트,,750000,SINGLE,etc,MULTI
+20719,20002,CARNIVAL_X-Line_9 | 12.3인치 클러스터,,0,SINGLE,interior,MULTI
+20720,20002,CARNIVAL_X-Line_9 | 드라이브 와이즈,,750000,SINGLE,assistant,MULTI
+20721,20002,CARNIVAL_X-Line_9 | 모니터링 팩,,1200000,SINGLE,assistant,MULTI
+20722,20002,CARNIVAL_X-Line_9 | HUD + 빌트인 캠 2,,1200000,SINGLE,interior,MULTI
+20723,20002,CARNIVAL_X-Line_9 | BOSE 프리미엄 사운드,,900000,SINGLE,etc,MULTI
+20724,20002,CARNIVAL_X-Line_9 | 듀얼 선루프,,800000,SINGLE,etc,MULTI
+20725,20002,CARNIVAL_Noblesse_7 | 컨비니언스,,0,SINGLE,etc,MULTI
+20726,20002,CARNIVAL_Noblesse_7 | 스타일,,790000,SINGLE,etc,MULTI
+20727,20002,CARNIVAL_Noblesse_7 | 컴포트,,1190000,SINGLE,etc,MULTI
+20728,20002,CARNIVAL_Noblesse_7 | 스마트 커넥트,,790000,SINGLE,etc,MULTI
+20729,20002,CARNIVAL_Noblesse_7 | 12.3인치 클러스터,,0,SINGLE,interior,MULTI
+20730,20002,CARNIVAL_Noblesse_7 | 드라이브 와이즈,,790000,SINGLE,assistant,MULTI
+20731,20002,CARNIVAL_Noblesse_7 | 모니터링 팩,,1270000,SINGLE,assistant,MULTI
+20732,20002,CARNIVAL_Noblesse_7 | HUD + 빌트인 캠 2,,1270000,SINGLE,interior,MULTI
+20733,20002,CARNIVAL_Noblesse_7 | 듀얼 선루프,,840000,SINGLE,etc,MULTI
+20734,20002,CARNIVAL_Outdoor_7 | 컨비니언스,,0,SINGLE,etc,MULTI
+20735,20002,CARNIVAL_Outdoor_7 | 스타일,,790000,SINGLE,etc,MULTI
+20736,20002,CARNIVAL_Outdoor_7 | 스마트 커넥트,,790000,SINGLE,etc,MULTI
+20737,20002,CARNIVAL_Outdoor_7 | 12.3인치 클러스터,,0,SINGLE,interior,MULTI
+20738,20002,CARNIVAL_Outdoor_7 | 드라이브 와이즈,,790000,SINGLE,assistant,MULTI
+20739,20002,CARNIVAL_Outdoor_7 | 모니터링 팩,,1270000,SINGLE,assistant,MULTI
+20740,20002,CARNIVAL_Outdoor_7 | HUD + 빌트인 캠 2,,1270000,SINGLE,interior,MULTI
+20741,20002,CARNIVAL_Outdoor_7 | 듀얼 선루프,,840000,SINGLE,etc,MULTI
+20742,20002,CARNIVAL_Signature_7 | 컨비니언스,,0,SINGLE,etc,MULTI
+20743,20002,CARNIVAL_Signature_7 | 스타일,,470000,SINGLE,etc,MULTI
+20744,20002,CARNIVAL_Signature_7 | 컴포트,,1190000,SINGLE,etc,MULTI
+20745,20002,CARNIVAL_Signature_7 | 스마트 커넥트,,790000,SINGLE,etc,MULTI
+20746,20002,CARNIVAL_Signature_7 | 12.3인치 클러스터,,0,SINGLE,interior,MULTI
+20747,20002,CARNIVAL_Signature_7 | 드라이브 와이즈,,790000,SINGLE,assistant,MULTI
+20748,20002,CARNIVAL_Signature_7 | 모니터링 팩,,1270000,SINGLE,assistant,MULTI
+20749,20002,CARNIVAL_Signature_7 | HUD + 빌트인 캠 2,,1270000,SINGLE,interior,MULTI
+20750,20002,CARNIVAL_Signature_7 | BOSE 프리미엄 사운드,,950000,SINGLE,etc,MULTI
+20751,20002,CARNIVAL_Signature_7 | 듀얼 선루프,,840000,SINGLE,etc,MULTI
+20752,20002,CARNIVAL_X-Line_7 | 컨비니언스,,0,SINGLE,etc,MULTI
+20753,20002,CARNIVAL_X-Line_7 | 스타일,,0,SINGLE,etc,MULTI
+20754,20002,CARNIVAL_X-Line_7 | 컴포트,,1190000,SINGLE,etc,MULTI
+20755,20002,CARNIVAL_X-Line_7 | 스마트 커넥트,,790000,SINGLE,etc,MULTI
+20756,20002,CARNIVAL_X-Line_7 | 12.3인치 클러스터,,0,SINGLE,interior,MULTI
+20757,20002,CARNIVAL_X-Line_7 | 드라이브 와이즈,,790000,SINGLE,assistant,MULTI
+20758,20002,CARNIVAL_X-Line_7 | 모니터링 팩,,1270000,SINGLE,assistant,MULTI
+20759,20002,CARNIVAL_X-Line_7 | HUD + 빌트인 캠 2,,1270000,SINGLE,interior,MULTI
+20760,20002,CARNIVAL_X-Line_7 | BOSE 프리미엄 사운드,,950000,SINGLE,etc,MULTI
+20761,20002,CARNIVAL_X-Line_7 | 듀얼 선루프,,840000,SINGLE,etc,MULTI
+20762,20002,CARNIVAL_X-Line_9 | X-Line 전용 사이드 스텝 / LED 테일게이트 램프,,570000,SINGLE,etc,MULTI
+20763,20002,CARNIVAL_X-Line_7 | X-Line 전용 사이드 스텝 / LED 테일게이트 램프,,560000,SINGLE,etc,MULTI
+20764,20002,CARNIVAL_Noblesse_9 | 후석 스마트 엔터테인먼트 시스템,,2680000,SINGLE,etc,MULTI
+20765,20002,CARNIVAL_Signature_9 | 후석 스마트 엔터테인먼트 시스템,,2680000,SINGLE,etc,MULTI
+20766,20002,CARNIVAL_X-Line_9 | 후석 스마트 엔터테인먼트 시스템,,2680000,SINGLE,etc,MULTI
+20767,20002,CARNIVAL_Noblesse_7 | 후석 스마트 엔터테인먼트 시스템,,2770000,SINGLE,etc,MULTI
+20768,20002,CARNIVAL_Signature_7 | 후석 스마트 엔터테인먼트 시스템,,2770000,SINGLE,etc,MULTI
+20769,20002,CARNIVAL_X-Line_7 | 후석 스마트 엔터테인먼트 시스템,,2770000,SINGLE,etc,MULTI
+20770,20002,CARNIVAL_Noblesse_9 | 마이컴포트 패키지,,1260000,SINGLE,etc,MULTI
+20771,20002,CARNIVAL_Signature_9 | 마이컴포트 패키지,,1260000,SINGLE,etc,MULTI
+20772,20002,CARNIVAL_X-Line_9 | 마이컴포트 패키지,,1260000,SINGLE,etc,MULTI
+20773,20002,CARNIVAL_Noblesse_7 | 마이컴포트 패키지,,1330000,SINGLE,etc,MULTI
+20774,20002,CARNIVAL_Outdoor_7 | 마이컴포트 패키지,,1330000,SINGLE,etc,MULTI
+20775,20002,CARNIVAL_Signature_7 | 마이컴포트 패키지,,1330000,SINGLE,etc,MULTI
+20776,20002,CARNIVAL_X-Line_7 | 마이컴포트 패키지,,1330000,SINGLE,etc,MULTI
+20777,20002,CARNIVAL_Prestige_9 | 내장컬러_토프,,0,SINGLE,interior,SINGLE
+20778,20002,CARNIVAL_Prestige_9 | 내장컬러_코튼 베이지,,0,SINGLE,interior,SINGLE
+20779,20002,CARNIVAL_Noblesse_9 | 내장컬러_토프,,0,SINGLE,interior,SINGLE
+20780,20002,CARNIVAL_Noblesse_9 | 내장컬러_코튼 베이지,,0,SINGLE,interior,SINGLE
+20781,20002,CARNIVAL_Signature_9 | 내장컬러_토프,,0,SINGLE,interior,SINGLE
+20782,20002,CARNIVAL_Signature_9 | 내장컬러_코튼 베이지,,0,SINGLE,interior,SINGLE
+20783,20002,CARNIVAL_X-Line_9 | 내장컬러_토프,,0,SINGLE,interior,SINGLE
+20784,20002,CARNIVAL_X-Line_9 | 내장컬러_코튼 베이지,,0,SINGLE,interior,SINGLE
+20785,20002,CARNIVAL_Noblesse_7 | 내장컬러_토프,,0,SINGLE,interior,SINGLE
+20786,20002,CARNIVAL_Noblesse_7 | 내장컬러_코튼 베이지,,0,SINGLE,interior,SINGLE
+20787,20002,CARNIVAL_Outdoor_7 | 내장컬러_토프,,0,SINGLE,interior,SINGLE
+20788,20002,CARNIVAL_Outdoor_7 | 내장컬러_코튼 베이지,,0,SINGLE,interior,SINGLE
+20789,20002,CARNIVAL_Signature_7 | 내장컬러_토프,,0,SINGLE,interior,SINGLE
+20790,20002,CARNIVAL_Signature_7 | 내장컬러_코튼 베이지,,0,SINGLE,interior,SINGLE
+20791,20002,CARNIVAL_X-Line_7 | 내장컬러_토프,,0,SINGLE,interior,SINGLE
+20792,20002,CARNIVAL_X-Line_7 | 내장컬러_코튼 베이지,,0,SINGLE,interior,SINGLE
+20793,20002,K8_TURBO_HYBRID_SIGNATURE | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20794,20002,K8_TURBO_HYBRID_SIGNATURE_BLACK | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20795,20002,K8_TURBO_HYBRID_SIGNATURE_BLACK | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20796,20002,K8_TURBO_HYBRID_SIGNATURE_BLACK | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20797,20002,K8_TURBO_HYBRID_SIGNATURE_BLACK | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20798,20002,K8_GASOLINE_2_5_NOBLESSE | 내장 컬러_블랙 원톤 인테리어,내장 색상 선택: 블랙 원톤 인테리어,0,SINGLE,interior,SINGLE
+20799,20002,K8_GASOLINE_2_5_NOBLESSE | 내장 컬러_라운지 브라운 투톤 인테리어,내장 색상 선택: 라운지 브라운 투톤 인테리어,0,SINGLE,interior,SINGLE
+20800,20002,K8_GASOLINE_2_5_NOBLESSE | 내장 컬러_뉴트럴 베이지 투톤 인테리어,내장 색상 선택: 뉴트럴 베이지 투톤 인테리어,0,SINGLE,interior,SINGLE
+20801,20002,K8_GASOLINE_2_5_NOBLESSE | 내장 컬러_딥씨 네이비 투톤 인테리어,내장 색상 선택: 딥씨 네이비 투톤 인테리어,0,SINGLE,interior,SINGLE
+20943,20002,RAY_GASOLINE_Prestige_BASIC | 컴포트 Ⅰ,"인조가죽시트, 앞좌석 열선시트, 운전석 통풍시트, 운전석 풀 폴딩시트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 운전석 시트백 포켓 (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,etc,MULTI
+20944,20002,RAY_GASOLINE_Prestige | 컴포트 Ⅱ,"뒷좌석 열선시트, 고급형 센터콘솔, 운전석 세이프티 파워윈도우, 뒷좌석 C타입 USB 단자(충전용) ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,etc,MULTI
+20945,20002,RAY_GASOLINE_Prestige | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20946,20002,RAY_GASOLINE_Prestige_BASIC | 8인치 디스플레이 오디오,"8인치 디스플레이 오디오, 후방 모니터, 샤크핀 안테나 (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,etc,MULTI
+20947,20002,RAY_GASOLINE_Prestige | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 6스피커, 전자식 룸미러, 하이패스 자동결제 시스템 ※ 버튼시동 스마트키 적용 시 선택 가능",750000,SINGLE,assistant,MULTI
+20948,20002,RAY_GASOLINE_Signature_BASIC | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함) (기본 적용),0,SINGLE,assistant,MULTI
+20949,20002,RAY_GASOLINE_Signature | 스타일,"프로젝션 헤드램프, LED 주간 주행등, LED 리어 콤비네이션램프, LED 보조제동등 (프레스티지: 175/50 R15 타이어&전면가공 휠, 전자식 파킹 브레이크(오토홀드 포함) 포함) ※ 버튼시동 스마트키 적용 시 선택 가능",500000,SINGLE,wheel,MULTI
+20950,20002,RAY_GASOLINE_Signature_BASIC | 컴포트 Ⅰ,"인조가죽시트, 앞좌석 열선시트, 운전석 통풍시트, 운전석 풀 폴딩시트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 운전석 시트백 포켓 (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,etc,MULTI
+20951,20002,RAY_GASOLINE_Signature_BASIC | 컴포트 Ⅱ,"뒷좌석 열선시트, 고급형 센터콘솔, 운전석 세이프티 파워윈도우, 뒷좌석 C타입 USB 단자(충전용) (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,etc,MULTI
+20952,20002,RAY_GASOLINE_Signature_BASIC | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,assistant,MULTI
+20953,20002,RAY_GASOLINE_Signature_BASIC | 8인치 디스플레이 오디오,"8인치 디스플레이 오디오, 후방 모니터, 샤크핀 안테나 (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,etc,MULTI
+20954,20002,RAY_GASOLINE_X-Line_BASIC | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함) (기본 적용),0,SINGLE,assistant,MULTI
+20955,20002,RAY_GASOLINE_X-Line | 스타일,"프로젝션 헤드램프, LED 주간 주행등, LED 리어 콤비네이션램프, LED 보조제동등 (프레스티지: 175/50 R15 타이어&전면가공 휠, 전자식 파킹 브레이크(오토홀드 포함) 포함) ※ 버튼시동 스마트키 적용 시 선택 가능",500000,SINGLE,wheel,MULTI
+20956,20002,RAY_GASOLINE_X-Line_BASIC | 컴포트 Ⅰ,"인조가죽시트, 앞좌석 열선시트, 운전석 통풍시트, 운전석 풀 폴딩시트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 운전석 시트백 포켓 (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,etc,MULTI
+20957,20002,RAY_GASOLINE_X-Line_BASIC | 컴포트 Ⅱ,"뒷좌석 열선시트, 고급형 센터콘솔, 운전석 세이프티 파워윈도우, 뒷좌석 C타입 USB 단자(충전용) (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,etc,MULTI
+20958,20002,RAY_GASOLINE_X-Line_BASIC | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,assistant,MULTI
+20959,20002,RAY_GASOLINE_X-Line | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 6스피커 (X-Line: 블랙 샤크핀 안테나 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",500000,SINGLE,assistant,MULTI
+20960,20002,RAY_VAN_2SEAT_Trendy | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함),300000,SINGLE,assistant,MULTI
+20961,20002,RAY_VAN_2SEAT_Trendy | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20962,20002,RAY_VAN_2SEAT_Trendy | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 후방 모니터, 샤크핀 안테나, 전자식 룸미러, 하이패스 자동결제 시스템, 풀오토 에어컨, 공기청정 모드, 스티어링 휠 오디오 리모컨, 블루투스 핸즈프리, 맵램프, 선글라스 케이스, 대용량 루프콘솔 ※ 버튼시동 스마트키 적용 시 선택 가능",1650000,SINGLE,etc,MULTI
+20963,20002,RAY_VAN_2SEAT_Prestige | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함),300000,SINGLE,etc,MULTI
+20964,20002,RAY_VAN_2SEAT_Prestige | 컴포트,"열선 스티어링 휠, 가죽 스티어링 휠(블랙 하이그로시 포함), 가죽 변속기 노브 ※ 버튼시동 스마트키 적용 시 선택 가능",150000,SINGLE,etc,MULTI
+20965,20002,RAY_VAN_2SEAT_Prestige | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20966,20002,RAY_VAN_2SEAT_Prestige | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 후방 모니터, 샤크핀 안테나, 전자식 룸미러, 하이패스 자동결제 시스템, 풀오토 에어컨, 공기청정 모드 ※ 버튼시동 스마트키 적용 시 선택 가능",1450000,SINGLE,assistant,MULTI
+20967,20002,RAY_VAN_2SEAT_Special | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함),300000,SINGLE,assistant,MULTI
+20968,20002,RAY_VAN_2SEAT_Special | 컴포트,"열선 스티어링 휠, 가죽 스티어링 휠(블랙 하이그로시 포함), 가죽 변속기 노브, 운전석 통풍시트, 운전석 풀 폴딩 시트 ※ 버튼시동 스마트키 적용 시 선택 가능",400000,SINGLE,etc,MULTI
+20969,20002,RAY_VAN_2SEAT_Special | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20970,20002,RAY_VAN_2SEAT_Special | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 후방 모니터, 샤크핀 안테나, 전자식 룸미러, 하이패스 자동결제 시스템, 풀오토 에어컨, 공기청정 모드 ※ 버튼시동 스마트키 적용 시 선택 가능",1450000,SINGLE,etc,MULTI
+20971,20002,RAY_VAN_1SEAT_Trendy | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함),300000,SINGLE,etc,MULTI
+20972,20002,RAY_VAN_1SEAT_Trendy | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20973,20002,RAY_VAN_1SEAT_Trendy | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 후방 모니터, 샤크핀 안테나, 전자식 룸미러, 하이패스 자동결제 시스템, 풀오토 에어컨, 공기청정 모드, 스티어링 휠 오디오 리모컨, 블루투스 핸즈프리, 맵램프, 선글라스 케이스, 대용량 루프콘솔 ※ 버튼시동 스마트키 적용 시 선택 가능",1650000,SINGLE,assistant,MULTI
+20974,20002,RAY_VAN_1SEAT_Prestige | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함),300000,SINGLE,assistant,MULTI
+20975,20002,RAY_VAN_1SEAT_Prestige | 컴포트,"열선 스티어링 휠, 가죽 스티어링 휠(블랙 하이그로시 포함), 가죽 변속기 노브 ※ 버튼시동 스마트키 적용 시 선택 가능",150000,SINGLE,etc,MULTI
+20976,20002,RAY_VAN_1SEAT_Prestige | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20977,20002,RAY_VAN_1SEAT_Prestige | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 후방 모니터, 샤크핀 안테나, 전자식 룸미러, 하이패스 자동결제 시스템, 풀오토 에어컨, 공기청정 모드 ※ 버튼시동 스마트키 적용 시 선택 가능",1450000,SINGLE,assistant,MULTI
+20978,20002,RAY_VAN_1SEAT_Special | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함),300000,SINGLE,assistant,MULTI
+20979,20002,RAY_VAN_1SEAT_Special | 컴포트,"열선 스티어링 휠, 가죽 스티어링 휠(블랙 하이그로시 포함), 가죽 변속기 노브 ※ 버튼시동 스마트키 적용 시 선택 가능",150000,SINGLE,etc,MULTI
+20980,20002,RAY_VAN_1SEAT_Special | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20981,20002,RAY_VAN_1SEAT_Special | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 후방 모니터, 샤크핀 안테나, 전자식 룸미러, 하이패스 자동결제 시스템, 풀오토 에어컨, 공기청정 모드 ※ 버튼시동 스마트키 적용 시 선택 가능",1450000,SINGLE,assistant,MULTI
+20982,20002,RAY_GASOLINE_Prestige | 그레이 투톤 패키지,그레이 투톤 패키지(루프/필라 필름). 클리어 화이트(UD) 적용 시 선택 가능. 트렌디/X-Line/밴 선택 불가.,460000,SINGLE,etc,MULTI
+20983,20002,RAY_GASOLINE_Signature | 그레이 투톤 패키지,그레이 투톤 패키지(루프/필라 필름). 클리어 화이트(UD) 적용 시 선택 가능. 트렌디/X-Line/밴 선택 불가.,460000,SINGLE,etc,MULTI
+20984,20002,SORENTO_G25T_Prestige_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+20985,20002,SORENTO_G25T_Prestige | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+20986,20002,SORENTO_G25T_Prestige | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+20987,20002,SORENTO_G25T_Prestige | 전자식 4WD,전자식 4WD 및 터레인 모드(오토/스노우/머드/샌드),2320000,SINGLE,etc,MULTI
+20988,20002,SORENTO_G25T_Prestige | 스타일,휠/램프 등 스타일 사양 업그레이드,1240000,SINGLE,wheel,MULTI
+20989,20002,SORENTO_G25T_Prestige | 12.3인치 클러스터,"12.3인치 풀사이즈 칼라 클러스터 및 커브드 디스플레이",590000,SINGLE,etc,MULTI
+20990,20002,NIRO_HYBRID_Signature_BASIC | 내비게이션,"10.25인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트 (기본 적용)",0,SINGLE,etc,MULTI
+20991,20002,NIRO_HYBRID_Signature | 컴포트,"운전자세 메모리(운전석 시트/미러), 운전석 이지억세스, 후진연동 자동하향 미러, 가죽시트, 동승석 파워/릴렉션 컴포트/허리지지대, 스웨이드 내장재",890000,SINGLE,interior,MULTI
+20992,20002,NIRO_HYBRID_Signature | 선루프 + LED 실내등,선루프 및 LED 실내등(맵램프/룸램프/러기지램프) 적용,590000,SINGLE,etc,MULTI
+20993,20002,NIRO_HYBRID_Signature | 스마트 엣지 팩,C필러 칼라 가니쉬(스마트 엣지 팩),400000,SINGLE,etc,MULTI
+20994,20002,NIRO_HYBRID_Signature | 스마트 커넥트,"기아 디지털 키 2 터치, 크롬&터치타입 아웃사이드 도어핸들, 빌트인 캠, 보조배터리",590000,SINGLE,etc,MULTI
+20995,20002,NIRO_HYBRID_Signature | 하만카돈 사운드,"하만카돈 프리미엄 사운드(8스피커, 외장앰프)",800000,SINGLE,etc,MULTI
+20996,20002,NIRO_HYBRID_Signature | 하이테크,"슈퍼비전 클러스터(10.25인치 칼라 TFT LCD/테마형 클러스터 기능 지원), 220V 인버터",450000,SINGLE,etc,MULTI
+20997,20002,NIRO_HYBRID_Signature | HUD,헤드업 디스플레이,200000,SINGLE,etc,MULTI
+20998,20002,NIRO_HYBRID_Signature | 엣지 팩,C필러 칼라 가니쉬(엣지 팩),200000,SINGLE,etc,MULTI
+20999,20002,NIRO_HYBRID_Trendy | 차량 보호 필름,프런트/리어 범퍼 사이드 등 차량 보호 필름 부착,350000,SINGLE,etc,MULTI
+21000,20002,NIRO_HYBRID_Prestige | 차량 보호 필름,프런트/리어 범퍼 사이드 등 차량 보호 필름 부착,350000,SINGLE,etc,MULTI
+21001,20002,NIRO_HYBRID_Prestige | 마이컴포트 패키지,LED 오버헤드/룸/선바이저/러기지 램프 및 러기지 스크린 구성,100000,SINGLE,etc,MULTI
+21002,20002,NIRO_HYBRID_Best Selection | 차량 보호 필름,프런트/리어 범퍼 사이드 등 차량 보호 필름 부착,350000,SINGLE,etc,MULTI
+21003,20002,NIRO_HYBRID_Signature | 차량 보호 필름,프런트/리어 범퍼 사이드 등 차량 보호 필름 부착,350000,SINGLE,etc,MULTI
+21004,20002,NIRO_HYBRID_Signature | 마이컴포트 패키지,LED 오버헤드/룸/선바이저/러기지 램프 및 러기지 스크린 구성,100000,SINGLE,etc,MULTI
+21005,20002,SORENTO_G25T_Prestige | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21006,20002,SORENTO_G25T_Prestige | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21007,20002,SORENTO_G25T_Prestige | 파노라마 선루프,파노라마 선루프 ※ 스타일 선택 시 선택 가능,1090000,SINGLE,etc,MULTI
+21008,20002,SORENTO_D22_Prestige_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21009,20002,SORENTO_D22_Prestige | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21010,20002,SORENTO_D22_Prestige | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21011,20002,SORENTO_D22_Prestige | 전자식 4WD,전자식 4WD 및 터레인 모드(오토/스노우/머드/샌드),2320000,SINGLE,etc,MULTI
+21012,20002,SORENTO_D22_Prestige | 스타일,휠/램프 등 스타일 사양 업그레이드,1240000,SINGLE,wheel,MULTI
+21013,20002,SORENTO_D22_Prestige | 12.3인치 클러스터,"12.3인치 풀사이즈 칼라 클러스터 및 커브드 디스플레이",590000,SINGLE,etc,MULTI
+21014,20002,SORENTO_D22_Prestige | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21015,20002,SORENTO_D22_Prestige | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21016,20002,SORENTO_D22_Prestige | 파노라마 선루프,파노라마 선루프 ※ 스타일 선택 시 선택 가능,1090000,SINGLE,etc,MULTI
+21017,20002,SORENTO_G25T_Noblesse_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21018,20002,SORENTO_G25T_Noblesse | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21019,20002,SORENTO_G25T_Noblesse | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21020,20002,SORENTO_G25T_Noblesse | 전자식 4WD,전자식 4WD 및 터레인 모드(오토/스노우/머드/샌드),2320000,SINGLE,etc,MULTI
+21021,20002,SORENTO_G25T_Noblesse | 스타일,휠/램프 등 스타일 사양 업그레이드,1140000,SINGLE,wheel,MULTI
+21022,20002,SORENTO_G25T_Noblesse_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21023,20002,SORENTO_G25T_Noblesse | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21024,20002,SORENTO_G25T_Noblesse | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21025,20002,SORENTO_G25T_Noblesse | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",800000,SINGLE,etc,MULTI
+21026,20002,SORENTO_G25T_Noblesse | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21027,20002,SORENTO_G25T_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21028,20002,SORENTO_D22_Noblesse_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21029,20002,SORENTO_D22_Noblesse | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21030,20002,SORENTO_D22_Noblesse | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21031,20002,SORENTO_D22_Noblesse | 전자식 4WD,전자식 4WD 및 터레인 모드(오토/스노우/머드/샌드),2320000,SINGLE,etc,MULTI
+21032,20002,SORENTO_D22_Noblesse | 스타일,휠/램프 등 스타일 사양 업그레이드,1140000,SINGLE,wheel,MULTI
+21033,20002,SORENTO_D22_Noblesse_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21034,20002,SORENTO_D22_Noblesse | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21035,20002,SORENTO_D22_Noblesse | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21036,20002,SORENTO_D22_Noblesse | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",800000,SINGLE,etc,MULTI
+21037,20002,SORENTO_D22_Noblesse | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21038,20002,SORENTO_D22_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21039,20002,SORENTO_G25T_Signature_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21040,20002,SORENTO_G25T_Signature | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21041,20002,SORENTO_G25T_Signature | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21042,20002,SORENTO_G25T_Signature | 전자식 4WD,전자식 4WD 및 터레인 모드(오토/스노우/머드/샌드),2320000,SINGLE,etc,MULTI
+21043,20002,SORENTO_G25T_Signature_BASIC | 스타일,스타일 기본 적용,0,SINGLE,wheel,MULTI
+21044,20002,SORENTO_G25T_Signature | 컴포트,시트/내장 고급 사양(트림별 상이),1090000,SINGLE,interior,MULTI
+21045,20002,SORENTO_G25T_Signature_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21046,20002,SORENTO_G25T_Signature | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21047,20002,SORENTO_G25T_Signature | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21048,20002,SORENTO_G25T_Signature | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",700000,SINGLE,etc,MULTI
+21049,20002,SORENTO_G25T_Signature | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21050,20002,SORENTO_G25T_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21051,20002,SORENTO_D22_Signature_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21052,20002,SORENTO_D22_Signature | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21053,20002,SORENTO_D22_Signature | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21054,20002,SORENTO_D22_Signature | 전자식 4WD,전자식 4WD 및 터레인 모드(오토/스노우/머드/샌드),2320000,SINGLE,etc,MULTI
+21055,20002,SORENTO_D22_Signature_BASIC | 스타일,스타일 기본 적용,0,SINGLE,wheel,MULTI
+20849,20002,SORENTO_D22_Prestige | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20850,20002,SORENTO_D22_Prestige | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20851,20002,SORENTO_D22_Prestige | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20852,20002,SORENTO_D22_Prestige | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20853,20002,SORENTO_D22_Noblesse | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링 ※ 스타일 선택 시 선택 가능",11100000,SINGLE,etc,MULTI
+20854,20002,SORENTO_D22_Noblesse | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20855,20002,SORENTO_D22_Noblesse | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20856,20002,SORENTO_D22_Noblesse | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20857,20002,SORENTO_D22_Noblesse | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20858,20002,SORENTO_D22_Signature | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20859,20002,SORENTO_D22_Signature | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20860,20002,SORENTO_D22_Signature | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20861,20002,SORENTO_D22_Signature | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20862,20002,SORENTO_D22_Signature | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20863,20002,SORENTO_D22_X-Line | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20864,20002,SORENTO_D22_X-Line | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20865,20002,SORENTO_D22_X-Line | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20866,20002,SORENTO_D22_X-Line | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20867,20002,SORENTO_D22_X-Line | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20868,20002,SORENTO_HEV2WD_Prestige | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20869,20002,SORENTO_HEV2WD_Prestige | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20870,20002,SORENTO_HEV2WD_Prestige | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20871,20002,SORENTO_HEV2WD_Prestige | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20872,20002,SORENTO_HEV2WD_Prestige | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20873,20002,SORENTO_HEV2WD_Noblesse | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20874,20002,SORENTO_HEV2WD_Noblesse | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20875,20002,SORENTO_HEV2WD_Noblesse | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20876,20002,SORENTO_HEV2WD_Noblesse | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20877,20002,SORENTO_HEV2WD_Noblesse | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20878,20002,SORENTO_HEV2WD_Signature | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20879,20002,SORENTO_HEV2WD_Signature | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20880,20002,SORENTO_HEV2WD_Signature | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20881,20002,SORENTO_HEV2WD_Signature | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20882,20002,SORENTO_HEV2WD_Signature | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20883,20002,SORENTO_HEV2WD_X-Line | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20884,20002,SORENTO_HEV2WD_X-Line | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20885,20002,SORENTO_HEV2WD_X-Line | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20886,20002,SORENTO_HEV2WD_X-Line | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20887,20002,SORENTO_HEV2WD_X-Line | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20888,20002,SORENTO_HEV4WD_Prestige | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20889,20002,SORENTO_HEV4WD_Prestige | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20890,20002,SORENTO_HEV4WD_Prestige | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20891,20002,SORENTO_HEV4WD_Prestige | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20892,20002,SORENTO_HEV4WD_Prestige | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20893,20002,SORENTO_HEV4WD_Noblesse | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20894,20002,SORENTO_HEV4WD_Noblesse | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20895,20002,SORENTO_HEV4WD_Noblesse | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20896,20002,SORENTO_HEV4WD_Noblesse | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20897,20002,SORENTO_HEV4WD_Noblesse | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20898,20002,SORENTO_HEV4WD_Signature | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20899,20002,SORENTO_HEV4WD_Signature | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20900,20002,SORENTO_HEV4WD_Signature | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20901,20002,SORENTO_HEV4WD_Signature | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20902,20002,SORENTO_HEV4WD_Signature | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20903,20002,SORENTO_HEV4WD_X-Line | 서스펜션 패키지,"모노튜브 쇽업쇼버, 레드 스프링",11100000,SINGLE,etc,MULTI
+20904,20002,SORENTO_HEV4WD_X-Line | 트레일러 패키지,토우히치 포함 트레일러 패키지(최대 견인중량 조건은 매뉴얼 참조),11500000,SINGLE,etc,MULTI
+20905,20002,SORENTO_HEV4WD_X-Line | 빌트인 공기청정기,빌트인 공기청정기,4300000,SINGLE,etc,MULTI
+20906,20002,SORENTO_HEV4WD_X-Line | 사이드 스텝,사이드 스텝,3900000,SINGLE,etc,MULTI
+20907,20002,SORENTO_HEV4WD_X-Line | 러기지 패키지,"테일게이트 램프, 러기지 네트, 러기지 스크린",4400000,SINGLE,etc,MULTI
+20908,20002,SPORTAGE_G16T_Prestige | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+20909,20002,SPORTAGE_G16T_Prestige | 스타일,"235/60 R18 타이어&전면가공 휠, 프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널램프, 다이내믹 웰컴 라이트",690000,SINGLE,wheel,MULTI
+20910,20002,SPORTAGE_G16T_Prestige | 12.3인치 내비게이션,"12.3인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트) + 하이패스 자동결제 시스템(e hi-pass) + 1열 통풍시트 포함",890000,SINGLE,etc,MULTI
+20911,20002,SPORTAGE_G16T_Prestige | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+20912,20002,SPORTAGE_G16T_Prestige | 파노라마 선루프,파노라마 선루프 + 루프랙 포함,1190000,SINGLE,etc,MULTI
+20913,20002,SPORTAGE_G16T_Prestige_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+20914,20002,SPORTAGE_G16T_Prestige | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+20915,20002,SPORTAGE_G16T_Prestige | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+20916,20002,SPORTAGE_G16T_Prestige | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+20917,20002,SPORTAGE_G16T_Prestige | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+20918,20002,SPORTAGE_G16T_Noblesse | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+20919,20002,SPORTAGE_G16T_Noblesse | 스타일,"235/55 R19 타이어&전면가공 휠, 프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널램프, 다이내믹 웰컴 라이트, LED 포그램프",890000,SINGLE,wheel,MULTI
+20920,20002,SPORTAGE_G16T_Noblesse | 컴포트,"동승석 파워시트, 동승석 워크인 디바이스, 동승석 전동식 허리지지대, 2열 열선시트, 2열 리모트 폴딩 레버",490000,SINGLE,interior,MULTI
+20921,20002,SPORTAGE_G16T_Noblesse | 드라이브 와이즈,"전방/후측방/후방 교차충돌 방지 보조, 스마트 크루즈 컨트롤(운전 스타일 연동), 고속도로 주행 보조 2(차로변경 보조), 안전 하차 경고 등",1240000,SINGLE,assistant,MULTI
+20922,20002,SPORTAGE_G16T_Noblesse_BASIC | 12.3인치 내비게이션(기본),"12.3인치 내비게이션 기본 적용",0,SINGLE,etc,MULTI
+20923,20002,SPORTAGE_G16T_Noblesse | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+20924,20002,SPORTAGE_G16T_Noblesse | 모니터링,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 등",1140000,SINGLE,assistant,MULTI
+20925,20002,SPORTAGE_G16T_Noblesse | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+20926,20002,SPORTAGE_G16T_Noblesse | 스마트 커넥트,"헤드업 디스플레이, 기아 디지털 키 2, 지문 인증 시스템, 터치타입 아웃사이드 도어핸들",1190000,SINGLE,assistant,MULTI
+20927,20002,SPORTAGE_G16T_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+20928,20002,RAY_GASOLINE_Trendy_INTERIOR | 블랙 인테리어,블랙 인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20929,20002,RAY_GASOLINE_Prestige_INTERIOR | 블랙 인테리어,블랙 인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20930,20002,RAY_GASOLINE_Prestige_INTERIOR | 라이트 그레이 인테리어,라이트 그레이 인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20931,20002,RAY_GASOLINE_Signature_INTERIOR | 블랙 인테리어,블랙 인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20932,20002,RAY_GASOLINE_Signature_INTERIOR | 라이트 그레이 인테리어,라이트 그레이 인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20933,20002,RAY_GASOLINE_X-Line_INTERIOR | 블랙 인테리어,블랙 인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20934,20002,RAY_GASOLINE_X-Line_INTERIOR | 라이트 그레이 인테리어,라이트 그레이 인테리어 컬러 선택,0,SINGLE,interior,SINGLE
+20935,20002,RAY_GASOLINE_Trendy | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함),300000,SINGLE,assistant,MULTI
+20936,20002,RAY_GASOLINE_Trendy | 스타일,스타일 패키지(트렌디 적용) (세부 사양은 트림별 구성에 따름) ※ 버튼시동 스마트키 적용 시 선택 가능,950000,SINGLE,wheel,MULTI
+20937,20002,RAY_GASOLINE_Trendy | 컴포트 Ⅰ,"인조가죽시트, 앞좌석 열선시트, 운전석 통풍시트, 운전석 풀 폴딩시트, 운전석 시트 높이조절장치, 운전석 시트벨트 높이조절장치, 운전석 시트백 포켓 ※ 버튼시동 스마트키 적용 시 선택 가능",600000,SINGLE,seats,MULTI
+20938,20002,RAY_GASOLINE_Trendy | 드라이브 와이즈,"후측방 충돌 경고, 후측방 충돌방지 보조(전진 출차), 후방 교차 충돌방지 보조, 안전 하차 경고 ※ 버튼시동 스마트키 적용 시 선택 가능",300000,SINGLE,assistant,MULTI
+20939,20002,RAY_GASOLINE_Trendy | 8인치 디스플레이 오디오,"8인치 디스플레이 오디오, 후방 모니터, 샤크핀 안테나 ※ 버튼시동 스마트키 적용 시 선택 가능",500000,SINGLE,etc,MULTI
+20940,20002,RAY_GASOLINE_Trendy | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 6스피커, 풀오토 에어컨, 공기청정 모드, 전자식 룸미러, 하이패스 자동결제 시스템, 후방 모니터, 샤크핀 안테나 ※ 버튼시동 스마트키 적용 시 선택 가능",1450000,SINGLE,assistant,MULTI
+20941,20002,RAY_GASOLINE_Prestige_BASIC | 버튼시동 스마트키,버튼시동 스마트키 시스템(원격시동 포함) (기본 적용),0,SINGLE,assistant,MULTI
+20942,20002,RAY_GASOLINE_Prestige | 스타일,"프로젝션 헤드램프, LED 주간 주행등, LED 리어 콤비네이션램프, LED 보조제동등 (프레스티지: 175/50 R15 타이어&전면가공 휠, 전자식 파킹 브레이크(오토홀드 포함) 포함) ※ 버튼시동 스마트키 적용 시 선택 가능",850000,SINGLE,wheel,MULTI
+21110,20002,SORENTO_HEV2WD_Noblesse | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",800000,SINGLE,etc,MULTI
+21056,20002,SORENTO_D22_Signature | 컴포트,시트/내장 고급 사양(트림별 상이),1090000,SINGLE,interior,MULTI
+21057,20002,SORENTO_D22_Signature_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21058,20002,SORENTO_D22_Signature | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21059,20002,SORENTO_D22_Signature | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21060,20002,SORENTO_D22_Signature | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",700000,SINGLE,etc,MULTI
+21061,20002,SORENTO_D22_Signature | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21062,20002,SORENTO_D22_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21063,20002,SORENTO_G25T_X-Line_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21064,20002,SORENTO_G25T_X-Line | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21065,20002,SORENTO_G25T_X-Line | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21066,20002,SORENTO_G25T_X-Line | 전자식 4WD,전자식 4WD 및 터레인 모드(오토/스노우/머드/샌드),2320000,SINGLE,etc,MULTI
+21067,20002,SORENTO_G25T_X-Line_BASIC | 스타일,스타일 기본 적용,0,SINGLE,wheel,MULTI
+21068,20002,SORENTO_G25T_X-Line | 컴포트,시트/내장 고급 사양(트림별 상이),600000,SINGLE,interior,MULTI
+21069,20002,SORENTO_G25T_X-Line_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21070,20002,SORENTO_G25T_X-Line | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21071,20002,SORENTO_G25T_X-Line | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21072,20002,SORENTO_G25T_X-Line | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",700000,SINGLE,etc,MULTI
+21073,20002,SORENTO_G25T_X-Line | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21074,20002,SORENTO_G25T_X-Line | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21075,20002,SORENTO_D22_X-Line_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21076,20002,SORENTO_D22_X-Line | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21077,20002,SORENTO_D22_X-Line | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21078,20002,SORENTO_D22_X-Line | 전자식 4WD,전자식 4WD 및 터레인 모드(오토/스노우/머드/샌드),2320000,SINGLE,etc,MULTI
+21079,20002,SORENTO_D22_X-Line_BASIC | 스타일,스타일 기본 적용,0,SINGLE,wheel,MULTI
+21080,20002,SORENTO_D22_X-Line | 컴포트,시트/내장 고급 사양(트림별 상이),600000,SINGLE,interior,MULTI
+21081,20002,SORENTO_D22_X-Line_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21082,20002,SORENTO_D22_X-Line | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21083,20002,SORENTO_D22_X-Line | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21084,20002,SORENTO_D22_X-Line | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",700000,SINGLE,etc,MULTI
+21085,20002,SORENTO_D22_X-Line | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21086,20002,SORENTO_D22_X-Line | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21087,20002,SORENTO_HEV2WD_Prestige_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21088,20002,SORENTO_HEV2WD_Prestige | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21089,20002,SORENTO_HEV2WD_Prestige | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21090,20002,SORENTO_HEV2WD_Prestige | 스타일,휠/램프 등 스타일 사양 업그레이드,1140000,SINGLE,wheel,MULTI
+21091,20002,SORENTO_HEV2WD_Prestige | 12.3인치 클러스터,"12.3인치 풀사이즈 칼라 클러스터 및 커브드 디스플레이",590000,SINGLE,etc,MULTI
+21092,20002,SORENTO_HEV2WD_Prestige | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21093,20002,SORENTO_HEV2WD_Prestige | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21094,20002,SORENTO_HEV2WD_Prestige | 파노라마 선루프,파노라마 선루프 ※ 스타일 선택 시 선택 가능,1090000,SINGLE,etc,MULTI
+21095,20002,SORENTO_HEV4WD_Prestige_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21096,20002,SORENTO_HEV4WD_Prestige | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21097,20002,SORENTO_HEV4WD_Prestige | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21098,20002,SORENTO_HEV4WD_Prestige | 스타일,휠/램프 등 스타일 사양 업그레이드,1140000,SINGLE,wheel,MULTI
+21099,20002,SORENTO_HEV4WD_Prestige | 12.3인치 클러스터,"12.3인치 풀사이즈 칼라 클러스터 및 커브드 디스플레이",590000,SINGLE,etc,MULTI
+21100,20002,SORENTO_HEV4WD_Prestige | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21101,20002,SORENTO_HEV4WD_Prestige | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21102,20002,SORENTO_HEV4WD_Prestige | 파노라마 선루프,파노라마 선루프 ※ 스타일 선택 시 선택 가능,1090000,SINGLE,etc,MULTI
+21103,20002,SORENTO_HEV2WD_Noblesse_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21104,20002,SORENTO_HEV2WD_Noblesse | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21105,20002,SORENTO_HEV2WD_Noblesse | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21106,20002,SORENTO_HEV2WD_Noblesse | 스타일,휠/램프 등 스타일 사양 업그레이드,1040000,SINGLE,wheel,MULTI
+21107,20002,SORENTO_HEV2WD_Noblesse_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21108,20002,SORENTO_HEV2WD_Noblesse | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21109,20002,SORENTO_HEV2WD_Noblesse | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21111,20002,SORENTO_HEV2WD_Noblesse | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21112,20002,SORENTO_HEV2WD_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21113,20002,SORENTO_HEV4WD_Noblesse_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21114,20002,SORENTO_HEV4WD_Noblesse | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21115,20002,SORENTO_HEV4WD_Noblesse | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21116,20002,SORENTO_HEV4WD_Noblesse | 스타일,휠/램프 등 스타일 사양 업그레이드,1040000,SINGLE,wheel,MULTI
+21117,20002,SORENTO_HEV4WD_Noblesse_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21118,20002,SORENTO_HEV4WD_Noblesse | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21119,20002,SORENTO_HEV4WD_Noblesse | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21120,20002,SORENTO_HEV4WD_Noblesse | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",800000,SINGLE,etc,MULTI
+21121,20002,SORENTO_HEV4WD_Noblesse | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21122,20002,SORENTO_HEV4WD_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21123,20002,SORENTO_HEV2WD_Signature_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21124,20002,SORENTO_HEV2WD_Signature | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21125,20002,SORENTO_HEV2WD_Signature | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21126,20002,SORENTO_HEV2WD_Signature_BASIC | 스타일,스타일 기본 적용,0,SINGLE,wheel,MULTI
+21127,20002,SORENTO_HEV2WD_Signature | 컴포트,시트/내장 고급 사양(트림별 상이),1090000,SINGLE,interior,MULTI
+21128,20002,SORENTO_HEV2WD_Signature_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21129,20002,SORENTO_HEV2WD_Signature | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21130,20002,SORENTO_HEV2WD_Signature | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21131,20002,SORENTO_HEV2WD_Signature | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",700000,SINGLE,etc,MULTI
+21132,20002,SORENTO_HEV2WD_Signature | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21133,20002,SORENTO_HEV2WD_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21134,20002,SORENTO_HEV2WD_Signature | 19인치 휠,"235/55 R19 타이어&휠(하이브리드 한정, 트림별 휠 디자인 상이)",300000,SINGLE,wheel,MULTI
+21135,20002,SORENTO_HEV4WD_Signature_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21136,20002,SORENTO_HEV4WD_Signature | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21137,20002,SORENTO_HEV4WD_Signature | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21138,20002,SORENTO_HEV4WD_Signature_BASIC | 스타일,스타일 기본 적용,0,SINGLE,wheel,MULTI
+21139,20002,SORENTO_HEV4WD_Signature | 컴포트,시트/내장 고급 사양(트림별 상이),1090000,SINGLE,interior,MULTI
+21140,20002,SORENTO_HEV4WD_Signature_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21141,20002,SORENTO_HEV4WD_Signature | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21142,20002,SORENTO_HEV4WD_Signature | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21143,20002,SORENTO_HEV4WD_Signature | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",700000,SINGLE,etc,MULTI
+21144,20002,SORENTO_HEV4WD_Signature | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21145,20002,SORENTO_HEV4WD_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21146,20002,SORENTO_HEV4WD_Signature | 19인치 휠,"235/55 R19 타이어&휠(하이브리드 한정, 트림별 휠 디자인 상이)",300000,SINGLE,wheel,MULTI
+21147,20002,SORENTO_HEV2WD_X-Line_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21148,20002,SORENTO_HEV2WD_X-Line | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21149,20002,SORENTO_HEV2WD_X-Line | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21150,20002,SORENTO_HEV2WD_X-Line_BASIC | 스타일,스타일 기본 적용,0,SINGLE,wheel,MULTI
+21151,20002,SORENTO_HEV2WD_X-Line | 컴포트,시트/내장 고급 사양(트림별 상이),600000,SINGLE,interior,MULTI
+21152,20002,SORENTO_HEV2WD_X-Line_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21153,20002,RAY_GASOLINE_Signature | 8인치 내비게이션,"8인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트), 내비게이션 무선 업데이트, 6스피커 (X-Line: 블랙 샤크핀 안테나 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",500000,SINGLE,assistant,MULTI
+21154,20002,RAY_GASOLINE_X-Line_BASIC | 8인치 디스플레이 오디오,"8인치 디스플레이 오디오, 후방 모니터, 샤크핀 안테나 (기본 적용) ※ 버튼시동 스마트키 적용 시 선택 가능",0,SINGLE,etc,MULTI
+21155,20002,SORENTO_HEV2WD_X-Line | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21156,20002,SORENTO_HEV2WD_X-Line | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21157,20002,SORENTO_HEV2WD_X-Line | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",700000,SINGLE,etc,MULTI
+21158,20002,SORENTO_HEV2WD_X-Line | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21159,20002,SORENTO_HEV2WD_X-Line | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21160,20002,SORENTO_HEV2WD_X-Line | 19인치 휠,"235/55 R19 타이어&휠(하이브리드 한정, 트림별 휠 디자인 상이)",300000,SINGLE,wheel,MULTI
+21161,20002,SORENTO_HEV4WD_X-Line_BASIC | 5인승(기본),"5인승 기본 구성",0,SINGLE,seats,SINGLE
+21162,20002,SORENTO_HEV4WD_X-Line | 6인승,"2열 독립시트 및 3열 시트 포함 6인승 구성",840000,SINGLE,seats,SINGLE
+21163,20002,SORENTO_HEV4WD_X-Line | 7인승,"3열 시트 포함 7인승 구성",690000,SINGLE,seats,SINGLE
+21164,20002,SORENTO_HEV4WD_X-Line_BASIC | 스타일,스타일 기본 적용,0,SINGLE,wheel,MULTI
+21165,20002,SORENTO_HEV4WD_X-Line | 컴포트,시트/내장 고급 사양(트림별 상이),600000,SINGLE,interior,MULTI
+21166,20002,SORENTO_HEV4WD_X-Line_BASIC | 12.3인치 클러스터,"12.3인치 클러스터 기본 적용",0,SINGLE,etc,MULTI
+21167,20002,SORENTO_HEV4WD_X-Line | 드라이브 와이즈,전방/후측방/후방 교차 충돌방지 보조 등 ADAS 강화(전 트림),1290000,SINGLE,assistant,MULTI
+21168,20002,SORENTO_HEV4WD_X-Line | HUD + 빌트인 캠 2,"헤드업 디스플레이, 빌트인 캠 2, 증강현실 내비게이션",1190000,SINGLE,assistant,MULTI
+21169,20002,SORENTO_HEV4WD_X-Line | 스마트 커넥트,"지문 인증 시스템, 디지털 센터 미러 등(트림별 상이)",700000,SINGLE,etc,MULTI
+21170,20002,SORENTO_HEV4WD_X-Line | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(12스피커, 외장앰프), 후석 대화모드",640000,SINGLE,etc,MULTI
+21171,20002,SORENTO_HEV4WD_X-Line | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21172,20002,SORENTO_HEV4WD_X-Line | 19인치 휠,"235/55 R19 타이어&휠(하이브리드 한정, 트림별 휠 디자인 상이)",300000,SINGLE,wheel,MULTI
+21173,20002,SORENTO_G25T_Prestige_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21174,20002,SORENTO_G25T_Prestige_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21175,20002,SORENTO_G25T_Noblesse_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21176,20002,SORENTO_G25T_Noblesse_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21177,20002,SORENTO_G25T_Signature_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21178,20002,SORENTO_G25T_Signature_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21179,20002,SORENTO_G25T_X-Line_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21180,20002,SORENTO_G25T_X-Line_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21181,20002,SORENTO_D22_Prestige_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21182,20002,SORENTO_D22_Prestige_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21183,20002,SORENTO_D22_Noblesse_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21184,20002,SORENTO_D22_Noblesse_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21185,20002,SORENTO_D22_Signature_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21186,20002,SORENTO_D22_Signature_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21187,20002,SORENTO_D22_X-Line_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21188,20002,SORENTO_D22_X-Line_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21189,20002,SORENTO_HEV2WD_Prestige_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21190,20002,SORENTO_HEV2WD_Prestige_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21191,20002,SORENTO_HEV2WD_Noblesse_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21192,20002,SORENTO_HEV2WD_Noblesse_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21193,20002,SORENTO_HEV2WD_Signature_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21194,20002,SORENTO_HEV2WD_Signature_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21195,20002,SORENTO_HEV2WD_X-Line_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21196,20002,SORENTO_HEV2WD_X-Line_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21197,20002,SORENTO_HEV4WD_Prestige_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21198,20002,SORENTO_HEV4WD_Prestige_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21199,20002,SORENTO_HEV4WD_Noblesse_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21200,20002,SORENTO_HEV4WD_Noblesse_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21201,20002,SORENTO_HEV4WD_Signature_INTERIOR | 올리브 브라운 인테리어,올리브 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21202,20002,SORENTO_HEV4WD_Signature_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21203,20002,SPORTAGE_G16T_Noblesse_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21204,20002,SPORTAGE_G16T_Noblesse_INTERIOR | 라운지 브라운 인테리어,라운지 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21205,20002,SPORTAGE_G16T_Noblesse | LED 라이팅 패키지,"도어 스팟 램프, 테일게이트 램프, 번호판 램프 구성(트림 제한 있음)",3500000,SINGLE,etc,MULTI
+21206,20002,SPORTAGE_G16T_Noblesse | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21207,20002,SPORTAGE_G16T_Noblesse | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21208,20002,SPORTAGE_G16T_Noblesse | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21209,20002,SPORTAGE_G16T_Noblesse | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21210,20002,SPORTAGE_G16T_Noblesse | 빌트인 공기청정기,빌트인 공기청정기(트림 제한 있음),4000000,SINGLE,etc,MULTI
+21211,20002,SPORTAGE_G16T_Signature | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21212,20002,SPORTAGE_G16T_Signature_BASIC | 스타일(기본),기본 적용,0,SINGLE,wheel,MULTI
+21263,20001,GV70_3.5T | 휠&타이어_21인치,"3.5 터보 21인치 휠&타이어(택1). ※ 프리뷰 전자제어 서스펜션 포함.",1200000,SINGLE,wheel,SINGLE
+21264,20001,GV70_3.5T_스포츠 | 휠&타이어_19인치(스포츠),"3.5 터보 스포츠 전용 19인치 휠&타이어(택1). e-LSD 포함. 스포츠 패키지 선택 시 사용.",350000,SINGLE,wheel,SINGLE
+21265,20001,GV70_3.5T_스포츠 | 휠&타이어_21인치(스포츠),"3.5 터보 스포츠 전용 21인치 휠&타이어(택1). ※ 프리뷰 전자제어 서스펜션 포함. 스포츠 패키지 선택 시 사용.",0,SINGLE,wheel,SINGLE
+21266,20001,GV70 | 프리뷰 전자제어 서스펜션(포함/0원),포함용(0원). 3.5 터보 기본 포함 / 2.5 터보 21인치(일반/스포츠) 선택 시 포함(REQUIRES).,0,SINGLE,assistant,MULTI
+21267,20001,GV70 | 프리뷰 전자제어 서스펜션(단품),단품(유료). 2.5 터보 19인치(일반/스포츠) 선택 시에만 선택 가능(REQUIRES).,1100000,SINGLE,assistant,MULTI
+21268,20001,GV70 | 내장 디자인_스탠다드,인조 가죽 시트/블랙 하이글로시 내장재 구성(택1).,0,SINGLE,interior,SINGLE
+21269,20001,GV70 | 내장 디자인_시그니쳐 셀렉션Ⅰ,천연 가죽 시트(파이핑)/알루미늄 내장재/인조 가죽 내장재 구성(택1).,1700000,SINGLE,interior,SINGLE
+21270,20001,GV70 | 내장 디자인_시그니쳐 셀렉션Ⅱ,프라임 나파 가죽 시트/스웨이드 내장재/무드라이팅 등 고급 내장 구성(택1).,3000000,SINGLE,interior,SINGLE
+21271,20001,GV70 | 내장 디자인_스포츠 스탠다드,스포츠 전용 천연 가죽 시트/알루미늄 내장재 구성(택1). 스포츠 패키지 선택 시 사용.,0,SINGLE,interior,SINGLE
+21272,20001,GV70 | 내장 디자인_스포츠 셀렉션Ⅰ,프라임 나파 가죽(스웨이드/파이핑)/리얼 카본 내장재 구성(택1). 스포츠 패키지 선택 시 사용.,2300000,SINGLE,interior,SINGLE
+21273,20001,GV70 | 내장 디자인_스포츠 셀렉션Ⅱ,프라임 나파 가죽(퀼팅/파이핑)/스웨이드 내장재 등 구성(택1). 스포츠 패키지 선택 시 사용.,2300000,SINGLE,interior,SINGLE
+21274,20001,GV70 | 내장 컬러_옵시디언 블랙 모노톤,내장 컬러(택1). 내장 디자인에 따라 선택 가능 항목이 달라질 수 있음.,0,SINGLE,interior,SINGLE
+21275,20001,GV70 | 내장 컬러_옵시디언 블랙/바닐라 베이지 투톤,내장 컬러(택1).,0,SINGLE,interior,SINGLE
+21276,20001,GV70 | 내장 컬러_어반 브라운/프로즌 그레이 투톤,내장 컬러(택1).,0,SINGLE,interior,SINGLE
+21277,20001,GV70 | 내장 컬러_오션 웨이브 블루/하바나 브라운 투톤,내장 컬러(택1).,0,SINGLE,interior,SINGLE
+21278,20001,GV70 | 내장 컬러_슬레이트 그레이/벨벳 버건디 투톤,내장 컬러(택1).,0,SINGLE,interior,SINGLE
+21279,20001,GV70 | 내장 컬러_옵시디언 블랙/세비야 레드 투톤,내장 컬러(택1). 스포츠 계열에서 사용.,0,SINGLE,interior,SINGLE
+21280,20001,GV70 | 내장 컬러_옵시디언 블랙/울트라마린 블루 투톤,내장 컬러(택1). 스포츠 계열에서 사용.,0,SINGLE,interior,SINGLE
+21281,20002,SPORTAGE_G16T_X-Line_BASIC | 스마트 커넥트(기본),"헤드업 디스플레이, 기아 디지털 키 2, 지문 인증 시스템, 터치타입 아웃사이드 도어핸들 기본 적용",0,SINGLE,assistant,MULTI
+21282,20002,SPORTAGE_G16T_X-Line | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21283,20002,SPORTAGE_G16T_X-Line_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21284,20002,SPORTAGE_G16T_X-Line_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21285,20002,SPORTAGE_G16T_X-Line_INTERIOR | 라운지 브라운 인테리어,라운지 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21286,20002,SPORTAGE_G16T_X-Line | LED 라이팅 패키지,"도어 스팟 램프, 테일게이트 램프, 번호판 램프 구성(트림 제한 있음)",3500000,SINGLE,etc,MULTI
+21287,20002,SPORTAGE_G16T_X-Line | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21288,20002,SPORTAGE_G16T_X-Line | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21289,20002,SPORTAGE_G16T_X-Line | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21290,20002,SPORTAGE_G16T_X-Line | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21291,20002,SPORTAGE_G16T_X-Line | 빌트인 공기청정기,빌트인 공기청정기(트림 제한 있음),4000000,SINGLE,etc,MULTI
+21292,20002,SPORTAGE_L20_Prestige | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21293,20002,SPORTAGE_L20_Prestige | 스타일,"235/60 R18 타이어&전면가공 휠, 프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널램프, 다이내믹 웰컴 라이트",690000,SINGLE,wheel,MULTI
+21294,20002,SPORTAGE_L20_Prestige | 12.3인치 내비게이션,"12.3인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트) + 하이패스 자동결제 시스템(e hi-pass) + 1열 통풍시트 포함",890000,SINGLE,etc,MULTI
+21295,20002,SPORTAGE_L20_Prestige | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21296,20002,SPORTAGE_L20_Prestige | 파노라마 선루프,파노라마 선루프 + 루프랙 포함,1190000,SINGLE,etc,MULTI
+21297,20002,SPORTAGE_L20_Prestige_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21298,20002,SPORTAGE_L20_Prestige | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21299,20002,SPORTAGE_L20_Prestige | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21300,20002,SPORTAGE_L20_Prestige | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21301,20002,SPORTAGE_L20_Prestige | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21302,20002,SPORTAGE_L20_Noblesse | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21303,20002,SPORTAGE_L20_Noblesse | 스타일,"235/55 R19 타이어&전면가공 휠, 프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널램프, 다이내믹 웰컴 라이트, LED 포그램프",890000,SINGLE,wheel,MULTI
+21304,20002,SPORTAGE_L20_Noblesse | 컴포트,"동승석 파워시트, 동승석 워크인 디바이스, 동승석 전동식 허리지지대, 2열 열선시트, 2열 리모트 폴딩 레버",490000,SINGLE,interior,MULTI
+21305,20002,SPORTAGE_L20_Noblesse | 드라이브 와이즈,"전방/후측방/후방 교차충돌 방지 보조, 스마트 크루즈 컨트롤(운전 스타일 연동), 고속도로 주행 보조 2(차로변경 보조), 안전 하차 경고 등",1240000,SINGLE,assistant,MULTI
+21306,20002,SPORTAGE_L20_Noblesse_BASIC | 12.3인치 내비게이션(기본),"12.3인치 내비게이션 기본 적용",0,SINGLE,etc,MULTI
+21307,20002,SPORTAGE_L20_Noblesse | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21308,20002,SPORTAGE_L20_Noblesse | 모니터링,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 등",1140000,SINGLE,assistant,MULTI
+21309,20002,SPORTAGE_L20_Noblesse | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+21310,20002,SPORTAGE_L20_Noblesse | 스마트 커넥트,"헤드업 디스플레이, 기아 디지털 키 2, 지문 인증 시스템, 터치타입 아웃사이드 도어핸들",1190000,SINGLE,assistant,MULTI
+21311,20002,SPORTAGE_L20_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21312,20002,SPORTAGE_L20_Noblesse_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21313,20002,SPORTAGE_L20_Noblesse_INTERIOR | 라운지 브라운 인테리어,라운지 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21314,20002,SPORTAGE_L20_Noblesse | LED 라이팅 패키지,"도어 스팟 램프, 테일게이트 램프, 번호판 램프 구성(트림 제한 있음)",3500000,SINGLE,etc,MULTI
+21315,20002,SPORTAGE_L20_Noblesse | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21316,20002,SPORTAGE_L20_Noblesse | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21317,20002,SPORTAGE_L20_Noblesse | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21318,20002,SPORTAGE_L20_Noblesse | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21319,20002,SPORTAGE_L20_Noblesse | 빌트인 공기청정기,빌트인 공기청정기(트림 제한 있음),4000000,SINGLE,etc,MULTI
+21320,20002,SPORTAGE_L20_Signature | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21321,20002,SPORTAGE_L20_Signature_BASIC | 스타일(기본),기본 적용,0,SINGLE,wheel,MULTI
+21322,20002,SPORTAGE_L20_Signature | 19인치 전면가공 휠,"235/55 R19 타이어&전면가공 휠",250000,SINGLE,wheel,MULTI
+21323,20002,SPORTAGE_L20_Signature_BASIC | 컴포트(기본),기본 적용,0,SINGLE,interior,MULTI
+21324,20002,SPORTAGE_L20_Signature | 프리미엄,"메탈 페달, 메탈 도어스커프, 퀼팅 가죽/스웨이드 시트 ※ 블랙 또는 네이비 그레이 인테리어 중 선택(라운지 브라운 인테리어 적용 불가)",590000,SINGLE,interior,MULTI
+21325,20002,SPORTAGE_L20_Signature | 드라이브 와이즈,"전방/후측방/후방 교차충돌 방지 보조, 스마트 크루즈 컨트롤(운전 스타일 연동), 고속도로 주행 보조 2(차로변경 보조), 안전 하차 경고 등",1240000,SINGLE,assistant,MULTI
+21326,20002,SPORTAGE_L20_Signature_BASIC | 12.3인치 내비게이션(기본),"12.3인치 내비게이션 기본 적용",0,SINGLE,etc,MULTI
+21327,20002,SPORTAGE_L20_Signature | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21328,20002,SPORTAGE_L20_Signature | 모니터링,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 등",1140000,SINGLE,assistant,MULTI
+21329,20002,SPORTAGE_L20_Signature | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+21330,20002,SPORTAGE_L20_Signature_BASIC | 스마트 커넥트(기본),"헤드업 디스플레이, 기아 디지털 키 2, 지문 인증 시스템, 터치타입 아웃사이드 도어핸들 기본 적용",0,SINGLE,assistant,MULTI
+21331,20002,SPORTAGE_L20_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21332,20002,SPORTAGE_L20_Signature_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21333,20002,SPORTAGE_L20_Signature_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21334,20002,SPORTAGE_L20_Signature_INTERIOR | 라운지 브라운 인테리어,라운지 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21335,20002,SPORTAGE_L20_Signature | LED 라이팅 패키지,"도어 스팟 램프, 테일게이트 램프, 번호판 램프 구성(트림 제한 있음)",3500000,SINGLE,etc,MULTI
+21336,20002,SPORTAGE_L20_Signature | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21337,20002,SPORTAGE_L20_Signature | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21338,20002,SPORTAGE_L20_Signature | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21339,20002,SPORTAGE_L20_Signature | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21340,20002,SPORTAGE_L20_Signature | 빌트인 공기청정기,빌트인 공기청정기(트림 제한 있음),4000000,SINGLE,etc,MULTI
+21341,20002,SPORTAGE_L20_X-Line | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21342,20002,SPORTAGE_L20_X-Line_BASIC | 스타일(기본),기본 적용,0,SINGLE,wheel,MULTI
+21343,20002,SPORTAGE_L20_X-Line_BASIC | 19인치 블랙 휠(X-Line 기본),"235/55 R19 타이어&X-Line 전용 블랙 휠 기본 적용",0,SINGLE,wheel,MULTI
+21344,20002,SPORTAGE_L20_X-Line_BASIC | 컴포트(기본),기본 적용,0,SINGLE,interior,MULTI
+21345,20002,SPORTAGE_L20_X-Line | 프리미엄,"메탈 페달, 메탈 도어스커프, 퀼팅 가죽/스웨이드 시트 ※ 블랙 또는 네이비 그레이 인테리어 중 선택(라운지 브라운 인테리어 적용 불가)",590000,SINGLE,interior,MULTI
+80001,3,ID.4_드람멘 20”,자동차 휠,0,SINGLE,wheel,SINGLE
+80002,3,ID.4_아트벨루어 / 인조가죽,내부 인테리어,0,SINGLE,interior,SINGLE
+90001,1,싼타페_빌트인 캠 2 + 증강현실 내비게이션,"빌트인 캠 2, 증강현실 내비게이션",450000,SINGLE,assistant,MULTI
+90002,1,싼타페_HTRAC + 험로주행모드,"HTRAC, 험로주행모드",2230000,SINGLE,assistant,MULTI
+90003,1,싼타페_6인승,"2열 전동 독립시트(원터치 릴렉스, 윙타입 헤드레스트), 2열 원터치 워크인, 3열 시트(리클라이닝, 유아용 시트 고정 장치, USB C타입 충전 단자, 퍼스널 램프, 에어컨)",1040000,SINGLE,seats,SINGLE
+90004,1,싼타페_7인승,"2열 원터치 워크인, 3열 시트(리클라이닝, 유아용 시트 고정 장치, USB C타입 충전 단자, 퍼스널 램프, 에어컨)",690000,SINGLE,seats,SINGLE
+90005,1,싼타페_라이프 스타일,"리버서블 러기지 매트, 메탈 트랜스버스 트림, LED 도어스팟 램프, LED 테일게이트 램프",490000,SINGLE,interior,MULTI
+90006,1,싼타페_듀얼와이드선루프 + 루프랙,듀얼와이드선루프 + 루프랙,990000,SINGLE,interior,MULTI
+90007,1,싼타페_듀얼와이드선루프,듀얼와이드선루프,890000,SINGLE,interior,MULTI
+90008,1,싼타페_동승석 8way 전동시트,동승석 8way 전동시트,200000,SINGLE,interior,MULTI
+90009,1,싼타페_헤드업 디스플레이,헤드업 디스플레이,590000,SINGLE,assistant,MULTI
+90010,1,싼타페_파킹 어시스트 플러스Ⅰ,"서라운드 뷰 모니터, 후측방 모니터, 측방 주차 거리 경고, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 ※ 동시 선택 불가: 베스트 셀렉션Ⅰ 선택 시 개별 선택 불가(EXCLUDES).",1190000,SINGLE,assistant,MULTI
+90011,1,싼타페_플래티넘Ⅰ,"디지털 키 2, 스마트폰 무선충전(듀얼) ※ 동시 선택 불가: 베스트 셀렉션Ⅰ 선택 시 개별 선택 불가(EXCLUDES).",450000,SINGLE,interior,MULTI
+90012,1,싼타페_베스트 셀렉션Ⅰ,"디지털 키 2, 스마트폰 무선충전(듀얼), 서라운드 뷰 모니터, 후측방 모니터, 측방 주차 거리 경고, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 ※ 동시 선택 불가: 파킹 어시스트 플러스Ⅰ, 플래티넘Ⅰ는 개별 선택 불가(EXCLUDES).",1500000,SINGLE,interior,MULTI
+90013,1,싼타페_시트플러스,"운전석 에르고 모션 시트(18way, 4way 럼버 서포트, 자세 메모리 시스템, 스트레칭 모드), 동승석 워크인 디바이스, 1열 릴렉션 컴포트 시트(레그레스트), 전동식 틸트 & 텔레스코픽 스티어링 휠, 운전석 스마트 자세제어 시스템",740000,SINGLE,interior,MULTI
+90014,1,싼타페_BOSE 프리미엄 사운드,"BOSE 프리미엄 사운드(12스피커, 외장 앰프)",640000,SINGLE,interior,MULTI
+90015,1,싼타페_20인치 휠 & 타이어,"20인치 휠 & 타이어",490000,SINGLE,wheel,MULTI
+90016,1,싼타페_디자인 플러스Ⅰ,"20인치 휠 & 타이어, 천연가죽 시트, 인조가죽 적용 내장(멀티 트레이 커버, 도어 암레스트, 콘솔 사이드 부), 스웨이드 내장(헤드라이닝/필라), 엠비언트 무드램프, 2열 수동식 도어커튼 ※ 내장 컬러: 블랙/그레이 투톤/피칸 브라운 투톤 중 선택 가능",1350000,SINGLE,interior,MULTI
+90017,1,싼타페_블랙잉크 플러스,"블랙잉크 전용 내/외장 디자인, 블랙 사이드스텝, 라이프스타일 패키지(블랙잉크 플러스 전용 도어스팟램프 포함) (산타페는 패키지 테이블 미사용: 단일 옵션으로만 처리)",940000,SINGLE,interior,MULTI
+90019,1,"1234","1234",0,SINGLE,wheel,SINGLE
+21346,20002,SPORTAGE_L20_X-Line | 드라이브 와이즈,"전방/후측방/후방 교차충돌 방지 보조, 스마트 크루즈 컨트롤(운전 스타일 연동), 고속도로 주행 보조 2(차로변경 보조), 안전 하차 경고 등",1240000,SINGLE,assistant,MULTI
+21347,20002,SPORTAGE_L20_X-Line_BASIC | 12.3인치 내비게이션(기본),"12.3인치 내비게이션 기본 적용",0,SINGLE,etc,MULTI
+21348,20002,SPORTAGE_L20_X-Line | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21349,20002,SPORTAGE_L20_X-Line | 모니터링,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 등",1140000,SINGLE,assistant,MULTI
+21350,20002,SPORTAGE_L20_X-Line | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+21351,20002,SPORTAGE_L20_X-Line_BASIC | 스마트 커넥트(기본),"헤드업 디스플레이, 기아 디지털 키 2, 지문 인증 시스템, 터치타입 아웃사이드 도어핸들 기본 적용",0,SINGLE,assistant,MULTI
+21352,20002,SPORTAGE_L20_X-Line | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21353,20002,SPORTAGE_L20_X-Line_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21354,20002,SPORTAGE_L20_X-Line_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21355,20002,SPORTAGE_L20_X-Line_INTERIOR | 라운지 브라운 인테리어,라운지 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21356,20002,SPORTAGE_L20_X-Line | LED 라이팅 패키지,"도어 스팟 램프, 테일게이트 램프, 번호판 램프 구성(트림 제한 있음)",3500000,SINGLE,etc,MULTI
+21357,20002,SPORTAGE_L20_X-Line | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21358,20002,SPORTAGE_L20_X-Line | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21359,20002,SPORTAGE_L20_X-Line | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21360,20002,SPORTAGE_L20_X-Line | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21361,20002,SPORTAGE_L20_X-Line | 빌트인 공기청정기,빌트인 공기청정기(트림 제한 있음),4000000,SINGLE,etc,MULTI
+21362,20002,SPORTAGE_HEV16T_Prestige | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21363,20002,SPORTAGE_HEV16T_Prestige | 스타일,"235/60 R18 타이어&전면가공 휠, 프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널램프, 다이내믹 웰컴 라이트",690000,SINGLE,wheel,MULTI
+21364,20002,SPORTAGE_HEV16T_Prestige | 12.3인치 내비게이션,"12.3인치 내비게이션(기아 커넥트, 폰 프로젝션, 인카페이먼트) + 하이패스 자동결제 시스템(e hi-pass) + 1열 통풍시트 포함",890000,SINGLE,etc,MULTI
+21365,20002,SPORTAGE_HEV16T_Prestige | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21366,20002,SPORTAGE_HEV16T_Prestige | 파노라마 선루프,파노라마 선루프 + 루프랙 포함,1190000,SINGLE,etc,MULTI
+21367,20002,SPORTAGE_HEV16T_Prestige_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21368,20002,SPORTAGE_HEV16T_Prestige | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21369,20002,SPORTAGE_HEV16T_Prestige | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21370,20002,SPORTAGE_HEV16T_Prestige | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21371,20002,SPORTAGE_HEV16T_Prestige | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21372,20002,SPORTAGE_HEV16T_Noblesse | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21373,20002,SPORTAGE_HEV16T_Noblesse | 스타일,"235/55 R19 타이어&전면가공 휠, 프로젝션 LED 헤드램프, 프론트/리어 LED 턴시그널램프, 다이내믹 웰컴 라이트, LED 포그램프",890000,SINGLE,wheel,MULTI
+21374,20002,SPORTAGE_HEV16T_Noblesse | 컴포트,"동승석 파워시트, 동승석 워크인 디바이스, 동승석 전동식 허리지지대, 2열 열선시트, 2열 리모트 폴딩 레버",490000,SINGLE,interior,MULTI
+21375,20002,SPORTAGE_HEV16T_Noblesse | 드라이브 와이즈,"전방/후측방/후방 교차충돌 방지 보조, 스마트 크루즈 컨트롤(운전 스타일 연동), 고속도로 주행 보조 2(차로변경 보조), 안전 하차 경고 등",1240000,SINGLE,assistant,MULTI
+21376,20002,SPORTAGE_HEV16T_Noblesse_BASIC | 12.3인치 내비게이션(기본),"12.3인치 내비게이션 기본 적용",0,SINGLE,etc,MULTI
+21377,20002,SPORTAGE_HEV16T_Noblesse | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21378,20002,SPORTAGE_HEV16T_Noblesse | 모니터링,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 등",1140000,SINGLE,assistant,MULTI
+21379,20002,SPORTAGE_HEV16T_Noblesse | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+21380,20002,SPORTAGE_HEV16T_Noblesse | 스마트 커넥트,"헤드업 디스플레이, 기아 디지털 키 2, 지문 인증 시스템, 터치타입 아웃사이드 도어핸들",1190000,SINGLE,assistant,MULTI
+21381,20002,SPORTAGE_HEV16T_Noblesse | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21382,20002,SPORTAGE_HEV16T_Noblesse_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21383,20002,SPORTAGE_HEV16T_Noblesse_INTERIOR | 라운지 브라운 인테리어,라운지 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21384,20002,SPORTAGE_HEV16T_Noblesse | LED 라이팅 패키지,"도어 스팟 램프, 테일게이트 램프, 번호판 램프 구성(트림 제한 있음)",3500000,SINGLE,etc,MULTI
+21385,20002,SPORTAGE_HEV16T_Noblesse | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21386,20002,SPORTAGE_HEV16T_Noblesse | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21387,20002,SPORTAGE_HEV16T_Noblesse | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21388,20002,SPORTAGE_HEV16T_Noblesse | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21389,20002,SPORTAGE_HEV16T_Noblesse | 빌트인 공기청정기,빌트인 공기청정기(트림 제한 있음),4000000,SINGLE,etc,MULTI
+21390,20002,SPORTAGE_HEV16T_Signature | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21391,20002,SPORTAGE_HEV16T_Signature_BASIC | 스타일(기본),기본 적용,0,SINGLE,wheel,MULTI
+21392,20002,SPORTAGE_HEV16T_Signature | 19인치 전면가공 휠,"235/55 R19 타이어&전면가공 휠",250000,SINGLE,wheel,MULTI
+21393,20002,SPORTAGE_HEV16T_Signature_BASIC | 컴포트(기본),기본 적용,0,SINGLE,interior,MULTI
+21394,20002,SPORTAGE_HEV16T_Signature | 프리미엄,"메탈 페달, 메탈 도어스커프, 퀼팅 가죽/스웨이드 시트 ※ 블랙 또는 네이비 그레이 인테리어 중 선택(라운지 브라운 인테리어 적용 불가)",590000,SINGLE,interior,MULTI
+21395,20002,SPORTAGE_HEV16T_Signature | 드라이브 와이즈,"전방/후측방/후방 교차충돌 방지 보조, 스마트 크루즈 컨트롤(운전 스타일 연동), 고속도로 주행 보조 2(차로변경 보조), 안전 하차 경고 등",1240000,SINGLE,assistant,MULTI
+21396,20002,SPORTAGE_HEV16T_Signature_BASIC | 12.3인치 내비게이션(기본),"12.3인치 내비게이션 기본 적용",0,SINGLE,etc,MULTI
+21397,20002,SPORTAGE_HEV16T_Signature | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21398,20002,SPORTAGE_HEV16T_Signature | 모니터링,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 등",1140000,SINGLE,assistant,MULTI
+21399,20002,SPORTAGE_HEV16T_Signature | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+21400,20002,SPORTAGE_HEV16T_Signature_BASIC | 스마트 커넥트(기본),"헤드업 디스플레이, 기아 디지털 키 2, 지문 인증 시스템, 터치타입 아웃사이드 도어핸들 기본 적용",0,SINGLE,assistant,MULTI
+21401,20002,SPORTAGE_HEV16T_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21402,20002,SPORTAGE_HEV16T_Signature_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21403,20002,SPORTAGE_HEV16T_Signature_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21404,20002,SPORTAGE_HEV16T_Signature_INTERIOR | 라운지 브라운 인테리어,라운지 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21405,20002,SPORTAGE_HEV16T_Signature | LED 라이팅 패키지,"도어 스팟 램프, 테일게이트 램프, 번호판 램프 구성(트림 제한 있음)",3500000,SINGLE,etc,MULTI
+21406,20002,SPORTAGE_HEV16T_Signature | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21407,20002,SPORTAGE_HEV16T_Signature | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21408,20002,SPORTAGE_HEV16T_Signature | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21409,20002,SPORTAGE_HEV16T_Signature | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21410,20002,SPORTAGE_HEV16T_Signature | 빌트인 공기청정기,빌트인 공기청정기(트림 제한 있음),4000000,SINGLE,etc,MULTI
+21411,20001,GV70 | 빌트인 캠 패키지,빌트인 캠2/보조배터리/증강현실 내비게이션 구성.,850000,SINGLE,assistant,MULTI
+21412,20001,GV70 | 파퓰러 패키지 I,구성: 헤드업 디스플레이 + 드라이빙 어시스턴스 패키지 I.,2950000,PACKAGE,etc,MULTI
+21413,20001,GV70 | 파퓰러 패키지 II,구성: 헤드업 디스플레이 + 드라이빙 어시스턴스 I + 2열 컴포트 + 드라이빙 어시스턴스 II + 빌트인 캠.,6600000,PACKAGE,etc,MULTI
+21414,20002,SPORTAGE_HEV16T_X-Line | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21415,20002,SPORTAGE_HEV16T_X-Line_BASIC | 스타일(기본),기본 적용,0,SINGLE,wheel,MULTI
+21416,20002,SPORTAGE_HEV16T_X-Line_BASIC | 19인치 블랙 휠(X-Line 기본),"235/55 R19 타이어&X-Line 전용 블랙 휠 기본 적용",0,SINGLE,wheel,MULTI
+21417,20002,SPORTAGE_HEV16T_X-Line_BASIC | 컴포트(기본),기본 적용,0,SINGLE,interior,MULTI
+21418,20002,SPORTAGE_HEV16T_X-Line | 프리미엄,"메탈 페달, 메탈 도어스커프, 퀼팅 가죽/스웨이드 시트 ※ 블랙 또는 네이비 그레이 인테리어 중 선택(라운지 브라운 인테리어 적용 불가)",590000,SINGLE,interior,MULTI
+21419,20002,SPORTAGE_HEV16T_X-Line | 드라이브 와이즈,"전방/후측방/후방 교차충돌 방지 보조, 스마트 크루즈 컨트롤(운전 스타일 연동), 고속도로 주행 보조 2(차로변경 보조), 안전 하차 경고 등",1240000,SINGLE,assistant,MULTI
+21420,20002,SPORTAGE_HEV16T_X-Line_BASIC | 12.3인치 내비게이션(기본),"12.3인치 내비게이션 기본 적용",0,SINGLE,etc,MULTI
+21421,20002,SPORTAGE_HEV16T_X-Line | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21422,20002,SPORTAGE_HEV16T_X-Line | 모니터링,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 등",1140000,SINGLE,assistant,MULTI
+21423,20002,SPORTAGE_HEV16T_X-Line | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+21424,20002,SPORTAGE_HEV16T_X-Line_BASIC | 스마트 커넥트(기본),"헤드업 디스플레이, 기아 디지털 키 2, 지문 인증 시스템, 터치타입 아웃사이드 도어핸들 기본 적용",0,SINGLE,assistant,MULTI
+21425,20002,SPORTAGE_HEV16T_X-Line | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21426,20002,SPORTAGE_HEV16T_X-Line_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21427,20002,SPORTAGE_HEV16T_X-Line_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21428,20002,SPORTAGE_HEV16T_X-Line_INTERIOR | 라운지 브라운 인테리어,라운지 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21429,20002,SPORTAGE_HEV16T_X-Line | LED 라이팅 패키지,"도어 스팟 램프, 테일게이트 램프, 번호판 램프 구성(트림 제한 있음)",3500000,SINGLE,etc,MULTI
+21430,20002,SPORTAGE_HEV16T_X-Line | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21431,20002,SPORTAGE_HEV16T_X-Line | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21432,20002,SPORTAGE_HEV16T_X-Line | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21433,20002,SPORTAGE_HEV16T_X-Line | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21434,20002,SPORTAGE_HEV16T_X-Line | 빌트인 공기청정기,빌트인 공기청정기(트림 제한 있음),4000000,SINGLE,etc,MULTI
+21435,20001,GV70 | 파노라마 선루프,전동 슬라이딩/틸팅 파노라마 선루프.,1400000,SINGLE,etc,MULTI
+21436,20001,GV70 | 헤드업 디스플레이,주행 정보/내비 안내 등을 전면 유리에 투영.,1300000,SINGLE,assistant,MULTI
+21437,20001,GV70 | 컨비니언스 패키지,에르고 모션 시트(운/동)/동승석 자세 메모리/무드 큐레이터 등 구성.,2500000,SINGLE,seats,MULTI
+21438,20001,GV70 | 드라이빙 어시스턴스 패키지 I,서라운드 뷰/후측방 모니터/원격 스마트 주차보조2/주차 충돌방지 보조 등 구성.,1950000,SINGLE,assistant,MULTI
+21439,20001,GV70 | 드라이빙 어시스턴스 패키지 II,고속도로 주행 보조2/스마트 크루즈(운전 스타일 연동)/내비 기반 SCC 등 구성.,2000000,SINGLE,assistant,MULTI
+21440,20001,GV70 | 2열 컴포트 패키지,뒷좌석 도어커튼/3존 공조/뒷좌석 통풍 시트 등 구성.,1100000,SINGLE,seats,MULTI
+21441,20001,GV70 | 뱅앤올룹슨 사운드 패키지,"16스피커 고해상도 사운드 시스템 및 ANC-R 구성.",1700000,SINGLE,etc,MULTI
+40001,40001,기본 안전 패키지,필수 안전 사양 번들,0,SINGLE,assistant,SINGLE
+40002,40001,어댑티브 크루즈 컨트롤,ACC 기능,500000,SINGLE,assistant,MULTI
+40003,40001,차선 유지 보조,LKA 기능,300000,SINGLE,assistant,MULTI
+40004,40001,통풍 시트,"1열 통풍",400000,SINGLE,etc,MULTI
+40005,40001,열선 시트,"1열 열선",200000,SINGLE,etc,MULTI
+40006,40001,프리미엄 인테리어 패키지,내장 업그레이드 번들,800000,SINGLE,interior,SINGLE
+40007,40001,BOSE 프리미엄 오디오,프리미엄 사운드,600000,SINGLE,interior,MULTI
+40008,40001,"18인치 휠(업그레이드)",휠 업그레이드,700000,SINGLE,wheel,SINGLE
+40009,40001,"19인치 휠",휠 업그레이드,900000,SINGLE,wheel,SINGLE
+40010,40001,파노라마 선루프,선루프,1000000,SINGLE,etc,MULTI
+40011,40002,기본 안전 패키지,필수 안전,0,SINGLE,assistant,SINGLE
+40012,40002,어댑티브 크루즈,ACC,500000,SINGLE,assistant,MULTI
+40013,40002,열선 시트,"1열",200000,SINGLE,etc,MULTI
+40014,40003,기본 안전 패키지,"ABS, 전방 자동 긴급제동, 차선 이탈 경고/방지 등",0,SINGLE,assistant,SINGLE
+40015,40003,어댑티브 크루즈 컨트롤,정지/재출발 포함,600000,SINGLE,assistant,MULTI
+40016,40003,후측방 사각지대 경고,BSD,300000,SINGLE,assistant,MULTI
+40017,40003,파노라마 선루프,루프 옵션,1200000,SINGLE,etc,MULTI
+40018,40003,프리미엄 오디오(B&O),BANG & OLUFSEN,800000,SINGLE,interior,MULTI
+40019,40003,열선/통풍 시트,"1열 열선/통풍",700000,SINGLE,etc,MULTI
+40020,40003,휠 업그레이드(20인치),휠 선택 옵션,900000,SINGLE,wheel,SINGLE
+40021,40003,휠 업그레이드(22인치),휠 선택 옵션,1200000,SINGLE,wheel,SINGLE
+40022,40003,프리미엄 편의 패키지,선루프+오디오+시트 포함,0,SINGLE,etc,SINGLE
+40023,40004,기본 안전 패키지,"ESC, AEB, 차선 경고/방지 등",0,SINGLE,assistant,SINGLE
+40024,40004,하드탑,"3-피스 하드탑",0,SINGLE,etc,SINGLE
+40025,40004,원-터치 파워탑,스카이 원-터치 파워탑,0,SINGLE,etc,SINGLE
+40026,40004,Alpine 프리미엄 오디오,프리미엄 사운드 시스템,700000,SINGLE,interior,MULTI
+40027,40004,Uconnect 12.3인치 터치스크린,대화면 인포테인먼트,500000,SINGLE,interior,MULTI
+40028,40004,열선 스티어링 휠,열선 스티어링 휠,200000,SINGLE,interior,MULTI
+40029,40004,나파 가죽 시트,프리미엄 시트,1200000,SINGLE,etc,MULTI
+40030,40004,"17인치 휠","17인치 알루미늄 휠",0,SINGLE,wheel,SINGLE
+40031,40004,"18인치 휠","18인치 알루미늄 휠",300000,SINGLE,wheel,SINGLE
+40032,40004,오프로드 전방/후방 카메라,오프로드 카메라,600000,SINGLE,assistant,MULTI
+40033,40004,오프로드 패키지,오프로드 카메라+보강 구성(예시),0,SINGLE,assistant,SINGLE
+40034,40004,파워탑 패키지,파워탑+나파시트(예시),0,SINGLE,etc,SINGLE
+40035,40003,"18인치 휠",기본 타이어 휠,0,SINGLE,wheel,MULTI
+40036,40001,"18인치 휠(기본)",기본 휠(0원),0,SINGLE,wheel,SINGLE
+60001,60002,향상된 오토파일럿,내비게이트 온 오토파일럿 + 자동 차선 변경 + 자동 주차 + 차량 호출 + 스마트 차량 호출,4520000,SINGLE,assistant,SINGLE
+60002,60002,"21인치 벨라리움 휠",,6470000,SINGLE,wheel,SINGLE
+60003,60002,블랙 & 화이트 인테리어,,2870000,SINGLE,interior,SINGLE
+60004,60002,크림 인테리어,,2870000,SINGLE,interior,SINGLE
+60005,60002,풀 셀프 드라이빙,향상된 스마트 차량 호출 + 자동 주차 + 중대 충돌 감소 + 경미 출동 감소 + 비고속도로 충돌 감소,9040000,SINGLE,assistant,SINGLE
+60006,60002,블랙 인테리어,All Black,0,SINGLE,interior,SINGLE
+60007,60002,블랙 & 화이트,Black and White,1290000,SINGLE,interior,SINGLE
+60008,60002,화이트 데코,,3500000,SINGLE,interior,SINGLE
+60009,60007,블랙 인테리어,Interior color - Black,0,SINGLE,interior,SINGLE
+60010,60007,차콜+그레이 애쉬,Interior color - Beige,0,SINGLE,interior,SINGLE
+60011,60007,카다멈/차콜+브라운 애쉬,Interior color - White,0,SINGLE,interior,SINGLE
+60012,60007,블론드/차콜+그레이 애쉬,Interior color - Grey,0,SINGLE,interior,SINGLE
+21213,20002,SPORTAGE_G16T_Signature | 19인치 전면가공 휠,"235/55 R19 타이어&전면가공 휠",250000,SINGLE,wheel,MULTI
+21214,20002,SPORTAGE_G16T_Signature_BASIC | 컴포트(기본),기본 적용,0,SINGLE,interior,MULTI
+21215,20002,SPORTAGE_G16T_Signature | 프리미엄,"메탈 페달, 메탈 도어스커프, 퀼팅 가죽/스웨이드 시트 ※ 블랙 또는 네이비 그레이 인테리어 중 선택(라운지 브라운 인테리어 적용 불가)",590000,SINGLE,interior,MULTI
+21216,20002,SPORTAGE_G16T_Signature | 드라이브 와이즈,"전방/후측방/후방 교차충돌 방지 보조, 스마트 크루즈 컨트롤(운전 스타일 연동), 고속도로 주행 보조 2(차로변경 보조), 안전 하차 경고 등",1240000,SINGLE,assistant,MULTI
+21217,20002,SPORTAGE_G16T_Signature_BASIC | 12.3인치 내비게이션(기본),"12.3인치 내비게이션 기본 적용",0,SINGLE,etc,MULTI
+21218,20002,SPORTAGE_G16T_Signature | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21219,20002,SPORTAGE_G16T_Signature | 모니터링,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 등",1140000,SINGLE,assistant,MULTI
+21220,20002,SPORTAGE_G16T_Signature | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+21221,20002,SPORTAGE_G16T_Signature_BASIC | 스마트 커넥트(기본),"헤드업 디스플레이, 기아 디지털 키 2, 지문 인증 시스템, 터치타입 아웃사이드 도어핸들 기본 적용",0,SINGLE,assistant,MULTI
+21222,20002,SPORTAGE_G16T_Signature | 파노라마 선루프,파노라마 선루프,1090000,SINGLE,etc,MULTI
+21223,20002,SPORTAGE_G16T_Signature_INTERIOR | 블랙 인테리어,블랙 인테리어 선택,0,SINGLE,interior,SINGLE
+21224,20002,SPORTAGE_G16T_Signature_INTERIOR | 네이비 그레이 인테리어,네이비 그레이 인테리어 선택,0,SINGLE,interior,SINGLE
+21225,20002,SPORTAGE_G16T_Signature_INTERIOR | 라운지 브라운 인테리어,라운지 브라운 인테리어 선택,0,SINGLE,interior,SINGLE
+21226,20002,SPORTAGE_G16T_Signature | LED 라이팅 패키지,"도어 스팟 램프, 테일게이트 램프, 번호판 램프 구성(트림 제한 있음)",3500000,SINGLE,etc,MULTI
+21227,20002,SPORTAGE_G16T_Signature | 차량 보호 필름 I,"프론트/리어 범퍼 사이드, O/S 미러, 도어 스텝",2900000,SINGLE,etc,MULTI
+21228,20002,SPORTAGE_G16T_Signature | 차량 보호 필름 II,"프론트/리어 도어 중앙부 및 엣지, 주유구 도어 등, 12.3인치 디스플레이 부분",3200000,SINGLE,etc,MULTI
+21229,20002,SPORTAGE_G16T_Signature | 러기지 패키지,러기지 스크린 + 러기지 네트,1200000,SINGLE,etc,MULTI
+21230,20002,SPORTAGE_G16T_Signature | 사이드 스텝,"사이드 스텝(강알칼리성 세제 사용 시 변색 위험, 중성세제 권장)",3400000,SINGLE,etc,MULTI
+21231,20002,SPORTAGE_G16T_Signature | 빌트인 공기청정기,빌트인 공기청정기(트림 제한 있음),4000000,SINGLE,etc,MULTI
+21232,20002,SPORTAGE_G16T_X-Line | 전자식 4WD,"전자식 4WD, 터레인 모드(오토/스노우/머드/샌드)",2230000,SINGLE,etc,MULTI
+21233,20002,SPORTAGE_G16T_X-Line_BASIC | 스타일(기본),기본 적용,0,SINGLE,wheel,MULTI
+21234,20002,SPORTAGE_G16T_X-Line_BASIC | 19인치 블랙 휠(X-Line 기본),"235/55 R19 타이어&X-Line 전용 블랙 휠 기본 적용",0,SINGLE,wheel,MULTI
+21235,20002,SPORTAGE_G16T_X-Line_BASIC | 컴포트(기본),기본 적용,0,SINGLE,interior,MULTI
+21236,20002,SPORTAGE_G16T_X-Line | 프리미엄,"메탈 페달, 메탈 도어스커프, 퀼팅 가죽/스웨이드 시트 ※ 블랙 또는 네이비 그레이 인테리어 중 선택(라운지 브라운 인테리어 적용 불가)",590000,SINGLE,interior,MULTI
+21237,20002,SPORTAGE_G16T_X-Line | 드라이브 와이즈,"전방/후측방/후방 교차충돌 방지 보조, 스마트 크루즈 컨트롤(운전 스타일 연동), 고속도로 주행 보조 2(차로변경 보조), 안전 하차 경고 등",1240000,SINGLE,assistant,MULTI
+21238,20002,SPORTAGE_G16T_X-Line_BASIC | 12.3인치 내비게이션(기본),"12.3인치 내비게이션 기본 적용",0,SINGLE,etc,MULTI
+21239,20002,SPORTAGE_G16T_X-Line | 빌트인 캠 2,"빌트인 캠 2, 증강현실 내비게이션 ※ 12.3인치 내비게이션 적용 시 선택 가능",450000,SINGLE,etc,MULTI
+21240,20002,SPORTAGE_G16T_X-Line | 모니터링,"서라운드 뷰 모니터, 후측방 모니터, 원격 스마트 주차 보조, 후방 주차 충돌방지 보조 등",1140000,SINGLE,assistant,MULTI
+21241,20002,SPORTAGE_G16T_X-Line | KRELL 프리미엄 사운드,"KRELL 프리미엄 사운드(8스피커, 외장앰프)",590000,SINGLE,etc,MULTI
+21242,20001,ELECTRIFIED_G80_BASE | 내장 디자인_스탠다드 디자인,내장 디자인(필수 택1) - 스탠다드,0,SINGLE,interior,SINGLE
+21243,20001,ELECTRIFIED_G80_BASE | 내장 디자인_시그니쳐 디자인 셀렉션,"내장 디자인(필수 택1) - 시그니쳐. 프라임 나파 가죽, 리얼 우드, 스웨이드 헤드라이닝 등 고급 내장 사양 적용",0,SINGLE,interior,SINGLE
+21244,20001,ELECTRIFIED_G80_BASE | 파퓰러 패키지,할인 구성 패키지. 포함 옵션: 헤드업 디스플레이 + 드라이빙 어시스턴스 패키지Ⅰ + 드라이빙 어시스턴스 패키지Ⅱ + 빌트인 캠 패키지,5400000,PACKAGE,etc,MULTI
+21245,20001,ELECTRIFIED_G80_BASE | 헤드업 디스플레이,주행 정보/내비 정보를 전면 유리에 투영 표시(HUD).,1300000,SINGLE,assistant,MULTI
+21246,20001,ELECTRIFIED_G80_BASE | 드라이빙 어시스턴스 패키지Ⅰ,"주차/시야 보조 중심 패키지. (예: 서라운드뷰/후측방 모니터, 주차 충돌방지 보조, 원격 스마트 주차 보조 등)",1950000,SINGLE,assistant,MULTI
+21247,20001,ELECTRIFIED_G80_BASE | 드라이빙 어시스턴스 패키지Ⅱ,"첨단 주행 보조 중심 패키지. (예: 전방 충돌방지 보조2, 고속도로 주행 보조2(차로변경 보조) 등)",2000000,SINGLE,assistant,MULTI
+21248,20001,ELECTRIFIED_G80_BASE | 빌트인 캠 패키지,빌트인 캠 2 + 보조배터리 + 증강현실 내비게이션 포함.,850000,SINGLE,etc,MULTI
+21249,20001,ELECTRIFIED_G80_BASE | 후륜 조향 시스템,저속 선회성/고속 안정성 향상을 위한 후륜 조향(RWS).,1500000,SINGLE,assistant,MULTI
+21250,20001,ELECTRIFIED_G80_BASE | 컨비니언스 패키지,편의 사양 패키지. 에르고 모션 시트(운전석/동승석) + 고스트 도어 클로징 등 포함.,1900000,SINGLE,etc,MULTI
+21251,20001,ELECTRIFIED_G80_BASE | 2열 컴포트 패키지,"2열 편의 사양 강화 패키지(전동/메모리 시트, 레그레스트, 통풍 등). ※ 컨비니언스 패키지 선택 시 선택 가능.",3900000,SINGLE,etc,MULTI
+21252,20001,INTERIOR_ELECTRIFIED_G80_BASE_시트 컬러 선택_옵시디언 블랙 모노톤,시트 컬러(택1) - 옵시디언 블랙 모노톤.,0,SINGLE,interior,SINGLE
+21253,20001,INTERIOR_ELECTRIFIED_G80_BASE_시트 컬러 선택_에크루 카멜 모노톤,시트 컬러(택1) - 에크루 카멜 모노톤.,0,SINGLE,interior,SINGLE
+21254,20001,INTERIOR_ELECTRIFIED_G80_BASE_시트 컬러 선택_프러시안 블루 모노톤,시트 컬러(택1) - 프러시안 블루 모노톤.,0,SINGLE,interior,SINGLE
+21255,20001,INTERIOR_ELECTRIFIED_G80_BASE_시트 컬러 선택_애쉬 그레이/글레이셔 화이트 투톤,시트 컬러(택1) - 애쉬 그레이/글레이셔 화이트 투톤.,0,SINGLE,interior,SINGLE
+21256,20001,GV70 | 스포츠 패키지,스포츠 내외장/주행 모드 구성. 스포츠 전용 휠&타이어 및 스포츠 내장 디자인 선택을 위한 전제 옵션.,2800000,PACKAGE,etc,MULTI
+21257,20001,GV70_2.5T | 휠&타이어_18인치(기본),"2.5 터보 기본 휠&타이어(택1).",0,SINGLE,wheel,SINGLE
+21258,20001,GV70_2.5T | 휠&타이어_19인치,"2.5 터보 19인치 휠&타이어(택1).",1100000,SINGLE,wheel,SINGLE
+21259,20001,GV70_2.5T | 휠&타이어_21인치,"2.5 터보 21인치 휠&타이어(택1). ※ 프리뷰 전자제어 서스펜션 포함.",3300000,SINGLE,wheel,SINGLE
+21260,20001,GV70_2.5T_스포츠 | 휠&타이어_19인치(스포츠),"2.5 터보 스포츠 전용 19인치 휠&타이어(택1). 스포츠 패키지 선택 시 사용.",0,SINGLE,wheel,SINGLE
+21261,20001,GV70_2.5T_스포츠 | 휠&타이어_21인치(스포츠),"2.5 터보 스포츠 전용 21인치 휠&타이어(택1). ※ 프리뷰 전자제어 서스펜션 포함. 스포츠 패키지 선택 시 사용.",3650000,SINGLE,wheel,SINGLE
+21262,20001,GV70_3.5T | 휠&타이어_19인치(기본),"3.5 터보 기본 19인치 휠&타이어(택1). ※ 프리뷰 전자제어 서스펜션 기본 포함.",0,SINGLE,wheel,SINGLE

@@ -1,0 +1,83 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+  PROCEDURE sync_seq_to_table_pk(
+    p_seq_name   IN VARCHAR2,
+    p_table_name IN VARCHAR2,
+    p_pk_col     IN VARCHAR2
+  ) IS
+    v_target NUMBER;  -- max(pk)+1
+    v_curr   NUMBER;  -- current seq (nextval로 확보)
+    v_delta  NUMBER;
+  BEGIN
+    -- 1) 타겟 = max(pk)+1 (빈 테이블이면 1)
+    EXECUTE IMMEDIATE
+      'SELECT NVL(MAX(' || p_pk_col || '), 0) + 1 FROM ' || p_table_name
+      INTO v_target;
+
+    -- 2) 현재 시퀀스 값 확보 (CURRVAL 대신 NEXTVAL로 세션에 생성)
+    EXECUTE IMMEDIATE
+      'SELECT ' || p_seq_name || '.NEXTVAL FROM DUAL'
+      INTO v_curr;
+
+    -- 3) 시퀀스는 뒤로 못 내림. 타겟이 더 클 때만 앞으로 당김.
+    IF v_target > v_curr THEN
+      v_delta := v_target - v_curr;
+
+      EXECUTE IMMEDIATE 'ALTER SEQUENCE ' || p_seq_name || ' INCREMENT BY ' || v_delta;
+      -- 한 번 NEXTVAL을 뽑아서 실제로 v_target까지 점프
+      EXECUTE IMMEDIATE 'SELECT ' || p_seq_name || '.NEXTVAL FROM DUAL' INTO v_curr;
+      -- 원복: 증가폭 1
+      EXECUTE IMMEDIATE 'ALTER SEQUENCE ' || p_seq_name || ' INCREMENT BY 1';
+
+      DBMS_OUTPUT.PUT_LINE('[SYNC] ' || p_seq_name || ' -> ' || p_table_name || '(' || p_pk_col || ')'
+                           || ' target=' || v_target || ', moved_to=' || v_curr);
+    ELSE
+      -- 증가폭이 이상하게 남아있을 수 있으니 1로만 정리(안전)
+      EXECUTE IMMEDIATE 'ALTER SEQUENCE ' || p_seq_name || ' INCREMENT BY 1';
+      DBMS_OUTPUT.PUT_LINE('[SKIP] ' || p_seq_name || ' already >= target. '
+                           || 'current(nextval)=' || v_curr || ', target=' || v_target);
+    END IF;
+
+  EXCEPTION
+    WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('[ERROR] ' || p_seq_name || ' / ' || p_table_name || '.' || p_pk_col
+                           || ' => ' || SQLERRM);
+  END;
+BEGIN
+  /* =========================
+   * SEQ <-> TABLE(PK) 매핑
+   * ========================= */
+
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_BRAND',               'CAR_PROJECT.BRAND',              'BRAND_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_CAR_COLOR',           'CAR_PROJECT.CAR_COLOR',          'COLOR_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_CAR_IMAGE',           'CAR_PROJECT.CAR_IMAGE',          'IMAGE_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_CAR_MODEL',           'CAR_PROJECT.CAR_MODEL',          'MODEL_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_CAR_VARIANT',         'CAR_PROJECT.CAR_VARIANT',        'VARIANT_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_CAR_TRIM',            'CAR_PROJECT.CAR_TRIM',           'TRIM_ID');
+
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_TRIM_COLOR',          'CAR_PROJECT.TRIM_COLOR',         'TRIM_COLOR_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_TRIM_OPTION',         'CAR_PROJECT.TRIM_OPTION',        'TRIM_OPTION_ID');
+
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_MEMBER',              'CAR_PROJECT.MEMBER',             'MEMBER_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_ROLE',                'CAR_PROJECT.ROLE',               'ROLE_ID');
+
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_EVENT',               'CAR_PROJECT.EVENT',              'EVENT_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_EVENT_POLICY',        'CAR_PROJECT.EVENT_POLICY',       'EVENT_POLICY_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_EVENT_TARGET',        'CAR_PROJECT.EVENT_TARGET',       'EVENT_TARGET_ID');
+
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_LANDING_BANNER',       'CAR_PROJECT.LANDING_BANNER',     'BANNER_ID');
+
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_OPTION_ITEM',         'CAR_PROJECT.OPTION_ITEM',        'OPTION_ITEM_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_OPTION_GROUP',        'CAR_PROJECT.OPTION_GROUP',       'OPTION_GROUP_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_OPTION_GROUP_ITEM',   'CAR_PROJECT.OPTION_GROUP_ITEM',  'OPTION_GROUP_ITEM_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_OPTION_DEPENDENCY',   'CAR_PROJECT.OPTION_DEPENDENCY',  'OPTION_DEPENDENCY_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_OPTION_PACKAGE_ITEM', 'CAR_PROJECT.OPTION_PACKAGE_ITEM','OPTION_PACKAGE_ITEM_ID');
+
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_QUOTE',               'CAR_PROJECT.QUOTE',              'QUOTE_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_QUOTE_OPTION',        'CAR_PROJECT.QUOTE_OPTION',       'QUOTE_OPTION_ID');
+  sync_seq_to_table_pk('CAR_PROJECT.SEQ_QUOTE_EVENT',         'CAR_PROJECT.QUOTE_EVENT',        'QUOTE_EVENT_ID');
+
+  DBMS_OUTPUT.PUT_LINE('--- DONE ---');
+END;
+/
