@@ -17,14 +17,12 @@ Spring Boot 기반 **차량 구성 및 견적 저장 서비스**입니다.
 ### 🌐 Production (운영 서버)
 
 - Web: https://www.403-motors.store/
-- API Base: https://www.403-motors.store/api
 - Swagger UI: https://www.403-motors.store/swagger-ui/index.html
 - OpenAPI JSON: https://www.403-motors.store/v3/api-docs
 
 ### 🖥 Local
 
 - Web: http://localhost:8080
-- API Base: http://localhost:8080/api
 - Swagger UI: http://localhost:8080/swagger-ui/index.html
 
 ---
